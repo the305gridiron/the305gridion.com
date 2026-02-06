@@ -1,0 +1,49 @@
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+
+    @include media-breakpoint-up(sm) {
+        max-width: 540px;
+    }
+
+    @include media-breakpoint-up(md) {
+        max-width: 720px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        max-width: 960px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        max-width: 1140px;
+    }
+}
+
+.page-wrapper {
+    background-color: miami-color("miamiAqua");
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.page-content {
+    // background-color: white;
+    display: flex;
+    flex: 1;
+    flex-flow: column nowrap;
+
+    @include media-breakpoint-up(md) {
+        flex-flow: row nowrap;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        // border-radius: 10px;
+        // box-shadow: 0 0 20px miami-color-mix(black, "miamiAqua", 20);
+        align-items: flex-start;
+        max-width: 1400px;
+        margin: 0 auto 50px;
+        overflow: hidden;
+    }
+}

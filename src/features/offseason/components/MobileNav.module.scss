@@ -1,0 +1,46 @@
+@import "../styles/variables";
+@import "../styles/functions";
+@import "../styles/mixins";
+
+.mobile-nav {
+    background-color: white;
+    padding: 15px 15px 0;
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+
+        li {
+            flex: 1;
+            list-style: none;
+
+            @include media-breakpoint-up(sm) {
+                flex: 0 0 180px;
+            }
+
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+
+            a {
+                @include fontSize(12px);
+                background-color: #efefef;
+                border-radius: 5px;
+                color: miami-color("miamiBlue");
+                display: block;
+                font-weight: 600;
+                padding: 10px 15px;
+                text-align: center;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+        }
+    }
+}

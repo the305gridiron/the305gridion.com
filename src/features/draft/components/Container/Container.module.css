@@ -1,0 +1,36 @@
+.container {
+    margin: 0 auto;
+    max-width: clamp(320px, 100vw - 2 * var(--spacer), 1200px);
+    padding: 0 var(--spacer-quarter);
+}
+
+
+@media screen and (min-width: 576px) {
+    .container {
+        padding: 0 var(--spacer);
+    }
+}
+/*
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 992px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .container {
+        max-width: 1200px;
+    }
+} */

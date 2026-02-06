@@ -1,0 +1,456 @@
+{
+    "additions": [
+        {
+            "id": "ADD001",
+            "name": "Michael Roberts",
+            "position": "TE",
+            "age": 25,
+            "formerTeam": "N/A - Injured",
+            "profile": "http://www.nfl.com/player/michaelroberts/2558049/profile",
+            "contract": {
+                "years": 1,
+                "total": "750K",
+                "average": "750K",
+                "guaranteed": "",
+                "cap": "750K",
+                "out": ""
+            }
+        },
+        {
+            "id": "ADD002",
+            "name": "Shaq Lawson",
+            "position": "DE",
+            "age": 26,
+            "formerTeam": "Buffalo Bills",
+            "profile": "http://www.nfl.com/player/shaqlawson/2555252/profile",
+            "contract": {
+                "years": 3,
+                "total": "30M",
+                "average": "10M",
+                "guaranteed": "20.8M",
+                "cap": "10.3M",
+                "out": "2 yr / 21M"
+            }
+        },
+        {
+            "id": "ADD003",
+            "name": "Emmanuel Ogbah",
+            "position": "DE",
+            "age": 26,
+            "formerTeam": "Kansas City Chiefs",
+            "profile": "http://www.nfl.com/player/emmanuelogbah/2555278/profile",
+            "contract": {
+                "years": 2,
+                "total": "15M",
+                "average": "7.5M",
+                "guaranteed": "7.5M",
+                "cap": "7.5M",
+                "out": "1 yr / 7.5M"
+            }
+        },
+        {
+            "id": "ADD004",
+            "name": "Ereck Flowers",
+            "position": "OT",
+            "age": 26,
+            "formerTeam": "Washington Redskins",
+            "profile": "http://www.nfl.com/player/ereckflowers/2552452/profile",
+            "contract": {
+                "years": 3,
+                "total": "30M",
+                "average": "10M",
+                "guaranteed": "19.95M",
+                "cap": "5M",
+                "out": "2 yr / 20M"
+            }
+        },
+        {
+            "id": "ADD005",
+            "name": "Kyle Van Noy",
+            "position": "MLB",
+            "age": 29,
+            "formerTeam": "New England Patriots",
+            "profile": "http://www.nfl.com/player/kylevannoy/2543699/profile",
+            "contract": {
+                "years": 4,
+                "total": "51M",
+                "average": "12.75M",
+                "guaranteed": "30M",
+                "cap": "6.025M",
+                "out": "2 yr / 27.55M"
+            }
+        },
+        {
+            "id": "ADD006",
+            "name": "Byron Jones",
+            "position": "CB",
+            "age": 27,
+            "formerTeam": "Dallas Cowboys",
+            "profile": "http://www.nfl.com/player/byronjones/2552568/profile",
+            "contract": {
+                "years": 5,
+                "total": "82.5M",
+                "average": "16.5M",
+                "guaranteed": "54.375M",
+                "cap": "14M",
+                "out": "3 yr / 54.375M"
+            }
+        },
+        {
+            "id": "ADD007",
+            "name": "Jordan Howard",
+            "position": "RB",
+            "age": 25,
+            "formerTeam": "Philadelphia Eagles",
+            "profile": "http://www.nfl.com/player/jordanhoward/2555418/profile",
+            "contract": {
+                "years": 2,
+                "total": "9.75M",
+                "average": "4.875M",
+                "guaranteed": "4.75M",
+                "cap": "4.75M",
+                "out": "1 yr / 4.75M"
+            }
+        },
+        {
+            "id": "ADD008",
+            "name": "Ted Karras",
+            "position": "OG",
+            "age": 27,
+            "formerTeam": "New England Patriots",
+            "profile": "http://www.nfl.com/player/tedkarras/2555145/profile",
+            "contract": {
+                "years": 1,
+                "total": "3M",
+                "average": "3M",
+                "guaranteed": "3M",
+                "cap": "3M",
+                "out": ""
+            }
+        },
+        {
+            "id": "ADD009",
+            "name": "Elandon Roberts",
+            "position": "OLB",
+            "age": 26,
+            "formerTeam": "New England Patriots",
+            "profile": "http://www.nfl.com/player/elandonroberts/2556119/profile",
+            "contract": {
+                "years": 1,
+                "total": "2M",
+                "average": "2M",
+                "guaranteed": "1M",
+                "cap": "2M",
+                "out": ""
+            }
+        },
+        {
+            "id": "ADD010",
+            "name": "Clayton Fejedelem",
+            "position": "DB",
+            "age": 27,
+            "formerTeam": "Cincinnati Bengals",
+            "profile": "http://www.nfl.com/player/claytonfejedelem/2555355/profile",
+            "contract": {
+                "years": 3,
+                "total": "8.55M",
+                "average": "2.85M",
+                "guaranteed": "3M",
+                "cap": "2.25M",
+                "out": "1 yr / 3.25M"
+            }
+        },
+        {
+            "id": "ADD011",
+            "name": "Kamu Grugier-Hill",
+            "position": "OLB",
+            "age": 26,
+            "formerTeam": "Philadelphia Eagles",
+            "profile": "http://www.nfl.com/player/kamugrugier-hill/2556363/profile",
+            "contract": {
+                "years": 1,
+                "total": "3M",
+                "average": "3M",
+                "guaranteed": "2M",
+                "cap": "3M",
+                "out": ""
+            }
+        },
+        {
+            "id": "ADD012",
+            "name": "Matt Breida",
+            "position": "RB",
+            "age": 25,
+            "formerTeam": "San Francisco 49ers",
+            "profile": "http://www.nfl.com/player/mattbreida/2558918/profile",
+            "comments": "Acquired via trade for a 5th round pick (153rd overall) in the 2020 NFL Draft.",
+            "trade": true
+        },
+        {
+            "id": "ADD013",
+            "name": "Kavon Frazier",
+            "position": "FS",
+            "age": 25,
+            "formerTeam": "Dallas Cowboys",
+            "profile": "http://www.nfl.com/player/kavonfrazier/2555536/profile"
+        }
+    ],
+    "resignings": [
+        {
+            "id": "RES001",
+            "name": "Ricardo Louis",
+            "position": "WR"
+        },
+        {
+            "id": "RES002",
+            "name": "Trent Harris",
+            "position": "DE"
+        },
+        {
+            "id": "RES003",
+            "name": "Adrian Colbert",
+            "position": "FS"
+        },
+        {
+            "id": "RES004",
+            "name": "Matt Haack",
+            "position": "P"
+        },
+        {
+            "id": "RES005",
+            "name": "Vince Biegel",
+            "position": "LB"
+        },
+        {
+            "id": "RES006",
+            "name": "Zach Sieler",
+            "position": "DE"
+        },
+        {
+            "id": "RES007",
+            "name": "Isaiah Ford",
+            "position": "WR"
+        }
+    ],
+    "releases": [
+        {
+            "id": "REL001",
+            "name": "Reshad Jones",
+            "position": "FS"
+        },
+        {
+            "id": "REL002",
+            "name": "Aqib Talib",
+            "position": "CB"
+        },
+        {
+            "id": "REL003",
+            "name": "Clive Walford",
+            "position": "TE"
+        },
+        {
+            "id": "REL004",
+            "name": "Chase Allen",
+            "position": "OLB"
+        },
+        {
+            "id": "REL005",
+            "name": "Mike Hull",
+            "position": "LB"
+        },
+        {
+            "id": "REL006",
+            "name": "Walt Aikens",
+            "position": "DB"
+        },
+        {
+            "id": "REL007",
+            "name": "Daniel Kilgore",
+            "position": "C"
+        },
+        {
+            "id": "REL008",
+            "name": "TJ Rahming",
+            "position": "WR"
+        },
+        {
+            "id": "REL009",
+            "name": "John Jenkins",
+            "position": "DT"
+        },
+        {
+            "id": "REL010",
+            "name": "Rashard Causey",
+            "position": "DB"
+        },
+        {
+            "id": "REL011",
+            "name": "Deon Lacey",
+            "position": "RB"
+        },
+        {
+            "id": "REL012",
+            "name": "Chidi Okeke",
+            "position": "OT"
+        },
+        {
+            "id": "REL013",
+            "name": "J'Marcus Webb",
+            "position": "OT"
+        },
+        {
+            "id": "REL014",
+            "name": "Evan Brown",
+            "position": "C"
+        },
+        {
+            "id": "REL015",
+            "name": "Trevor Davis",
+            "position": "WR"
+        },
+        {
+            "id": "REL016",
+            "name": "Kendrick Norton",
+            "position": "DT"
+        },
+        {
+            "id": "REL017",
+            "name": "Evan Boehm",
+            "position": "OG"
+        },
+        {
+            "id": "REL018",
+            "name": "Terry Wright",
+            "position": "WR"
+        },
+        {
+            "id": "REL019",
+            "name": "Andy Jones",
+            "position": "WR"
+        },
+        {
+            "id": "REL020",
+            "name": "Jamal Davis II",
+            "position": "LB"
+        },
+        {
+            "id": "REL021",
+            "name": "Jake Carlock",
+            "position": "LB"
+        },
+        {
+            "id": "REL022",
+            "name": "Gerald Willis",
+            "position": "DL"
+        },
+        {
+            "id": "REL023",
+            "name": "Linden Stephens",
+            "position": "CB"
+        },
+        {
+            "id": "REL024",
+            "name": "Jonathan Ledbetter",
+            "position": "DE"
+        },
+        {
+            "id": "REL025",
+            "name": "Terrill Hanks",
+            "position": "LB"
+        },
+        {
+            "id": "REL026",
+            "name": "Montre Hartage",
+            "position": "S"
+        },
+        {
+            "id": "REL027",
+            "name": "Taybor Pepper",
+            "position": "LS"
+        },
+        {
+            "id": "REL028",
+            "name": "Samaje Perine",
+            "position": "RB"
+        },
+        {
+            "id": "REL029",
+            "name": "Taco Charlton",
+            "position": "DE"
+        },
+        {
+            "id": "REL030",
+            "name": "Charles Harris",
+            "position": "DE",
+            "trade": true,
+            "tradeDetails": "Traded to the Atlanta Falcons for a 2021 7th round pick."
+        },
+        {
+            "id": "REL031",
+            "name": "De'Lance Turner",
+            "position": "RB"
+        }
+    ],
+    "undrafted": [
+        {
+            "id": "UDFA001",
+            "name": "Benito Jones",
+            "position": "DT",
+            "school": "Ole Miss"
+        },
+        {
+            "id": "UDFA002",
+            "name": "Donell Stanley",
+            "position": "OL",
+            "school": "S. Carolina"
+        },
+        {
+            "id": "UDFA003",
+            "name": "Ray Lima",
+            "position": "DT",
+            "school": "Iowa St."
+        },
+        {
+            "id": "UDFA004",
+            "name": "Tyshun Redner",
+            "position": "DE",
+            "school": "Mid. Ten. St."
+        },
+        {
+            "id": "UDFA005",
+            "name": "Nick Kaltmayer",
+            "position": "OT",
+            "school": "Kansas St."
+        },
+        {
+            "id": "UDFA006",
+            "name": "Bryce Sterk",
+            "position": "TE",
+            "school": "Montana St."
+        },
+        {
+            "id": "UDFA007",
+            "name": "Kirk Merritt",
+            "position": "WR",
+            "school": "Arkansas St."
+        },
+        {
+            "id": "UDFA008",
+            "name": "Matt Cole",
+            "position": "WR",
+            "school": "McKendree U"
+        },
+        {
+            "id": "UDFA009",
+            "name": "Kylan Johnson",
+            "position": "LB",
+            "school": "Pittsburgh"
+        },
+        {
+            "id": "UDFA010",
+            "name": "Jon Hubbard",
+            "position": "OT",
+            "school": "Northwestern St."
+        }
+    ]
+}

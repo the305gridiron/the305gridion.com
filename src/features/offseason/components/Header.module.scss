@@ -1,0 +1,24 @@
+@import "../styles/variables";
+@import "../styles/functions";
+@import "../styles/mixins";
+
+.page-header {
+    color: white;
+
+    h1 {
+        @include fontSize(16px);
+        padding: 10px 0;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 3px 3px 3px miami-color-mix(black, "miamiAqua", 30);
+
+        @include media-breakpoint-up(sm) {
+            @include fontSize(24px);
+        }
+
+        @include media-breakpoint-up(xxl) {
+            @include fontSize(30px);
+            padding: 20px 0;
+        }
+    }
+}

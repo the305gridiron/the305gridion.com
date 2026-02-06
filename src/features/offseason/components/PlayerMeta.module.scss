@@ -1,0 +1,96 @@
+@import "../styles/variables";
+@import "../styles/breakpoints";
+@import "../styles/functions";
+@import "../styles/mixins";
+
+.player-meta {
+    border-top: 1px solid #e1e1e1;
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 100%;
+    flex-flow: row wrap;
+    font-family: "Roboto Slab", sans-serif;
+    margin: 0;
+    order: 2;
+    padding: 0;
+    width: 100%;
+
+    @include media-breakpoint-only(sm) {
+        border-left: 1px solid #e1e1e1;
+        border-top: 0;
+        flex: 1;
+    }
+
+    @include media-breakpoint-only(lg) {
+        border-left: 1px solid #e1e1e1;
+        border-top: 0;
+        flex: 1;
+    }
+
+    @include media-breakpoint-up(xl) {
+        order: 3;
+        flex: 1 1 100%;
+    }
+
+    li {
+        border-bottom: 1px solid #e1e1e1;
+        color: var(--miamiAqua);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 0 0 50%;
+        font-size: 1rem;
+        font-weight: 600;
+        list-style: none;
+        padding: 5px 10px;
+        text-align: center;
+
+        @include media-breakpoint-up(lg) {
+            @include fontSize(24px);
+        }
+
+        @include media-breakpoint-up(xl) {
+            border: 0;
+            justify-content: center;
+            flex: 1;
+            flex-direction: column;
+            padding: 10px 0;
+        }
+
+        &:nth-child(odd) {
+            border-right: 1px solid #e1e1e1;
+
+            @include media-breakpoint-up(xl) {
+                border: 0;
+            }
+        }
+    }
+}
+
+li.player-meta-school {
+    @include media-breakpoint-up(lg) {
+        @include fontSize(20px);
+    }
+}
+
+.player-meta-title {
+    color: #4a4a4a;
+    display: block;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    svg {
+        display: none;
+
+        @include media-breakpoint-up(lg) {
+            display: inline;
+        }
+    }
+}
+
+.player-total-score {
+    font-size: 1rem;
+    color: #ababab;
+}

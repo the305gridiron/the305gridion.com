@@ -1,0 +1,19 @@
+@function rem($size) {
+    @return $size / 16px * 1rem;
+}
+
+@function miami-color($key: "miamiAqua") {
+    @return map-get($miami-colors, $key);
+}
+
+@function miami-color-mix($color-base, $color-name, $weight) {
+    $color: miami-color($color-name);
+
+    @return mix($color-base, $color, $weight);
+}
+
+@function miami-color-alpha($color-name, $color-alpha) {
+    $color: miami-color($color-name);
+
+    @return rgba($color, $color-alpha);
+}

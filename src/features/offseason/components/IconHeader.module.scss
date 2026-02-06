@@ -1,0 +1,26 @@
+@import "../styles/variables";
+@import "../styles/functions";
+@import "../styles/mixins";
+
+.icon-header {
+    @include fontSize(20px);
+    color: miami-color("miamiAqua");
+    display: flex;
+    align-items: flex-end;
+    font-weight: 700;
+    margin-bottom: 15px;
+
+    @include media-breakpoint-up(md) {
+        @include fontSize(24px);
+    }
+
+    svg {
+        @include fontSize(30px);
+        color: miami-color("miamiOrange");
+        margin-right: 5px;
+
+        @include media-breakpoint-up(md) {
+            @include fontSize(34px);
+        }
+    }
+}

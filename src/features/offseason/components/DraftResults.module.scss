@@ -1,0 +1,17 @@
+@import "../styles/variables";
+@import "../styles/functions";
+@import "../styles/mixins";
+
+.draft-results {
+    background-color: white;
+    order: 1;
+    flex: 1;
+    padding: 15px;
+
+    @include media-breakpoint-up(xxl) {
+        border: 1px solid mix(black, white, 10);
+        border-radius: 10px;
+        box-shadow: 0 0 5px miami-color-mix(black, "miamiAqua", 30);
+        margin-right: 15px;
+    }
+}

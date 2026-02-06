@@ -1,0 +1,80 @@
+@import "../styles/variables";
+@import "../styles/functions";
+@import "../styles/mixins";
+
+.sidebar-card {
+    background-color: miami-color("miamiBlue");
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 15px;
+    overflow: hidden;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.sidebar-card-title {
+    background-color: miami-color-mix(black, "miamiBlue", 10);
+    font-weight: normal;
+    padding: 5px 15px;
+}
+
+.sidebar-card-list {
+    @include fontSize(14px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include media-breakpoint-only(sm) {
+        display: flex;
+        flex-flow: row wrap;
+    }
+}
+
+.sidebar-card-list-item {
+    color: inherit;
+    display: flex;
+    padding: 5px 15px;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid miami-color-mix(black, "miamiBlue", 10);
+    }
+
+    &:nth-child(even) {
+        background-color: miami-color-mix(white, "miamiBlue", 10);
+    }
+
+    @include media-breakpoint-only(sm) {
+        flex: 0 0 calc(100% / 3);
+
+        &:nth-child(even) {
+            background-color: transparent;
+        }
+
+        &:nth-child(3n + 2) {
+            background-color: miami-color-mix(white, "miamiBlue", 10);
+        }
+    }
+}
+
+.sidebar-card-list-item-undrafted {
+    @include media-breakpoint-only(sm) {
+        flex: 0 0 calc(100% / 2);
+    }
+}
+
+.player-position {
+    flex: 0 0 40px;
+}
+
+.player-school {
+    @include fontSize(12px);
+    margin-left: auto;
+}
+
+.trade-icon {
+    height: 18px !important;
+    margin: 0 5px;
+    opacity: 0.5;
+}

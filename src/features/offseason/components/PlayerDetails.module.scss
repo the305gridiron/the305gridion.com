@@ -1,0 +1,55 @@
+@import "../styles/variables";
+@import "../styles/breakpoints";
+@import "../styles/functions";
+@import "../styles/mixins";
+
+.player-details {
+    display: flex;
+    flex: 0 0 250px;
+    flex-direction: column;
+    justify-content: flex-start;
+    order: 1;
+    padding: 10px 0;
+    position: relative;
+
+    @include media-breakpoint-only(sm) {
+        border-bottom: 1px solid #e1e1e1;
+    }
+    @include media-breakpoint-only(lg) {
+        border-bottom: 1px solid #e1e1e1;
+    }
+}
+
+.player-position {
+    background-color: white;
+    color: #3a3a3a;
+    display: block;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    // padding-top: 10px;
+    position: relative;
+    text-shadow: none;
+    text-transform: uppercase;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 3px
+    }
+
+    &::after {
+        background-color: var(--miamiOrange);
+        content: "";
+        display: block;
+        margin: 5px auto;
+        height: 1px;
+        width: 50px;
+    }
+}
+
+.player-name {
+    color: miami-color("miamiAqua");
+    font-size: 1.25rem;
+    line-height: 1;
+    font-weight: 700;
+    text-align: center;
+}

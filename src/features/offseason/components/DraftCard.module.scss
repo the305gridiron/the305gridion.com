@@ -1,0 +1,14 @@
+.draft-card {
+    background-color: #fefefe;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+
+    &:not(:last-child) {
+        margin-bottom: 15px;
+    }
+}

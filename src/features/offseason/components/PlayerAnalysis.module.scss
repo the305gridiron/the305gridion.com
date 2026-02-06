@@ -1,0 +1,74 @@
+@import "../styles/variables";
+@import "../styles/breakpoints";
+@import "../styles/functions";
+@import "../styles/mixins";
+
+.player-analysis {
+    flex: 0 0 100%;
+    order: 3;
+    padding: 10px;
+
+    @include media-breakpoint-up(xl) {
+        order: 2;
+        flex: 1;
+    }
+}
+
+.player-analysis-active {
+    .player-analysis-content {
+        display: block;
+    }
+    .player-analysis-toggle {
+        svg {
+            transform: rotate(-180deg);
+        }
+    }
+}
+
+.player-analysis-toggle {
+    background-color: transparent;
+    border: 0;
+    color: miami-color("miamiAqua");
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.player-analysis-content {
+    display: none;
+    margin: 10px 0 0 0;
+    overflow: hidden;
+
+    @include media-breakpoint-up(xl) {
+        @include fontSize(14px);
+        display: block;
+        margin: 0;
+        padding-right: 45px;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        @include fontSize(16px);
+    }
+}
+
+.player-analysis-cite {
+    color: var(--miamiBlue);
+    display: block;
+    font-weight: 600;
+    padding-top: 15px;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}

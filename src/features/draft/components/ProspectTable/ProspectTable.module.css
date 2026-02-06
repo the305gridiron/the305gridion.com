@@ -1,0 +1,255 @@
+.prospectTableContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.prospectTableHeader,
+.prospectTableRow {
+    display: flex;
+    width: 100%;
+}
+
+.prospectTableHeaderCell,
+.prospectTableCell {
+    flex: 1;
+    padding: var(--spacer-half) var(--spacer);
+    text-align: left;
+}
+
+.prospectTableHeaderCell {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+}
+
+.prospectTableHeaderCell+.prospectTableHeaderCell {
+    border-left: 1px solid var(--gray-200);
+}
+
+.prospectTableRow {
+    background-color: var(--gray-100);
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.prospectTableRow.noProfile {
+    cursor: default;
+}
+
+.prospectTableContainer>div:nth-child(4n + 2),
+.prospectTableContainer>div:nth-child(4n + 3) {
+    background-color: var(--white-color);
+}
+
+.prospectTableCell {
+    font-size: var(--font-size-sm);
+}
+
+.prospectTableCellHeight,
+.prospectTableCellWeight,
+.prospectTableCellAge,
+.prospectTableCellGrade,
+.prospectTableCellProjection,
+.prospectTableCellComp {
+    display: none;
+}
+
+.prospectTableCellRank {
+    max-width: 50px;
+}
+
+.prospectTableHeaderCell.prospectTableCellRank {
+    padding-left: var(--spacer-quarter);
+    padding-right: var(--spacer-quarter);
+}
+
+.prospectTableCell.prospectTableCellRank {
+    color: var(--gray-700);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    padding-inline: var(--spacer-quarter);
+    text-align: center;
+}
+
+.prospectTableCellHeight,
+.prospectTableCellWeight,
+.prospectTableCellAge,
+.prospectTableCellGrade {
+    max-width: 85px;
+    text-align: center;
+}
+
+.prospectTableCellProjection {
+    max-width: 150px;
+}
+
+.prospectTableCellComp {
+    max-width: 250px;
+}
+
+.prospectTableCellName {
+    min-width: 215px;
+}
+
+.prospectsTableName,
+.prospectsTableCollege,
+.prospectsTableMeasurables {
+    display: block;
+}
+
+.prospectsTableName {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
+
+.prospectsTableCollege,
+.prospectsTableMeasurables {
+    font-size: var(--font-size-xs);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.prospectsTableMeasurables {
+    margin-bottom: var(--spacer-quarter);
+}
+
+.prospectsTableMeasurables strong {
+    font-weight: var(--font-weight-medium);
+}
+
+.prospectTableDetailsButton {
+    background: transparent;
+    border: 0;
+    color: var(--primary-color);
+    font-size: var(--font-size-xs);
+    line-height: 1;
+    padding: 0;
+}
+
+.prospectDetails {
+    display: none;
+    background-color: var(--gray-100);
+    padding: var(--spacer) var(--spacer-double) var(--spacer-double);
+}
+
+.prospectDetails.expanded {
+    display: block;
+}
+
+.prospectDetailsAlert {
+    background-color: var(--subtle-warning-color);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacer);
+    padding: var(--spacer-half) var(--spacer);
+}
+
+.prospectDetails>p,
+.prospectDetailsAlert>p {
+    margin: 0;
+}
+
+.prospectDetailsDesignation {
+    display: block;
+    font-weight: var(--font-weight-medium);
+    font-style: italic;
+}
+
+.prospectDetailsMobile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacer-half);
+    list-style: none;
+    margin: 0 0 var(--spacer) 0;
+    padding: 0;
+    text-align: center;
+}
+
+.prospectDetailsMobile>li {
+    background-color: var(--subtle-primary-color);
+    border-radius: var(--border-radius-sm);
+    flex: 1;
+    padding: var(--spacer-quarter);
+}
+
+.prospectDetailsMobile>li.prospectDetailsProjection,
+.prospectDetailsMobile>li.prospectDetailsComp {
+    flex: 0 0 100%;
+}
+
+.prospectDetailsMobile>li>span {
+    display: block;
+    font-size: var(--font-size-sm);
+}
+
+
+@media screen and (min-width: 576px) {
+
+    .prospectTableCellGrade,
+    .prospectTableCellAge {
+        display: block;
+    }
+
+    .prospectDetailsGrade,
+    .prospectDetailsAge {
+        display: none;
+    }
+
+    .prospectDetailsMobile>li,
+    .prospectDetailsMobile>li.prospectDetailsProjection,
+    .prospectDetailsMobile>li.prospectDetailsComp {
+        flex: 0 0 49%;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    .prospectTableCellHeight,
+    .prospectTableCellWeight {
+        display: block;
+    }
+
+    .prospectDetailsHeight,
+    .prospectDetailsWeight {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .prospectTableRow.noProfile {
+        pointer-events: none;
+    }
+
+    .prospectTableCellProjection,
+    .prospectTableCellComp {
+        display: block;
+    }
+
+    .prospectDetails.noProfile,
+    .prospectDetailsMobile {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    .prospectTableCellHeight,
+    .prospectTableCellWeight,
+    .prospectTableCellAge,
+    .prospectTableCellGrade {
+        max-width: 100px;
+    }
+
+    .prospectTableCellProjection {
+        max-width: 175px;
+    }
+
+    .prospectTableCellComp {
+        max-width: 250px;
+    }
+}

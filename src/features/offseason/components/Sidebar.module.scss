@@ -1,0 +1,22 @@
+@import "../styles/variables";
+@import "../styles/functions";
+@import "../styles/mixins";
+
+.sidebar {
+    background-color: #f1f1f1;
+    order: 2;
+    padding: 15px;
+
+    @include media-breakpoint-up(md) {
+        border-color: mix(black, #f1f1f1, 10);
+        border-width: 0 0 0 1px;
+        border-style: solid;
+        flex: 0 0 300px;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        border-width: 1px;
+        border-radius: 10px;
+        box-shadow: 0 0 5px miami-color-mix(black, "miamiAqua", 30);
+    }
+}

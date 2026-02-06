@@ -1,0 +1,29 @@
+// FONTS
+$baseFontFamily: "Quicksand", sans-serif;
+$headerFontFamily: "Roboto Slab", sans-serif;
+
+// MEDIA QUERIES
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1440px,
+    xxxl: 1900px,
+) !default;
+
+// COLORS
+$miaAqua: rgb(0, 142, 151);
+$miaOrange: rgb(245, 130, 32);
+$miaBlue: rgb(0, 87, 120);
+
+$miami-colors: () !default;
+$miami-colors: map-merge(
+    (
+        "miamiAqua": $miaAqua,
+        "miamiOrange": $miaOrange,
+        "miamiBlue": $miaBlue,
+    ),
+    $miami-colors
+);

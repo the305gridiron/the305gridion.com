@@ -1,0 +1,281 @@
+[
+    {
+        "details": {
+            "name": "Tua Tagovailoa",
+            "position": "Quarterback",
+            "image": "https://imagecomposer.nfl.com/?l=http://static.nfl.com/static/content/static/img/combine/2020/headshots/1400x1000/2564071.png&f=png&w=308&c=71"
+        },
+        "meta": {
+            "school": "Alabama",
+            "height": "6'0\"",
+            "weight": "217",
+            "round": "1",
+            "roundPick": "5",
+            "overallPick": "5",
+            "nflGrade": "6.77",
+            "espnGrade": "93"
+        },
+        "analysis": {
+            "quote": "Talented dual-threat quarterback with winning background, explosive production and loads of experience in high-leverage games. He may be pigeon-holed into a spread or RPO-heavy attack, but he's actually a clean fit in a pro-style attack filled with play-action and roll-outs. He has the release, accuracy and touch needed to work all three levels successfully and can become a more disciplined, full-field reader to piece the puzzle together against NFL coverages. He needs better poise when pressured, but his escapability not only moves the chains, it creates chunk plays in the air and on the ground. Teams assessing his draft value will need to sift through mounting durability concerns and decide whether he is a \"face of the franchise\" talent without the abundance of talent surrounding him.",
+            "cite": {
+                "link": "https://www.nfl.com/prospects/tuanigamanuolepola-tagovailoa?id=32195441-4762-0344-3a46-269f5e5e854e",
+                "text": "Photo and analysis taken from NFL.com"
+            }
+        }
+    },
+    {
+        "details": {
+            "name": "Austin Jackson",
+            "position": "Offensive Tackle",
+            "image": "https://imagecomposer.nfl.com/?l=http://static.nfl.com/static/content/static/img/combine/2020/headshots/1400x1000/2563941.png&f=png&w=308&c=71"
+        },
+        "meta": {
+            "school": "USC",
+            "height": "6'5\"",
+            "weight": "322",
+            "round": "1",
+            "roundPick": "18",
+            "overallPick": "18",
+            "nflGrade": "6.34",
+            "espnGrade": "84"
+        },
+        "analysis": {
+            "quote": "Early-entry tackle prospect who is raw but gifted and is likely to be coveted by a variety of teams, thanks to his true left tackle traits. Jackson has loads of athletic ability and play talent that is waiting to be developed and harvested. Inconsistent hand placement and footwork could be exploited early on if teams try and rush him into the starting lineup, but issues are correctable. He's scheme-diverse with potential guard flexibility if he improves his strength. He could become an early starter but may offer a wider split between floor and ceiling than some teams might like.",
+            "cite": {
+                "link": "https://www.nfl.com/prospects/austin-jackson?id=32194a41-4304-1754-a4d4-5902e423feaa",
+                "text": "Photo and analysis taken from NFL.com"
+            }
+        }
+    },
+    {
+        "details": {
+            "name": "Noah Igbinoghene",
+            "position": "Cornerback",
+            "image": "https://imagecomposer.nfl.com/?l=http://static.nfl.com/static/content/static/img/combine/2020/headshots/1400x1000/2563937.png&f=png&w=308&c=71"
+        },
+        "meta": {
+            "school": "Auburn",
+            "height": "5'10\"",
+            "weight": "198",
+            "round": "1",
+            "roundPick": "30",
+            "overallPick": "30",
+            "nflGrade": "6.29",
+            "espnGrade": "79"
+        },
+        "trade": {
+            "partner": "Green Bay Packers",
+            "gave": ["Round 1 - Pick 26"],
+            "received": ["Round 1 - Pick 30", "Round 4 - Pick 30 (136)"]
+        },
+        "analysis": {
+            "quote": "Stocky but explosive receiver-turned-cornerback whose play generates both intrigue and concern. He's extremely physical from snap to whistle with the strength to alter route timing from press. He's a good athlete with a plus burst to close. He's naturally aggressive to ambush catch tries. Staying in phase on the vertical plane is a challenge and pattern recognition is surprisingly average. Improvement is likely with more experience and technique, but playing with downfield poise is not guaranteed. He's good in run support and offers early special teams help as he continues to learn his craft.",
+            "cite": {
+                "link": "https://www.nfl.com/prospects/noah-igbinoghene?id=32194947-4214-8318-2536-3aa44c8f7f41",
+                "text": "Photo and analysis taken from NFL.com"
+            }
+        }
+    },
+    {
+        "details": {
+            "name": "Robert Hunt",
+            "position": "Offensive Tackle",
+            "image": "https://imagecomposer.nfl.com/?l=http://static.nfl.com/static/content/static/img/combine/2020/headshots/1400x1000/2563935.png&f=png&w=308&c=71"
+        },
+        "meta": {
+            "school": "ULL",
+            "height": "6'5\"",
+            "weight": "323",
+            "round": "2",
+            "roundPick": "7",
+            "overallPick": "39",
+            "nflGrade": "6.34",
+            "espnGrade": "79"
+        },
+        "analysis": {
+            "quote": "Like Cody Ford in last year's draft, Hunt is a plus athlete with a big man's frame who could be considered at guard or tackle. Inconsistent footwork and pad level are the primary culprits when he fails to win the rep, but there aren't any physical limitations that should prevent him from improving in both areas. Pass protection traits are present but getting the skill level up to par is going to take time. He's a little raw but has the necessary talent to become a solid future starter at right tackle.",
+            "cite": {
+                "link": "https://www.nfl.com/prospects/robert-hunt?id=32194855-4e36-0894-8461-dd1b950e2536",
+                "text": "Photo and analysis taken from NFL.com"
+            }
+        }
+    },
+    {
+        "details": {
+            "name": "Raekwon Davis",
+            "position": "Defensive Tackle",
+            "image": "https://imagecomposer.nfl.com/?l=http://static.nfl.com/static/content/static/img/combine/2020/headshots/1400x1000/2563856.png&f=png&w=308&c=71"
+        },
+        "meta": {
+            "school": "Alabama",
+            "height": "6'6\"",
+            "weight": "311",
+            "round": "2",
+            "roundPick": "24",
+            "overallPick": "56",
+            "nflGrade": "6.35",
+            "espnGrade": "68"
+        },
+        "analysis": {
+            "quote": "Rugged and powerful with elite physical traits, Davis has the ability to impose his will on opponents and dominate at the point of attack. He plays long and strong with rare leverage for a taller player and holds positioning against double teams for linebackers to flow freely. He was all over the backfield in 2017, but hasn't made nearly as many plays -- against the run or pass -- since then. Despite possessing unique traits and the potential to dominate, his upside could be a moving target based upon maturity level and continued growth as a rusher. He should be a first-round pick who can come in and start right away for an odd or even front defense.",
+            "cite": {
+                "link": "https://www.nfl.com/prospects/raekwon-davis?id=32194441-5662-6617-82da-e7d203db8ce8",
+                "text": "Photo and analysis taken from NFL.com"
+            }
+        }
+    },
+    {
+        "details": {
+            "name": "Brandon Jones",
+            "position": "Safety",
+            "image": "https://imagecomposer.nfl.com/?l=http://static.nfl.com/static/content/static/img/combine/2020/headshots/1400x1000/2563956.png&f=png&w=308&c=71"
+        },
+        "meta": {
+            "school": "Texas",
+            "height": "5'11\"",
+            "weight": "198",
+            "round": "3",
+            "roundPick": "6",
+            "overallPick": "70",
+            "nflGrade": "5.99",
+            "espnGrade": "68"
+        },
+        "analysis": {
+            "quote": "He's got a thumper's heart but doesn't have the frame to carry the pop necessary to handle that role. While Jones played boundary, field, and nickel safety position at Texas, he'll likely be pegged as a two-deep or single-high free safety due to man coverage limitations but above-average speed. He plays with good urgency and has soft hands, but just average instincts, which limited his ball production. He could get pushed up a round if he's a big tester. He has third-safety potential and offers early help on special teams.",
+            "cite": {
+                "link": "https://www.nfl.com/prospects/brandon-jones?id=32194a4f-4e10-2151-1cf9-666515191aa5",
+                "text": "Photo and analysis taken from NFL.com"
+            }
+        }
+    },
+    {
+        "details": {
+            "name": "Solomon Kindley",
+            "position": "Offensive Guard",
+            "image": "https://imagecomposer.nfl.com/?l=http://static.nfl.com/static/content/static/img/combine/2020/headshots/1400x1000/2563964.png&f=png&w=308&c=71"
+        },
+        "meta": {
+            "school": "Georgia",
+            "height": "6'3\"",
+            "weight": "337",
+            "round": "4",
+            "roundPick": "5",
+            "overallPick": "111",
+            "nflGrade": "5.8",
+            "espnGrade": "56"
+        },
+        "trade": {
+            "partner": "Houston Texans",
+            "gave": ["Round 4 - Pick 30", "Round 4 - Pick 35"],
+            "received": ["Round 4 - Pick 5"]
+        },
+        "analysis": {
+            "quote": "Nasty guard who lives in scrap mode, looking for fights inside a relatively small phone booth where he's most comfortable. Kindley has the frame of a powerful guard, but doesn't bend well enough to generate leverage and push at the point of attack. He's a mauler with enough finesse to get to some reach and cut-off blocks, but faces scheme limitations. Slide quickness is limited and his tendency to lunge allows rushers to work around his edge earlier than teams like. The size and toughness are great, but Kindley needs to play with better control and technique in order to become an average NFL backup.",
+            "cite": {
+                "link": "https://www.nfl.com/prospects/solomon-kindley?id=32194b49-4e19-0649-1d38-6abe795d5e75",
+                "text": "Photo and analysis taken from NFL.com"
+            }
+        }
+    },
+    {
+        "details": {
+            "name": "Jason Strowbridge",
+            "position": "Defensive End",
+            "image": "https://imagecomposer.nfl.com/?l=http://static.nfl.com/static/content/static/img/combine/2020/headshots/1400x1000/2564067.png&f=png&w=308&c=71"
+        },
+        "meta": {
+            "school": "UNC",
+            "height": "6'4\"",
+            "weight": "275",
+            "round": "5",
+            "roundPick": "9",
+            "overallPick": "154",
+            "nflGrade": "6.23",
+            "espnGrade": "69"
+        },
+        "analysis": {
+            "quote": "Strowbridge will give opponents a physical challenge with good length, toughness and hand usage at the point of attack, but he lacks the suddenness and short-area directional change to be a consistent disruptor. While he's not a plus pass rusher, he definitely flashed at the Senior Bowl and has upside as a reduced rusher in an even front on passing downs. He will need to drop the pad level to improve as an edge-setter, but he appears to offer the necessary physical tools and demeanor to become a rotational 3-4 five-technique or 4-3 base end with eventual-starter potential.",
+            "cite": {
+                "link": "https://www.nfl.com/prospects/jason-strowbridge?id=32195354-5273-0244-9d30-603b05a32381",
+                "text": "Photo and analysis taken from NFL.com"
+            }
+        }
+    },
+    {
+        "details": {
+            "name": "Curtis Weaver",
+            "position": "Edge Rusher",
+            "image": "https://imagecomposer.nfl.com/?l=http://static.nfl.com/static/content/static/img/combine/2020/headshots/1400x1000/2564101.png&f=png&w=308&c=71"
+        },
+        "meta": {
+            "school": "BSU",
+            "height": "6'2\"",
+            "weight": "265",
+            "round": "5",
+            "roundPick": "19",
+            "overallPick": "164",
+            "nflGrade": "5.99",
+            "espnGrade": "71"
+        },
+        "trade": {
+            "partner": "Philadelphia Eagles",
+            "gave": ["Round 5 - Pick 19", "Round 7 - Pick 13"],
+            "received": ["Round 5 - Pick 13"]
+        },
+        "analysis": {
+            "quote": "Stand-up end whose production as a pass rusher must be balanced out by his below-average ability and athleticism in stopping the run. Weaver is a naturally instinctive counter-rusher who uses synchronized hands/feet to attack both inside and outside edges as a rusher, but his lack of explosiveness and athletic traits could dull his rush production against NFL offensive tackles. He plays with football intelligence, but his level of NFL success could be determined by whether his skill can overcome below-average explosiveness.",
+            "cite": {
+                "link": "https://www.nfl.com/prospects/curtis-weaver?id=32195745-4157-3489-d055-25f35fe1611b",
+                "text": "Photo and analysis taken from NFL.com"
+            }
+        }
+    },
+    {
+        "details": {
+            "name": "Blake Ferguson",
+            "position": "Long-Snapper",
+            "image": "https://imagecomposer.nfl.com/?l=http://static.nfl.com/static/content/static/img/combine/2020/headshots/1400x1000/2563883.png&f=png&w=308&c=71"
+        },
+        "meta": {
+            "school": "LSU",
+            "height": "6'3\"",
+            "weight": "229",
+            "round": "6",
+            "roundPick": "6",
+            "overallPick": "185",
+            "nflGrade": "5.8",
+            "espnGrade": "35"
+        },
+        "analysis": {
+            "quote": "One of the top long-snappers in the country, Ferguson has a great shot at following his brother into the pros. His snap accuracy on punts was a little down from 2018, but it's not something that will kill his chances. He's the likely leader in the clubhouse as the long-snapper most likely to be drafted (and make a team long-term) this season.",
+            "cite": {
+                "link": "https://www.nfl.com/prospects/blake-ferguson?id=32194645-5204-5768-746f-e219dd20e488",
+                "text": "Photo and analysis taken from NFL.com"
+            }
+        }
+    },
+    {
+        "details": {
+            "name": "Malcolm Perry",
+            "position": "Wide Receiver",
+            "image": "https://imagecomposer.nfl.com/?l=http://static.nfl.com/static/content/static/img/combine/2020/headshots/1400x1000/2564023.png&f=png&w=308&c=71"
+        },
+        "meta": {
+            "school": "Navy",
+            "height": "5'9\"",
+            "weight": "186",
+            "round": "7",
+            "roundPick": "32",
+            "overallPick": "246",
+            "nflGrade": "5.4",
+            "espnGrade": ""
+        },
+        "analysis": {
+            "quote": "When a prospect starts off with traits like tough, smart and highly competitive, they are off to a very good start with important intangibles. While Perry checks those boxes, he's undersized, moving to a new position, and lacks explosive twitch as a route-runner to uncover in short spaces. With play-callers becoming more creative, Perry's production in option packages could open a lane for him as offenses love to create additional game-planning duties for defensive coordinators.",
+            "cite": {
+                "link": "https://www.nfl.com/prospects/malcolm-perry?id=32195045-5263-1387-f4fb-1d8566ba58d2",
+                "text": "Photo and analysis taken from NFL.com"
+            }
+        }
+    }
+]
