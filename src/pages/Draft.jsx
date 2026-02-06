@@ -43,7 +43,7 @@ export default function Draft() {
     }
 
     return (
-        <>
+        <div className="draft-page">
             <PageHeader />
             <Container>
                 <Tabs defaultActiveKey="QB">
@@ -57,6 +57,6 @@ export default function Draft() {
                     ))}
                 </Tabs>
             </Container>
-        </>
+        </div>
     );
 }

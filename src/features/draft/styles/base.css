@@ -1,31 +1,28 @@
-html {
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-  font-family: var(--font-family-base);
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-body {
+.draft-page {
   margin: 0;
   padding: 0;
   color: var(--gray-800);
   background-color: var(--white-color);
   background: var(--gray-800) url('../assets/denim.webp');
   font-weight: var(--font-weight-light);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-family: var(--font-family-base);
+  box-sizing: border-box;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.draft-page *,
+.draft-page *::before,
+.draft-page *::after {
+  box-sizing: inherit;
+}
+
+.draft-page h1,
+.draft-page h2,
+.draft-page h3,
+.draft-page h4,
+.draft-page h5,
+.draft-page h6 {
   margin-top: 0;
   margin-bottom: var(--spacer-half);
   font-family: var(--font-family-header);
@@ -33,33 +30,33 @@ h6 {
   line-height: 1.2;
 }
 
-p {
+.draft-page p {
   margin-top: 0;
   margin-bottom: var(--spacer);
 }
 
-a {
+.draft-page a {
   color: var(--primary-color);
   text-decoration: none;
 }
 
-a:hover {
+.draft-page a:hover {
   text-decoration: underline;
 }
 
-ul,
-ol {
+.draft-page ul,
+.draft-page ol {
   margin-top: 0;
   margin-bottom: var(--spacer);
   padding-left: 2rem;
 }
 
-img {
+.draft-page img {
   max-width: 100%;
   height: auto;
 }
 
-button {
+.draft-page button {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -67,6 +64,6 @@ button {
   padding: 0;
 }
 
-.semibold {
+.draft-page .semibold {
   font-weight: var(--font-weight-semibold);
 }
