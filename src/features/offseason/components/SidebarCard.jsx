@@ -1,7 +1,7 @@
 import React from "react";
 import SidebarPlayerPanel from "./SidebarPlayerPanel";
-import Tooltip from "@material-ui/core/Tooltip";
-import SwapHorizOutlinedIcon from "@material-ui/icons/SwapHorizOutlined";
+import Tooltip from "@mui/material/Tooltip";
+import SwapHorizOutlinedIcon from "@mui/icons-material/SwapHorizOutlined";
 import styles from "./SidebarCard.module.scss";
 
 function SidebarCard(props) {
@@ -15,11 +15,10 @@ function SidebarCard(props) {
         <div className={styles.sidebarCard}>
             <h3 className={styles.sidebarCardTitle}>{props.title}</h3>
             <div
-                className={`${styles.sidebarCardList} ${
-                    props.title === "Additions"
+                className={`${styles.sidebarCardList} ${props.title === "Additions"
                         ? styles.sidebarCardListAdditions
                         : ""
-                }`}
+                    }`}
             >
                 {props.players
                     .slice(0)
@@ -35,11 +34,10 @@ function SidebarCard(props) {
                                 />
                             ) : (
                                 <div
-                                    className={`${styles.sidebarCardListItem}${
-                                        props.title === "Undrafted"
+                                    className={`${styles.sidebarCardListItem}${props.title === "Undrafted"
                                             ? ` ${styles.sidebarCardListItemUndrafted}`
                                             : ""
-                                    }`}
+                                        }`}
                                     key={player.id}
                                 >
                                     <span className={styles.playerPosition}>

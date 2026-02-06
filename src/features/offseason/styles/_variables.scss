@@ -14,11 +14,11 @@ $grid-breakpoints: (
 ) !default;
 
 // COLORS
-$miaAqua: rgb(0, 142, 151);
-$miaOrange: rgb(245, 130, 32);
-$miaBlue: rgb(0, 87, 120);
+$miaAqua: rgb(0, 142, 151) !global;
+$miaOrange: rgb(245, 130, 32) !global;
+$miaBlue: rgb(0, 87, 120) !global;
 
-$miami-colors: () !default;
+$miami-colors: () !global;
 $miami-colors: map-merge(
     (
         "miamiAqua": $miaAqua,
@@ -26,4 +26,4 @@ $miami-colors: map-merge(
         "miamiBlue": $miaBlue,
     ),
     $miami-colors
-);
+) !global;

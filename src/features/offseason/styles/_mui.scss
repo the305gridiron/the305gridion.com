@@ -1,45 +1,48 @@
-// Material UI overrides
+.player-meta--grade .MuiSvgIcon-root {
+    height: 0.9375rem;
+    width: 0.9375rem;
+    position: absolute;
+    margin-left: 0.125rem;
+}
 
-.player-meta--grade {
-    .MuiSvgIcon-root {
-        height: 15px;
-        width: 15px;
-        position: absolute;
-        margin-left: 2px;
+.draft-card .MuiExpansionPanel-root.Mui-expanded {
+    margin: 0;
+}
+
+.draft-card .MuiExpansionPanelSummary-root {
+    min-height: 0;
+    padding: 0;
+    transition: none;
+}
+
+@media (min-width: 1200px) {
+    .draft-card .MuiExpansionPanelSummary-root {
+        display: none;
     }
 }
 
-.draft-card {
-    .MuiExpansionPanel-root.Mui-expanded {
-        margin: 0;
-    }
-    .MuiExpansionPanelSummary-root {
-        min-height: 0;
-        padding: 0;
-        transition: none;
+.draft-card .MuiExpansionPanelSummary-root.Mui-expanded {
+    min-height: 0;
+}
 
-        @include media-breakpoint-up(xl) {
-            display: none;
-        }
-    }
-    .MuiExpansionPanelSummary-root.Mui-expanded {
-        min-height: 0;
-    }
-    .MuiExpansionPanelSummary-content {
-        color: miami-color("miamiBlue");
-        justify-content: space-between;
-        margin: 0;
-        transition: none;
-    }
-    .MuiExpansionPanelSummary-content.Mui-expanded {
-        margin: 0;
-    }
-    .MuiExpansionPanelDetails-root {
-        display: block;
-        padding: 0;
+.draft-card .MuiExpansionPanelSummary-content {
+    color: rgb(0, 87, 120);
+    justify-content: space-between;
+    margin: 0;
+    transition: none;
+}
 
-        @include media-breakpoint-up(xl) {
-            padding-right: 45px;
-        }
+.draft-card .MuiExpansionPanelSummary-content.Mui-expanded {
+    margin: 0;
+}
+
+.draft-card .MuiExpansionPanelDetails-root {
+    display: block;
+    padding: 0;
+}
+
+@media (min-width: 1200px) {
+    .draft-card .MuiExpansionPanelDetails-root {
+        padding-right: 2.8125rem;
     }
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import NotificationsActiveOutlinedIcon from "@material-ui/icons/NotificationsActiveOutlined";
-import HighlightOffOutlinedIcon from "@material-ui/icons/HighlightOffOutlined";
+import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
+import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
 import styles from "./TradeAlert.module.scss";
 
 export default function TradeAlert(props) {
@@ -9,9 +9,8 @@ export default function TradeAlert(props) {
 
     return (
         <div
-            className={`${styles.tradeAlert} ${
-                isAlertOpen ? styles.tradeAlertOpen : ""
-            }`}
+            className={`${styles.tradeAlert} ${isAlertOpen ? styles.tradeAlertOpen : ""
+                }`}
         >
             <button className={styles.tradeAlertToggle} onClick={toggleAlert}>
                 {isAlertOpen ? (

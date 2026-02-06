@@ -1,9 +1,12 @@
-@function rem($size) {
+@use "./variables" as *;
+@use "sass:map";
+
+@function px-to-rem($size) {
     @return $size / 16px * 1rem;
 }
 
 @function miami-color($key: "miamiAqua") {
-    @return map-get($miami-colors, $key);
+    @return map.get($miami-colors, $key);
 }
 
 @function miami-color-mix($color-base, $color-name, $weight) {

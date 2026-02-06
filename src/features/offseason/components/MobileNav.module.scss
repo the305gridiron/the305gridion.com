@@ -1,12 +1,8 @@
-@import "../styles/variables";
-@import "../styles/functions";
-@import "../styles/mixins";
-
-.mobile-nav {
+.mobileNav {
     background-color: white;
-    padding: 15px 15px 0;
+    padding: 0.9375rem 0.9375rem 0;
 
-    @include media-breakpoint-up(lg) {
+    @media (min-width: 992px) {
         display: none;
     }
 
@@ -21,22 +17,22 @@
             flex: 1;
             list-style: none;
 
-            @include media-breakpoint-up(sm) {
-                flex: 0 0 180px;
+            @media (min-width: 576px) {
+                flex: 0 0 11.25rem;
             }
 
             &:not(:last-child) {
-                margin-right: 10px;
+                margin-right: 0.625rem;
             }
 
             a {
-                @include fontSize(12px);
+                font-size: 0.75rem;
                 background-color: #efefef;
-                border-radius: 5px;
-                color: miami-color("miamiBlue");
+                border-radius: 0.3125rem;
+                color: rgb(0, 87, 120);
                 display: block;
                 font-weight: 600;
-                padding: 10px 15px;
+                padding: 0.625rem 0.9375rem;
                 text-align: center;
                 text-decoration: none;
                 text-transform: uppercase;

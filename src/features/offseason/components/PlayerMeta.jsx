@@ -1,6 +1,6 @@
 import React from "react";
-import Tooltip from "@material-ui/core/Tooltip";
-import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
+import Tooltip from "@mui/material/Tooltip";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import styles from "./PlayerMeta.module.scss";
 
 export default function PlayerMeta(props) {

@@ -3,10 +3,9 @@ import TradeAlert from "./TradeAlert";
 import PlayerAnalysis from "./PlayerAnalysis";
 import PlayerDetails from "./PlayerDetails";
 import PlayerMeta from "./PlayerMeta";
-import styles from "./DraftCard.module.scss";
+import styles from "./DraftCard.module.css";
 
 export default function DraftCard(props) {
-    console.log(props);
     return (
         <div className={`draft-card ${styles.draftCard}`}>
             {props.trade && <TradeAlert {...props.trade} />}

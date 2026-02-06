@@ -1,61 +1,57 @@
-@import "../styles/variables";
-@import "../styles/functions";
-@import "../styles/mixins";
-
-.sidebar-card-list-item {
+.sidebarCardListItem {
     color: inherit;
-    padding: 5px 15px;
+    padding: 0.3125rem 0.9375rem;
 
     &:not(:last-child) {
-        border-bottom: 1px solid miami-color-mix(black, "miamiBlue", 10);
+        border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
     }
 
     &:nth-child(even) {
-        background-color: miami-color-mix(white, "miamiBlue", 10);
+        background-color: rgba(255, 255, 255, 0.1);
     }
 
-    @include media-breakpoint-only(sm) {
+    @media (min-width: 576px) {
         flex: 0 0 100%;
     }
 }
 
-.sidebar-card-list-item-toggle-icon {
+.sidebarCardListItemToggleIcon {
     margin-left: auto;
 }
 
-.trade-icon {
-    margin: 0 5px;
+.tradeIcon {
+    margin: 0 0.3125rem;
     opacity: 0.5;
 }
 
-.player-position {
-    flex: 0 0 40px;
+.playerPosition {
+    flex: 0 0 2.5rem;
 }
 
-.sidebar-card-list-item-details {
+.sidebarCardListItemDetails {
     display: flex;
     flex-flow: column nowrap;
 
-    @include media-breakpoint-only(sm) {
+    @media (min-width: 576px) {
         flex-flow: row nowrap;
         justify-content: space-between;
     }
 }
 
-.player-details,
-.contract-details {
+.playerDetails,
+.contractDetails {
     list-style: none;
     margin: 0;
     padding: 0;
     width: 100%;
 
-    @include media-breakpoint-only(sm) {
+    @media (min-width: 576px) {
         flex: 0 0 48%;
     }
 
     li {
         display: flex;
-        padding: 5px 0;
+        padding: 0.3125rem 0;
 
         &:last-child {
             padding-bottom: 0;
@@ -63,39 +59,39 @@
 
         strong {
             font-weight: 500;
-            margin-right: 5px;
+            margin-right: 0.3125rem;
         }
 
-        &.contract-details-title {
-            @include fontSize(12px);
-            border-bottom: 1px solid white;
+        &.contractDetailsTitle {
+            font-size: 0.75rem;
+            border-bottom: 0.0625rem solid white;
             font-weight: 600;
             justify-content: center;
-            margin-top: 15px;
+            margin-top: 0.9375rem;
             text-transform: uppercase;
 
-            @include media-breakpoint-only(sm) {
+            @media (min-width: 576px) {
                 margin: 0;
             }
         }
     }
 
     a {
-        @include fontSize(12px);
-        background-color: miami-color("miamiAqua");
-        border-radius: 5px;
+        font-size: 0.75rem;
+        background-color: rgb(0, 142, 151);
+        border-radius: 0.3125rem;
         color: white;
         display: flex;
         flex: 1;
         justify-content: center;
-        padding: 5px;
+        padding: 0.3125rem;
         font-weight: 500;
         text-decoration: none;
         text-transform: uppercase;
     }
 }
 
-.contract-details {
+.contractDetails {
     li {
         justify-content: space-between;
     }

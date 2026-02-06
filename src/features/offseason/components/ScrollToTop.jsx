@@ -1,5 +1,5 @@
 import React from "react";
-import KeyboardArrowUpOutlinedIcon from "@material-ui/icons/KeyboardArrowUpOutlined";
+import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import styles from "./ScrollToTop.module.scss";
 
 export default class ScrollToTop extends React.Component {

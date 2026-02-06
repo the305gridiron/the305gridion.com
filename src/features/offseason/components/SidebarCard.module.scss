@@ -1,12 +1,8 @@
-@import "../styles/variables";
-@import "../styles/functions";
-@import "../styles/mixins";
-
-.sidebar-card {
-    background-color: miami-color("miamiBlue");
-    border-radius: 5px;
+.sidebarCard {
+    background-color: rgb(0, 87, 120);
+    border-radius: 0.3125rem;
     color: white;
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
     overflow: hidden;
 
     &:last-child {
@@ -14,67 +10,67 @@
     }
 }
 
-.sidebar-card-title {
-    background-color: miami-color-mix(black, "miamiBlue", 10);
+.sidebarCardTitle {
+    background-color: rgba(0, 0, 0, 0.1);
     font-weight: normal;
-    padding: 5px 15px;
+    padding: 0.3125rem 0.9375rem;
 }
 
-.sidebar-card-list {
-    @include fontSize(14px);
+.sidebarCardList {
+    font-size: 0.875rem;
     list-style: none;
     margin: 0;
     padding: 0;
 
-    @include media-breakpoint-only(sm) {
+    @media (min-width: 576px) {
         display: flex;
         flex-flow: row wrap;
     }
 }
 
-.sidebar-card-list-item {
+.sidebarCardListItem {
     color: inherit;
     display: flex;
-    padding: 5px 15px;
+    padding: 0.3125rem 0.9375rem;
 
     &:not(:last-child) {
-        border-bottom: 1px solid miami-color-mix(black, "miamiBlue", 10);
+        border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
     }
 
     &:nth-child(even) {
-        background-color: miami-color-mix(white, "miamiBlue", 10);
+        background-color: rgba(255, 255, 255, 0.1);
     }
 
-    @include media-breakpoint-only(sm) {
-        flex: 0 0 calc(100% / 3);
+    @media (min-width: 576px) {
+        flex: 0 0 33.3333%;
 
         &:nth-child(even) {
             background-color: transparent;
         }
 
         &:nth-child(3n + 2) {
-            background-color: miami-color-mix(white, "miamiBlue", 10);
+            background-color: rgba(255, 255, 255, 0.1);
         }
     }
 }
 
-.sidebar-card-list-item-undrafted {
-    @include media-breakpoint-only(sm) {
-        flex: 0 0 calc(100% / 2);
+.sidebarCardListItemUndrafted {
+    @media (min-width: 576px) {
+        flex: 0 0 50%;
     }
 }
 
-.player-position {
-    flex: 0 0 40px;
+.playerPosition {
+    flex: 0 0 2.5rem;
 }
 
-.player-school {
-    @include fontSize(12px);
+.playerSchool {
+    font-size: 0.75rem;
     margin-left: auto;
 }
 
-.trade-icon {
-    height: 18px !important;
-    margin: 0 5px;
+.tradeIcon {
+    height: 1.125rem !important;
+    margin: 0 0.3125rem;
     opacity: 0.5;
 }

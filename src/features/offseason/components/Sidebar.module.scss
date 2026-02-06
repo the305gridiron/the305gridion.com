@@ -1,22 +1,18 @@
-@import "../styles/variables";
-@import "../styles/functions";
-@import "../styles/mixins";
-
 .sidebar {
     background-color: #f1f1f1;
     order: 2;
-    padding: 15px;
+    padding: 0.9375rem;
 
-    @include media-breakpoint-up(md) {
-        border-color: mix(black, #f1f1f1, 10);
-        border-width: 0 0 0 1px;
+    @media (min-width: 768px) {
+        border-color: rgba(0, 0, 0, 0.1);
+        border-width: 0 0 0 0.0625rem;
         border-style: solid;
-        flex: 0 0 300px;
+        flex: 0 0 18.75rem;
     }
 
-    @include media-breakpoint-up(xxl) {
-        border-width: 1px;
-        border-radius: 10px;
-        box-shadow: 0 0 5px miami-color-mix(black, "miamiAqua", 30);
+    @media (min-width: 1440px) {
+        border-width: 0.0625rem;
+        border-radius: 0.625rem;
+        box-shadow: 0 0 0.3125rem rgba(0, 142, 151, 0.3);
     }
 }

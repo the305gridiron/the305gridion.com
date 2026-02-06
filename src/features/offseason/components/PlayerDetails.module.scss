@@ -1,53 +1,48 @@
-@import "../styles/variables";
-@import "../styles/breakpoints";
-@import "../styles/functions";
-@import "../styles/mixins";
-
-.player-details {
+.playerDetails {
     display: flex;
-    flex: 0 0 250px;
+    flex: 0 0 15.625rem;
     flex-direction: column;
     justify-content: flex-start;
     order: 1;
-    padding: 10px 0;
+    padding: 0.625rem 0;
     position: relative;
 
-    @include media-breakpoint-only(sm) {
+    @media (min-width: 576px) and (max-width: 767.98px) {
         border-bottom: 1px solid #e1e1e1;
     }
-    @include media-breakpoint-only(lg) {
+
+    @media (min-width: 992px) and (max-width: 1199.98px) {
         border-bottom: 1px solid #e1e1e1;
     }
 }
 
-.player-position {
+.playerPosition {
     background-color: white;
     color: #3a3a3a;
     display: block;
     font-family: "Quicksand", sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
-    // padding-top: 10px;
     position: relative;
     text-shadow: none;
     text-transform: uppercase;
 
-    @include media-breakpoint-up(lg) {
-        padding-top: 3px
+    @media (min-width: 992px) {
+        padding-top: 0.1875rem;
     }
 
     &::after {
-        background-color: var(--miamiOrange);
+        background-color: rgb(245, 130, 32);
         content: "";
         display: block;
-        margin: 5px auto;
-        height: 1px;
-        width: 50px;
+        margin: 0.3125rem auto;
+        height: 0.0625rem;
+        width: 3.125rem;
     }
 }
 
-.player-name {
-    color: miami-color("miamiAqua");
+.playerName {
+    color: rgb(0, 142, 151);
     font-size: 1.25rem;
     line-height: 1;
     font-weight: 700;

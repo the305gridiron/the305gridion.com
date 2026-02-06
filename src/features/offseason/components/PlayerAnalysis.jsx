@@ -1,10 +1,10 @@
 import React from "react";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import styles from "./PlayerAnalysis.module.scss";
 
 export default function PlayerAnalysis(props) {
@@ -17,7 +17,7 @@ export default function PlayerAnalysis(props) {
     const desktopSize = useMediaQuery("(min-width:1200px)");
 
     return (
-        <ExpansionPanel
+        <Accordion
             id={props.id}
             className={styles.playerAnalysis}
             elevation={0}
@@ -26,7 +26,7 @@ export default function PlayerAnalysis(props) {
             onChange={handleChange(`panel${props.id}`)}
         >
             {!desktopSize && (
-                <ExpansionPanelSummary
+                <AccordionSummary
                     aria-controls={`panel${props.id}id-content`}
                     id={`panel${props.id}id-header`}
                     className={styles.playerAnalysisToggle}
@@ -37,10 +37,10 @@ export default function PlayerAnalysis(props) {
                     ) : (
                         <KeyboardArrowDownIcon />
                     )}
-                </ExpansionPanelSummary>
+                </AccordionSummary>
             )}
 
-            <ExpansionPanelDetails className={styles.playerAnalysisContent}>
+            <AccordionDetails className={styles.playerAnalysisContent}>
                 {props.quote
                     ? props.quote
                     : "Player analysis will be available when a player is selected."}
@@ -55,7 +55,7 @@ export default function PlayerAnalysis(props) {
                         {props.cite.text}
                     </a>
                 )}
-            </ExpansionPanelDetails>
-        </ExpansionPanel>
+            </AccordionDetails>
+        </Accordion>
     );
 }

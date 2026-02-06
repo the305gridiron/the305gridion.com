@@ -1,0 +1,18 @@
+/* DraftCard.module.css */
+.draftCard {
+    background-color: #fefefe;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 0;
+    /* base, will override for non-last-child */
+}
+
+.draftCard:not(:last-child) {
+    margin-bottom: 0.9375rem;
+    /* 15px */
+}

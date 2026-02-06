@@ -1,7 +1,7 @@
 import React from "react";
 import IconHeader from "./IconHeader";
 import DraftCard from "./DraftCard";
-import TrendingUpOutlinedIcon from "@material-ui/icons/TrendingUpOutlined";
+import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 
 import styles from "./DraftResults.module.scss";
 

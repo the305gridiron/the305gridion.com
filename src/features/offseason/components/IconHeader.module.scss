@@ -1,26 +1,22 @@
-@import "../styles/variables";
-@import "../styles/functions";
-@import "../styles/mixins";
-
-.icon-header {
-    @include fontSize(20px);
-    color: miami-color("miamiAqua");
+.iconHeader {
+    font-size: 1.25rem;
+    color: rgb(0, 142, 151);
     display: flex;
     align-items: flex-end;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
 
-    @include media-breakpoint-up(md) {
-        @include fontSize(24px);
+    @media (min-width: 768px) {
+        font-size: 1.5rem;
     }
 
     svg {
-        @include fontSize(30px);
-        color: miami-color("miamiOrange");
-        margin-right: 5px;
+        font-size: 1.875rem;
+        color: rgb(245, 130, 32);
+        margin-right: 0.3125rem;
 
-        @include media-breakpoint-up(md) {
-            @include fontSize(34px);
+        @media (min-width: 768px) {
+            font-size: 2.125rem;
         }
     }
 }

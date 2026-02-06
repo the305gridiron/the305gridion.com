@@ -23,7 +23,7 @@ export default () => {
     const isMobile = useMediaQuery("(max-width:767px)");
 
     return (
-        <div className="page-wrapper">
+        <div className="offseason-page">
             <Header>
                 <h1>Miami Dolphins Offseason 2020</h1>
             </Header>

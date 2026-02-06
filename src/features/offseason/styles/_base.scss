@@ -1,37 +1,35 @@
-:root {
-    @each $color, $value in $miami-colors {
-        --#{$color}: #{$value};
-    }
-}
+.offseason-page {
+    --miamiAqua: rgb(0, 142, 151);
+    --miamiOrange: rgb(245, 130, 32);
+    --miamiBlue: rgb(0, 87, 120);
 
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    font-family: $baseFontFamily;
+    font-family: "Quicksand", sans-serif;
     font-weight: normal;
     margin: 0;
     padding: 0;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: $headerFontFamily;
-    font-weight: 500;
-    margin: 0;
-    padding: 0;
-}
 
-figure {
-    margin: 0;
+    * {
+        box-sizing: border-box;
+    }
 
-    img {
-        display: block;
-        max-width: 100%;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Roboto Slab", sans-serif;
+        font-weight: 500;
+        margin: 0;
+        padding: 0;
+    }
+
+    figure {
+        margin: 0;
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
     }
 }
