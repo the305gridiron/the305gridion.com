@@ -1,0 +1,41 @@
+.homePage {
+    padding: 0;
+}
+
+.videoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+@media screen and (min-width: 576px) {
+    .videoGrid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+
+.videoCard {
+    background-color: #fff;
+    /* border: 1px solid #eaeaea; */
+    border-radius: 5px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.videoTitle {
+    color: #333;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+    font-style: normal;
+    line-height: 1.1;
+    margin: 1.5rem 0 1rem;
+    text-decoration: none;
+}
+
+.videoDescription {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0;
+}
