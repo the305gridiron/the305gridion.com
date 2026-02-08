@@ -1,5 +1,115 @@
+:root {
+    /* -------------------- Logo Teal -------------------- */
+    --color-dolphins-teal: hsl(187, 86%, 33%);
+    --color-dolphins-teal-light: hsl(187, 86%, 45%);
+    --color-dolphins-teal-lighter: hsl(187, 86%, 60%);
+    --color-dolphins-teal-muted: hsl(187, 40%, 70%);
+
+    /* -------------------- Logo Orange -------------------- */
+    --color-dolphins-orange: hsl(33, 82%, 52%);
+    --color-dolphins-orange-light: hsl(33, 75%, 62%);
+    --color-dolphins-orange-lighter: hsl(33, 70%, 72%);
+    --color-dolphins-orange-muted: hsl(33, 60%, 85%);
+
+    /* -------------------- Dolphins Navy -------------------- */
+    --color-dolphins-navy: hsl(197, 100%, 22%);
+    --color-dolphins-navy-light: hsl(197, 80%, 35%);
+    --color-dolphins-navy-lighter: hsl(197, 60%, 50%);
+    --color-dolphins-navy-muted: hsl(197, 30%, 70%);
+
+    /* -------------------- Grays -------------------- */
+    --color-soft-black: hsl(0, 0%, 10%);
+    --color-dark-gray: hsl(0, 0%, 30%);
+    --color-gray: hsl(0, 0%, 50%);
+    --color-light-gray: hsl(0, 0%, 70%);
+    --color-lighter-gray: hsl(0, 0%, 90%);
+
+
+    --font-family-header: "Bebas Neue", sans-serif;
+    --font-family-body: "Inter", system-ui, -apple-system, sans-serif;
+
+    --radius-default: 0.5rem;
+    --radius-small: 0.25rem;
+    --radius-large: 0.75rem;
+}
+
 html,
-body {
+body,
+#root {
     margin: 0;
     padding: 0;
+    height: 100%;
+    font-family: var(--font-family-body);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+body {
+    background: linear-gradient(to bottom,
+            #ffffff,
+            #f8fafb,
+            #f3f6f8);
+    background-attachment: fixed;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-family: var(--font-family-header);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container-fluid {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media screen and (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
 }
