@@ -31,6 +31,10 @@
     --radius-default: 0.5rem;
     --radius-small: 0.25rem;
     --radius-large: 0.75rem;
+
+    --zindex-backdrop: 40;
+    --zindex-header: 50;
+    --z-index-drawer: 60;
 }
 
 html,
@@ -53,6 +57,11 @@ body {
             #f8fafb,
             #f3f6f8);
     background-attachment: fixed;
+
+    &.noScroll {
+        overflow: hidden;
+        touch-action: none;
+    }
 }
 
 * {

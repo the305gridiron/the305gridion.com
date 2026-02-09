@@ -1,0 +1,295 @@
+/* =========================
+   HEADER ROOT
+========================= */
+.pageHeader {
+    background-color: var(--color-dolphins-teal);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    z-index: var(--zindex-header);
+}
+
+.pageHeaderContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    width: 100%;
+}
+
+/* =========================
+   LOGO
+========================= */
+.logo {
+    border-radius: var(--radius-default);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    height: 65px;
+    width: 65px;
+    flex: 0 0 65px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(1rem);
+    transition: transform 0.3s ease;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+/* =========================
+   NAV DRAWER
+========================= */
+.pageNav {
+    position: fixed;
+    top: 50px;
+    right: -100%;
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--color-dolphins-teal);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    gap: 1rem;
+    transition: right 0.3s ease;
+    z-index: var(--zindex-drawer);
+}
+
+.pageNav.open {
+    right: 0;
+}
+
+.pageNavToggle {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: block;
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+.navLink {
+    color: rgba(255, 255, 255, 0.8);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.04em;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
+    transition: background 0.3s ease, color 0.3s ease;
+    justify-content: center;
+    width: 100%;
+
+    svg {
+        animation-fill-mode: both;
+        transition: transform 0.18s ease;
+        height: 18px;
+        width: 18px;
+    }
+
+    &:hover,
+    &:focus-visible {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-small);
+        color: white;
+
+        svg {
+            animation: iconShake 0.35s ease 1;
+        }
+    }
+}
+
+/* =========================
+   SUBSCRIBE BUTTON
+========================= */
+.subscribeBtn {
+    background: white;
+    border: none;
+    color: var(--color-dolphins-teal);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-small);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    justify-content: center;
+    width: 100%;
+
+    svg {
+        height: 18px;
+        width: 18px;
+    }
+
+    &:hover,
+    &:focus-visible {
+        background: rgba(255, 255, 255, 0.08);
+        color: white;
+    }
+}
+
+/* =========================
+   BACKDROP
+========================= */
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+    z-index: var(--zindex-backdrop);
+}
+
+/* =========================
+   FOCUS STATES
+========================= */
+.navLink:focus-visible,
+.subscribeBtn:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 2px var(--color-dolphins-teal),
+        0 0 0 4px rgba(255, 255, 255, 0.9);
+    border-radius: 6px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes iconShake {
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(6deg);
+    }
+
+    50% {
+        transform: rotate(-6deg);
+    }
+
+    75% {
+        transform: rotate(4deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+/* =========================
+   MEDIA QUERIES
+========================= */
+@media (prefers-reduced-motion: reduce) {
+    .navLink svg {
+        transition: none;
+        animation: none;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .pageHeaderContainer {
+        padding: 1.5rem;
+    }
+
+    .logo {
+        transform: translateY(0);
+    }
+
+    .navLink {
+        justify-content: default;
+        width: auto;
+    }
+
+    .pageNav {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        height: auto;
+        width: auto;
+        background: transparent;
+        gap: 0;
+        padding: 0;
+        transition: none;
+        max-width: none;
+    }
+
+    .pageNav.open {
+        right: auto;
+    }
+
+    .pageNavToggle {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .subscribeBtn {
+        margin-left: 1rem;
+        padding: 0.5rem;
+        width: auto;
+    }
+
+    .subscribeBtnText {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .logo {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        flex: 0 0 85px;
+        height: 85px;
+        width: 85px;
+        transform: translateY(1.5rem);
+    }
+
+    .subscribeBtn {
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .logo {
+        flex: 0 0 100px;
+        height: 100px;
+        width: 100px;
+    }
+
+    .pageNav {
+        gap: 1rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .navLink {
+        font-size: 0.95rem;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .subscribeBtn {
+        font-size: 0.95rem;
+        padding: 0.75rem 1.5rem;
+    }
+}

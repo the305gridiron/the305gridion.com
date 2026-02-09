@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>the305gridiron.com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <style type="text/css">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .page-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1320px;
+            padding: 2rem;
+            width: 100%;
+            min-height: 100%;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            grid-column: 1 / 2;
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .navigation {
+            border-radius: 1rem;
+            background: teal;
+            grid-row: 1 / 3;
+        }
+
+        .subscribe {
+            border-radius: 1rem;
+            background: orange;
+            grid-row: 3 / 4;
+        }
+
+        .page-body {
+            grid-column: 2 / 4;
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .featured {
+            border-radius: 1rem;
+            background: #333;
+            grid-row: 1 / 2;
+        }
+
+        .videos {
+            border-radius: 1rem;
+            background: #eaeaea;
+            grid-row: 2 / 4;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="root"></div> -->
+
+    <div class="page-wrapper">
+        <header class="page-header">
+            <section class="navigation"></section>
+            <section class="subscribe"></section>
+        </header>
+        <main class="page-body">
+            <section class="featured"></section>
+            <section class="videos"></section>
+        </main>
+    </div>
+
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

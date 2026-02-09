@@ -29,13 +29,12 @@ export default function Home() {
 
     return (
         <div className={styles.homePage}>
-            {youtubeVideos.slice(0, 1).map(video => (
+            {youtubeVideos?.slice(0, 1)?.map(video => (
                 <HeroVideo key={video.videoId} video={video} />
             ))}
             <div className="container">
-
                 <div className={styles.videoGrid}>
-                    {youtubeVideos.slice(1).map(video => (
+                    {youtubeVideos?.slice(1)?.map(video => (
                         <div className={styles.videoCard} key={video.videoId}>
                             <YouTubeEmbed
                                 videoId={video.videoId}

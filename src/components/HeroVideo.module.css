@@ -13,6 +13,12 @@
     }
 }
 
+@media screen and (min-width: 768px) {
+    .heroVideo {
+        padding: 3rem;
+    }
+}
+
 .videoWrapper {
     flex: 1 1 400px;
     min-width: 300px;
@@ -57,7 +63,7 @@
     border: none;
     padding: 0.5rem 0.75rem;
     border-radius: var(--radius-small);
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     font-weight: 600;
     cursor: pointer;
     line-height: 1.2;
@@ -77,6 +83,23 @@
 }
 
 .buttonIcon {
-    font-size: 1rem;
     transition: transform 0.2s ease;
+
+    svg {
+        height: 18px;
+        width: 18px;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .heroButton {
+        font-size: 0.75rem;
+    }
+
+    .buttonIcon {
+        svg {
+            height: 24px;
+            width: 24px;
+        }
+    }
 }
