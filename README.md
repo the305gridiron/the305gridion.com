@@ -5,4 +5,4 @@ Every week we break down the latest news, roster moves, game reactions, draft dr
 
 New episodes weekly. Subscribe and ride with us through every win, loss, and wild ride in between.
 
-Check us out on [Youtube](www.youtube.com/@The305Gridiron)
+Check us out on [Youtube](www.youtube.com/@The305Gridiron) for all of our great content.
