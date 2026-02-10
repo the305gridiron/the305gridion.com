@@ -47,7 +47,7 @@ export default function Home() {
 
             <div className="container">
                 <div className={styles.videoGrid}>
-                    {youtubeVideos?.slice(1)?.map(video => (
+                    {youtubeVideos?.map(video => (
                         <div className={styles.videoCard} key={video.videoId}>
                             <YouTubeEmbed
                                 videoId={video.videoId}
