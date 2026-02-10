@@ -14,11 +14,11 @@ export default function Footer() {
                 </div>
 
                 <div className={styles.schedule}>
-                    <h4>Off-Season Schedule</h4>
-                    <p>New videos every Tuesday and Thursday at 7 PM EST</p>
-
                     <h4>In-Season Schedule</h4>
                     <p>Live-stream every Monday and Wednesday at 7 PM EST</p>
+
+                    <h4>Off-Season Schedule</h4>
+                    <p>New videos every Tuesday and Thursday at 7 PM EST</p>
                 </div>
 
                 <nav className={styles.footerNav}>
@@ -26,6 +26,9 @@ export default function Footer() {
                     <Link to="/">Video Library</Link>
                     <Link to="/draft">Draft Board</Link>
                     <Link to="/offseason">Offseason Tracker</Link>
+                    <a href="mailto:you@the305gridiron.com">
+                        Contact Us
+                    </a>
                 </nav>
             </div>
 
