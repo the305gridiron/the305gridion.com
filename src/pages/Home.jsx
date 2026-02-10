@@ -3,6 +3,7 @@ import { fetchYoutubeVideos } from "../services/YoutubeService";
 import YouTubeEmbed from "../components/YoutubeEmbed";
 import styles from "../styles/Home.module.css";
 import HeroVideo from "../components/HeroVideo";
+import { ClipLoader } from "react-spinners";
 
 export default function Home() {
     const [youtubeVideos, setYoutubeVideos] = useState([]);
@@ -25,7 +26,13 @@ export default function Home() {
         loadData();
     }, []);
 
-    if (loading) return <p>Loading videos...</p>;
+    if (loading) {
+        return (
+            <div className="loading">
+                <ClipLoader color="#007bff" loading={loading} size={50} />
+            </div>
+        );
+    }
 
     return (
         <div className={styles.homePage}>
