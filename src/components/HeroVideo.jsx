@@ -15,6 +15,7 @@ export default function HeroVideo({ video }) {
                         thumbnail={video.thumbnail}
                         title={video.title}
                         thumbnailStyles={{ border: 0 }}
+                        autoplay={video.isLive}
                     />
                 </div>
                 <div className={styles.videoDetails}>
