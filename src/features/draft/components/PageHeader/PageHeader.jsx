@@ -5,7 +5,8 @@ const PageHeader = () => {
     return (
         <header className={styles.header}>
             <Container>
-                <h1 className={styles.title}>Phins Forecast 2025&nbsp;Big&nbsp;Board</h1>
+                <h1 className={styles.title}>2026&nbsp;Big&nbsp;Board Coming Soon</h1>
+                <p className={styles.promo}>We're still preparing for the 2026 draft, but while you wait, checkout what we had to say about last years class!</p>
             </Container>
         </header>
     );

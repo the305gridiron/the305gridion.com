@@ -1,6 +1,9 @@
 .header {
+    background: var(--gray-800) url('../../assets/denim.webp');
     color: var(--white-color);
     padding-top: var(--spacer-double);
+    padding-bottom: var(--spacer-double);
+    margin-bottom: var(--spacer);
 }
 
 .header h1 {
@@ -10,6 +13,17 @@
     margin: 0 0 var(--spacer);
     text-align: center;
     text-transform: uppercase;
+}
+
+.promo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 1.25rem;
+    margin: 0 auto !important;
+    max-width: 640px;
+    padding: 0 1rem;
+    text-align: center;
 }
 
 @media screen and (min-width: 992px) {

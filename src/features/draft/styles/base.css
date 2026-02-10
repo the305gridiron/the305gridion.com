@@ -2,8 +2,8 @@
   margin: 0;
   padding: 0;
   color: var(--gray-800);
-  background-color: var(--white-color);
-  background: var(--gray-800) url('../assets/denim.webp');
+  /* background-color: var(--white-color);
+  background: var(--gray-800) url('../assets/denim.webp'); */
   font-weight: var(--font-weight-light);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
@@ -61,7 +61,7 @@
   font-size: inherit;
   line-height: inherit;
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
 }
 
 .draft-page .semibold {
