@@ -1,20 +1,32 @@
 .pageHeader {
+    background: url('../images/denim.webp');
     color: white;
+    padding-top: 32px;
+    padding-bottom: 32px;
 
     h1 {
-        font-size: 1rem;
-        padding: 0.625rem 0;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        padding: 0;
         text-align: center;
         text-transform: uppercase;
-        text-shadow: 3px 3px 3px rgb(0, 142, 151);
 
         @media (min-width: 576px) {
             font-size: 1.5rem;
         }
 
-        @media (min-width: 1440px) {
-            font-size: 1.875rem;
-            padding: 1.25rem 0;
+        @media (min-width: 992px) {
+            font-size: 48px;
+            line-height: 57.6px;
+            margin-bottom: 8px;
         }
+    }
+
+    :global(.promo) {
+        font-size: 1.25rem;
+        margin: 0 auto !important;
+        max-width: 640px;
+        padding: 0 1rem;
+        text-align: center;
     }
 }

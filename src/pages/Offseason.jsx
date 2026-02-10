@@ -27,10 +27,11 @@ export default function Offseason() {
     return (
         <div className="offseason-page">
             <Header>
-                <h1>Miami Dolphins Offseason 2020</h1>
+                <h1>2026 Offseason Tracker Coming Soon</h1>
+                <p className="promo">The new league year is just around the corner and we'll be tracking all the latest cuts, acquisitions, trades and draft picks for our beloved Miami Dolphins. Check back soon!</p>
             </Header>
 
-            {isMobile && <MobileNav />}
+            {/* {isMobile && <MobileNav />}
 
             <main className="page-content">
                 <DraftResults players={DraftedPlayers} />
@@ -46,7 +47,7 @@ export default function Offseason() {
                 </Sidebar>
             </main>
 
-            <ScrollToTop />
+            <ScrollToTop /> */}
         </div>
     );
 }

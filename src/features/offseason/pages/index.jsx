@@ -25,7 +25,7 @@ export default () => {
     return (
         <div className="offseason-page">
             <Header>
-                <h1>Miami Dolphins Offseason 2020</h1>
+                <h1>2026 Offseason Tracker Coming Soon</h1>
             </Header>
 
             {isMobile && <MobileNav />}

@@ -1,11 +1,11 @@
 .pageLayout {
     display: grid;
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 50px 1fr auto;
     min-height: 100%;
 }
 
 @media screen and (min-width: 576px) {
     .pageLayout {
-        grid-template-rows: 75px 1fr;
+        grid-template-rows: 75px 1fr auto;
     }
 }
