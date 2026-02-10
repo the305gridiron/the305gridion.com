@@ -6,6 +6,7 @@ import HeroVideo from "../components/HeroVideo";
 import { ClipLoader } from "react-spinners";
 
 export default function Home() {
+    const [heroVideo, setHeroVideo] = useState(null);
     const [youtubeVideos, setYoutubeVideos] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -13,9 +14,15 @@ export default function Home() {
         const loadData = async () => {
             setLoading(true);
             try {
-                const youtubeVideoData = await fetchYoutubeVideos();
-                console.log("Fetched YouTube videos:", youtubeVideoData);
-                setYoutubeVideos(youtubeVideoData);
+                const youtubeData = await fetchYoutubeVideos();
+                console.log("Fetched YouTube videos:", youtubeData);
+
+                setHeroVideo(youtubeData.heroVideo ?? youtubeData.videos[0]);
+
+                setYoutubeVideos(youtubeData.heroVideo
+                    ? youtubeData.videos
+                    : youtubeData.videos.slice(1)
+                );
             } catch (error) {
                 console.error("Error fetching data:", error);
             } finally {
@@ -36,9 +43,8 @@ export default function Home() {
 
     return (
         <div className={styles.homePage}>
-            {youtubeVideos?.slice(0, 1)?.map(video => (
-                <HeroVideo key={video.videoId} video={video} />
-            ))}
+            <HeroVideo video={heroVideo} />
+
             <div className="container">
                 <div className={styles.videoGrid}>
                     {youtubeVideos?.slice(1)?.map(video => (
