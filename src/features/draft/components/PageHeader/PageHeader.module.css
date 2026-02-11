@@ -16,14 +16,16 @@
 }
 
 .promo {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
     font-size: 1.25rem;
     margin: 0 auto !important;
     max-width: 640px;
+    opacity: 0.85;
     padding: 0 1rem;
     text-align: center;
+
+    strong {
+        font-weight: var(--font-weight-bold);
+    }
 }
 
 @media screen and (min-width: 992px) {

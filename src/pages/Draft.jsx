@@ -7,16 +7,23 @@ import { ClipLoader } from "react-spinners";
 import "../features/draft/styles/global.css";
 
 export default function Draft() {
-    const [prospects, setProspects] = useState({});
+    const [prospects, setProspects] = useState([]);
     const [designations, setDesignations] = useState({});
     const [loading, setLoading] = useState(true);
-    const positionKeys = Object.keys(prospects);
+
+    const positionOrder = [
+        "QB", "RB", "WR", "TE", "OT", "IOL", "EDGE", "DL", "LB", "CB", "S"
+    ];
+
+    const positionKeys = positionOrder.filter(pos =>
+        prospects.some(p => p.position === pos)
+    );
 
     const loadData = useCallback(async () => {
         setLoading(true);
         try {
             const [prospectsData, designationsData] = await Promise.all([
-                fetchProspects(),
+                fetchProspects(true),
                 fetchDesignations(),
             ]);
             setProspects(prospectsData);
@@ -46,11 +53,18 @@ export default function Draft() {
         <div className="draft-page">
             <PageHeader />
             <Container>
-                <Tabs defaultActiveKey="QB">
+                <Tabs defaultActiveKey="ALL">
+                    <Tab key="ALL" tab="ALL">
+                        <ProspectTable
+                            prospects={prospects}
+                            designations={designations}
+                        />
+                    </Tab>
+
                     {positionKeys.map((position) => (
                         <Tab key={position} tab={position}>
                             <ProspectTable
-                                prospects={prospects[position]}
+                                prospects={prospects.filter(p => p.position === position)}
                                 designations={designations}
                             />
                         </Tab>

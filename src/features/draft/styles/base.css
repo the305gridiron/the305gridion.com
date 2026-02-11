@@ -56,14 +56,6 @@
   height: auto;
 }
 
-.draft-page button {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  margin: 0;
-  /* padding: 0; */
-}
-
 .draft-page .semibold {
   font-weight: var(--font-weight-semibold);
 }

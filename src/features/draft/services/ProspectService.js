@@ -9,18 +9,16 @@ const positionOrder = [
     "RB",
     "WR",
     "TE",
-    "T",
-    "G",
-    "C",
+    "OT",
+    "IOL",
     "EDGE",
-    "IDL",
+    "DL",
     "LB",
     "CB",
     "S",
 ];
 
 export const fetchProspects = async (forceRefresh = false) => {
-    // Check if invalidated
     const cacheInvalidated =
         localStorage.getItem(CACHE_INVALIDATION_KEY) === "true";
 
@@ -36,29 +34,21 @@ export const fetchProspects = async (forceRefresh = false) => {
     try {
         console.log("PROSPECTS API Hit");
         const response = await axios.get(API_URL);
-        const sortedProspects = response.data.sort((a, b) => {
-            const positionIndexA = positionOrder.indexOf(a.position);
-            const positionIndexB = positionOrder.indexOf(b.position);
-            if (positionIndexA < positionIndexB) return -1;
-            if (positionIndexA > positionIndexB) return 1;
-            return a.position_rank - b.position_rank;
-        });
-        const prospectsByPosition = sortedProspects.reduce((acc, prospect) => {
-            if (!acc[prospect.position]) {
-                acc[prospect.position] = [];
-            }
-            acc[prospect.position].push(prospect);
-            return acc;
-        }, {});
+
+        const sortedProspects = response.data
+            .filter((p) => p.draftYear === 2026)
+            .sort((a, b) => a.draft_rank - b.draft_rank);
+
         localStorage.setItem(
             PROSPECTS_KEY,
-            JSON.stringify(prospectsByPosition)
+            JSON.stringify(sortedProspects)
         );
+
         localStorage.removeItem(CACHE_INVALIDATION_KEY);
-        return prospectsByPosition;
+        return sortedProspects;
     } catch (error) {
         console.error("Error fetching prospects:", error);
-        return {};
+        return [];
     }
 };
 

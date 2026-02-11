@@ -24,7 +24,9 @@ export default function Header() {
             <header className={styles.pageHeader}>
                 <div className={styles.pageHeaderContainer}>
                     <figure className={styles.logo}>
-                        <img src={Logo} alt="The 305 Gridiron Logo" />
+                        <Link to="/">
+                            <img src={Logo} alt="The 305 Gridiron Logo" />
+                        </Link>
                     </figure>
 
                     <button

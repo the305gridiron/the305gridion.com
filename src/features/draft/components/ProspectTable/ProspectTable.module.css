@@ -21,8 +21,12 @@
 .prospectTableHeaderCell {
     background-color: var(--primary-color);
     color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
+    line-height: 1.1;
     text-align: center;
 }
 
@@ -55,21 +59,56 @@
 .prospectTableCellWeight,
 .prospectTableCellAge,
 .prospectTableCellGrade,
+.prospectTableCellFit,
 .prospectTableCellProjection,
 .prospectTableCellComp {
     display: none;
 }
 
-.prospectTableCellRank {
+.fitBadge {
+    padding: var(--spacer-quarter) var(--spacer-half);
+    border-radius: var(--border-radius);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Tier-specific colors */
+.Tier1CoreTarget,
+.prospectDetailsFit:has(.Tier1CoreTarget) {
+    background-color: #1abc9c;
+    color: white;
+}
+
+.Tier2StrongFit,
+.prospectDetailsFit:has(.Tier2StrongFit) {
+    background-color: #3498db;
+    color: white;
+}
+
+.Tier3Conditional,
+.prospectDetailsFit:has(.Tier3Conditional) {
+    background-color: #f1c40f;
+    color: white;
+}
+
+.Tier4AvoidDepth,
+.prospectDetailsFit:has(.Tier4AvoidDepth) {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.prospectTableCellRank,
+.prospectTableCellPosRank {
     max-width: 50px;
 }
 
-.prospectTableHeaderCell.prospectTableCellRank {
+.prospectTableHeaderCell.prospectTableCellRank,
+.prospectTableHeaderCell.prospectTableCellPosRank {
     padding-left: var(--spacer-quarter);
     padding-right: var(--spacer-quarter);
 }
 
-.prospectTableCell.prospectTableCellRank {
+.prospectTableCell.prospectTableCellRank,
+.prospectTableCell.prospectTableCellPosRank {
     color: var(--gray-700);
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
@@ -80,17 +119,20 @@
 .prospectTableCellHeight,
 .prospectTableCellWeight,
 .prospectTableCellAge,
-.prospectTableCellGrade {
+.prospectTableCellGrade,
+.prospectTableCellFit {
     max-width: 85px;
     text-align: center;
 }
 
 .prospectTableCellProjection {
     max-width: 150px;
+    text-align: center;
 }
 
 .prospectTableCellComp {
     max-width: 250px;
+    text-align: center;
 }
 
 .prospectTableCellName {
@@ -108,10 +150,17 @@
     font-weight: var(--font-weight-semibold);
 }
 
+.positionBadge {
+    font-weight: var(--font-weight-bold);
+    margin-right: var(--spacer-half);
+    opacity: 0.7;
+}
+
 .prospectsTableCollege,
 .prospectsTableMeasurables {
     font-size: var(--font-size-xs);
     line-height: 1;
+    margin-bottom: var(--spacer-quarter);
     text-transform: uppercase;
 }
 
@@ -127,6 +176,7 @@
     background: transparent;
     border: 0;
     color: var(--primary-color);
+    cursor: pointer;
     font-size: var(--font-size-xs);
     line-height: 1;
     padding: 0;
@@ -190,16 +240,6 @@
 
 @media screen and (min-width: 576px) {
 
-    .prospectTableCellGrade,
-    .prospectTableCellAge {
-        display: block;
-    }
-
-    .prospectDetailsGrade,
-    .prospectDetailsAge {
-        display: none;
-    }
-
     .prospectDetailsMobile>li,
     .prospectDetailsMobile>li.prospectDetailsProjection,
     .prospectDetailsMobile>li.prospectDetailsComp {
@@ -210,13 +250,13 @@
 
 @media screen and (min-width: 768px) {
 
-    .prospectTableCellHeight,
-    .prospectTableCellWeight {
+    .prospectTableCellGrade,
+    .prospectTableCellFit {
         display: block;
     }
 
-    .prospectDetailsHeight,
-    .prospectDetailsWeight {
+    .prospectDetailsGrade,
+    .prospectDetailsFit {
         display: none;
     }
 }
@@ -242,7 +282,8 @@
     .prospectTableCellHeight,
     .prospectTableCellWeight,
     .prospectTableCellAge,
-    .prospectTableCellGrade {
+    .prospectTableCellGrade,
+    .prospectTableCellFit {
         max-width: 100px;
     }
 
