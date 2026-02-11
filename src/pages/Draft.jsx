@@ -23,7 +23,7 @@ export default function Draft() {
         setLoading(true);
         try {
             const [prospectsData, designationsData] = await Promise.all([
-                fetchProspects(),
+                fetchProspects(true),
                 fetchDesignations(),
             ]);
             setProspects(prospectsData);
