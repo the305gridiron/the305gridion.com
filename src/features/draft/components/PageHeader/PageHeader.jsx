@@ -15,8 +15,8 @@ const PageHeader = () => {
     return (
         <header className={styles.header}>
             <Container>
-                <h1 className={styles.title}>Top 150 Prospects - 2026 Draft Board</h1>
-                <p className={styles.promo}>The draft is just <strong>{daysAwayFromDraft} {daysAwayFromDraft === 1 ? "day" : "days"}</strong> away! Explore the board and see which prospects would be the best fit for our Phins.</p>
+                <h1 className={styles.title}>2026 Draft Board</h1>
+                <p className={styles.promo}>The draft is just <strong>{daysAwayFromDraft} {daysAwayFromDraft === 1 ? "day" : "days"}</strong> away! Explore our top 150 prospects and see which prospects would be the best fit for our Phins.</p>
             </Container>
         </header>
     );
