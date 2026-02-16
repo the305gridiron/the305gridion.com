@@ -53,7 +53,7 @@ export async function handler(event) {
                 videoId: video.snippet.resourceId.videoId,
                 title: video.snippet.title,
                 description: video.snippet.description,
-                thumbnail: video.snippet.thumbnails?.high?.url,
+                thumbnail: video.snippet.thumbnails?.maxres?.url,
                 publishedAt: video.snippet.publishedAt
             }))
             .slice(0, 10);
