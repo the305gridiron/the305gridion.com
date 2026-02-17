@@ -9,7 +9,7 @@ import "../features/draft/styles/global.css";
 export default function Draft() {
     const [prospects, setProspects] = useState([]);
     const [designations, setDesignations] = useState({});
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const positionOrder = [
         "QB", "RB", "WR", "TE", "OT", "IOL", "EDGE", "DL", "LB", "CB", "S"
@@ -46,6 +46,20 @@ export default function Draft() {
                     <ClipLoader color="#007bff" loading={loading} size={50} />
                 </div>
             </Container>
+        );
+    }
+
+    if (!loading && prospects.length === 0) {
+        return (
+            <div className="draft-page">
+                <PageHeader />
+                <Container>
+                    <div className="no-results">
+                        <h2>Excuse the Emptyness!</h2>
+                        <p>New data is being loaded as we speak, check back soon for the most up-to-date 305 Gridiron Draft Board! 🎉</p>
+                    </div>
+                </Container>
+            </div>
         );
     }
 
