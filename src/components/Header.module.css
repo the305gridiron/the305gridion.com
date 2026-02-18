@@ -110,6 +110,7 @@
         background: rgba(255, 255, 255, 0.08);
         border-radius: var(--radius-small);
         color: white;
+        text-decoration: none;
 
         svg {
             animation: iconShake 0.35s ease 1;
@@ -147,6 +148,7 @@
     &:focus-visible {
         background: rgba(255, 255, 255, 0.08);
         color: white;
+        text-decoration: none;
     }
 }
 

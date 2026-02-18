@@ -19,7 +19,7 @@ export default function HeroVideo({ video }) {
                     />
                 </div>
                 <div className={styles.videoDetails}>
-                    <h2 className={styles.title}>{video.title}</h2>
+                    <h2 className={styles.title}>{video.title.replace("|", "")}</h2>
                     <p className={styles.description}>{video.description.split("📢")[0]}</p>
                     <div className={styles.heroCTA}>
                         <a className={styles.heroButton} href="https://www.youtube.com/playlist?list=PLxSEosyZR98Psz7lXdABd7gJ7JynnIkYm" target="_blank" rel="noopener noreferrer">

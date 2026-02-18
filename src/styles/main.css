@@ -1,54 +1,154 @@
 :root {
-    /* -------------------- Logo Teal -------------------- */
+    /*  Base Colors  */
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+
+    /*  Informational Colors  */
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --subtle-success-color: #d1e7dd;
+    --subtle-danger-color: #f8d7da;
+    --subtle-warning-color: #fff3cd;
+    --subtle-info-color: #cfe2ff;
+
+    /*  Logo Teal  */
     --color-dolphins-teal: hsl(187, 86%, 33%);
     --color-dolphins-teal-light: hsl(187, 86%, 45%);
     --color-dolphins-teal-lighter: hsl(187, 86%, 60%);
     --color-dolphins-teal-muted: hsl(187, 40%, 70%);
 
-    /* -------------------- Logo Orange -------------------- */
+    /*  Logo Orange  */
     --color-dolphins-orange: hsl(33, 82%, 52%);
     --color-dolphins-orange-light: hsl(33, 75%, 62%);
     --color-dolphins-orange-lighter: hsl(33, 70%, 72%);
     --color-dolphins-orange-muted: hsl(33, 60%, 85%);
 
-    /* -------------------- Dolphins Navy -------------------- */
+    /*  Dolphins Navy  */
     --color-dolphins-navy: hsl(197, 100%, 22%);
     --color-dolphins-navy-light: hsl(197, 80%, 35%);
     --color-dolphins-navy-lighter: hsl(197, 60%, 50%);
     --color-dolphins-navy-muted: hsl(197, 30%, 70%);
 
-    /* -------------------- Grays -------------------- */
+    /*  Grays  */
     --color-soft-black: hsl(0, 0%, 10%);
     --color-dark-gray: hsl(0, 0%, 30%);
     --color-gray: hsl(0, 0%, 50%);
     --color-light-gray: hsl(0, 0%, 70%);
     --color-lighter-gray: hsl(0, 0%, 90%);
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
 
+    /*  Draft Page Colors  */
+    --primary-color: #008E97;
+    --primary-color-darker: #007A83;
+    --secondary-color: #FC4C02;
+    --tertiary-color: #005778;
+    --subtle-primary-color: rgba(0, 142, 151, 0.1);
+    --subtle-secondary-color: rgba(252, 76, 2, 0.1);
+    --subtle-tertiary-color: rgba(0, 87, 120, 0.1);
 
+    /* Fonts */
     --font-family-header: "Bebas Neue", sans-serif;
     --font-family-body: "Inter", system-ui, -apple-system, sans-serif;
+    --font-family-base: var(--font-family-body);
 
+    /*
+    Base Font Sizing (no zoom)
+    ---
+    base: 16px
+    x-small: 12px
+    small: 14px
+    large: 18px
+    x-large: 20px
+    xx-large: 24px
+    */
+    --font-size-base: 1rem;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-xxl: 1.5rem;
+    --font-size-h1: 3rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.5rem;
+    --font-size-h4: 1.25rem;
+    --font-size-h5: 1rem;
+    --font-size-h6: 0.875rem;
+
+    /* Font Weights */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Line Height */
+    --line-height-base: 1.5;
+    --line-height-sm: 1.25;
+    --line-height-xs: 1;
+    --line-height-lg: 1.75;
+    --line-height-xl: 2;
+
+    /* 
+    Spacing
+    ---
+    base: 16px
+    half: 8px
+    quarter: 4px
+    double: 32px
+    */
+    --spacer: 1rem;
+    --spacer-half: 0.5rem;
+    --spacer-quarter: 0.25rem;
+    --spacer-double: 2rem;
+
+    /* Border Radius */
     --radius-default: 0.5rem;
     --radius-small: 0.25rem;
     --radius-large: 0.75rem;
+    --border-radius: var(--radius-small);
+    --border-radius-sm: 0.2rem;
+    --border-radius-lg: 0.3rem;
 
+    /* Shadows */
+    --box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+    /* Z-Indexing */
     --zindex-backdrop: 40;
     --zindex-header: 50;
     --z-index-drawer: 60;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 html,
 body,
 #root {
+    color: var(--gray-800);
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: var(--font-family-body);
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: var(--font-weight-normal);
     font-style: normal;
-    font-size: 16px;
-    line-height: 1.45;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
 }
 
 body {
@@ -64,26 +164,55 @@ body {
     }
 }
 
-* {
-    box-sizing: border-box;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: var(--spacer-half);
     font-family: var(--font-family-header);
-    font-weight: 400;
+    font-weight: var(--font-weight-semibold);
     font-style: normal;
+    line-height: 1.2;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: var(--spacer);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+ul,
+ol {
+    margin-top: 0;
+    margin-bottom: var(--spacer);
+    padding-left: 2rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.semibold {
+    font-weight: var(--font-weight-semibold);
 }
 
 .loading {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
 }
 
 .no-results {

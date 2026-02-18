@@ -4,8 +4,6 @@ import { fetchProspects } from "../features/draft/services/ProspectService";
 import { fetchDesignations } from "../features/draft/services/DesignationService";
 import { ClipLoader } from "react-spinners";
 
-import "../features/draft/styles/global.css";
-
 export default function Draft() {
     const [prospects, setProspects] = useState([]);
     const [designations, setDesignations] = useState({});
