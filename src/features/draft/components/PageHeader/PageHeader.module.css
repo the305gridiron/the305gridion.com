@@ -3,20 +3,18 @@
     color: var(--white-color);
     padding-top: var(--spacer-double);
     padding-bottom: var(--spacer-double);
-    margin-bottom: var(--spacer);
 }
 
 .header h1 {
-    font-size: 2rem;
-    font-weight: var(--font-weight-bold);
-    line-height: 1;
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-xs);
     margin: 0 0 var(--spacer);
     text-align: center;
     text-transform: uppercase;
 }
 
 .promo {
-    font-size: 1.25rem;
+    font-size: var(--font-size-base);
     margin: 0 auto !important;
     max-width: 640px;
     opacity: 0.85;
@@ -30,7 +28,10 @@
 
 @media screen and (min-width: 992px) {
     .header h1 {
-        font-size: 3rem;
-        margin: 0 0 var(--spacer-double);
+        font-size: var(--font-size-h1);
+    }
+
+    .promo {
+        font-size: var(--font-size-xl);
     }
 }
