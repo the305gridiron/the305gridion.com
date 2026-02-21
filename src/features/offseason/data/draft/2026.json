@@ -1,0 +1,282 @@
+[
+    {
+        "id": "DRAFT-2026-01",
+        "details": {
+            "name": "",
+            "position": "",
+            "image": ""
+        },
+        "meta": {
+            "school": "",
+            "height": "",
+            "weight": "",
+            "round": "1",
+            "roundPick": "11",
+            "overallPick": "11",
+            "grade": "",
+            "fit": ""
+        },
+        "trade": {
+            "partner": "Trade Partner",
+            "gave": [
+                "Round - Pick"
+            ],
+            "received": [
+                "Round - Pick",
+                "Round - Pick"
+            ]
+        },
+        "analysis": {
+            "quote": "",
+            "cite": {
+                "link": "",
+                "text": ""
+            }
+        }
+    },
+    {
+        "id": "DRAFT-2026-02",
+        "details": {
+            "name": "",
+            "position": "",
+            "image": ""
+        },
+        "meta": {
+            "school": "",
+            "height": "",
+            "weight": "",
+            "round": "2",
+            "roundPick": "11",
+            "overallPick": "43",
+            "grade": "",
+            "fit": ""
+        },
+        "trade": {
+            "partner": "Trade Partner",
+            "gave": [
+                "Round - Pick"
+            ],
+            "received": [
+                "Round - Pick",
+                "Round - Pick"
+            ]
+        },
+        "analysis": {
+            "quote": "",
+            "cite": {
+                "link": "",
+                "text": ""
+            }
+        }
+    },
+    {
+        "id": "DRAFT-2026-03",
+        "details": {
+            "name": "",
+            "position": "",
+            "image": ""
+        },
+        "meta": {
+            "school": "",
+            "height": "",
+            "weight": "",
+            "round": "1",
+            "roundPick": "11",
+            "overallPick": "75",
+            "grade": "",
+            "fit": ""
+        },
+        "trade": {
+            "partner": "Trade Partner",
+            "gave": [
+                "Round - Pick"
+            ],
+            "received": [
+                "Round - Pick",
+                "Round - Pick"
+            ]
+        },
+        "analysis": {
+            "quote": "",
+            "cite": {
+                "link": "",
+                "text": ""
+            }
+        }
+    },
+    {
+        "id": "DRAFT-2026-04",
+        "details": {
+            "name": "",
+            "position": "",
+            "image": ""
+        },
+        "meta": {
+            "school": "",
+            "height": "",
+            "weight": "",
+            "round": "3",
+            "roundPick": "23",
+            "overallPick": "87",
+            "grade": "",
+            "fit": ""
+        },
+        "trade": {
+            "partner": "Trade Partner",
+            "gave": [
+                "Round - Pick"
+            ],
+            "received": [
+                "Round - Pick",
+                "Round - Pick"
+            ]
+        },
+        "analysis": {
+            "quote": "",
+            "cite": {
+                "link": "",
+                "text": ""
+            }
+        }
+    },
+    {
+        "id": "DRAFT-2026-05",
+        "details": {
+            "name": "",
+            "position": "",
+            "image": ""
+        },
+        "meta": {
+            "school": "",
+            "height": "",
+            "weight": "",
+            "round": "3",
+            "roundPick": "26",
+            "overallPick": "90",
+            "grade": "",
+            "fit": ""
+        },
+        "trade": {
+            "partner": "Trade Partner",
+            "gave": [
+                "Round - Pick"
+            ],
+            "received": [
+                "Round - Pick",
+                "Round - Pick"
+            ]
+        },
+        "analysis": {
+            "quote": "",
+            "cite": {
+                "link": "",
+                "text": ""
+            }
+        }
+    },
+    {
+        "id": "DRAFT-2026-06",
+        "details": {
+            "name": "",
+            "position": "",
+            "image": ""
+        },
+        "meta": {
+            "school": "",
+            "height": "",
+            "weight": "",
+            "round": "4",
+            "roundPick": "11",
+            "overallPick": "111",
+            "grade": "",
+            "fit": ""
+        },
+        "trade": {
+            "partner": "Trade Partner",
+            "gave": [
+                "Round - Pick"
+            ],
+            "received": [
+                "Round - Pick",
+                "Round - Pick"
+            ]
+        },
+        "analysis": {
+            "quote": "",
+            "cite": {
+                "link": "",
+                "text": ""
+            }
+        }
+    },
+    {
+        "id": "DRAFT-2026-07",
+        "details": {
+            "name": "",
+            "position": "",
+            "image": ""
+        },
+        "meta": {
+            "school": "",
+            "height": "",
+            "weight": "",
+            "round": "5",
+            "roundPick": "11",
+            "overallPick": "149",
+            "grade": "",
+            "fit": ""
+        },
+        "trade": {
+            "partner": "Trade Partner",
+            "gave": [
+                "Round - Pick"
+            ],
+            "received": [
+                "Round - Pick",
+                "Round - Pick"
+            ]
+        },
+        "analysis": {
+            "quote": "",
+            "cite": {
+                "link": "",
+                "text": ""
+            }
+        }
+    },
+    {
+        "id": "DRAFT-2026-08",
+        "details": {
+            "name": "",
+            "position": "",
+            "image": ""
+        },
+        "meta": {
+            "school": "",
+            "height": "",
+            "weight": "",
+            "round": "7",
+            "roundPick": "11",
+            "overallPick": "227",
+            "grade": "",
+            "fit": ""
+        },
+        "trade": {
+            "partner": "Trade Partner",
+            "gave": [
+                "Round - Pick"
+            ],
+            "received": [
+                "Round - Pick",
+                "Round - Pick"
+            ]
+        },
+        "analysis": {
+            "quote": "",
+            "cite": {
+                "link": "",
+                "text": ""
+            }
+        }
+    }
+]
