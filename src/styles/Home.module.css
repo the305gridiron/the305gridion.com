@@ -6,18 +6,20 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    margin-top: 2rem;
+    padding: 2rem 0;
 }
 
 @media screen and (min-width: 768px) {
     .videoGrid {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        padding: 3rem 0;
     }
 }
 
 .videoCard {
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: var(--radius-default);
+    box-shadow: var(--box-shadow-sm);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;

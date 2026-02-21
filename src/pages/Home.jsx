@@ -54,7 +54,7 @@ export default function Home() {
                                 title={video.title}
                                 thumbnail={video.thumbnail}
                             />
-                            <h3 className={styles.videoTitle}>{video.title}</h3>
+                            <h3 className={styles.videoTitle}>{video.title.replace("|", "•")}</h3>
                             <p className={styles.videoDescription}>{video.description.split("📢")[0]}</p>
                         </div>
                     ))}
