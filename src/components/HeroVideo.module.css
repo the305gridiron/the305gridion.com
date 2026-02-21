@@ -7,9 +7,9 @@
     padding: 2rem;
 
     :global(.container) {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
         gap: 2rem;
+        grid-template-columns: 1fr;
     }
 }
 
@@ -19,14 +19,19 @@
     }
 }
 
-.videoWrapper {
-    flex: 1 1 400px;
-    min-width: 300px;
+@media screen and (min-width: 992px) {
+    .heroVideo> :global(.container) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .heroVideo> :global(.container) {
+        grid-template-columns: 3fr 2fr;
+    }
 }
 
 .videoDetails {
-    flex: 1 1 400px;
-    min-width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
