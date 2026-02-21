@@ -1,3 +1,7 @@
+.tabs-container {
+  padding: 2rem 0;
+}
+
 .nav-tabs {
   display: none;
   justify-content: center;
@@ -49,7 +53,7 @@
   color: var(--black-color);
   font-size: var(--font-size-base);
   height: 100%;
-  padding: var(--spacer-half) 0 var(--spacer-half) var(--spacer-half);
+  padding: var(--spacer-half);
   width: 100%;
 }
 
@@ -59,6 +63,12 @@
 
 .tab-content .tab-pane.active {
   display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .tabs-container {
+    padding: 3rem 0;
+  }
 }
 
 @media screen and (min-width: 992px) {

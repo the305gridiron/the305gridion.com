@@ -61,7 +61,7 @@ const Tabs = ({ children, defaultActiveKey }) => {
     };
 
     return (
-        <div className='tabs-container'>
+        <div className={styles['tabs-container']}>
             {renderNav()}
             {renderContent()}
         </div>

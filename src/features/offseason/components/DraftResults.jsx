@@ -11,15 +11,17 @@ function DraftResults(props) {
             <div className="content-display">
                 <IconHeader
                     icon={<TrendingUpOutlinedIcon />}
-                    title="Draft Results"
+                    title={props.mockDraft ? "Mock Draft" : "Draft Results"}
                 />
-                {props.players && props.players.length > 0 ? (
-                    props.players.map((player) => (
-                        <DraftCard key={player.details.name} {...player} />
-                    ))
-                ) : (
-                    <p>No one drafted yet!</p>
-                )}
+                <div className={styles.draftCards}>
+                    {props.players && props.players.length > 0 ? (
+                        props.players.map((player) => (
+                            <DraftCard key={player.id} {...player} />
+                        ))
+                    ) : (
+                        <p>No one drafted yet!</p>
+                    )}
+                </div>
             </div>
         </div>
     );

@@ -1,13 +1,5 @@
-.draftResults {
-    background-color: white;
-    order: 1;
-    flex: 1;
-    padding: 15px;
-
-    @media (min-width: 1440px) {
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        box-shadow: 0 0 5px rgba(0, 142, 151, 0.3);
-        margin-right: 15px;
-    }
+.draftCards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacer);
 }

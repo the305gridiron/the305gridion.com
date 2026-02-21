@@ -1,5 +1,4 @@
 // components
-import React from "react";
 import Header from "../components/Header";
 import MobileNav from "../components/MobileNav";
 import DraftResults from "../components/DraftResults";
