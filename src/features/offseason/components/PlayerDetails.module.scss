@@ -1,50 +1,46 @@
 .playerDetails {
-    display: flex;
-    flex: 0 0 15.625rem;
-    flex-direction: column;
-    justify-content: flex-start;
-    order: 1;
-    padding: 0.625rem 0;
+    grid-area: details;
     position: relative;
-
-    @media (min-width: 576px) and (max-width: 767.98px) {
-        border-bottom: 1px solid #e1e1e1;
-    }
-
-    @media (min-width: 992px) and (max-width: 1199.98px) {
-        border-bottom: 1px solid #e1e1e1;
-    }
+    width: 100%;
 }
 
 .playerPosition {
-    background-color: white;
-    color: #3a3a3a;
+    color: var(--gray-700);
     display: block;
-    font-family: "Quicksand", sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
     position: relative;
     text-shadow: none;
     text-transform: uppercase;
-
-    @media (min-width: 992px) {
-        padding-top: 0.1875rem;
-    }
-
-    &::after {
-        background-color: rgb(245, 130, 32);
-        content: "";
-        display: block;
-        margin: 0.3125rem auto;
-        height: 0.0625rem;
-        width: 3.125rem;
-    }
 }
 
 .playerName {
-    color: rgb(0, 142, 151);
-    font-size: 1.25rem;
-    line-height: 1;
-    font-weight: 700;
-    text-align: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-default);
+    position: absolute;
+    bottom: var(--spacer-half);
+    left: var(--spacer-half);
+    padding: var(--spacer-three-quarter) var(--spacer) var(--spacer-half);
+    font-size: var(--font-size-xxxl);
+    color: var(--color-dolphins-teal);
+    line-height: var(--line-height-xs);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacer-half);
+}
+
+.playerImage {
+    height: 300px;
+
+    @media screen and (min-width: 640px) {
+        height: 100%;
+        min-height: 300px;
+    }
+
+    img {
+        border-radius: var(--radius-default);
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
 }

@@ -1,0 +1,12 @@
+.sidebarCards {
+    display: grid;
+    gap: var(--spacer);
+
+    @media screen and (min-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 992px) {
+        grid-template-columns: unset;
+    }
+}

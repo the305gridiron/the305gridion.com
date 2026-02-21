@@ -7,9 +7,9 @@
     margin-bottom: 0.625rem;
     overflow: hidden;
     position: absolute;
-    top: 0.3125rem;
-    left: 0.3125rem;
-    z-index: 1000;
+    top: var(--spacer);
+    left: var(--spacer);
+    z-index: var(--zindex-alert);
 
     max-width: 2.5rem;
     max-height: 2.5rem;
@@ -19,7 +19,7 @@
     transition-timing-function: linear;
     transition-duration: 0.25s;
     transition-property: max-height, max-width;
-    transition-delay: 0s, 0.25s;
+    transition-delay: 0s, 0.4s;
 
     @media (min-width: 576px) {
         max-height: 1.875rem;
@@ -31,16 +31,16 @@
         max-width: 1.875rem;
     }
 
-    @media (min-width: 1200px) {
-        right: 0.3125rem;
-        left: auto;
-    }
+    // @media (min-width: 1200px) {
+    //     right: var(--spacer);
+    //     left: auto;
+    // }
 }
 
 .tradeAlertOpen {
     max-height: 12.5rem;
     max-width: 16.25rem;
-    transition-delay: 0.25s, 0s;
+    transition-delay: 0.4s, 0s;
 
     @media (min-width: 576px) {
         max-width: 18.75rem;
@@ -48,12 +48,10 @@
 }
 
 .tradeAlertToggle {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     border: 0;
     cursor: pointer;
     outline: 0;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgb(0, 90, 96);
     color: white;
     display: flex;
     align-items: center;
@@ -76,10 +74,10 @@
         width: 1.875rem;
     }
 
-    @media (min-width: 1200px) {
-        right: 0;
-        left: auto;
-    }
+    // @media (min-width: 1200px) {
+    //     right: 0;
+    //     left: auto;
+    // }
 }
 
 .tradeAlertTitle {
@@ -87,7 +85,7 @@
     display: flex;
     align-items: center;
     flex: 0 0 2.5rem;
-    padding: 0 0.625rem 0 3.125rem;
+    padding: 0.25rem 0.625rem 0 3.125rem;
     white-space: nowrap;
 
     @media (min-width: 576px) {
@@ -96,10 +94,6 @@
 
     @media (min-width: 992px) {
         flex: 0 0 1.875rem;
-    }
-
-    @media (min-width: 1200px) {
-        padding: 0 0.625rem;
     }
 }
 

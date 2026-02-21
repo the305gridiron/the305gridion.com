@@ -1,62 +1,41 @@
 .sidebarCard {
-    background-color: rgb(0, 87, 120);
-    border-radius: 0.3125rem;
-    color: white;
-    margin-bottom: 0.9375rem;
-    overflow: hidden;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
+    background-color: var(--color-dolphins-navy);
+    border-radius: var(--radius-default);
+    color: var(--white-color);
+    display: grid;
+    align-items: start;
+    grid-template-rows: max-content max-content;
+    gap: var(--spacer-half);
+    padding: var(--spacer-half);
 }
 
 .sidebarCardTitle {
-    background-color: rgba(0, 0, 0, 0.1);
-    font-weight: normal;
-    padding: 0.3125rem 0.9375rem;
+    font-size: var(--font-size-h3);
+    letter-spacing: var(--letter-spacing-default);
+    margin: 0;
+    padding: 0 var(--spacer-half);
 }
 
 .sidebarCardList {
-    font-size: 0.875rem;
+    display: grid;
+    gap: var(--spacer-quarter);
+    font-size: var(--font-size-sm);
     list-style: none;
     margin: 0;
     padding: 0;
-
-    @media (min-width: 576px) {
-        display: flex;
-        flex-flow: row wrap;
-    }
 }
 
 .sidebarCardListItem {
+    background-color: rgba(255, 255, 255, 0.2);
     color: inherit;
     display: flex;
-    padding: 0.3125rem 0.9375rem;
-
-    &:not(:last-child) {
-        border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
-    }
+    align-items: center;
+    gap: var(--spacer-quarter);
+    border-radius: var(--radius-small);
+    padding: var(--spacer-third) var(--spacer);
 
     &:nth-child(even) {
         background-color: rgba(255, 255, 255, 0.1);
-    }
-
-    @media (min-width: 576px) {
-        flex: 0 0 33.3333%;
-
-        &:nth-child(even) {
-            background-color: transparent;
-        }
-
-        &:nth-child(3n + 2) {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-    }
-}
-
-.sidebarCardListItemUndrafted {
-    @media (min-width: 576px) {
-        flex: 0 0 50%;
     }
 }
 
@@ -73,4 +52,12 @@
     height: 1.125rem !important;
     margin: 0 0.3125rem;
     opacity: 0.5;
+}
+
+.emptyMessage {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-small);
+    font-size: var(--font-size-sm);
+    margin: 0;
+    padding: var(--spacer);
 }

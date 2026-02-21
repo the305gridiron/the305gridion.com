@@ -1,43 +1,28 @@
-import React from "react";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
+import { useRef } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import SwapHorizOutlinedIcon from "@mui/icons-material/SwapHorizOutlined";
+
 import styles from "./SidebarPlayerPanel.module.scss";
 
 export default function SidebarPlayerPanel(props) {
+    const contentRef = useRef(null);
+    const isExpanded = props.expanded;
+
     return (
-        <Accordion
-            className={styles.sidebarCardListItem}
-            square
-            expanded={props.expanded === `panel${props.id}`}
-            onChange={props.handleChange(`panel${props.id}`)}
-            sx={{
-                backgroundColor: "inherit",
-                border: 0,
-                boxShadow: "none",
-                color: "inherit",
-                "&.Mui-expanded": { margin: 0 },
-            }}
-        >
-            <AccordionSummary
-                aria-controls={`panel${props.id}id-content`}
-                id={`panel${props.id}id-header`}
-                sx={{
-                    minHeight: 0,
-                    padding: "5px 15px",
-                    "& .MuiAccordionSummary-content": {
-                        alignItems: "center",
-                        margin: 0,
-                    },
-                }}
+        <div className={styles.sidebarPlayerPanel}>
+            <button
+                className={styles.sidebarPlayerPanelHeader}
+                onClick={props.onToggle}
             >
-                <span className={styles.playerPosition}>{props.position}</span>{" "}
+                <span className={styles.playerPosition}>
+                    {props.position}
+                </span>{" "}
                 {props.name}{" "}
-                {props.trade && <SwapHorizOutlinedIcon className={styles.tradeIcon} />}
-                {props.expanded === `panel${props.id}` ? (
+                {props.trade && (
+                    <SwapHorizOutlinedIcon className={styles.tradeIcon} />
+                )}
+                {isExpanded ? (
                     <KeyboardArrowUpIcon
                         className={styles.sidebarCardListItemToggleIcon}
                     />
@@ -46,67 +31,74 @@ export default function SidebarPlayerPanel(props) {
                         className={styles.sidebarCardListItemToggleIcon}
                     />
                 )}
-            </AccordionSummary>
+            </button>
 
-            <AccordionDetails sx={{ padding: "0 15px 15px" }}>
-                <ul className={styles.playerDetails}>
-                    {props.age && (
-                        <li>
-                            <strong>Age:</strong> {props.age}
-                        </li>
-                    )}
-                    {props.formerTeam && (
-                        <li>
-                            <strong>Former Team:</strong> {props.formerTeam}
-                        </li>
-                    )}
-                    {props.comments && <li>{props.comments}</li>}
-                    {props.profile && (
-                        <li>
-                            <a
-                                href={props.profile}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                View Player Profile
-                            </a>
-                        </li>
-                    )}
-                </ul>
+            <div
+                ref={contentRef}
+                className={styles.sidebarPlayerPanelContent}
+                style={{ maxHeight: isExpanded ? contentRef.current?.scrollHeight : 0 }}
 
-                {props.contract && (
-                    <ul className={styles.contractDetails}>
-                        <li className={styles.contractDetailsTitle}>Contract Details</li>
-                        <li>
-                            <strong>Length:</strong>{" "}
-                            {props.contract.years &&
-                                `${props.contract.years} ${props.contract.years > 1 ? "years" : "year"
-                                }`}
-                        </li>
-                        <li>
-                            <strong>Total:</strong> {props.contract.total}
-                        </li>
-                        {props.contract.years > 1 && props.contract.average && (
+            >
+                <div className={styles.sidebarPlayerPanelContentContainer}>
+                    <ul className={styles.playerDetails}>
+                        {props.age && (
                             <li>
-                                <strong>Average:</strong> {props.contract.average}
+                                <strong>Age:</strong> {props.age}
                             </li>
                         )}
-                        {props.contract.guaranteed && (
+                        {props.formerTeam && (
                             <li>
-                                <strong>Guaranteed:</strong> {props.contract.guaranteed}
+                                <strong>Former Team:</strong> {props.formerTeam}
                             </li>
                         )}
-                        <li>
-                            <strong>2020 Cap:</strong> {props.contract.cap}
-                        </li>
-                        {props.contract.out && (
+                        {props.comments && <li>{props.comments}</li>}
+                        {props.profile && (
                             <li>
-                                <strong>Potential Out:</strong> {props.contract.out}
+                                <a
+                                    href={props.profile}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    View Player Profile
+                                </a>
                             </li>
                         )}
                     </ul>
-                )}
-            </AccordionDetails>
-        </Accordion>
+
+                    {props.contract && (
+                        <ul className={styles.contractDetails}>
+                            <li className={styles.contractDetailsTitle}>Contract Details</li>
+                            <li>
+                                <strong>Length:</strong>{" "}
+                                {props.contract.years &&
+                                    `${props.contract.years} ${props.contract.years > 1 ? "years" : "year"
+                                    }`}
+                            </li>
+                            <li>
+                                <strong>Total:</strong> {props.contract.total}
+                            </li>
+                            {props.contract.years > 1 && props.contract.average && (
+                                <li>
+                                    <strong>Average:</strong> {props.contract.average}
+                                </li>
+                            )}
+                            {props.contract.guaranteed && (
+                                <li>
+                                    <strong>Guaranteed:</strong> {props.contract.guaranteed}
+                                </li>
+                            )}
+                            <li>
+                                <strong>2020 Cap:</strong> {props.contract.cap}
+                            </li>
+                            {props.contract.out && (
+                                <li>
+                                    <strong>Potential Out:</strong> {props.contract.out}
+                                </li>
+                            )}
+                        </ul>
+                    )}
+                </div>
+            </div>
+        </div>
     );
 }

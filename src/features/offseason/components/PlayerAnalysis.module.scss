@@ -1,11 +1,15 @@
 .playerAnalysis {
+    background-color: var(--card-bg-light);
+    border: 1px solid var(--card-border-light);
+    box-shadow: inset 0 0 0 1px var(--white-color);
+    border-radius: var(--radius-default);
+    color: var(--gray-800);
+    grid-area: analysis;
     flex: 0 0 100%;
     order: 3;
-    padding: 0.625rem;
 
     @media (min-width: 1200px) {
         order: 2;
-        flex: 1;
     }
 }
 
@@ -24,19 +28,17 @@
 .playerAnalysisToggle {
     background-color: transparent;
     border: 0;
-    color: rgb(0, 142, 151);
+    color: var(--color-dolphins-teal);
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    font-family: "Roboto Slab", sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
     margin: 0;
     outline: 0;
     padding: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
 }
 
 .playerAalysisContent {

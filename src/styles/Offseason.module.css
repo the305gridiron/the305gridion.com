@@ -1,0 +1,24 @@
+.offseasonPage>:global(.container-fluid) {
+    display: grid;
+    gap: var(--spacer);
+    grid-template-columns: 1fr;
+    padding-top: var(--spacer);
+    padding-bottom: var(--spacer);
+}
+
+@media screen and (min-width: 992px) {
+    .offseasonPage>:global(.container-fluid) {
+        grid-template-columns: 1fr 300px;
+        gap: var(--spacer-double);
+        padding-top: var(--spacer-double);
+        padding-bottom: var(--spacer-double);
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .offseasonPage>:global(.container-fluid) {
+        gap: var(--spacer-triple);
+        padding-top: var(--spacer-triple);
+        padding-bottom: var(--spacer-triple);
+    }
+}

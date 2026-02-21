@@ -1,18 +1,43 @@
 /* DraftCard.module.css */
 .draftCard {
-    background-color: #fefefe;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    background-color: var(--white-color);
+    border-radius: var(--radius-default);
+    box-shadow: var(--box-shadow-sm);
+    padding: var(--spacer-half);
+
+    display: grid;
+    gap: var(--spacer-half);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "details"
+        "meta"
+        "analysis";
+
     overflow: hidden;
     position: relative;
-    margin-bottom: 0;
-    /* base, will override for non-last-child */
 }
 
-.draftCard:not(:last-child) {
-    margin-bottom: 0.9375rem;
-    /* 15px */
+@media screen and (min-width: 640px) {
+    .draftCard {
+        grid-template-columns: 300px 1fr;
+        grid-template-areas:
+            "details meta"
+            "analysis analysis";
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .draftCard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .draftCard {
+        display: grid;
+        grid-template-areas:
+            "details analysis"
+            "meta meta";
+        grid-template-columns: 3fr 5fr;
+    }
 }

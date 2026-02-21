@@ -9,32 +9,32 @@ export default function PlayerMeta(props) {
         <ul className={styles.playerMeta}>
             <li className="player-meta--grade">
                 <span className={styles.playerMetaTitle}>
-                    NFL Grade
-                    <Tooltip
+                    Grade
+                    {/* <Tooltip
                         title="NFL.com grades their prospects out of 8.0, I normalized the numbers to out of 100 to match other sites."
                         placement="right"
                     >
                         <InfoOutlinedIcon />
-                    </Tooltip>
+                    </Tooltip> */}
                 </span>
-                {props.nflGrade
-                    ? Math.ceil((props.nflGrade / nflTotalScore) * 100)
+                {props.grade
+                    ? props.grade
                     : "--"}
             </li>
             <li className="player-meta--grade">
-                <span className={styles.playerMetaTitle}>ESPN Grade</span>
-                {props.espnGrade ? props.espnGrade : "--"}
+                <span className={styles.playerMetaTitle}>Fit</span>
+                {props.fit ? props.fit : "--"}
             </li>
             <li className="player-meta--round">
                 <span className={styles.playerMetaTitle}>Round</span>
                 {props.round ? props.round : "--"}
             </li>
             <li className="player-meta--round-pick">
-                <span className={styles.playerMetaTitle}>Round Pick</span>
+                <span className={styles.playerMetaTitle}>Rnd Pick</span>
                 {props.roundPick ? props.roundPick : "--"}
             </li>
             <li className="player-meta--overall-pick">
-                <span className={styles.playerMetaTitle}>Overall Pick</span>
+                <span className={styles.playerMetaTitle}>Ovr Pick</span>
                 {props.overallPick ? props.overallPick : "--"}
             </li>
             <li className={styles.playerMetaSchool}>
