@@ -4,7 +4,7 @@
         "details": {
             "name": "Mansoor Delane",
             "position": "CB",
-            "image": "/public/images/2026-draft/mansoor-delane.webp"
+            "image": "/images/2026-draft/mansoor-delane.webp"
         },
         "meta": {
             "school": "LSU",
@@ -29,7 +29,7 @@
         "details": {
             "name": "Emmanuel McNeil-Warren",
             "position": "S",
-            "image": "/public/images/2026-draft/emmanuel-mcneil-warren.jpg"
+            "image": "/images/2026-draft/emmanuel-mcneil-warren.jpg"
         },
         "meta": {
             "school": "TOLE",
@@ -54,7 +54,7 @@
         "details": {
             "name": "D'angelo Ponds",
             "position": "CB",
-            "image": "/public/images/2026-draft/dangelo-ponds.webp"
+            "image": "/images/2026-draft/dangelo-ponds.webp"
         },
         "meta": {
             "school": "IND",
@@ -79,7 +79,7 @@
         "details": {
             "name": "Keylan Rutledge",
             "position": "IOL",
-            "image": "/public/images/2026-draft/keylan-rutledge.webp"
+            "image": "/images/2026-draft/keylan-rutledge.webp"
         },
         "meta": {
             "school": "GT",
@@ -104,7 +104,7 @@
         "details": {
             "name": "Dani Dennis-Sutton",
             "position": "EDGE",
-            "image": "/public/images/2026-draft/dani-dennis-sutton.webp"
+            "image": "/images/2026-draft/dani-dennis-sutton.webp"
         },
         "meta": {
             "school": "PSU",
@@ -129,7 +129,7 @@
         "details": {
             "name": "Ja'Kobi Lane",
             "position": "WR",
-            "image": "/public/images/2026-draft/jakobi-lane.webp"
+            "image": "/images/2026-draft/jakobi-lane.webp"
         },
         "meta": {
             "school": "USC",
@@ -154,7 +154,7 @@
         "details": {
             "name": "Drew Shelton",
             "position": "OT",
-            "image": "/public/images/2026-draft/drew-shelton.webp"
+            "image": "/images/2026-draft/drew-shelton.webp"
         },
         "meta": {
             "school": "PSU",
@@ -179,7 +179,7 @@
         "details": {
             "name": "Cade Klubnik",
             "position": "QB",
-            "image": "/public/images/2026-draft/cade-klubnik.webp"
+            "image": "/images/2026-draft/cade-klubnik.webp"
         },
         "meta": {
             "school": "CLEM",
