@@ -1,6 +1,0 @@
- @use "./breakpoints" as *;
-
- @mixin fontSize($size) {
-     font-size: $size;
-     font-size: px-to-rem($size);
- }

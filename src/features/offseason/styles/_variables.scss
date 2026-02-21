@@ -1,7 +1,3 @@
-// FONTS
-$baseFontFamily: "Quicksand", sans-serif;
-$headerFontFamily: "Roboto Slab", sans-serif;
-
 // MEDIA QUERIES
 $grid-breakpoints: (
     xs: 0,
@@ -11,19 +7,4 @@ $grid-breakpoints: (
     xl: 1200px,
     xxl: 1440px,
     xxxl: 1900px,
-) !default;
-
-// COLORS
-$miaAqua: rgb(0, 142, 151) !global;
-$miaOrange: rgb(245, 130, 32) !global;
-$miaBlue: rgb(0, 87, 120) !global;
-
-$miami-colors: () !global;
-$miami-colors: map-merge(
-    (
-        "miamiAqua": $miaAqua,
-        "miamiOrange": $miaOrange,
-        "miamiBlue": $miaBlue,
-    ),
-    $miami-colors
-) !global;
+    ) !default;
