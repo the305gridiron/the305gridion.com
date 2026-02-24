@@ -146,6 +146,7 @@
 
     /* Z-Indexing */
     --zindex-alert: 35;
+    --zindex-scroll-top: 36;
     --zindex-backdrop: 40;
     --zindex-header: 50;
     --z-index-drawer: 60;

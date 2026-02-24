@@ -17,7 +17,7 @@ import SportsFootballOutlinedIcon from "@mui/icons-material/SportsFootballOutlin
 
 // Styles
 import "../features/offseason/styles/styles.scss";
-import styles from "../styles/Offseason.module.css";
+import styles from "./Offseason.module.css";
 
 // Data
 import MockDraft from "../features/offseason/data/mock-draft/2026-v1.json";
@@ -32,9 +32,9 @@ export default function Offseason() {
             <Header>
                 <h1>2026 Offseason Tracker</h1>
                 <p className="promo">Trades, cuts, signings, and roster shakeups, plus, dive into our mock drafts to see which players we like in the 2026 draft!</p>
-            </Header>
 
-            {isMobile && <MobileNav />}
+                {isMobile && <MobileNav mockDraft={true} />}
+            </Header>
 
             <main className="container-fluid">
                 <DraftResults players={MockDraft} mockDraft={true} />
@@ -48,6 +48,7 @@ export default function Offseason() {
                         <SidebarCard title="Resignings" players={FreeAgents?.resignings} />
                         <SidebarCard title="Losses" players={FreeAgents?.losses} />
                         <SidebarCard title="Undrafted" players={FreeAgents?.undrafted} />
+                        <SidebarCard title="Unsigned" players={FreeAgents?.unsigned} />
                     </SidebarCards>
                 </Sidebar>
             </main>

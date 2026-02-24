@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { fetchYoutubeVideos } from "../services/YoutubeService";
 import YouTubeEmbed from "../components/YoutubeEmbed";
-import styles from "../styles/Home.module.css";
 import HeroVideo from "../components/HeroVideo";
 import { ClipLoader } from "react-spinners";
+
+import styles from "./Home.module.css";
 
 export default function Home() {
     const [heroVideo, setHeroVideo] = useState(null);
@@ -15,7 +16,6 @@ export default function Home() {
             setLoading(true);
             try {
                 const youtubeData = await fetchYoutubeVideos();
-                console.log("Fetched YouTube videos:", youtubeData);
 
                 setHeroVideo(youtubeData.heroVideo ?? youtubeData.videos[0]);
 
