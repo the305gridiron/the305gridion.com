@@ -1,9 +1,36 @@
 .mobileNav {
-    background-color: white;
-    padding: 0.9375rem 0.9375rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacer) var(--spacer) 0;
 
     @media (min-width: 992px) {
         display: none;
+    }
+
+    a {
+        background-color: var(--color-dolphins-orange-light);
+        border: none;
+        border-radius: var(--radius-small);
+        color: var(--white-color);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacer-half);
+        font-size: var(--font-size-xxs);
+        font-weight: var(--font-weight-semibold);
+        line-height: 1.2;
+        padding: var(--spacer-half) var(--spacer-three-quarter);
+        text-align: left;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease, transform 0.15s ease;
+
+        &:hover,
+        &:focus-visible {
+            background-color: var(--color-dolphins-orange);
+            box-shadow: 0 0 0 2px rgba(255, 140, 41, 0.4);
+            text-decoration: none;
+        }
     }
 
     ul {

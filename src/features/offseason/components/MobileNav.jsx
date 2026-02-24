@@ -1,17 +1,10 @@
-import React from "react";
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import styles from "./MobileNav.module.scss";
 
-function MobileNav(props) {
+function MobileNav() {
     return (
         <nav className={styles.mobileNav}>
-            <ul>
-                <li>
-                    <a href="#draftResults">Draft Results</a>
-                </li>
-                <li>
-                    <a href="#freeAgency">Free Agency</a>
-                </li>
-            </ul>
+            <a href="#freeAgency"><KeyboardDoubleArrowDownIcon /> Jump to Free Agency</a>
         </nav>
     );
 }
