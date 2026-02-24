@@ -13,11 +13,9 @@ export const fetchDesignations = async (forceRefresh = false) => {
         !cacheInvalidated &&
         localStorage.getItem(DESIGNATIONS_KEY)
     ) {
-        console.log("Returning cached designations");
         return JSON.parse(localStorage.getItem(DESIGNATIONS_KEY));
     }
     try {
-        console.log("DESIGNATIONS API Hit");
         const response = await axios.get(API_URL);
         const designations = response.data;
         localStorage.setItem(DESIGNATIONS_KEY, JSON.stringify(designations));

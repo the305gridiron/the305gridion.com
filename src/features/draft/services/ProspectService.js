@@ -27,12 +27,10 @@ export const fetchProspects = async (forceRefresh = false) => {
         !cacheInvalidated &&
         localStorage.getItem(PROSPECTS_KEY)
     ) {
-        console.log("Returning cached prospects");
         return JSON.parse(localStorage.getItem(PROSPECTS_KEY));
     }
 
     try {
-        console.log("PROSPECTS API Hit");
         const response = await axios.get(API_URL);
 
         const sortedProspects = response.data
