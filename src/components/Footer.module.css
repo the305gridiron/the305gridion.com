@@ -1,5 +1,5 @@
 .footer {
-    background: #0c3b3f;
+    background: var(--color-dolphins-navy-muted);
     color: rgba(255, 255, 255, 0.85);
     font-size: 0.85rem;
 }
