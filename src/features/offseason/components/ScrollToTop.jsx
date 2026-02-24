@@ -24,7 +24,7 @@ export default class ScrollToTop extends React.Component {
         return (
             <div className={styles.scrollToTop}>
                 {is_visible && (
-                    <button onClick={this.scrollToTop}>
+                    <button onClick={this.scrollToTop} aria-label="Scroll to Top">
                         <KeyboardArrowUpOutlinedIcon />
                     </button>
                 )}

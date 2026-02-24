@@ -1,15 +1,13 @@
 .scrollToTop {
     position: fixed;
-    bottom: 0.625rem;
-    right: 0.625rem;
-    z-index: 1000;
+    bottom: var(--spacer);
+    right: var(--spacer);
+    z-index: var(--zindex-scroll-top);
 
     button {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-color: #fff;
-        border: 0.125rem solid rgb(0, 87, 120);
-        border-radius: 50%;
+        background-color: var(--white-color);
+        border: 5px solid var(--color-dolphins-navy);
+        border-radius: var(--radius-large);
         color: rgb(0, 87, 120);
         cursor: pointer;
         display: flex;
@@ -18,12 +16,15 @@
         outline: 0;
         height: 3.125rem;
         width: 3.125rem;
+        opacity: 0.75;
+        transition: 0.3s ease;
 
         &:hover,
         &:focus {
-            border-color: rgb(245, 130, 32);
-            color: rgb(245, 130, 32);
+            background-color: var(--color-dolphins-navy);
+            color: var(--white-color);
             outline: 0;
+            opacity: 1;
         }
 
         svg {
