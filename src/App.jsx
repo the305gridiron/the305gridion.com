@@ -1,26 +1,28 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./layout/Layout";
 import Home from "./pages/Home";
-import Draft from "./pages/Draft";
-import Offseason from "./pages/Offseason";
-import Layout from "./components/Layout";
-import DraftRankings from "./pages/DraftRankings";
+import BigBoard from "./pages/BigBoard";
+import MockDrafts from "./pages/MockDrafts";
+import DraftResults from "./pages/DraftResults";
+import Transactions from "./pages/Transactions";
 
 import "./styles/main.css";
 
-
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/draft/*" element={<Draft />} />
-          <Route path="/offseason/*" element={<Offseason />} />
-          <Route path="/draft-rankings" element={<DraftRankings />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path='/prospects/*' element={<BigBoard />} />
+                    <Route path='/mocks/*' element={<MockDrafts />} />
+                    <Route path='/drafts/*' element={<DraftResults />} />
+                    <Route path='/offseason/*' element={<Transactions />} />
+                    <Route path='/transactions/*' element={<Transactions />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
