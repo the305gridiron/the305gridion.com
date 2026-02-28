@@ -1,0 +1,122 @@
+.sidebarPlayerPanel {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: inherit;
+    gap: var(--spacer-quarter);
+    border-radius: var(--radius-small);
+
+    &:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.sidebarPlayerPanelHeader {
+    background-color: transparent;
+    border: 0;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacer-quarter);
+    padding: var(--spacer-third) var(--spacer);
+    width: 100%;
+}
+
+.sidebarPlayerPanelContent {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.sidebarPlayerPanelContentContainer {
+    padding: var(--spacer-third) var(--spacer);
+    padding-top: 0;
+}
+
+.sidebarCardListItemToggleIcon {
+    margin-left: auto;
+}
+
+.tradeIcon {
+    margin: 0 0.3125rem;
+    opacity: 0.5;
+}
+
+.playerPosition {
+    flex: 0 0 2.5rem;
+    text-align: left;
+}
+
+.sidebarCardListItemDetails {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+@media (min-width: 576px) {
+    .sidebarCardListItemDetails {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+}
+
+.playerDetails,
+.contractDetails {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    li {
+        display: flex;
+        padding: 0.3125rem 0;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        strong {
+            font-weight: 500;
+            margin-right: 0.3125rem;
+        }
+
+        &.contractDetailsTitle {
+            font-size: 0.75rem;
+            border-bottom: 0.0625rem solid white;
+            font-weight: 600;
+            justify-content: center;
+            margin-top: 0.9375rem;
+            text-transform: uppercase;
+        }
+    }
+
+    a {
+        font-size: 0.75rem;
+        background-color: rgb(0, 142, 151);
+        border-radius: 0.3125rem;
+        color: white;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        padding: 0.3125rem;
+        font-weight: 500;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+}
+
+@media (min-width: 576px) {
+    .playerDetails,
+    .contractDetails {
+        flex: 0 0 48%;
+
+        li {
+            &.contractDetailsTitle {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.contractDetails {
+    li {
+        justify-content: space-between;
+    }
+}
