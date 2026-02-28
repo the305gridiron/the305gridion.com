@@ -94,7 +94,9 @@
     text-decoration: none;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
     text-transform: uppercase;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
     justify-content: center;
     width: 100%;
 
@@ -134,7 +136,9 @@
     font-weight: 600;
     text-decoration: none;
     text-transform: uppercase;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
     cursor: pointer;
     justify-content: center;
     width: 100%;
@@ -210,22 +214,27 @@
     }
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
     .pageHeaderContainer {
         padding: 1.5rem;
     }
 
     .logo {
-        transform: translateY(0);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        flex: 0 0 85px;
+        height: 85px;
+        width: 85px;
+        transform: translateY(1.5rem);
     }
 
     .navLink {
-        justify-content: default;
+        padding: var(--spacer-half);
         width: auto;
     }
 
     .pageNav {
         display: flex !important;
+        align-items: center;
         position: static;
         flex-direction: row;
         height: auto;
@@ -246,7 +255,7 @@
     }
 }
 
-@media screen and (min-width: 576px) and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
     .subscribeBtn {
         margin-left: 1rem;
         padding: 0.5rem;
@@ -255,20 +264,6 @@
 
     .subscribeBtnText {
         display: none;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .logo {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        flex: 0 0 85px;
-        height: 85px;
-        width: 85px;
-        transform: translateY(1.5rem);
-    }
-
-    .subscribeBtn {
-        width: auto;
     }
 }
 
@@ -281,6 +276,10 @@
 
     .pageNav {
         gap: 1rem;
+    }
+
+    .subscribeBtn {
+        width: auto;
     }
 }
 
