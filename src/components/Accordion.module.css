@@ -1,0 +1,60 @@
+.accordion {
+    font-size: var(--font-size-base);
+    padding: var(--spacer);
+}
+
+.accordionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--gray-900);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    padding: 0;
+    transition: margin-bottom 0.3s ease-out;
+    transition-delay: 0, 0.3s;
+
+    &[aria-expanded="true"] {
+        margin-bottom: var(--spacer);
+    }
+}
+
+.accordionContent {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+
+    &.expanded {
+        grid-template-rows: 1fr;
+    }
+}
+
+.accordionContentInner {
+    overflow: hidden;
+}
+
+.accordionIcon {
+    display: flex;
+}
+
+/* Show content by default on desktop */
+@media (min-width: 1200px) {
+    .accordion {
+        font-size: var(--font-size-base);
+    }
+
+    .accordionHeader {
+        display: none !important;
+    }
+
+    .accordionContent {
+        grid-template-rows: 1fr;
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-weight-light);
+    }
+}
