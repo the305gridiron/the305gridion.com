@@ -1,0 +1,130 @@
+.transactionCard {
+    background-color: var(--white-color);
+    border-radius: var(--radius-default);
+    box-shadow: var(--box-shadow-sm);
+    padding: var(--spacer-half);
+
+    display: grid;
+    gap: var(--spacer-half);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "details"
+        "analysis";
+
+    overflow: hidden;
+    position: relative;
+}
+
+.transactionAnalysis {
+    display: flex;
+    gap: var(--spacer-half);
+    flex-direction: column;
+    font-size: var(--font-size-lg);
+}
+
+.type {
+    border-radius: var(--radius-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacer-half);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: var(--spacer);
+    left: var(--spacer);
+}
+
+.release {
+    background-color: var(--color-dolphins-orange);
+    color: var(--white-color);
+}
+
+.transactionAnalysis {
+    background-color: var(--card-bg-light);
+    border: 1px solid var(--card-border-light);
+    box-shadow: inset 0 0 0 1px var(--white-color);
+    border-radius: var(--radius-default);
+    color: var(--gray-800);
+    grid-area: analysis;
+    padding: var(--spacer);
+}
+
+.transactionHeadline {
+    font-size: var(--font-size-xxxl);
+    font-weight: var(--font-weight-normal);
+    color: var(--gray-700);
+    line-height: var(--line-height-xs);
+    margin: 0;
+    display: flex;
+}
+
+.playerName {
+    color: var(--color-dolphins-teal);
+    display: block;
+    font-weight: var(--font-weight-bold);
+    text-shadow: none;
+    text-transform: uppercase;
+}
+
+.playerImage {
+    height: 300px;
+
+    img {
+        border-radius: var(--radius-default);
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .playerImage {
+        height: 100%;
+        min-height: 300px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .playerImage {
+        min-height: 0;
+    }
+}
+
+/* @media screen and (min-width: 640px) {
+    .transactionCard {
+        grid-template-columns: 300px 1fr;
+        grid-template-areas:
+            "details"
+            "analysis";
+    }
+} */
+
+@media screen and (min-width: 768px) {
+    .transactionCard {
+        grid-template-columns: 300px 1fr;
+        grid-template-areas: "details analysis";
+        gap: 0 var(--spacer);
+    }
+}
+@media screen and (min-width: 992px) {
+    .transactionCard {
+        grid-template-columns: 5fr 7fr;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .transactionCard {
+        display: grid;
+        grid-template-areas:
+            "details analysis"
+            "meta meta";
+        grid-template-columns: 4fr 8fr;
+    }
+}
