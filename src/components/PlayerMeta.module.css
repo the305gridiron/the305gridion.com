@@ -1,0 +1,95 @@
+.playerMeta {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--spacer-half);
+    grid-area: meta;
+
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    li {
+        background-color: var(--card-bg-light);
+        border: 1px solid var(--card-border-light);
+        box-shadow: inset 0 0 0 1px var(--white-color);
+        border-radius: var(--radius-default);
+        color: var(--color-dolphins-teal);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-weight-bold);
+        list-style: none;
+        padding: var(--spacer-three-quarter);
+        text-align: center;
+    }
+}
+
+.playerMetaTitle {
+    color: var(--gray-900);
+    display: block;
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+
+    svg {
+        display: none;
+    }
+}
+
+.playerTotalScore {
+    font-size: var(--font-size-base);
+    color: var(--color-gray);
+}
+
+@media (max-width: 575px) {
+    .playerMeta li {
+        grid-column: span 2;
+    }
+    .playerMeta li:nth-child(1),
+    .playerMeta li:nth-child(2) {
+        grid-column: span 3;
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+    }
+}
+
+@media (min-width: 576px) {
+    .playerMeta {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 640px) {
+    .playerMeta {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .playerMeta {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .playerMeta {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .playerMeta {
+        grid-template-columns: repeat(8, 1fr);
+
+        li {
+            font-size: var(--font-size-xl);
+
+            &:global(.player-meta--round),
+            &:global(.player-meta--round-pick),
+            &:global(.player-meta--overall-pick) {
+                order: -1;
+            }
+        }
+    }
+}
