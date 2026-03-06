@@ -29,6 +29,7 @@ const ProspectTable = ({ prospects, designations }) => {
             .replace(/\s+/g, "")   // remove spaces
             .replace(/\//g, "")    // remove slashes
             .replace(/–/g, "")     // remove en-dash
+            .replace(/-/g, "")     // remove regular dash
             }`;
     };
 
@@ -71,7 +72,7 @@ const ProspectTable = ({ prospects, designations }) => {
                 <div
                     className={`${styles.prospectTableHeaderCell} ${styles.prospectTableCellGrade}`}
                 >
-                    Grade
+                    Fit Grade
                 </div>
                 <div className={`${styles.prospectTableHeaderCell} ${styles.prospectTableCellFit}`}>
                     Fit Score
@@ -165,8 +166,8 @@ const ProspectTable = ({ prospects, designations }) => {
                             <li className={styles.prospectDetailsGrade}>
                                 <span className='semibold'>Grade</span>
                                 &nbsp;
-                                {prospect.base_grade
-                                    ? prospect.base_grade
+                                {prospect.fit_grade
+                                    ? prospect.fit_grade
                                     : "-"}
                             </li>
                             <li className={styles.prospectDetailsFit}>

@@ -16,7 +16,7 @@
 .nav-link {
   display: block;
   width: 100%;
-  padding: var(--spacer-quarter) var(--spacer);
+  padding: var(--spacer-half) var(--spacer);
   border: 1px solid var(--gray-200);
   border-radius: var(--border-radius);
   background-color: var(--white-color);

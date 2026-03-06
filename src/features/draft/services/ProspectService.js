@@ -34,7 +34,7 @@ export const fetchProspects = async (forceRefresh = false) => {
         const response = await axios.get(API_URL);
 
         const sortedProspects = response.data
-            .filter((p) => p.draftYear === 2026)
+            .filter((p) => p.draft_year === 2026)
             .sort((a, b) => a.draft_rank - b.draft_rank);
 
         localStorage.setItem(
