@@ -35,6 +35,24 @@
             "type": "release",
             "image": "/images/2026-transactions/nwi.webp",
             "analysis": "Despite playing the full season, Nick Westbrook-Ikhine struggled to make a mark, recording just 11 receptions for 89 yards. While he brought professionalism and effort, the on-field production never matched expectations, and he leaves Miami as a player who simply couldn't find his rhythm in the offense."
+        },
+        {
+            "id": "TRANS-2026-05",
+            "name": "Liam Eichenberg",
+            "position": "OL",
+            "date": "3/2/26",
+            "type": "release",
+            "image": "/images/2026-transactions/liam-eichenberg.webp",
+            "analysis": "Hardly a fan favorite, Eichenberg never lived up to his 2nd round selection, but he did add some much needed rotational depth to the offensive line. Unfortunately Liam suffered what appears to be a career ending injury and didn't play a single down in 2025."
+        },
+        {
+            "id": "TRANS-2026-06",
+            "name": "Ethan Bonner",
+            "position": "CB",
+            "date": "3/2/26",
+            "type": "tendered",
+            "image": "/images/2026-transactions/ethan-bonner.jpg",
+            "analysis": "Bonner was thrust into action last year after a slew of injuries decimated the cornerback room. He was inconsistent at times, but showed enough flashes for the new staff to tender him as an exclusive rights free agent. Because of that designation, he cannot negotiate with other teams, so if he signs the tender he will be back in camp as a Miami Dolphin this summer."
         }
     ],
     "unsigned": [

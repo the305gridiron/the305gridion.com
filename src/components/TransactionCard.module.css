@@ -45,6 +45,17 @@
     color: var(--white-color);
 }
 
+.addition,
+.tendered {
+    background-color: var(--color-dolphins-teal);
+    color: var(--white-color);
+}
+
+.trade {
+    background-color: var(--color-dolphins-navy);
+    color: var(--white-color);
+}
+
 .transactionAnalysis {
     background-color: var(--card-bg-light);
     border: 1px solid var(--card-border-light);
@@ -67,13 +78,12 @@
 .playerName {
     color: var(--color-dolphins-teal);
     display: block;
-    font-weight: var(--font-weight-bold);
     text-shadow: none;
     text-transform: uppercase;
 }
 
 .playerImage {
-    height: 300px;
+    height: 250px;
 
     img {
         border-radius: var(--radius-default);
@@ -84,36 +94,19 @@
     }
 }
 
-@media screen and (min-width: 640px) {
-    .playerImage {
-        height: 100%;
-        min-height: 300px;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .playerImage {
-        min-height: 0;
-    }
-}
-
-/* @media screen and (min-width: 640px) {
-    .transactionCard {
-        grid-template-columns: 300px 1fr;
-        grid-template-areas:
-            "details"
-            "analysis";
-    }
-} */
-
 @media screen and (min-width: 768px) {
     .transactionCard {
-        grid-template-columns: 300px 1fr;
+        grid-template-columns: 4fr 8fr;
         grid-template-areas: "details analysis";
         gap: 0 var(--spacer);
     }
 }
+
 @media screen and (min-width: 992px) {
+    .playerImage {
+        height: 100%;
+    }
+
     .transactionCard {
         grid-template-columns: 5fr 7fr;
     }

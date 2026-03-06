@@ -1,12 +1,15 @@
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import styles from "./MobileNav.module.css";
 
-function MobileNav() {
+function MobileNav({ links }) {
+    console.log(links);
     return (
         <nav className={styles.mobileNav}>
-            <a href='#freeAgency'>
-                <KeyboardDoubleArrowDownIcon /> Jump to Free Agency
-            </a>
+            {links.map(({ link, icon, text }) => (
+                <a href={link}>
+                    {icon} {text}
+                </a>
+            ))}
         </nav>
     );
 }

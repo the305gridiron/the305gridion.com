@@ -1,15 +1,11 @@
 .iconHeader {
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h2);
     color: var(--color-dolphins-teal);
     display: flex;
     align-items: flex-end;
     gap: var(--spacer-quarter);
     margin-bottom: var(--spacer);
     line-height: 0.85;
-
-    @media (min-width: 768px) {
-        font-size: var(--font-size-h2);
-    }
 
     svg {
         font-size: 1.875rem;

@@ -14,7 +14,10 @@ export default function FreeAgencyPlayerCard({ title, players, messaging }) {
 
     if (!players || players.length === 0) {
         return (
-            <SidebarCard title={title} tooltip={messaging.tooltip}>
+            <SidebarCard>
+                {title && (
+                    <SidebarCard.Title>{title}</SidebarCard.Title>
+                )}
                 <p className={styles.emptyMessage}>{messaging.empty}</p>
             </SidebarCard>
         );
@@ -23,8 +26,11 @@ export default function FreeAgencyPlayerCard({ title, players, messaging }) {
     const playerList = title === "Unsigned" ? players : [...players].reverse();
 
     return (
-        <SidebarCard title={title} tooltip={messaging.tooltip}>
-            <div className={styles.sidebarCardList}>
+        <SidebarCard>
+            {title && (
+                <SidebarCard.Title>{title}</SidebarCard.Title>
+            )}
+            <SidebarCard.List>
                 {playerList.map((player) =>
                     title === "Additions" ? (
                         <SidebarPlayerPanel
@@ -34,10 +40,7 @@ export default function FreeAgencyPlayerCard({ title, players, messaging }) {
                             onToggle={() => handleChange(player.id)}
                         />
                     ) : (
-                        <div
-                            key={player.id}
-                            className={styles.sidebarCardListItem}
-                        >
+                        <SidebarCard.ListItem key={player.id}>
                             {player.position && (
                                 <span className={styles.playerPosition}>
                                     {player.position}
@@ -59,10 +62,10 @@ export default function FreeAgencyPlayerCard({ title, players, messaging }) {
                                     {player.school}
                                 </span>
                             )}
-                        </div>
+                        </SidebarCard.ListItem>
                     ),
                 )}
-            </div>
+            </SidebarCard.List>
         </SidebarCard>
     );
 }

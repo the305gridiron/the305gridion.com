@@ -1,8 +1,30 @@
-.transactionList {
+.transactionListHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacer);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacer);
+
+    h2 {
+        margin: 0;
+    }
 }
 
 .transactionCards {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacer);
+}
+
+.emptyState {
+    background-color: var(--white-color);
+    border-radius: var(--radius-default);
+    box-shadow: var(--box-shadow-sm);
+    padding: var(--spacer-double);
+    text-align: center;
+
+    p {
+        margin: 0;
+    }
 }

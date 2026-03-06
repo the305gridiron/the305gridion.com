@@ -1,3 +1,6 @@
+import ContentCutIcon from "@mui/icons-material/ContentCut";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import season2026 from "./2026.json";
 
 export const seasonalTransactions = [
@@ -6,6 +9,13 @@ export const seasonalTransactions = [
         data: season2026,
     },
 ];
+
+export const transactionTypeMap = {
+    release: { icon: ContentCutIcon, text: "Released" },
+    addition: { icon: PersonAddIcon, text: "Signed" },
+    trade: { icon: SwapHorizIcon, text: "Traded" },
+    tendered: { icon: PersonAddIcon, text: "Tendered" }
+};
 
 export const sidebarCardMessaging = {
     Additions: {
