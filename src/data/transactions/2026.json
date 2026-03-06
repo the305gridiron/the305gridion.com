@@ -7,7 +7,7 @@
             "date": "2/16/26",
             "type": "release",
             "image": "/images/2026-transactions/bradley-chubb.jpg",
-            "analysis": "Bradley Chubb’s time in Miami showed exactly how impactful he could be when healthy, bringing energy, leadership, and a relentless edge presence to the defense. After arriving in a big midseason trade, he became a tone-setter and delivered a standout 2023 season that helped elevate the pass rush. Injuries made things tougher later on, but his effort and commitment never wavered. As the team turns the page, he leaves as a respected veteran who gave everything he had every time he stepped on the field."
+            "analysis": "Bradley Chubb's time in Miami showed exactly how impactful he could be when healthy, bringing energy, leadership, and a relentless edge presence to the defense. After arriving in a big midseason trade, he became a tone-setter and delivered a standout 2023 season that helped elevate the pass rush. Injuries made things tougher later on, but his effort and commitment never wavered. As the team turns the page, he leaves as a respected veteran who gave everything he had every time he stepped on the field."
         },
         {
             "id": "TRANS-2026-02",
@@ -16,7 +16,7 @@
             "date": "2/16/26",
             "type": "release",
             "image": "/images/2026-transactions/tyreek-hill.webp",
-            "analysis": "Tyreek Hill’s time in Miami started with the signature explosiveness and game-breaking speed fans expected, lighting up the field with electric plays that kept defenses on edge. Unfortunately, injuries and off-field distractions limited his impact later on, preventing him from consistently reaching his elite potential. Despite the setbacks, he delivered flashes of brilliance that reminded everyone of the talent he brought to the offense."
+            "analysis": "Tyreek Hill's time in Miami started with the signature explosiveness and game-breaking speed fans expected, lighting up the field with electric plays that kept defenses on edge. Unfortunately, injuries and off-field distractions limited his impact later on, preventing him from consistently reaching his elite potential. Despite the setbacks, he delivered flashes of brilliance that reminded everyone of the talent he brought to the offense."
         },
         {
             "id": "TRANS-2026-03",
@@ -25,7 +25,7 @@
             "date": "2/16/26",
             "type": "release",
             "image": "/images/2026-transactions/james-daniels.jpg",
-            "analysis": "James Daniels’ stint in Miami never materialized as hoped. Healthy for just three plays, he failed to make the impact the team needed on the offensive line, leaving coaches and fans frustrated. Though brief, his time with the Dolphins serves as a cautionary tale about fit and opportunity, and the team will look elsewhere to anchor the trenches moving forward."
+            "analysis": "James Daniels' stint in Miami never materialized as hoped. Healthy for just three plays, he failed to make the impact the team needed on the offensive line, leaving coaches and fans frustrated. Though brief, his time with the Dolphins serves as a cautionary tale about fit and opportunity, and the team will look elsewhere to anchor the trenches moving forward."
         },
         {
             "id": "TRANS-2026-04",
@@ -53,6 +53,24 @@
             "type": "tendered",
             "image": "/images/2026-transactions/ethan-bonner.jpg",
             "analysis": "Bonner was thrust into action last year after a slew of injuries decimated the cornerback room. He was inconsistent at times, but showed enough flashes for the new staff to tender him as an exclusive rights free agent. Because of that designation, he cannot negotiate with other teams, so if he signs the tender he will be back in camp as a Miami Dolphin this summer."
+        },
+        {
+            "id": "TRANS-2026-07",
+            "name": "Alec Ingold",
+            "position": "FB",
+            "date": "3/6/26",
+            "type": "release",
+            "image": "/images/2026-transactions/alec-ingold.webp",
+            "analysis": "Ingold was a steady presence in Miami's offense and locker room over the past four seasons, serving as a team captain and earning a Pro Bowl nod in 2023. While fullback usage across the league continues to shrink, his leadership and versatility made him a valuable piece of the Dolphins' culture during Mike McDaniel's early tenure. Moving on likely signals a shift in roster priorities, but Ingold's impact in Miami went well beyond the box score."
+        },
+        {
+            "id": "TRANS-2026-08",
+            "name": "Jason Sanders",
+            "position": "K",
+            "date": "3/6/26",
+            "type": "release",
+            "image": "/images/2026-transactions/jason-sanders.webp",
+            "analysis": "Sanders leaves Miami as one of the most accomplished kickers in franchise history, holding the team's all-time field goal percentage record and earning First-Team All-Pro honors in 2020. His leg strength and clutch moments helped stabilize the position for several seasons, including multiple playoff runs. The move suggests the Dolphins are ready to reset at kicker, closing the chapter on one of the longest-tenured specialists in recent team history."
         }
     ],
     "unsigned": [
