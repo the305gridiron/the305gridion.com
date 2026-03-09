@@ -71,6 +71,24 @@
             "type": "release",
             "image": "/images/2026-transactions/jason-sanders.webp",
             "analysis": "Sanders leaves Miami as one of the most accomplished kickers in franchise history, holding the team's all-time field goal percentage record and earning First-Team All-Pro honors in 2020. His leg strength and clutch moments helped stabilize the position for several seasons, including multiple playoff runs. The move suggests the Dolphins are ready to reset at kicker, closing the chapter on one of the longest-tenured specialists in recent team history."
+        },
+        {
+            "id": "TRANS-2026-09",
+            "name": "Tua Tagovailoa",
+            "position": "QB",
+            "date": "3/9/26",
+            "type": "release",
+            "image": "/images/2026-transactions/tua-tagovailoa.webp",
+            "analysis": "After months of buildup, the Dolphins have officially parted ways with quarterback Tua Tagovailoa. The move had been widely expected as Miami navigated a tight salary cap situation, but it still closes the book on one of the most important eras in recent team history. Tagovailoa helped engineer some of the most explosive offenses the franchise has ever seen and was at the center of Miami's offensive identity during the Mike McDaniel years. The decision doesn't come cheap either, but because we designated him a post-June 1st cut, we're able to split the cap hit over the next two years, leaving a $67.4 million cap hit in 2026 and another $31.8 million in 2027 as we turn the page at quarterback."
+        },
+        {
+            "id": "TRANS-2026-10",
+            "name": "Minkah Fitzpatrick",
+            "position": "S",
+            "date": "3/9/26",
+            "type": "trade_away",
+            "image": "/images/2026-transactions/minkah-fitzpatrick.jpg",
+            "analysis": "The Dolphins have traded safety Minkah Fitzpatrick to the New York Jets in exchange for a seventh-round pick originally belonging to the Los Angeles Chargers. The deal ends Fitzpatrick's second stint in Miami after returning to the team last season, and continues a series of moves aimed at creating cap flexibility. While the return is modest, the trade clears additional salary as the Dolphins continue reshaping the roster this offseason."
         }
     ],
     "unsigned": [

@@ -13,7 +13,8 @@ export const seasonalTransactions = [
 export const transactionTypeMap = {
     release: { icon: ContentCutIcon, text: "Released" },
     addition: { icon: PersonAddIcon, text: "Signed" },
-    trade: { icon: SwapHorizIcon, text: "Traded" },
+    trade_away: { icon: SwapHorizIcon, text: "Traded" },
+    trade_for: { icon: SwapHorizIcon, text: "Acquired" },
     tendered: { icon: PersonAddIcon, text: "Tendered" }
 };
 
