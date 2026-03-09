@@ -38,7 +38,7 @@ export default function Footer() {
               {item.label}
             </Link>
           ))}
-          <a href='the305gridiron@gmail.com'>Contact Us</a>
+          <a href='mailto:the305gridiron@gmail.com'>Contact Us</a>
         </nav>
       </div>
 
