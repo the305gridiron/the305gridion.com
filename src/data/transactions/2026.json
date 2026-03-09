@@ -89,6 +89,15 @@
             "type": "trade_away",
             "image": "/images/2026-transactions/minkah-fitzpatrick.jpg",
             "analysis": "The Dolphins have traded safety Minkah Fitzpatrick to the New York Jets in exchange for a seventh-round pick originally belonging to the Los Angeles Chargers. The deal ends Fitzpatrick's second stint in Miami after returning to the team last season, and continues a series of moves aimed at creating cap flexibility. While the return is modest, the trade clears additional salary as the Dolphins continue reshaping the roster this offseason."
+        },
+        {
+            "id": "TRANS-2026-11",
+            "name": "Malik Willis",
+            "position": "QB",
+            "date": "3/9/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/malik-willis.webp",
+            "analysis": "The Dolphins' new regime has made its first move to stabilize the quarterback position, signing former Packers QB Malik Willis to a three-year, $67.5 million deal with $45 million fully guaranteed. Willis was once considered a draft bust in Tennessee before being traded to Green Bay Packers to back up Jordan Love, where he began to revive his career. In limited action with Green Bay, the young quarterback showed significant growth, generating more free agent interest than many expected this offseason."
         }
     ],
     "unsigned": [
