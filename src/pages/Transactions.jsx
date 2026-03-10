@@ -61,10 +61,17 @@ export default function Offseason() {
             return;
         }
 
-        // Treat "addition" as including "tendered"
-        const filtered = currentTransactions.filter((t) =>
-            type === "addition" ? t.type === "addition" || t.type === "tendered" : t.type === type
-        );
+        const filtered = currentTransactions.filter((t) => {
+            if (type === "addition") {
+                return t.type === "addition" || t.type === "tendered";
+            }
+
+            if (type === "trade") {
+                return t.type === "trade_away" || t.type === "trade_for";
+            }
+
+            return t.type === type;
+        });
 
         setFilteredTransactions([...filtered].reverse());
     };

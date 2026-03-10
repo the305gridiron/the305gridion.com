@@ -99,6 +99,24 @@
             "type": "addition",
             "image": "/images/2026-transactions/malik-willis.webp",
             "analysis": "The Dolphins' new regime has made its first move to stabilize the quarterback position, signing former Packers QB Malik Willis to a three-year, $67.5 million deal with $45 million fully guaranteed. Willis was once considered a draft bust in Tennessee before being traded to Green Bay Packers to back up Jordan Love, where he began to revive his career. In limited action with Green Bay, the young quarterback showed significant growth, generating more free agent interest than many expected this offseason."
+        },
+        {
+            "id": "TRANS-2026-12",
+            "name": "Greg Dulcich",
+            "position": "TE",
+            "date": "3/10/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/greg-dulcich.webp",
+            "analysis": "The Dolphins have re-signed tight end Greg Dulcich to a one-year deal after his late-season emergence. Dulcich joined the team on the practice squad earlier in the year but quickly carved out a role once elevated to the active roster. In limited action he made the most of his opportunities, hauling in 26 receptions for 336 yards and a touchdown, finishing third on the team in receiving. Miami will now look for him to build on that momentum as a reliable target for new quarterback Malik Willis in 2026."
+        },
+        {
+            "id": "TRANS-2026-13",
+            "name": "Zane Gonzalez",
+            "position": "K",
+            "date": "3/10/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/zane-gonzalez.webp",
+            "analysis": "The Dolphins have signed veteran kicker Zane Gonzalez as they look to solidify the position heading into the 2026 season. Gonzalez brings experience from several stops around the league and provides Miami with a reliable leg for both field goals and kickoffs. With both Jason Sanders and Riley Patterson not being retained this offseason, Miami ventured into the Free Agency pool to find their next big leg."
         }
     ],
     "unsigned": [
@@ -126,6 +144,15 @@
             "id": "UNS-2026-05",
             "name": "Darren Waller",
             "position": "TE"
+        },
+        {
+            "id": "UNS-2026-29",
+            "name": "Greg Dulcich",
+            "position": "TE",
+            "deal": {
+                "team": "MIA",
+                "details": ""
+            }
         },
         {
             "id": "UNS-2026-06",
