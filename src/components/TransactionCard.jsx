@@ -20,6 +20,7 @@ export default function TransactionCard(props) {
                     {transactionTypeMap[props.type]?.text}
                 </h3>
                 <p>{props.analysis}</p>
+                {props.update && <p className={styles.transactionUpdate}>{props.update}</p>}
             </div>
 
             <span

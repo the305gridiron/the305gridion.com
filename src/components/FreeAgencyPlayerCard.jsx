@@ -5,7 +5,7 @@ import Tooltip from "@mui/material/Tooltip";
 import SwapHorizOutlinedIcon from "@mui/icons-material/SwapHorizOutlined";
 import styles from "./SidebarCard.module.css";
 
-export default function FreeAgencyPlayerCard({ title, players, messaging }) {
+export default function FreeAgencyPlayerCard({ hideTitle = false, title, players, messaging }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = (panelId) => {
@@ -15,7 +15,7 @@ export default function FreeAgencyPlayerCard({ title, players, messaging }) {
     if (!players || players.length === 0) {
         return (
             <SidebarCard>
-                {title && (
+                {!hideTitle && title && (
                     <SidebarCard.Title>{title}</SidebarCard.Title>
                 )}
                 <p className={styles.emptyMessage}>{messaging.empty}</p>
@@ -27,7 +27,7 @@ export default function FreeAgencyPlayerCard({ title, players, messaging }) {
 
     return (
         <SidebarCard>
-            {title && (
+            {!hideTitle && title && (
                 <SidebarCard.Title>{title}</SidebarCard.Title>
             )}
             <SidebarCard.List>
@@ -61,6 +61,12 @@ export default function FreeAgencyPlayerCard({ title, players, messaging }) {
                                 <span className={styles.playerSchool}>
                                     {player.school}
                                 </span>
+                            )}
+
+                            {player.deal && (
+                                <Tooltip title={player.deal.details} className={styles.playerDeal}>
+                                    {player.deal.team}
+                                </Tooltip>
                             )}
                         </SidebarCard.ListItem>
                     ),

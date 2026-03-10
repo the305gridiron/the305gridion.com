@@ -96,6 +96,7 @@ export default function Offseason() {
                     <SidebarCards>
                         <FreeAgencyPlayerCard
                             title="Unsigned"
+                            hideTitle={true}
                             players={currentUnsigned}
                             messaging={sidebarCardMessaging.Unsigned}
                         />

@@ -60,8 +60,9 @@
             "position": "FB",
             "date": "3/6/26",
             "type": "release",
-            "image": "/images/2026-transactions/alec-ingold.webp",
-            "analysis": "Ingold was a steady presence in Miami's offense and locker room over the past four seasons, serving as a team captain and earning a Pro Bowl nod in 2023. While fullback usage across the league continues to shrink, his leadership and versatility made him a valuable piece of the Dolphins' culture during Mike McDaniel's early tenure. Moving on likely signals a shift in roster priorities, but Ingold's impact in Miami went well beyond the box score."
+            "image": "/images/2026-transactions/alec-ingold.jpg",
+            "analysis": "Ingold was a steady presence in Miami's offense and locker room over the past four seasons, serving as a team captain and earning a Pro Bowl nod in 2023. While fullback usage across the league continues to shrink, his leadership and versatility made him a valuable piece of the Dolphins' culture during Mike McDaniel's early tenure. Moving on likely signals a shift in roster priorities, but Ingold's impact in Miami went well beyond the box score.",
+            "update": "The Chargers agreed to terms on a contract with fullback Alec Ingold, the team announced Sunday night (3/8/26). The deal is for two years and up to $7.5 million."
         },
         {
             "id": "TRANS-2026-08",
@@ -129,7 +130,11 @@
         {
             "id": "UNS-2026-06",
             "name": "Larry Borom",
-            "position": "OL"
+            "position": "OL",
+            "deal": {
+                "team": "DET",
+                "details": "More O-line help for the Lions: They've agreed to terms with veteran Larry Borom"
+            }
         },
         {
             "id": "UNS-2026-07",
@@ -229,7 +234,11 @@
         {
             "id": "UNS-2026-26",
             "name": "Jake Bailey",
-            "position": "P"
+            "position": "P",
+            "deal": {
+                "team": "ATL",
+                "details": "Signed a three-year, $9 million deal that includes $5 million fully guaranteed with the Falcons."
+            }
         },
         {
             "id": "UNS-2026-27",

@@ -26,6 +26,14 @@
     }
 }
 
+.transactionUpdate {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius-small);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+    padding: var(--spacer);
+}
+
 .type {
     border-radius: var(--radius-default);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
