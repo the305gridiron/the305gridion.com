@@ -1,6 +1,7 @@
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
+import EditDocumentIcon from '@mui/icons-material/EditDocument';
 import season2026 from "./2026.json";
 
 export const seasonalTransactions = [
@@ -15,7 +16,8 @@ export const transactionTypeMap = {
     addition: { icon: PersonAddIcon, text: "Signed" },
     trade_away: { icon: SwapHorizIcon, text: "Traded" },
     trade_for: { icon: SwapHorizIcon, text: "Acquired" },
-    tendered: { icon: PersonAddIcon, text: "Tendered" }
+    tendered: { icon: PersonAddIcon, text: "Tendered" },
+    restructure: { icon: EditDocumentIcon, text: "Restructures Contract" }
 };
 
 export const sidebarCardMessaging = {

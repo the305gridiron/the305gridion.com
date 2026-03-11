@@ -21,7 +21,8 @@ export default function TransactionList(props) {
                         { value: "all", label: "All Transactions" },
                         { value: "addition", label: "Added" },
                         { value: "release", label: "Released" },
-                        { value: "trade", label: "Traded" }
+                        { value: "trade", label: "Traded" },
+                        { value: "restructure", label: "Restructured" }
                     ]}
                 />
             </header>

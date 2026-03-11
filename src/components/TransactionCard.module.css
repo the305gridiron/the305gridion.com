@@ -16,14 +16,30 @@
 }
 
 .transactionAnalysis {
+    background-color: var(--card-bg-light);
+    border: 1px solid var(--card-border-light);
+    box-shadow: inset 0 0 0 1px var(--white-color);
+    border-radius: var(--radius-default);
+    color: var(--gray-800);
+    grid-area: analysis;
+    padding: var(--spacer);
     display: flex;
     gap: var(--spacer-half);
     flex-direction: column;
+    align-items: start;
     font-size: var(--font-size-lg);
 
     >p {
         margin: 0;
     }
+}
+
+.transactionHeadline {
+    font-size: var(--font-size-xxxl);
+    font-weight: var(--font-weight-normal);
+    color: var(--gray-700);
+    line-height: var(--line-height-xs);
+    margin: 0;
 }
 
 .transactionUpdate {
@@ -32,6 +48,19 @@
     font-size: var(--font-size-sm);
     font-style: italic;
     padding: var(--spacer);
+}
+
+
+.transactionDate {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: var(--radius-small);
+    color: var(--light-color);
+    padding: var(--spacer-quarter) var(--spacer-third);
+    position: absolute;
+    top: var(--spacer);
+    right: var(--spacer);
 }
 
 .type {
@@ -60,7 +89,8 @@
 }
 
 .addition,
-.tendered {
+.tendered,
+.restructure {
     background-color: var(--color-dolphins-teal);
     color: var(--white-color);
 }
@@ -76,28 +106,8 @@
     }
 }
 
-.transactionAnalysis {
-    background-color: var(--card-bg-light);
-    border: 1px solid var(--card-border-light);
-    box-shadow: inset 0 0 0 1px var(--white-color);
-    border-radius: var(--radius-default);
-    color: var(--gray-800);
-    grid-area: analysis;
-    padding: var(--spacer);
-}
-
-.transactionHeadline {
-    font-size: var(--font-size-xxxl);
-    font-weight: var(--font-weight-normal);
-    color: var(--gray-700);
-    line-height: var(--line-height-xs);
-    margin: 0;
-    display: flex;
-}
-
 .playerName {
     color: var(--color-dolphins-teal);
-    display: block;
     text-shadow: none;
     text-transform: uppercase;
 }
@@ -119,6 +129,15 @@
         grid-template-columns: 4fr 8fr;
         grid-template-areas: "details analysis";
         gap: 0 var(--spacer);
+    }
+
+    .transactionDate {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: var(--dark-color);
+    }
+
+    .transactionHeadline {
+        padding-right: 4.5rem;
     }
 }
 

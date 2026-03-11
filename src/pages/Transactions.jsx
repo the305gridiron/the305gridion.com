@@ -22,6 +22,10 @@ import styles from "./Transactions.module.css";
 // Data
 import { sidebarCardMessaging, seasonalTransactions } from "../data/transactions/index";
 
+// Sort transactions by date
+const sortTransactionsByDateDesc = (transactions) =>
+    [...transactions].sort((a, b) => new Date(b.date) - new Date(a.date));
+
 export default function Offseason() {
     const isMobile = useMediaQuery("(max-width:767px)");
     const [searchParams, setSearchParams] = useSearchParams();
@@ -46,18 +50,10 @@ export default function Offseason() {
         },
     ], []);
 
-    // Initialize filteredTransactions whenever the year changes
-    useEffect(() => {
-        if (!requestedYear) {
-            setSearchParams({ year: seasonalTransactions[0].id });
-        }
-        setFilteredTransactions([...currentTransactions].reverse());
-    }, [currentTransactions, requestedYear, setSearchParams]);
-
     // Filter transactions based on type
     const handleTypeChange = (type) => {
         if (!type || type === "all") {
-            setFilteredTransactions([...currentTransactions].reverse());
+            setFilteredTransactions(sortTransactionsByDateDesc(currentTransactions));
             return;
         }
 
@@ -73,8 +69,16 @@ export default function Offseason() {
             return t.type === type;
         });
 
-        setFilteredTransactions([...filtered].reverse());
+        setFilteredTransactions(sortTransactionsByDateDesc(filtered));
     };
+
+    // Initialize filteredTransactions whenever the year changes
+    useEffect(() => {
+        if (!requestedYear) {
+            setSearchParams({ year: seasonalTransactions[0].id });
+        }
+        setFilteredTransactions(sortTransactionsByDateDesc(currentTransactions));
+    }, [currentTransactions, requestedYear, setSearchParams]);
 
     return (
         <div className={`offseason-page ${styles.offseasonPage}`}>

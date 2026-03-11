@@ -117,6 +117,24 @@
             "type": "addition",
             "image": "/images/2026-transactions/zane-gonzalez.webp",
             "analysis": "The Dolphins have signed veteran kicker Zane Gonzalez as they look to solidify the position heading into the 2026 season. Gonzalez brings experience from several stops around the league and provides Miami with a reliable leg for both field goals and kickoffs. With both Jason Sanders and Riley Patterson not being retained this offseason, Miami ventured into the Free Agency pool to find their next big leg."
+        },
+        {
+            "id": "TRANS-2026-14",
+            "name": "Austin Jackson",
+            "position": "OT",
+            "date": "3/11/26",
+            "type": "restructure",
+            "image": "/images/2026-transactions/austin-jackson.jpg",
+            "analysis": "The Dolphins picked up some breathing room on the cap sheet by restructuring the contract of offensive tackle Austin Jackson. Jackson agreed to a one-year, $7 million reworked deal that includes $5.4 million fully guaranteed and four void years, freeing up about $8.5 million in cap space for Miami this season. Honestly, we figured Jackson might be a cap casualty this offseason, so it's good to see both sides find a way to keep him in Miami while easing the financial hit."
+        },
+        {
+            "id": "TRANS-2026-15",
+            "name": "Cameron Goode",
+            "position": "LB",
+            "date": "3/4/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/cameron-goode.jpg",
+            "analysis": "Goode spent most of last season working his way back from injury but has been a steady special teams contributor when healthy. While he hasn’t carved out a major role on defense yet, bringing him back gives Miami a familiar depth piece who knows the system and can contribute in the third phase. Moves like this don’t grab headlines, but they help round out the back end of the roster heading into camp."
         }
     ],
     "unsigned": [
@@ -186,7 +204,11 @@
         {
             "id": "UNS-2026-11",
             "name": "Cole Strange",
-            "position": "OL"
+            "position": "OL",
+            "deal": {
+                "team": "LAC",
+                "details": "Signed a two-year, $13 million contract with the Chargers."
+            }
         },
         {
             "id": "UNS-2026-12",
@@ -275,7 +297,11 @@
         {
             "id": "UNS-2026-28",
             "name": "Joe Cardona",
-            "position": "LS"
+            "position": "LS",
+            "deal": {
+                "team": "LAR",
+                "details": "Signed a two-year, $3.45 million deal with the Rams."
+            }
         }
     ]
 }
