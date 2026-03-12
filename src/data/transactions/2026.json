@@ -237,6 +237,24 @@
             "type": "resigned",
             "image": "/images/2026-transactions/riley-patterson.jpg",
             "analysis": "The Dolphins are bringing back kicker Riley Patterson, setting up a full-blown kicking competition heading into camp. With veteran Zane Gonzalez also recently signed, Miami suddenly has a battle brewing for the starting job. Patterson gets another shot to claim the role, but this one is clearly going to be decided on the field."
+        },
+        {
+            "id": "TRANS-2026-27",
+            "name": "Tutu Atwell",
+            "position": "WR",
+            "date": "3/12/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/tutu-atwell.webp",
+            "analysis": "The Dolphins are adding some serious speed with the signing of wide receiver Tutu Atwell to a one-year deal. The former second-round pick spent the last four seasons with the Los Angeles Rams, where he developed into a dangerous deep threat, posting a career-high 562 receiving yards in 2024. Atwell's elite speed (clocked over 21 mph in games) gives Miami another weapon who can stretch the field and make defenses think twice about loading the box."
+        },
+        {
+            "id": "TRANS-2026-28",
+            "name": "Marco Wilson",
+            "position": "CB",
+            "date": "3/12/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/marco-wilson.webp",
+            "analysis": "The Dolphins are adding another corner to the mix with the signing of Marco Wilson. A former fourth-round pick out of the University of Florida, Wilson has spent time with Arizona, New England, and Cincinnati since entering the league in 2021. Known for his speed and athleticism, he'll likely compete for a depth role in the secondary while contributing on special teams."
         }
     ],
     "unsigned": [
