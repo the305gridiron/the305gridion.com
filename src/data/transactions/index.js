@@ -17,7 +17,8 @@ export const transactionTypeMap = {
     trade_away: { icon: SwapHorizIcon, text: "Traded" },
     trade_for: { icon: SwapHorizIcon, text: "Acquired" },
     tendered: { icon: PersonAddIcon, text: "Tendered" },
-    restructure: { icon: EditDocumentIcon, text: "Restructures Contract" }
+    restructure: { icon: EditDocumentIcon, text: "Restructures Contract" },
+    resigned: { icon: PersonAddIcon, text: "Re-Signed" }
 };
 
 export const sidebarCardMessaging = {

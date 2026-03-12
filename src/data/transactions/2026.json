@@ -72,7 +72,8 @@
             "date": "3/6/26",
             "type": "release",
             "image": "/images/2026-transactions/jason-sanders.webp",
-            "analysis": "Sanders leaves Miami as one of the most accomplished kickers in franchise history, holding the team's all-time field goal percentage record and earning First-Team All-Pro honors in 2020. His leg strength and clutch moments helped stabilize the position for several seasons, including multiple playoff runs. The move suggests the Dolphins are ready to reset at kicker, closing the chapter on one of the longest-tenured specialists in recent team history."
+            "analysis": "Sanders leaves Miami as one of the most accomplished kickers in franchise history, holding the team's all-time field goal percentage record and earning First-Team All-Pro honors in 2020. His leg strength and clutch moments helped stabilize the position for several seasons, including multiple playoff runs. The move suggests the Dolphins are ready to reset at kicker, closing the chapter on one of the longest-tenured specialists in recent team history.",
+            "update": "Agreed to a one-year deal with the New York Giants."
         },
         {
             "id": "TRANS-2026-09",
@@ -107,7 +108,7 @@
             "name": "Greg Dulcich",
             "position": "TE",
             "date": "3/10/26",
-            "type": "addition",
+            "type": "resigned",
             "image": "/images/2026-transactions/greg-dulcich.webp",
             "analysis": "The Dolphins have re-signed tight end Greg Dulcich to a one-year deal after his late-season emergence. Dulcich joined the team on the practice squad earlier in the year but quickly carved out a role once elevated to the active roster. In limited action he made the most of his opportunities, hauling in 26 receptions for 336 yards and a touchdown, finishing third on the team in receiving. Miami will now look for him to build on that momentum as a reliable target for new quarterback Malik Willis in 2026."
         },
@@ -134,7 +135,7 @@
             "name": "Cameron Goode",
             "position": "LB",
             "date": "3/4/26",
-            "type": "addition",
+            "type": "resigned",
             "image": "/images/2026-transactions/cameron-goode.jpg",
             "analysis": "Goode spent most of last season working his way back from injury but has been a steady special teams contributor when healthy. While he hasn't carved out a major role on defense yet, bringing him back gives Miami a familiar depth piece who knows the system and can contribute in the third phase. Moves like this don't grab headlines, but they help round out the back end of the roster heading into camp."
         },
@@ -143,25 +144,25 @@
             "name": "Willie Gay Jr.",
             "position": "LB",
             "date": "3/11/26",
-            "type": "addition",
+            "type": "resigned",
             "image": "/images/2026-transactions/willie-gay.webp",
             "analysis": "The Dolphins have re-signed LB “Big Play” Willie Gay Jr. to a one-year deal, bringing back the little-used linebacker for another run with the new regime. We're big fans of Gay's speed and athleticism and were disappointed former defensive coordinator Anthony Weaver didn't utilize him more last season. With Jeff Hafley now leading the team, we're hoping Gay finally gets the chance to show off that playmaking ability in 2026."
         },
         {
             "id": "TRANS-2026-17",
             "name": "Josh Uche",
-            "position": "LB",
+            "position": "EDGE",
             "date": "3/11/26",
             "type": "addition",
             "image": "/images/2026-transactions/josh-uche.webp",
-            "analysis": "The Dolphins have signed linebacker Josh Uche to a one-year deal, bringing in a veteran pass-rush piece with real upside. Uche was a second-round pick out of Michigan and quietly built a solid pass-rush resume, posting 21.5 sacks over six seasons with the Patriots, Chiefs and Eagles. His best stretch came in 2022 when he lit it up with 11.5 sacks, and Miami will be hoping he can tap back into that kind of production in a rotational role."
+            "analysis": "The Dolphins have signed edge rusher Josh Uche to a one-year deal, bringing in a veteran pass-rush piece with real upside. Uche was a second-round pick out of Michigan and quietly built a solid pass-rush resume, posting 21.5 sacks over six seasons with the Patriots, Chiefs and Eagles. His best stretch came in 2022 when he lit it up with 11.5 sacks, and Miami will be hoping he can tap back into that kind of production in a rotational role."
         },
         {
             "id": "TRANS-2026-18",
             "name": "Matthew Butler",
             "position": "DT",
             "date": "3/11/26",
-            "type": "addition",
+            "type": "resigned",
             "image": "/images/2026-transactions/matthew-butler.jpg",
             "analysis": "The Dolphins are bringing back defensive tackle Matthew Butler as veteran depth on the interior. Originally a fifth-round pick by the Raiders out of Tennessee, the 6'3\", 305-pound mauler brings quickness and pass-rush juice from the inside. Not a splash move, but a solid depth piece to keep the defensive line rotation fresh."
         },
@@ -170,7 +171,7 @@
             "name": "A.J. Green III",
             "position": "CB",
             "date": "3/11/26",
-            "type": "addition",
+            "type": "resigned",
             "image": "/images/2026-transactions/aj-green.webp",
             "analysis": "Miami is keeping cornerback A. J. Green around as a young depth option in the secondary. The 6'2\", 198-pound former Oklahoma State standout has bounced between a few teams since entering the league as an undrafted free agent in 2020, but he's carved out a role on special teams and as a rotational corner."
         },
@@ -209,6 +210,33 @@
             "type": "addition",
             "image": "/images/2026-transactions/ben-sims.jpg",
             "analysis": "Miami has signed tight end Ben Sims, a blocking-first tight end who's appeared in 45 games over the past three seasons with Green Bay and Minnesota. The former Baylor standout holds the school record for touchdowns by a tight end and should compete for a role as an in-line blocker in Miami's offense, likely replacing the departed Julian Hill."
+        },
+        {
+            "id": "TRANS-2026-24",
+            "name": "Lonnie Johnson",
+            "position": "S",
+            "date": "3/11/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/lonnie-johnson.webp",
+            "analysis": "The Dolphins have added veteran defensive back Lonnie Johnson Jr., bringing some size and physicality to the secondary. The 6'2\", 213-pound former second-round pick out of Kentucky has appeared in more than 80 games for the Titans, Saints, Texans, and Raiders. Johnson's versatility to play both safety and corner, along with his special teams experience, makes him a solid depth addition to the defensive back room."
+        },
+        {
+            "id": "TRANS-2026-25",
+            "name": "Robert Beal Jr.",
+            "position": "EDGE",
+            "date": "3/12/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/robert-beal-jr.webp",
+            "analysis": "The Dolphins have added edge rusher Robert Beal Jr., a former fifth-round pick of the 49ers in 2023. The 6'4\", 250-pound defender is known for his elite speed, running a 4.47 forty coming out of Georgia, where he won two national championships. Beal has mostly contributed on special teams early in his career, but his athletic upside makes him an intriguing developmental pass-rush piece for Miami."
+        },
+        {
+            "id": "TRANS-2026-26",
+            "name": "Riley Patterson",
+            "position": "K",
+            "date": "3/12/26",
+            "type": "resigned",
+            "image": "/images/2026-transactions/riley-patterson.jpg",
+            "analysis": "The Dolphins are bringing back kicker Riley Patterson, setting up a full-blown kicking competition heading into camp. With veteran Zane Gonzalez also recently signed, Miami suddenly has a battle brewing for the starting job. Patterson gets another shot to claim the role, but this one is clearly going to be decided on the field."
         }
     ],
     "unsigned": [
@@ -304,7 +332,7 @@
             "position": "NT"
         },
         {
-            "id": "UNS-2026-29",
+            "id": "UNS-2026-31",
             "name": "Matthew Butler",
             "position": "DT",
             "deal": {
@@ -341,7 +369,11 @@
         {
             "id": "UNS-2026-18",
             "name": "Kader Kohou",
-            "position": "CB"
+            "position": "CB",
+            "deal": {
+                "team": "KCC",
+                "details": "Agreed to terms with the Kansas City Chiefs."
+            }
         },
         {
             "id": "UNS-2026-19",
@@ -393,7 +425,10 @@
         {
             "id": "UNS-2026-27",
             "name": "Riley Patterson",
-            "position": "K"
+            "position": "K",
+            "deal": {
+                "team": "MIA"
+            }
         },
         {
             "id": "UNS-2026-28",

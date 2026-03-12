@@ -71,7 +71,7 @@ export default function Offseason() {
 
         const filtered = currentTransactions.filter((t) => {
             if (type === "addition") {
-                return t.type === "addition" || t.type === "tendered";
+                return t.type === "addition" || t.type === "tendered" || t.type === "resigned";
             }
 
             if (type === "trade") {
@@ -95,7 +95,7 @@ export default function Offseason() {
     return (
         <div className={`offseason-page ${styles.offseasonPage}`}>
             <Hero>
-                <Hero.Title>2026 Offseason Tracker</Hero.Title>
+                <Hero.Title>Miami Dolphins Offseason Tracker</Hero.Title>
                 <Hero.Promo>
                     From trades and cuts to free agent signings, we're breaking down the
                     biggest moves, the surprises, and the names you need to watch in the
