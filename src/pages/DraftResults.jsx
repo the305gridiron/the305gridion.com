@@ -38,9 +38,9 @@ export default function DraftResults() {
   return (
     <div className={styles.draftResults}>
       <Hero>
-        <Hero.Title>Draft Results</Hero.Title>
+        <Hero.Title>Miami Dolphins Draft Results</Hero.Title>
         <Hero.Promo>
-          The picks aren't in yet, but we're gearing up to break down the results as soon as the buzzer sounds. Check back on April 23rd for all the biggest surprises, best fits, and names you need to know as they hit the league.
+          The 2026 NFL Draft is on the horizon, but the picks aren't in just yet. Check back on April 23rd for all the best reactions to the Miami Dolphins 2026 Draft.
         </Hero.Promo>
       </Hero>
 

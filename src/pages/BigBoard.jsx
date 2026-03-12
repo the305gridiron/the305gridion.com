@@ -77,8 +77,8 @@ export default function BigBoard() {
   return (
     <div className='draft-page'>
       <Hero>
-        <Hero.Title>2026 Draft Board</Hero.Title>
-        <Hero.Promo>The draft is just <strong>{daysAwayFromDraft} {daysAwayFromDraft === 1 ? "day" : "days"}</strong> away! Explore our top 150 prospects and see which prospects would be the best fit for our Phins.</Hero.Promo>
+        <Hero.Title>Miami Dolphins Draft Board</Hero.Title>
+        <Hero.Promo>The 2026 NFL Draft is just <strong>{daysAwayFromDraft} {daysAwayFromDraft === 1 ? "day" : "days"}</strong> away! Explore our top 150 prospects and see which prospects would be the best fit for our Phins.</Hero.Promo>
       </Hero>
       <Container>
         {loading && (

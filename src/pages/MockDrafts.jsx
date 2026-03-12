@@ -38,11 +38,11 @@ export default function MockDrafts() {
     return (
         <div className={styles.mockDrafts}>
             <Hero>
-                <Hero.Title>Mock Draft Central</Hero.Title>
+                <Hero.Title>Miami Dolphins Mock Drafts</Hero.Title>
                 <Hero.Promo>
                     Who doesn't love the chaos of draft season? We're breaking
                     down the best fits, the biggest surprises, and the names you
-                    need to know before they hit the big stage.
+                    need to know for the 2026 NFL Draft.
                 </Hero.Promo>
                 <p className={styles.lastUpdated}>
                     Version {currentDraft.id} • {currentDraft.date}
