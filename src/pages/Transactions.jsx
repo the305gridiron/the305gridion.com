@@ -24,7 +24,19 @@ import { sidebarCardMessaging, seasonalTransactions } from "../data/transactions
 
 // Sort transactions by date
 const sortTransactionsByDateDesc = (transactions) =>
-    [...transactions].sort((a, b) => new Date(b.date) - new Date(a.date));
+    [...transactions].sort((a, b) => {
+        const aDate = new Date(a.date); // parses "3/11/26" correctly
+        const bDate = new Date(b.date);
+
+        const dateDiff = bDate - aDate; // newest first
+        if (dateDiff !== 0) return dateDiff;
+
+        // if same date, compare id (assuming id format like "TRANS-2026-16")
+        const aIdNum = parseInt(a.id.split("-").pop(), 10);
+        const bIdNum = parseInt(b.id.split("-").pop(), 10);
+
+        return bIdNum - aIdNum; // higher id first
+    });
 
 export default function Offseason() {
     const isMobile = useMediaQuery("(max-width:767px)");

@@ -7,7 +7,8 @@
             "date": "2/16/26",
             "type": "release",
             "image": "/images/2026-transactions/bradley-chubb.jpg",
-            "analysis": "Bradley Chubb's time in Miami showed exactly how impactful he could be when healthy, bringing energy, leadership, and a relentless edge presence to the defense. After arriving in a big midseason trade, he became a tone-setter and delivered a standout 2023 season that helped elevate the pass rush. Injuries made things tougher later on, but his effort and commitment never wavered. As the team turns the page, he leaves as a respected veteran who gave everything he had every time he stepped on the field."
+            "analysis": "Bradley Chubb's time in Miami showed exactly how impactful he could be when healthy, bringing energy, leadership, and a relentless edge presence to the defense. After arriving in a big midseason trade, he became a tone-setter and delivered a standout 2023 season that helped elevate the pass rush. Injuries made things tougher later on, but his effort and commitment never wavered. As the team turns the page, he leaves as a respected veteran who gave everything he had every time he stepped on the field.",
+            "update": "DE Bradley Chubb reached agreement on a three-year, $43.5 million deal worth up to $52.5 million that includes $29 million guaranteed with the Buffalo Bills."
         },
         {
             "id": "TRANS-2026-02",
@@ -80,7 +81,8 @@
             "date": "3/9/26",
             "type": "release",
             "image": "/images/2026-transactions/tua-tagovailoa.webp",
-            "analysis": "After months of buildup, the Dolphins have officially parted ways with quarterback Tua Tagovailoa. The move had been widely expected as Miami navigated a tight salary cap situation, but it still closes the book on one of the most important eras in recent team history. Tagovailoa helped engineer some of the most explosive offenses the franchise has ever seen and was at the center of Miami's offensive identity during the Mike McDaniel years. The decision doesn't come cheap either, but because we designated him a post-June 1st cut, we're able to split the cap hit over the next two years, leaving a $67.4 million cap hit in 2026 and another $31.8 million in 2027 as we turn the page at quarterback."
+            "analysis": "After months of buildup, the Dolphins have officially parted ways with quarterback Tua Tagovailoa. The move had been widely expected as Miami navigated a tight salary cap situation, but it still closes the book on one of the most important eras in recent team history. Tagovailoa helped engineer some of the most explosive offenses the franchise has ever seen and was at the center of Miami's offensive identity during the Mike McDaniel years. The decision doesn't come cheap either, but because we designated him a post-June 1st cut, we're able to split the cap hit over the next two years, leaving a $67.4 million cap hit in 2026 and another $31.8 million in 2027 as we turn the page at quarterback.",
+            "update": "The Falcons are expected to sign Tua to a one-year deal for the veteran minimum salary, pairing the former Dolphins signal caller with fellow lefty QB Michael Penix."
         },
         {
             "id": "TRANS-2026-10",
@@ -134,7 +136,79 @@
             "date": "3/4/26",
             "type": "addition",
             "image": "/images/2026-transactions/cameron-goode.jpg",
-            "analysis": "Goode spent most of last season working his way back from injury but has been a steady special teams contributor when healthy. While he hasn’t carved out a major role on defense yet, bringing him back gives Miami a familiar depth piece who knows the system and can contribute in the third phase. Moves like this don’t grab headlines, but they help round out the back end of the roster heading into camp."
+            "analysis": "Goode spent most of last season working his way back from injury but has been a steady special teams contributor when healthy. While he hasn't carved out a major role on defense yet, bringing him back gives Miami a familiar depth piece who knows the system and can contribute in the third phase. Moves like this don't grab headlines, but they help round out the back end of the roster heading into camp."
+        },
+        {
+            "id": "TRANS-2026-16",
+            "name": "Willie Gay Jr.",
+            "position": "LB",
+            "date": "3/11/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/willie-gay.webp",
+            "analysis": "The Dolphins have re-signed LB “Big Play” Willie Gay Jr. to a one-year deal, bringing back the little-used linebacker for another run with the new regime. We're big fans of Gay's speed and athleticism and were disappointed former defensive coordinator Anthony Weaver didn't utilize him more last season. With Jeff Hafley now leading the team, we're hoping Gay finally gets the chance to show off that playmaking ability in 2026."
+        },
+        {
+            "id": "TRANS-2026-17",
+            "name": "Josh Uche",
+            "position": "LB",
+            "date": "3/11/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/josh-uche.webp",
+            "analysis": "The Dolphins have signed linebacker Josh Uche to a one-year deal, bringing in a veteran pass-rush piece with real upside. Uche was a second-round pick out of Michigan and quietly built a solid pass-rush resume, posting 21.5 sacks over six seasons with the Patriots, Chiefs and Eagles. His best stretch came in 2022 when he lit it up with 11.5 sacks, and Miami will be hoping he can tap back into that kind of production in a rotational role."
+        },
+        {
+            "id": "TRANS-2026-18",
+            "name": "Matthew Butler",
+            "position": "DT",
+            "date": "3/11/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/matthew-butler.jpg",
+            "analysis": "The Dolphins are bringing back defensive tackle Matthew Butler as veteran depth on the interior. Originally a fifth-round pick by the Raiders out of Tennessee, the 6'3\", 305-pound mauler brings quickness and pass-rush juice from the inside. Not a splash move, but a solid depth piece to keep the defensive line rotation fresh."
+        },
+        {
+            "id": "TRANS-2026-19",
+            "name": "A.J. Green III",
+            "position": "CB",
+            "date": "3/11/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/aj-green.webp",
+            "analysis": "Miami is keeping cornerback A. J. Green around as a young depth option in the secondary. The 6'2\", 198-pound former Oklahoma State standout has bounced between a few teams since entering the league as an undrafted free agent in 2020, but he's carved out a role on special teams and as a rotational corner."
+        },
+        {
+            "id": "TRANS-2026-20",
+            "name": "Darrell Baker",
+            "position": "CB",
+            "date": "3/11/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/darrell-baker.jpg",
+            "analysis": "The Dolphins have added cornerback Darrell Baker Jr., who comes over after spending time with the Titans. The former Georgia Southern standout went undrafted in 2022 but worked his way into significant playing time, starting 19 games between 2024 and 2025 and racking up 95 tackles with 12 passes defended."
+        },
+        {
+            "id": "TRANS-2026-21",
+            "name": "Zayne Anderson",
+            "position": "S",
+            "date": "3/11/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/zayne-anderson.webp",
+            "analysis": "Miami adds another special teams contributor with the signing of safety Zayne Anderson. After going undrafted in 2021, Anderson bounced around early in his career before becoming a core special teams player in Green Bay from 2023 to 2025. Expect him to compete for a similar role."
+        },
+        {
+            "id": "TRANS-2026-22",
+            "name": "Alex Austin",
+            "position": "CB",
+            "date": "3/11/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/alex-austin.webp",
+            "analysis": "The Dolphins are bringing in cornerback Alex Austin, a former seventh-round pick by the Bills in 2023. Austin most recently spent time with the Patriots, where he developed into a dependable rotational corner and special teams contributor. Another depth piece added to the secondary."
+        },
+        {
+            "id": "TRANS-2026-23",
+            "name": "Ben Sims",
+            "position": "TE",
+            "date": "3/11/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/ben-sims.jpg",
+            "analysis": "Miami has signed tight end Ben Sims, a blocking-first tight end who's appeared in 45 games over the past three seasons with Green Bay and Minnesota. The former Baylor standout holds the school record for touchdowns by a tight end and should compete for a role as an in-line blocker in Miami's offense, likely replacing the departed Julian Hill."
         }
     ],
     "unsigned": [
@@ -170,6 +244,15 @@
             "deal": {
                 "team": "MIA",
                 "details": ""
+            }
+        },
+        {
+            "id": "UNS-2026-30",
+            "name": "Julian Hill",
+            "position": "TE",
+            "deal": {
+                "team": "NEP",
+                "details": "Agreed to terms with the New England Patriots."
             }
         },
         {
@@ -221,14 +304,29 @@
             "position": "NT"
         },
         {
+            "id": "UNS-2026-29",
+            "name": "Matthew Butler",
+            "position": "DT",
+            "deal": {
+                "team": "MIA"
+            }
+        },
+        {
             "id": "UNS-2026-14",
             "name": "K.J. Britt",
-            "position": "LB"
+            "position": "LB",
+            "deal": {
+                "team": "NEP",
+                "details": "Agreed to a one-year deal with the New England Patriots."
+            }
         },
         {
             "id": "UNS-2026-15",
             "name": "Willie Gay Jr.",
-            "position": "LB"
+            "position": "LB",
+            "deal": {
+                "team": "MIA"
+            }
         },
         {
             "id": "UNS-2026-16",
@@ -263,7 +361,10 @@
         {
             "id": "UNS-2026-22",
             "name": "A.J. Green III",
-            "position": "CB"
+            "position": "CB",
+            "deal": {
+                "team": "MIA"
+            }
         },
         {
             "id": "UNS-2026-23",
