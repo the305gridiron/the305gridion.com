@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./layout/Layout";
-import Home from "./pages/Home";
-import BigBoard from "./pages/BigBoard";
-import MockDrafts from "./pages/MockDrafts";
-import DraftResults from "./pages/DraftResults";
-import Transactions from "./pages/Transactions";
+import {
+    Home,
+    BigBoard,
+    MockDrafts,
+    DraftResults,
+    Transactions,
+} from "./pages";
+import { Layout } from "./components/layout";
 
 import "./styles/main.css";
 
