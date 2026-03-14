@@ -53,7 +53,8 @@
             "date": "3/2/26",
             "type": "tendered",
             "image": "/images/2026-transactions/ethan-bonner.jpg",
-            "analysis": "Bonner was thrust into action last year after a slew of injuries decimated the cornerback room. He was inconsistent at times, but showed enough flashes for the new staff to tender him as an exclusive rights free agent. Because of that designation, he cannot negotiate with other teams, so if he signs the tender he will be back in camp as a Miami Dolphin this summer."
+            "analysis": "Bonner was thrust into action last year after a slew of injuries decimated the cornerback room. He was inconsistent at times, but showed enough flashes for the new staff to tender him as an exclusive rights free agent. Because of that designation, he cannot negotiate with other teams, so if he signs the tender he will be back in camp as a Miami Dolphin this summer.",
+            "update": "Ethan signed his tender on 3/13/26, so he'll be back with the team for another year."
         },
         {
             "id": "TRANS-2026-07",
@@ -255,6 +256,42 @@
             "type": "addition",
             "image": "/images/2026-transactions/marco-wilson.webp",
             "analysis": "The Dolphins are adding another corner to the mix with the signing of Marco Wilson. A former fourth-round pick out of the University of Florida, Wilson has spent time with Arizona, New England, and Cincinnati since entering the league in 2021. Known for his speed and athleticism, he'll likely compete for a depth role in the secondary while contributing on special teams."
+        },
+        {
+            "id": "TRANS-2026-29",
+            "name": "Jamaree Salyer",
+            "position": "OL",
+            "date": "3/13/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/jamaree-salyer.webp",
+            "analysis": "The Dolphins are adding some much-needed offensive line depth with the signing of Jamaree Salyer. The 6'4\", 325-pound lineman started 40 games over four seasons with the Los Angeles Chargers after being drafted in 2022, showing the ability to play both tackle and guard. A former national champion at Georgia, Salyer brings valuable versatility and should compete for a meaningful role up front in Miami."
+        },
+        {
+            "id": "TRANS-2026-30",
+            "name": "Jalen Tolbert",
+            "position": "WR",
+            "date": "3/13/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/jalen-tolbert.avif",
+            "analysis": "The Dolphins are adding another receiver to the room with the signing of Jalen Tolbert to a one-year deal. The former third-round pick spent the last four seasons with the Dallas Cowboys and broke out in 2024 with 49 catches, 610 yards, and 7 touchdowns. Tolbert brings size and playmaking ability to the group and should compete for snaps in what's becoming a crowded Miami receiver room."
+        },
+        {
+            "id": "TRANS-2026-31",
+            "name": "Seth Vernon",
+            "position": "P",
+            "date": "3/13/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/seth-vernon.webp",
+            "analysis": "The Dolphins have signed punter Seth Vernon, who will compete for the starting job following the departure of Jake Bailey. Vernon most recently punted for the Michigan Panthers in the UFL, averaging 45.4 yards per punt while dropping eight inside the 20 in nine games. The 6'5\" specialist has bounced through several NFL camps over the past few years, and now gets a real opportunity to push for a roster spot in Miami."
+        },
+        {
+            "id": "TRANS-2026-32",
+            "name": "Tucker Addington",
+            "position": "LS",
+            "date": "3/13/26",
+            "type": "addition",
+            "image": "/images/2026-transactions/tucker-addington.jpg",
+            "analysis": "The Dolphins have signed long snapper Tucker Addington, bringing back a familiar specialist for his second stint with the team. Addington previously appeared in three games for Miami in 2024 and has played in 10 NFL games since entering the league in 2022, filling in for several teams when injuries popped up. Known for his quick snapping speed and reliability, he’ll look to lock down the long snapper role heading into the 2026 season."
         }
     ],
     "unsigned": [
