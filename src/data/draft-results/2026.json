@@ -1,7 +1,7 @@
 {
     "results": [
         {
-            "id": "DRAFT-2026-01",
+            "id": "DRAFT-2026-01-11-11",
             "details": {
                 "name": "",
                 "position": "",
@@ -26,7 +26,32 @@
             }
         },
         {
-            "id": "DRAFT-2026-02",
+            "id": "DRAFT-2026-01-30-30",
+            "details": {
+                "name": "",
+                "position": "",
+                "image": ""
+            },
+            "meta": {
+                "school": "",
+                "height": "",
+                "weight": "",
+                "round": "1",
+                "roundPick": "30",
+                "overallPick": "30",
+                "grade": "",
+                "fit": ""
+            },
+            "analysis": {
+                "quote": "",
+                "cite": {
+                    "link": "",
+                    "text": ""
+                }
+            }
+        },
+        {
+            "id": "DRAFT-2026-02-11-43",
             "details": {
                 "name": "",
                 "position": "",
@@ -51,7 +76,7 @@
             }
         },
         {
-            "id": "DRAFT-2026-03",
+            "id": "DRAFT-2026-03-11-75",
             "details": {
                 "name": "",
                 "position": "",
@@ -76,7 +101,7 @@
             }
         },
         {
-            "id": "DRAFT-2026-04",
+            "id": "DRAFT-2026-03-23-87",
             "details": {
                 "name": "",
                 "position": "",
@@ -101,7 +126,7 @@
             }
         },
         {
-            "id": "DRAFT-2026-05",
+            "id": "DRAFT-2026-03-26-90",
             "details": {
                 "name": "",
                 "position": "",
@@ -126,7 +151,7 @@
             }
         },
         {
-            "id": "DRAFT-2026-06",
+            "id": "DRAFT-2026-03-30-94",
             "details": {
                 "name": "",
                 "position": "",
@@ -136,9 +161,9 @@
                 "school": "",
                 "height": "",
                 "weight": "",
-                "round": "4",
-                "roundPick": "11",
-                "overallPick": "111",
+                "round": "3",
+                "roundPick": "30",
+                "overallPick": "94",
                 "grade": "",
                 "fit": ""
             },
@@ -151,7 +176,32 @@
             }
         },
         {
-            "id": "DRAFT-2026-07",
+            "id": "DRAFT-2026-04-30-130",
+            "details": {
+                "name": "",
+                "position": "",
+                "image": ""
+            },
+            "meta": {
+                "school": "",
+                "height": "",
+                "weight": "",
+                "round": "4",
+                "roundPick": "30",
+                "overallPick": "130",
+                "grade": "",
+                "fit": ""
+            },
+            "analysis": {
+                "quote": "",
+                "cite": {
+                    "link": "",
+                    "text": ""
+                }
+            }
+        },
+        {
+            "id": "DRAFT-2026-05-11-149",
             "details": {
                 "name": "",
                 "position": "",
@@ -176,7 +226,7 @@
             }
         },
         {
-            "id": "DRAFT-2026-08",
+            "id": "DRAFT-2026-07-11-227",
             "details": {
                 "name": "",
                 "position": "",
