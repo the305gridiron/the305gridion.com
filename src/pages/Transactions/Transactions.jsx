@@ -79,9 +79,9 @@ export default function Offseason() {
         const filtered = currentTransactions.filter((t) => {
             if (type === "addition") {
                 return (
-                    t.type === "addition" ||
-                    t.type === "tendered" ||
-                    t.type === "resigned"
+                    t.type === "sign" ||
+                    t.type === "tender" ||
+                    t.type === "re_sign"
                 );
             }
 

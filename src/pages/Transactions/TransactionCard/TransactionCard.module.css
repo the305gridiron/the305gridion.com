@@ -29,7 +29,7 @@
     align-items: start;
     font-size: var(--font-size-lg);
 
-    >p {
+    > p {
         margin: 0;
     }
 }
@@ -50,7 +50,6 @@
     padding: var(--spacer);
     align-self: stretch;
 }
-
 
 .transactionDate {
     font-size: var(--font-size-xs);
@@ -89,10 +88,10 @@
     color: var(--white-color);
 }
 
-.addition,
-.tendered,
+.sign,
+.tender,
 .restructure,
-.resigned {
+.re_sign {
     background-color: var(--color-dolphins-teal);
     color: var(--white-color);
 }
@@ -102,7 +101,7 @@
     background-color: var(--color-dolphins-navy);
     color: var(--white-color);
 
-    >svg {
+    > svg {
         height: 1.15em;
         width: 1.15em;
     }
