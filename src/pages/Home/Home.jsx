@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { PageTitle } from "@/components/layout";
 import { fetchYoutubeVideos } from "@/services/YoutubeService";
 import { HeroVideo, YoutubeEmbed } from "@/components/media";
 import { ClipLoader } from "react-spinners";
@@ -35,35 +36,44 @@ export default function Home() {
 
     if (loading) {
         return (
-            <div className='loading'>
-                <ClipLoader color='#007bff' loading={loading} size={50} />
-            </div>
+            <>
+                <PageTitle title='The 305 Gridiron' />
+                <div className='loading'>
+                    <ClipLoader color='#007bff' loading={loading} size={50} />
+                </div>
+            </>
         );
     }
 
     return (
-        <div className={styles.homePage}>
-            <HeroVideo video={heroVideo} />
+        <>
+            <PageTitle title='The 305 Gridiron' />
+            <div className={styles.homePage}>
+                <HeroVideo video={heroVideo} />
 
-            <main className='container'>
-                <div className={styles.videoGrid}>
-                    {youtubeVideos?.map((video) => (
-                        <div className={styles.videoCard} key={video.videoId}>
-                            <YoutubeEmbed
-                                videoId={video.videoId}
-                                title={video.title}
-                                thumbnail={video.thumbnail}
-                            />
-                            <h3 className={styles.videoTitle}>
-                                {video.title.replace("|", "•")}
-                            </h3>
-                            <p className={styles.videoDescription}>
-                                {video.description.split("📢")[0]}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-            </main>
-        </div>
+                <main className='container'>
+                    <div className={styles.videoGrid}>
+                        {youtubeVideos?.map((video) => (
+                            <div
+                                className={styles.videoCard}
+                                key={video.videoId}
+                            >
+                                <YoutubeEmbed
+                                    videoId={video.videoId}
+                                    title={video.title}
+                                    thumbnail={video.thumbnail}
+                                />
+                                <h3 className={styles.videoTitle}>
+                                    {video.title.replace("|", "•")}
+                                </h3>
+                                <p className={styles.videoDescription}>
+                                    {video.description.split("📢")[0]}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </main>
+            </div>
+        </>
     );
 }

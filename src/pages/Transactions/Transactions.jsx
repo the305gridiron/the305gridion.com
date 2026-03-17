@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 
 // Layout / Components
-import { Hero, Sidebar, MobileNav } from "@/components/layout";
+import { Hero, Sidebar, MobileNav, PageTitle } from "@/components/layout";
 import { SidebarCards, FreeAgencyPlayerCard } from "@/components/sidebar";
 import { IconHeader } from "@/components/ui";
 import { ScrollToTop } from "@/components/utils";
@@ -106,41 +106,44 @@ export default function Offseason() {
     }, [currentTransactions, requestedYear, setSearchParams]);
 
     return (
-        <div className={`offseason-page ${styles.offseasonPage}`}>
-            <Hero>
-                <Hero.Title>Miami Dolphins Offseason Tracker</Hero.Title>
-                <Hero.Promo>
-                    From trades and cuts to free agent signings, we're breaking
-                    down the biggest moves, the surprises, and the names you
-                    need to watch in the 2026 offseason.
-                </Hero.Promo>
+        <>
+            <PageTitle title='Transactions - The 305 Gridiron' />
+            <div className={`offseason-page ${styles.offseasonPage}`}>
+                <Hero>
+                    <Hero.Title>Miami Dolphins Offseason Tracker</Hero.Title>
+                    <Hero.Promo>
+                        From trades and cuts to free agent signings, we're
+                        breaking down the biggest moves, the surprises, and the
+                        names you need to watch in the 2026 offseason.
+                    </Hero.Promo>
 
-                {isMobile && <MobileNav links={mobileLinks} />}
-            </Hero>
+                    {isMobile && <MobileNav links={mobileLinks} />}
+                </Hero>
 
-            <main className='container-fluid'>
-                <TransactionList
-                    players={filteredTransactions}
-                    onTypeChange={handleTypeChange}
-                />
-
-                <Sidebar id='expiringContracts'>
-                    <IconHeader
-                        icon={<ContentPasteOffIcon />}
-                        title='Expiring Contracts'
+                <main className='container-fluid'>
+                    <TransactionList
+                        players={filteredTransactions}
+                        onTypeChange={handleTypeChange}
                     />
-                    <SidebarCards>
-                        <FreeAgencyPlayerCard
-                            title='Unsigned'
-                            hideTitle={true}
-                            players={currentUnsigned}
-                            messaging={sidebarCardMessaging.Unsigned}
-                        />
-                    </SidebarCards>
-                </Sidebar>
-            </main>
 
-            <ScrollToTop />
-        </div>
+                    <Sidebar id='expiringContracts'>
+                        <IconHeader
+                            icon={<ContentPasteOffIcon />}
+                            title='Expiring Contracts'
+                        />
+                        <SidebarCards>
+                            <FreeAgencyPlayerCard
+                                title='Unsigned'
+                                hideTitle={true}
+                                players={currentUnsigned}
+                                messaging={sidebarCardMessaging.Unsigned}
+                            />
+                        </SidebarCards>
+                    </Sidebar>
+                </main>
+
+                <ScrollToTop />
+            </div>
+        </>
     );
 }

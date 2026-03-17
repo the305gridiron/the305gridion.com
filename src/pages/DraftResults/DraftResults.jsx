@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 
-import { Hero, Sidebar } from "@/components/layout";
+import { Hero, Sidebar, PageTitle } from "@/components/layout";
 import { DraftList } from "@/components/draft";
 import { SidebarCards, FreeAgencyPlayerCard } from "@/components/sidebar";
 
@@ -33,28 +33,31 @@ export default function DraftResults() {
     }, [validVersion, setSearchParams]);
 
     return (
-        <div className={styles.draftResults}>
-            <Hero>
-                <Hero.Title>Miami Dolphins Draft Results</Hero.Title>
-                <Hero.Promo>
-                    The 2026 NFL Draft is on the horizon, but the picks aren't
-                    in just yet. Check back on April 23rd for all the best
-                    reactions to the Miami Dolphins 2026 Draft.
-                </Hero.Promo>
-            </Hero>
+        <>
+            <PageTitle title='NFL Draft Results - The 305 Gridiron' />
+            <div className={styles.draftResults}>
+                <Hero>
+                    <Hero.Title>Miami Dolphins Draft Results</Hero.Title>
+                    <Hero.Promo>
+                        The 2026 NFL Draft is on the horizon, but the picks
+                        aren't in just yet. Check back on April 23rd for all the
+                        best reactions to the Miami Dolphins 2026 Draft.
+                    </Hero.Promo>
+                </Hero>
 
-            <main className='container-fluid'>
-                <DraftList players={currentDraft.data.results} />
-                <Sidebar id='draftResults'>
-                    <SidebarCards>
-                        <FreeAgencyPlayerCard
-                            title="Signed UDFA's"
-                            players={currentDraft.data.udfa}
-                            messaging={sidebarCardMessaging.Undrafted}
-                        />
-                    </SidebarCards>
-                </Sidebar>
-            </main>
-        </div>
+                <main className='container-fluid'>
+                    <DraftList players={currentDraft.data.results} />
+                    <Sidebar id='draftResults'>
+                        <SidebarCards>
+                            <FreeAgencyPlayerCard
+                                title="Signed UDFA's"
+                                players={currentDraft.data.udfa}
+                                messaging={sidebarCardMessaging.Undrafted}
+                            />
+                        </SidebarCards>
+                    </Sidebar>
+                </main>
+            </div>
+        </>
     );
 }
