@@ -33,33 +33,43 @@ export async function handler(event) {
         ]);
 
         const liveItem = liveResponse.data.items?.[0];
-        const heroVideo = liveItem
+        const liveVideoId = liveItem?.id?.videoId;
+        const liveStream = liveItem
             ? {
-                videoId: liveItem.id.videoId,
+                videoId: liveVideoId,
                 title: liveItem.snippet.title,
-                thumbnail: liveItem.snippet.thumbnails?.high?.url,
+                description: liveItem.snippet.description,
+                thumbnail: liveItem.snippet.thumbnails?.maxres?.url ||
+                    liveItem.snippet.thumbnails?.high?.url ||
+                    liveItem.snippet.thumbnails?.medium?.url,
                 isLive: true
             }
             : null;
 
         const videos = playlistResponse.data.items
-            ?.filter(v =>
-                v?.snippet?.resourceId?.videoId &&
-                v?.snippet?.title !== "Private video" &&
-                v?.snippet?.title !== "Deleted video" &&
-                v?.snippet?.liveBroadcastContent !== "upcoming"
-            )
+            ?.filter(v => {
+                const videoId = v?.snippet?.resourceId?.videoId;
+                return (
+                    videoId &&
+                    v?.snippet?.title !== "Private video" &&
+                    v?.snippet?.title !== "Deleted video" &&
+                    v?.snippet?.liveBroadcastContent !== "upcoming" &&
+                    (!liveVideoId || videoId !== liveVideoId)
+                )
+            })
             .map(video => ({
                 videoId: video.snippet.resourceId.videoId,
                 title: video.snippet.title,
                 description: video.snippet.description,
-                thumbnail: video.snippet.thumbnails?.maxres?.url,
+                thumbnail: video.snippet.thumbnails?.maxres?.url ||
+                    video.snippet.thumbnails?.high?.url ||
+                    video.snippet.thumbnails?.medium?.url,
                 publishedAt: video.snippet.publishedAt
             }))
             .slice(0, 10);
 
         const responsePayload = {
-            heroVideo,
+            liveStream,
             videos
         };
 

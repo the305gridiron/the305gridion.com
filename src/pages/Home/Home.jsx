@@ -17,10 +17,10 @@ export default function Home() {
             try {
                 const youtubeData = await fetchYoutubeVideos();
 
-                setHeroVideo(youtubeData.heroVideo ?? youtubeData.videos[0]);
+                setHeroVideo(youtubeData.liveStream ?? youtubeData.videos[0]);
 
                 setYoutubeVideos(
-                    youtubeData.heroVideo
+                    youtubeData.liveStream
                         ? youtubeData.videos
                         : youtubeData.videos.slice(1),
                 );
