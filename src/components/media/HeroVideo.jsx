@@ -28,19 +28,6 @@ export default function HeroVideo({ video }) {
                     <div className={styles.heroCTA}>
                         <a
                             className={styles.heroButton}
-                            href='https://www.youtube.com/playlist?list=PLxSEosyZR98Psz7lXdABd7gJ7JynnIkYm'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                        >
-                            <span className={styles.buttonIcon}>
-                                <GraduationCap />
-                            </span>{" "}
-                            Checkout Our
-                            <br />
-                            2025 Position Grades
-                        </a>
-                        <a
-                            className={styles.heroButton}
                             href='https://www.youtube.com/playlist?list=PLxSEosyZR98OToPtZ4JcSFPkqGbGc3Q6u'
                             target='_blank'
                             rel='noopener noreferrer'
