@@ -21,108 +21,87 @@ import {
     sidebarCardMessaging,
     seasonalTransactions,
 } from "@/data/transactions/index";
+import { useTransactionQuery } from "@/hooks/useTransactionQuery";
 
-// Sort transactions by date
+// Constants / Static Config
+const MOBILE_LINKS = [
+    {
+        icon: <KeyboardDoubleArrowDownIcon />,
+        link: "#expiringContracts",
+        text: "Expiring Contracts",
+    },
+];
+
+// Utilities
 const sortTransactionsByDateDesc = (transactions) =>
     [...transactions].sort((a, b) => {
-        const aDate = new Date(a.date); // parses "3/11/26" correctly
-        const bDate = new Date(b.date);
-
-        const dateDiff = bDate - aDate; // newest first
+        const dateDiff = new Date(b.date) - new Date(a.date);
         if (dateDiff !== 0) return dateDiff;
 
-        // if same date, compare id (assuming id format like "TRANS-2026-16")
-        const aIdNum = parseInt(a.id.split("-").pop(), 10);
-        const bIdNum = parseInt(b.id.split("-").pop(), 10);
-
-        return bIdNum - aIdNum; // higher id first
+        return b.id - a.id;
     });
 
 export default function Offseason() {
+    // Hooks
     const isMobile = useMediaQuery("(max-width:767px)");
     const [searchParams, setSearchParams] = useSearchParams();
-    const [filteredTransactions, setFilteredTransactions] = useState([]);
+    const [typeFilter, setTypeFilter] = useState("all");
+
+    const { data } = useTransactionQuery();
 
     const requestedYear = searchParams.get("year");
+    const year = requestedYear ? parseInt(requestedYear, 10) : null;
 
-    // Determine valid year or default to latest
-    const validYear = useMemo(
-        () =>
-            seasonalTransactions.find((t) => t.id === requestedYear) ||
-            seasonalTransactions[0],
-        [requestedYear],
-    );
+    // Derived Data
+    const filteredTransactions = useMemo(() => {
+        if (!data || !year) return [];
 
-    const currentTransactions = validYear.data.transactions;
-    const currentUnsigned = validYear.data.unsigned;
+        let result = data.filter((t) => t.year === year);
 
-    const mobileLinks = useMemo(
-        () => [
-            {
-                icon: <KeyboardDoubleArrowDownIcon />,
-                link: "#expiringContracts",
-                text: "Expiring Contracts",
-            },
-        ],
-        [],
-    );
-
-    // Filter transactions based on type
-    const handleTypeChange = (type) => {
-        if (!type || type === "all") {
-            setFilteredTransactions(
-                sortTransactionsByDateDesc(currentTransactions),
-            );
-            return;
+        if (typeFilter !== "all") {
+            result = result.filter((t) => t.category === typeFilter);
         }
 
-        const filtered = currentTransactions.filter((t) => {
-            if (type === "addition") {
-                return (
-                    t.type === "sign" ||
-                    t.type === "tender" ||
-                    t.type === "re_sign"
-                );
-            }
+        return sortTransactionsByDateDesc(result);
+    }, [data, year, typeFilter]);
 
-            if (type === "trade") {
-                return t.type === "trade_away" || t.type === "trade_for";
-            }
+    // temporary bridge until unsigned is in DB
+    const currentUnsigned = seasonalTransactions[0]?.data?.unsigned || [];
 
-            return t.type === type;
-        });
-
-        setFilteredTransactions(sortTransactionsByDateDesc(filtered));
+    // Handlers
+    const handleTypeChange = (type) => {
+        setTypeFilter(type || "all");
     };
 
-    // Initialize filteredTransactions whenever the year changes
+    // Effects
     useEffect(() => {
-        if (!requestedYear) {
-            setSearchParams({ year: seasonalTransactions[0].id });
+        if (!requestedYear && data?.length) {
+            const latestYear = Math.max(...data.map((t) => t.year));
+            setSearchParams({ year: latestYear });
         }
-        setFilteredTransactions(
-            sortTransactionsByDateDesc(currentTransactions),
-        );
-    }, [currentTransactions, requestedYear, setSearchParams]);
+    }, [requestedYear, data, setSearchParams]);
 
+    // Render
     return (
         <>
             <PageTitle title='Transactions - The 305 Gridiron' />
+
             <div className={`offseason-page ${styles.offseasonPage}`}>
                 <Hero>
                     <Hero.Title>Miami Dolphins Offseason Tracker</Hero.Title>
+
                     <Hero.Promo>
                         From trades and cuts to free agent signings, we're
                         breaking down the biggest moves, the surprises, and the
                         names you need to watch in the 2026 offseason.
                     </Hero.Promo>
 
-                    {isMobile && <MobileNav links={mobileLinks} />}
+                    {isMobile && <MobileNav links={MOBILE_LINKS} />}
                 </Hero>
 
                 <main className='container-fluid'>
                     <TransactionList
-                        players={filteredTransactions}
+                        transactions={filteredTransactions}
                         onTypeChange={handleTypeChange}
                     />
 
@@ -131,10 +110,11 @@ export default function Offseason() {
                             icon={<ContentPasteOffIcon />}
                             title='Expiring Contracts'
                         />
+
                         <SidebarCards>
                             <FreeAgencyPlayerCard
                                 title='Unsigned'
-                                hideTitle={true}
+                                hideTitle
                                 players={currentUnsigned}
                                 messaging={sidebarCardMessaging.Unsigned}
                             />

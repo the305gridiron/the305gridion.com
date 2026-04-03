@@ -3,6 +3,12 @@ import PlaceholderImage from "@/assets/prospect-placeholder.png";
 import styles from "./TransactionCard.module.css";
 
 export default function TransactionCard(props) {
+    const {
+        name: player_name,
+        position: player_position,
+        image: player_image,
+    } = props.player;
+
     const Icon = transactionTypeMap?.[props.type]?.icon;
 
     const formattedDate = props.date
@@ -11,17 +17,18 @@ export default function TransactionCard(props) {
               day: "numeric",
           }).format(new Date(props.date))
         : "";
+
     return (
         <div className={`transaction-card ${styles.transactionCard}`}>
             <figure className={styles.playerImage}>
-                <img src={props.image || PlaceholderImage} alt={props.name} />
+                <img src={player_image || PlaceholderImage} alt={player_name} />
             </figure>
 
             <div className={styles.transactionAnalysis}>
                 <h3 className={styles.transactionHeadline}>
-                    {props.position || "POS"}{" "}
+                    {player_position || "POS"}{" "}
                     <span className={styles.playerName}>
-                        {props.name || "Player Name"}
+                        {player_name || "Player Name"}
                     </span>{" "}
                     {transactionTypeMap[props.type]?.text}
                 </h3>

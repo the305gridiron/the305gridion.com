@@ -304,19 +304,25 @@
         },
         {
             "id": "TRANS-2026-34",
+            "player_id": "charlie-heck",
             "name": "Charlie Heck",
             "position": "OT",
+            "year": 2026,
             "date": "3/14/26",
             "type": "sign",
+            "category": "addition",
             "image": "/images/2026-transactions/charlie-heck.jpg",
             "analysis": "The Dolphins have added serious size to the offensive line with the signing of tackle Charlie Heck. The 6'8\", 311-pound veteran has appeared in 67 games with 29 starts during his career, most recently playing for the Tampa Bay Buccaneers in 2025. Heck brings valuable experience as a swing tackle and should provide depth behind Austin Jackson and Patrick Paul heading into the 2026 season."
         },
         {
             "id": "TRANS-2026-35",
+            "player_id": "jaylen-waddle",
             "name": "Jaylen Waddle",
             "position": "WR",
+            "year": 2026,
             "date": "3/17/26",
             "type": "trade_away",
+            "category": "trade",
             "image": "/images/2026-transactions/jaylen-waddle.webp  ",
             "analysis": "In a stunning move, the Dolphins have traded wide receiver Jaylen Waddle and a fourth-round pick to the Denver Broncos in exchange for a first-, third-, and fourth-round pick. It's a massive shakeup for Miami's offense, moving on from one of their most explosive playmakers in favor of draft capital. This one signals a clear shift in direction, and it's going to leave a big hole in the receiver room heading into 2026."
         }

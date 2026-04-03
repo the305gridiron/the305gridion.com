@@ -19,15 +19,15 @@ export default function TransactionList(props) {
                     options={[
                         { value: "all", label: "All Transactions" },
                         { value: "addition", label: "Added" },
-                        { value: "release", label: "Released" },
+                        { value: "loss", label: "Released" },
                         { value: "trade", label: "Traded" },
                         { value: "restructure", label: "Restructured" },
                     ]}
                 />
             </header>
             <div className={styles.transactionCards}>
-                {props.players && props.players.length > 0 ? (
-                    props.players.map((player) => (
+                {props.transactions && props.transactions.length > 0 ? (
+                    props.transactions.map((player) => (
                         <TransactionCard key={player.id} {...player} />
                     ))
                 ) : (
