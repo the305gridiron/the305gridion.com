@@ -36,14 +36,23 @@ export default function BigBoard() {
     ];
 
     const positionKeys = useMemo(() => {
-        return positionOrder.filter((pos) =>
+        const positions = positionOrder.filter((pos) =>
             prospects.some((p) => p.position === pos),
         );
+        return ["OFFENSE", "DEFENSE", ...positions];
     }, [prospects]);
 
     const prospectsByPosition = useMemo(() => {
-        const grouped = {};
+        const grouped = { OFFENSE: [], DEFENSE: [] };
         prospects.forEach((p) => {
+            if (["QB", "RB", "WR", "TE", "OT", "IOL"].includes(p.position)) {
+                grouped["OFFENSE"].push(p);
+            }
+
+            if (["EDGE", "DL", "LB", "CB", "S"].includes(p.position)) {
+                grouped["DEFENSE"].push(p);
+            }
+
             if (!grouped[p.position]) grouped[p.position] = [];
             grouped[p.position].push(p);
         });
