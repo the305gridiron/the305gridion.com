@@ -1,6 +1,7 @@
 import mockDraftV1 from "./2026-v1.json";
 import mockDraftV2 from "./2026-v2.json";
 import mockDraftV3 from "./2026-v3.json";
+import mockDraftV4 from "./2026-v4.json";
 
 export const draftVersions = [
     {
@@ -20,5 +21,11 @@ export const draftVersions = [
         date: "Mar 19, 2026",
         year: 2026,
         data: mockDraftV3,
+    },
+    {
+        id: 4,
+        date: "April 2, 2026",
+        year: 2026,
+        data: mockDraftV4,
     },
 ];

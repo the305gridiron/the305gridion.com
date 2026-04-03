@@ -4,13 +4,14 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import styles from "./PlayerMeta.module.css";
 
 export default function PlayerMeta(props) {
+    console.log(props);
     return (
         <ul className={styles.playerMeta}>
             <li className='player-meta--grade'>
                 <span className={styles.playerMetaTitle}>Grade</span>
                 {props.grade ? props.grade : "--"}
             </li>
-            <li className='player-meta--grade'>
+            <li className='player-meta--fit'>
                 <span className={styles.playerMetaTitle}>Fit</span>
                 {props.fit ? props.fit : "--"}
             </li>
@@ -26,7 +27,7 @@ export default function PlayerMeta(props) {
                 <span className={styles.playerMetaTitle}>Ovr Pick</span>
                 {props.overallPick ? props.overallPick : "--"}
             </li>
-            <li className={styles.playerMetaSchool}>
+            <li className='player-meta--school'>
                 <span className={styles.playerMetaTitle}>School</span>
                 {props.school ? props.school : "--"}
             </li>
