@@ -1,17 +1,38 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
-import SportsFootballOutlinedIcon from "@mui/icons-material/SportsFootballOutlined";
 
 import { Hero, Sidebar, PageTitle } from "@/components/layout";
 import { DraftList } from "@/components/draft";
 import { SidebarCards, SidebarCard } from "@/components/sidebar";
-import { draftVersions } from "@/data/mock-draft";
+import { useMockDraftsQuery } from "@/hooks/useMockDraftsQuery";
 
 import styles from "./MockDrafts.module.css";
 
+const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+    });
+};
+
 export default function MockDrafts() {
     const [searchParams, setSearchParams] = useSearchParams();
+    const { data } = useMockDraftsQuery();
+
+    const draftVersions = Array.from(
+        new Map(
+            data.map((d) => [
+                `${d.version}-${d.date}`,
+                {
+                    id: d.version,
+                    year: new Date(d.date).getFullYear(),
+                    date: d.date,
+                },
+            ])
+        ).values()
+    );
 
     const requestedYear = Number(searchParams.get("year"));
     const requestedVersion = Number(searchParams.get("version"));
@@ -22,8 +43,14 @@ export default function MockDrafts() {
     );
 
     // If invalid or missing, default to latest
-    const latestDraft = [...draftVersions].sort((a, b) => b.id - a.id)[0];
+    const latestDraft = draftVersions[draftVersions.length - 1];
     const currentDraft = validVersion || latestDraft;
+
+    const currentDraftData = data.filter(
+        (draft) =>
+            draft.version === currentDraft.id
+            && new Date(draft.date).getFullYear() === currentDraft.year
+    );
 
     useEffect(() => {
         if (!validVersion) {
@@ -46,12 +73,12 @@ export default function MockDrafts() {
                         the names you need to know for the 2026 NFL Draft.
                     </Hero.Promo>
                     <p className={styles.lastUpdated}>
-                        Version {currentDraft.id} • {currentDraft.date}
+                        Version {currentDraft.id} • {formatDate(currentDraft.date)}
                     </p>
                 </Hero>
 
                 <main className='container-fluid'>
-                    <DraftList players={currentDraft.data} />
+                    <DraftList players={currentDraftData} />
                     <Sidebar id='mockDrafts'>
                         <SidebarCards>
                             <SidebarCard>
@@ -64,15 +91,15 @@ export default function MockDrafts() {
                                             key={`${v.year}-${v.id}`}
                                         >
                                             {v.id === currentDraft.id &&
-                                            v.year === currentDraft.year ? (
+                                                v.year === currentDraft.year ? (
                                                 <strong>
-                                                    Version {v.id} • {v.date}
+                                                    Version {v.id} • {formatDate(v.date)}
                                                 </strong>
                                             ) : (
                                                 <Link
                                                     to={`/mocks?year=${v.year}&version=${v.id}`}
                                                 >
-                                                    Version {v.id} • {v.date}
+                                                    Version {v.id} • {formatDate(v.date)}
                                                 </Link>
                                             )}
                                         </SidebarCard.ListItem>

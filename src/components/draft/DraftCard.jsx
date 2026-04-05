@@ -1,4 +1,3 @@
-import React from "react";
 import TradeAlert from "./TradeAlert";
 import PlayerAnalysis from "./PlayerAnalysis";
 import PlayerDetails from "./PlayerDetails";
@@ -6,18 +5,33 @@ import PlayerMeta from "./PlayerMeta";
 import styles from "./DraftCard.module.css";
 
 export default function DraftCard(props) {
+    const details = {
+        position: props?.player?.position,
+        name: props?.player?.name,
+        image: props?.player?.image,
+    }
+    const meta = {
+        grade: props?.grade,
+        fit: props?.fit,
+        round: props?.round,
+        roundPick: props?.round_pick,
+        overallPick: props?.overall_pick,
+        school: props?.player?.school?.abbr,
+        height: props?.player?.height,
+        weight: props?.player?.weight,
+    }
     return (
         <div className={`draft-card ${styles.draftCard}`}>
             {props.trade && <TradeAlert {...props.trade} />}
 
-            <PlayerDetails {...props.details} />
+            <PlayerDetails {...details} />
 
             <PlayerAnalysis
-                id={`${props.meta.round}${props.meta.roundPick}${props.meta.overallPick}`}
-                {...props.analysis}
+                id={`${props.round}${props.round_pick}${props.overall_pick}`}
+                quote={props.analysis}
             />
 
-            <PlayerMeta {...props.meta} />
+            <PlayerMeta {...meta} />
         </div>
     );
 }

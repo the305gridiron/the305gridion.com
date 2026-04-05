@@ -4,7 +4,6 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import styles from "./PlayerMeta.module.css";
 
 export default function PlayerMeta(props) {
-    console.log(props);
     return (
         <ul className={styles.playerMeta}>
             <li className='player-meta--grade'>
