@@ -5,6 +5,7 @@ import PlayerMeta from "./PlayerMeta";
 import styles from "./DraftCard.module.css";
 
 export default function DraftCard(props) {
+    console.log(props);
     const details = {
         position: props?.player?.position,
         name: props?.player?.name,
