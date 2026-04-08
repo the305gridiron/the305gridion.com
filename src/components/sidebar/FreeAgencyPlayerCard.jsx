@@ -5,6 +5,15 @@ import Tooltip from "@mui/material/Tooltip";
 import SwapHorizOutlinedIcon from "@mui/icons-material/SwapHorizOutlined";
 import styles from "./SidebarCard.module.css";
 
+function formatUnsignedPlayers(players) {
+    return players.map(p => ({
+        id: p.id,
+        position: p.player.position,
+        name: p.player.name,
+        deal: p.team_id ? { team: p.team.abbr } : null
+    })).sort((a, b) => a.id - b.id);
+}
+
 export default function FreeAgencyPlayerCard({ hideTitle = false, title, players, messaging }) {
     const [expanded, setExpanded] = React.useState(false);
 
@@ -23,7 +32,7 @@ export default function FreeAgencyPlayerCard({ hideTitle = false, title, players
         );
     }
 
-    const playerList = title === "Unsigned" ? players : [...players].reverse();
+    const playerList = title === "Unsigned" ? formatUnsignedPlayers(players) : [...players].reverse();
 
     return (
         <SidebarCard>

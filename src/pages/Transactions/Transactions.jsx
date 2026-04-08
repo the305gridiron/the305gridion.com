@@ -17,11 +17,9 @@ import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrow
 import styles from "./Transactions.module.css";
 
 // Data
-import {
-    sidebarCardMessaging,
-    seasonalTransactions,
-} from "@/data/transactions/index";
+import { sidebarCardMessaging } from "@/data/transactions/index";
 import { useTransactionQuery } from "@/hooks/useTransactionQuery";
+import { useExpiringContractsQuery } from "@/hooks/useExpiringContractsQuery";
 
 // Constants / Static Config
 const MOBILE_LINKS = [
@@ -47,26 +45,24 @@ export default function Offseason() {
     const [searchParams, setSearchParams] = useSearchParams();
     const [typeFilter, setTypeFilter] = useState("all");
 
-    const { data } = useTransactionQuery();
+    const { data: transactions = [] } = useTransactionQuery();
+    const { data: unsigned = [] } = useExpiringContractsQuery();
 
     const requestedYear = searchParams.get("year");
     const year = requestedYear ? parseInt(requestedYear, 10) : null;
 
     // Derived Data
     const filteredTransactions = useMemo(() => {
-        if (!data || !year) return [];
+        if (!transactions || !year) return [];
 
-        let result = data.filter((t) => t.year === year);
+        let result = transactions.filter((t) => t.year === year);
 
         if (typeFilter !== "all") {
             result = result.filter((t) => t.category === typeFilter);
         }
 
         return sortTransactionsByDateDesc(result);
-    }, [data, year, typeFilter]);
-
-    // temporary bridge until unsigned is in DB
-    const currentUnsigned = seasonalTransactions[0]?.data?.unsigned || [];
+    }, [transactions, year, typeFilter]);
 
     // Handlers
     const handleTypeChange = (type) => {
@@ -75,11 +71,11 @@ export default function Offseason() {
 
     // Effects
     useEffect(() => {
-        if (!requestedYear && data?.length) {
-            const latestYear = Math.max(...data.map((t) => t.year));
+        if (!requestedYear && transactions?.length) {
+            const latestYear = Math.max(...transactions.map((t) => t.year));
             setSearchParams({ year: latestYear });
         }
-    }, [requestedYear, data, setSearchParams]);
+    }, [requestedYear, transactions, setSearchParams]);
 
     // Render
     return (
@@ -115,7 +111,7 @@ export default function Offseason() {
                             <FreeAgencyPlayerCard
                                 title='Unsigned'
                                 hideTitle
-                                players={currentUnsigned}
+                                players={unsigned}
                                 messaging={sidebarCardMessaging.Unsigned}
                             />
                         </SidebarCards>
