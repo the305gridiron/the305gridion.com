@@ -21,20 +21,9 @@ export default function PlayerAnalysis(props) {
             expanded={desktopSize ? true : expanded === `panel${props.id}`}
             onChange={handleChange}
         >
-            {props?.quote
-                ? props.quote
+            {props?.analysis
+                ? props.analysis
                 : "No analysis available just yet... stay tuned!"}
-
-            {props?.cite?.link && props?.cite?.text && (
-                <a
-                    className={styles.playerAnalysisCite}
-                    href={props.cite.link}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                >
-                    {props.cite.text}
-                </a>
-            )}
         </Accordion>
     );
 }

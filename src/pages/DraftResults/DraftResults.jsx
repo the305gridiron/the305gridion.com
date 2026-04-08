@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 
 import { Hero, Sidebar, PageTitle } from "@/components/layout";
