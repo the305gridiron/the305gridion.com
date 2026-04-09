@@ -1,7 +1,9 @@
-const fetchTransactions = async () => {
-    const response = await fetch(
-        "https://x8ki-letl-twmt.n7.xano.io/api:ivUQhm7H/transactions",
-    );
+const fetchTransactions = async (type) => {
+    const url = type
+        ? `https://x8ki-letl-twmt.n7.xano.io/api:ivUQhm7H/transactions?type=${type}`
+        : `https://x8ki-letl-twmt.n7.xano.io/api:ivUQhm7H/transactions`;
+
+    const response = await fetch(url);
 
     if (!response.ok) {
         throw new Error("Failed to fetch transactions.");

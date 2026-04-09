@@ -5,31 +5,26 @@ import { Hero, Sidebar, PageTitle } from "@/components/layout";
 import { DraftList } from "@/components/draft";
 import { SidebarCards, FreeAgencyPlayerCard } from "@/components/sidebar";
 
-import { draftVersions } from "@/data/draft-results";
-import { sidebarCardMessaging } from "@/data/transactions/index";
+import { useDraftPicksQuery } from "@/hooks/useDraftPicksQuery";
+import { useTransactionQuery } from "@/hooks/useTransactionQuery";
+import sidebarMessaging from "@/constants/sidebarMessaging";
 
 import styles from "./DraftResults.module.css";
 
 export default function DraftResults() {
     const [searchParams, setSearchParams] = useSearchParams();
-
     const requestedYear = Number(searchParams.get("year"));
 
-    const validVersion = draftVersions.find(
-        (draft) => draft.year === requestedYear,
-    );
-
-    // If invalid or missing, default to latest
-    const latestDraft = [...draftVersions].sort((a, b) => b.year - a.year)[0];
-    const currentDraft = validVersion || latestDraft;
+    const { data: draftPicks = [] } = useDraftPicksQuery(requestedYear);
+    const { data: udfa = [] } = useTransactionQuery("udfa");
 
     useEffect(() => {
-        if (!validVersion) {
+        if (!requestedYear) {
             setSearchParams({
-                year: currentDraft.year,
+                year: new Date().getFullYear(),
             });
         }
-    }, [validVersion, setSearchParams]);
+    }, [requestedYear, setSearchParams]);
 
     return (
         <>
@@ -45,13 +40,17 @@ export default function DraftResults() {
                 </Hero>
 
                 <main className='container-fluid'>
-                    <DraftList players={currentDraft.data.results} />
+                    <DraftList
+                        players={draftPicks.sort(
+                            (a, b) => a.overall_pick - b.overall_pick,
+                        )}
+                    />
                     <Sidebar id='draftResults'>
                         <SidebarCards>
                             <FreeAgencyPlayerCard
                                 title="Signed UDFA's"
-                                players={currentDraft.data.udfa}
-                                messaging={sidebarCardMessaging.Undrafted}
+                                players={udfa}
+                                messaging={sidebarMessaging.Undrafted}
                             />
                         </SidebarCards>
                     </Sidebar>

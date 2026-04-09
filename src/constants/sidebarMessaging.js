@@ -1,19 +1,4 @@
-import ContentCutIcon from "@mui/icons-material/ContentCut";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
-import EditDocumentIcon from "@mui/icons-material/EditDocument";
-
-export const transactionTypeMap = {
-    release: { icon: ContentCutIcon, text: "Released" },
-    sign: { icon: PersonAddIcon, text: "Signed" },
-    trade_away: { icon: SwapHorizIcon, text: "Traded" },
-    trade_for: { icon: SwapHorizIcon, text: "Acquired" },
-    tender: { icon: PersonAddIcon, text: "Tendered" },
-    restructure: { icon: EditDocumentIcon, text: "Restructures Contract" },
-    re_sign: { icon: PersonAddIcon, text: "Re-Signed" },
-};
-
-export const sidebarCardMessaging = {
+const sidebarMessaging = {
     Additions: {
         empty: "No new Dolphins yet... maybe they're still swimming in free agency waters. Check back March 11, 2026!",
         tooltip:
@@ -37,3 +22,5 @@ export const sidebarCardMessaging = {
             "Players from last year's roster whose contracts have expired.",
     },
 };
+
+export default sidebarMessaging;

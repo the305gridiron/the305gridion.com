@@ -17,7 +17,7 @@ import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrow
 import styles from "./Transactions.module.css";
 
 // Data
-import { sidebarCardMessaging } from "@/data/transactions/index";
+import sidebarMessaging from "@/constants/sidebarMessaging";
 import { useTransactionQuery } from "@/hooks/useTransactionQuery";
 import { useExpiringContractsQuery } from "@/hooks/useExpiringContractsQuery";
 
@@ -112,7 +112,7 @@ export default function Offseason() {
                                 title='Unsigned'
                                 hideTitle
                                 players={unsigned}
-                                messaging={sidebarCardMessaging.Unsigned}
+                                messaging={sidebarMessaging.Unsigned}
                             />
                         </SidebarCards>
                     </Sidebar>
