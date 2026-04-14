@@ -1,0 +1,30 @@
+.tierKey {
+    display: flex;
+    gap: var(--spacer);
+    margin-top: var(--spacer-double);
+    padding-left: 0;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+
+    li {
+        border-radius: var(--border-radius-sm);
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-semibold);
+        padding: var(--spacer-quarter) var(--spacer-half);
+        text-transform: uppercase;
+
+        &:nth-child(1) {
+            background-color: var(--tier-core-target);
+        }
+        &:nth-child(2) {
+            background-color: var(--tier-strong-fit);
+        }
+        &:nth-child(3) {
+            background-color: var(--tier-conditional);
+        }
+        &:nth-child(4) {
+            background-color: var(--tier-avoid-depth);
+        }
+    }
+}

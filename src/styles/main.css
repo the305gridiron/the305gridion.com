@@ -49,10 +49,16 @@
     --gray-800: #343a40;
     --gray-900: #212529;
 
+    /* Tier Colors */
+    --tier-core-target: #1abc9c;
+    --tier-strong-fit: #3498db;
+    --tier-conditional: #f1c40f;
+    --tier-avoid-depth: #e74c3c;
+
     /*  Draft Page Colors  */
-    --primary-color: #008E97;
-    --primary-color-darker: #007A83;
-    --secondary-color: #FC4C02;
+    --primary-color: #008e97;
+    --primary-color-darker: #007a83;
+    --secondary-color: #fc4c02;
     --tertiary-color: #005778;
     --subtle-primary-color: rgba(0, 142, 151, 0.1);
     --subtle-secondary-color: rgba(252, 76, 2, 0.1);
@@ -111,7 +117,7 @@
     --line-height-lg: 1.75;
     --line-height-xl: 2;
 
-    /* 
+    /*
     Spacing
     ---
     base: 16px
@@ -172,10 +178,7 @@ body,
 }
 
 body {
-    background: linear-gradient(to bottom,
-            #ffffff,
-            #f8fafb,
-            #f3f6f8);
+    background: linear-gradient(to bottom, #ffffff, #f8fafb, #f3f6f8);
     background-attachment: fixed;
 
     &.noScroll {
@@ -297,6 +300,15 @@ figure {
     width: 100%;
 }
 
+.card {
+    background-color: var(--white-color);
+    border-radius: var(--radius-default);
+    box-shadow: var(--box-shadow-sm);
+    padding: var(--spacer-half);
+    overflow: hidden;
+    position: relative;
+}
+
 @media screen and (min-width: 576px) {
     .container {
         max-width: 540px;
@@ -342,7 +354,6 @@ figure {
 }
 
 @media screen and (min-width: 1600px) {
-
     .container-fluid,
     .container-full-width {
         padding: 0;

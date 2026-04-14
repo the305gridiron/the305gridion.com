@@ -19,22 +19,23 @@ const ProspectTable = ({ prospects, designations }) => {
             (prevIds) =>
                 prevIds.includes(prospectId)
                     ? prevIds.filter((id) => id !== prospectId) // Remove if already expanded
-                    : [...prevIds, prospectId] // Add if not expanded
+                    : [...prevIds, prospectId], // Add if not expanded
         );
     };
 
     const getTierClass = (tier) => {
         if (!tier) return "";
-        return `${tier
-            .replace(/\s+/g, "")   // remove spaces
-            .replace(/\//g, "")    // remove slashes
-            .replace(/–/g, "")     // remove en-dash
-            .replace(/-/g, "")     // remove regular dash
-            }`;
+        return `${
+            tier
+                .replace(/\s+/g, "") // remove spaces
+                .replace(/\//g, "") // remove slashes
+                .replace(/–/g, "") // remove en-dash
+                .replace(/-/g, "") // remove regular dash
+        }`;
     };
 
     const hasValue = (val) => {
-        if (val == null) return false;           // null/undefined
+        if (val == null) return false; // null/undefined
         if (typeof val === "number") return val !== 0; // numeric 0 is invalid
         if (typeof val === "string") return val.trim() !== ""; // blank string is invalid
         return true; // everything else is valid
@@ -43,25 +44,47 @@ const ProspectTable = ({ prospects, designations }) => {
     const renderMeasurables = (prospect) => {
         const items = [];
 
-        if (hasValue(prospect.age)) items.push(<span key="age"><strong>Age:</strong> {prospect.age}</span>);
-        if (hasValue(prospect.height)) items.push(<span key="height"><strong>Height:</strong> {prospect.height}</span>);
-        if (hasValue(prospect.weight)) items.push(<span key="weight"><strong>Weight:</strong> {prospect.weight}</span>);
+        if (hasValue(prospect.age))
+            items.push(
+                <span key='age'>
+                    <strong>Age:</strong> {prospect.age}
+                </span>,
+            );
+        if (hasValue(prospect.height))
+            items.push(
+                <span key='height'>
+                    <strong>Height:</strong> {prospect.height}
+                </span>,
+            );
+        if (hasValue(prospect.weight))
+            items.push(
+                <span key='weight'>
+                    <strong>Weight:</strong> {prospect.weight}
+                </span>,
+            );
 
         // Join with bullet, but avoid adding trailing bullet
         return items.reduce((acc, el, index) => {
             if (index === 0) return [el];
-            return [...acc, <span key={`bullet-${index}`}>&nbsp;&bull;&nbsp;</span>, el];
+            return [
+                ...acc,
+                <span key={`bullet-${index}`}>&nbsp;&bull;&nbsp;</span>,
+                el,
+            ];
         }, []);
     };
-
 
     return (
         <div className={styles.prospectTableContainer}>
             <div className={styles.prospectTableHeader}>
-                <div className={`${styles.prospectTableHeaderCell} ${styles.prospectTableCellRank}`}>
+                <div
+                    className={`${styles.prospectTableHeaderCell} ${styles.prospectTableCellRank}`}
+                >
                     Ovr Rank
                 </div>
-                <div className={`${styles.prospectTableHeaderCell} ${styles.prospectTableCellPosRank}`}>
+                <div
+                    className={`${styles.prospectTableHeaderCell} ${styles.prospectTableCellPosRank}`}
+                >
                     Pos Rank
                 </div>
                 <div
@@ -72,9 +95,11 @@ const ProspectTable = ({ prospects, designations }) => {
                 <div
                     className={`${styles.prospectTableHeaderCell} ${styles.prospectTableCellGrade}`}
                 >
-                    Fit Grade
+                    Ovr Grade
                 </div>
-                <div className={`${styles.prospectTableHeaderCell} ${styles.prospectTableCellFit}`}>
+                <div
+                    className={`${styles.prospectTableHeaderCell} ${styles.prospectTableCellFit}`}
+                >
                     Fit Score
                 </div>
                 <div
@@ -96,10 +121,14 @@ const ProspectTable = ({ prospects, designations }) => {
                         className={`${styles.prospectTableRow} ${!prospect.profile ? styles.noProfile : ""}`}
                         onClick={() => toggleProspectDetails(prospect.id)}
                     >
-                        <div className={`${styles.prospectTableCell} ${styles.prospectTableCellRank}`}>
+                        <div
+                            className={`${styles.prospectTableCell} ${styles.prospectTableCellRank}`}
+                        >
                             {prospect.draft_rank}
                         </div>
-                        <div className={`${styles.prospectTableCell} ${styles.prospectTableCellPosRank}`}>
+                        <div
+                            className={`${styles.prospectTableCell} ${styles.prospectTableCellPosRank}`}
+                        >
                             {prospect.position_rank}
                         </div>
                         <div
@@ -115,7 +144,8 @@ const ProspectTable = ({ prospects, designations }) => {
                                 {renderMeasurables(prospect)}
                             </span>
                             <span className={styles.prospectsTableCollege}>
-                                {prospect.college}&nbsp;&bull;&nbsp;{prospect.class}
+                                {prospect.college}&nbsp;&bull;&nbsp;
+                                {prospect.class}
                             </span>
                             {prospect.profile && (
                                 <button
@@ -134,11 +164,17 @@ const ProspectTable = ({ prospects, designations }) => {
                                 </button>
                             )}
                         </div>
-                        <div className={`${styles.prospectTableCell} ${styles.prospectTableCellGrade}`}>
+                        <div
+                            className={`${styles.prospectTableCell} ${styles.prospectTableCellGrade}`}
+                        >
                             {prospect.base_grade}
                         </div>
-                        <div className={`${styles.prospectTableCell} ${styles.prospectTableCellFit}`}>
-                            <span className={`${styles.fitBadge} ${styles[getTierClass(prospect.fit_tier)]}`}>
+                        <div
+                            className={`${styles.prospectTableCell} ${styles.prospectTableCellFit}`}
+                        >
+                            <span
+                                className={`${styles.fitBadge} ${styles[getTierClass(prospect.fit_tier)]}`}
+                            >
                                 {prospect.fit_score}
                             </span>
                         </div>
@@ -156,24 +192,28 @@ const ProspectTable = ({ prospects, designations }) => {
                     </div>
 
                     <div
-                        className={`${styles.prospectDetails} ${!prospect.profile && styles.noProfile
-                            } ${expandedProspects.includes(prospect.id)
+                        className={`${styles.prospectDetails} ${
+                            !prospect.profile && styles.noProfile
+                        } ${
+                            expandedProspects.includes(prospect.id)
                                 ? styles.expanded
                                 : ""
-                            }`}
+                        }`}
                     >
                         <ul className={styles.prospectDetailsMobile}>
                             <li className={styles.prospectDetailsGrade}>
                                 <span className='semibold'>Grade</span>
                                 &nbsp;
-                                {prospect.fit_grade
-                                    ? prospect.fit_grade
-                                    : "-"}
+                                {prospect.fit_grade ? prospect.fit_grade : "-"}
                             </li>
                             <li className={styles.prospectDetailsFit}>
                                 <span className='semibold'>Fit Score</span>
-                                <span className={`${styles.fitBadge} ${styles[getTierClass(prospect.fit_tier)]}`}>
-                                    {prospect.fit_score ? prospect.fit_score : "-"}
+                                <span
+                                    className={`${styles.fitBadge} ${styles[getTierClass(prospect.fit_tier)]}`}
+                                >
+                                    {prospect.fit_score
+                                        ? prospect.fit_score
+                                        : "-"}
                                 </span>
                             </li>
                             <li className={styles.prospectDetailsProjection}>
@@ -201,14 +241,14 @@ const ProspectTable = ({ prospects, designations }) => {
                                     >
                                         {prospect.designation
                                             ? prospect.designation
-                                                .split(",")
-                                                .map(
-                                                    (code) =>
-                                                        designationsMap.get(
-                                                            code.trim()
-                                                        ) || ""
-                                                )
-                                                .join(", ")
+                                                  .split(",")
+                                                  .map(
+                                                      (code) =>
+                                                          designationsMap.get(
+                                                              code.trim(),
+                                                          ) || "",
+                                                  )
+                                                  .join(", ")
                                             : ""}
                                     </p>
                                 )}

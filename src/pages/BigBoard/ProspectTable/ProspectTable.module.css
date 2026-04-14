@@ -42,8 +42,8 @@
     cursor: default;
 }
 
-.prospectTableContainer>div:nth-child(4n + 2),
-.prospectTableContainer>div:nth-child(4n + 3) {
+.prospectTableContainer > div:nth-child(4n + 2),
+.prospectTableContainer > div:nth-child(4n + 3) {
     background-color: var(--white-color);
 }
 
@@ -70,25 +70,25 @@
 /* Tier-specific colors */
 .Tier1CoreTarget,
 .prospectDetailsFit:has(.Tier1CoreTarget) {
-    background-color: #1abc9c;
+    background-color: var(--tier-core-target);
     color: white;
 }
 
 .Tier2StrongFit,
 .prospectDetailsFit:has(.Tier2StrongFit) {
-    background-color: #3498db;
+    background-color: var(--tier-strong-fit);
     color: white;
 }
 
 .Tier3Conditional,
 .prospectDetailsFit:has(.Tier3Conditional) {
-    background-color: #f1c40f;
+    background-color: var(--tier-conditional);
     color: white;
 }
 
 .Tier4AvoidDepth,
 .prospectDetailsFit:has(.Tier4AvoidDepth) {
-    background-color: #e74c3c;
+    background-color: var(--tier-avoid-depth);
     color: white;
 }
 
@@ -195,8 +195,8 @@
     padding: var(--spacer-half) var(--spacer);
 }
 
-.prospectDetails>p,
-.prospectDetailsAlert>p {
+.prospectDetails > p,
+.prospectDetailsAlert > p {
     margin: 0;
 }
 
@@ -216,36 +216,32 @@
     text-align: center;
 }
 
-.prospectDetailsMobile>li {
+.prospectDetailsMobile > li {
     background-color: var(--subtle-primary-color);
     border-radius: var(--border-radius-sm);
     flex: 1;
     padding: var(--spacer-quarter);
 }
 
-.prospectDetailsMobile>li.prospectDetailsProjection,
-.prospectDetailsMobile>li.prospectDetailsComp {
+.prospectDetailsMobile > li.prospectDetailsProjection,
+.prospectDetailsMobile > li.prospectDetailsComp {
     flex: 0 0 100%;
 }
 
-.prospectDetailsMobile>li>span {
+.prospectDetailsMobile > li > span {
     display: block;
     font-size: var(--font-size-sm);
 }
 
-
 @media screen and (min-width: 576px) {
-
-    .prospectDetailsMobile>li,
-    .prospectDetailsMobile>li.prospectDetailsProjection,
-    .prospectDetailsMobile>li.prospectDetailsComp {
+    .prospectDetailsMobile > li,
+    .prospectDetailsMobile > li.prospectDetailsProjection,
+    .prospectDetailsMobile > li.prospectDetailsComp {
         flex: 0 0 49%;
     }
-
 }
 
 @media screen and (min-width: 768px) {
-
     .prospectTableHeaderCell.prospectTableCellGrade,
     .prospectTableHeaderCell.prospectTableCellFit {
         display: flex;
@@ -284,7 +280,6 @@
 }
 
 @media screen and (min-width: 1200px) {
-
     .prospectTableCellHeight,
     .prospectTableCellWeight,
     .prospectTableCellAge,

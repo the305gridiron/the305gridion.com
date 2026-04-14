@@ -5,6 +5,7 @@ import { Tab, Tabs } from "@/components/ui";
 import { fetchProspects } from "@/services/ProspectService";
 import { fetchDesignations } from "@/services/DesignationService";
 import { ClipLoader } from "react-spinners";
+import styles from "./BigBoard.module.css";
 
 const getDaysUntilDraft = () => {
     const today = new Date();
@@ -93,6 +94,12 @@ export default function BigBoard() {
                         </strong>{" "}
                         away! Explore our top 150 prospects and see which
                         prospects would be the best fit for our Phins.
+                        <ul className={styles.tierKey}>
+                            <li>Core Target</li>
+                            <li>Strong Fit</li>
+                            <li>Conditional</li>
+                            <li>Avoid/Depth</li>
+                        </ul>
                     </Hero.Promo>
                 </Hero>
                 <main className='container-fluid'>
