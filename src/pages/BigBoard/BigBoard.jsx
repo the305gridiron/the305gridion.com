@@ -2,9 +2,12 @@ import { useState, useEffect, useMemo } from "react";
 import ProspectTable from "./ProspectTable/ProspectTable";
 import { Hero, PageTitle } from "@/components/layout";
 import { Tab, Tabs } from "@/components/ui";
-import { fetchProspects } from "@/services/ProspectService";
-import { fetchDesignations } from "@/services/DesignationService";
 import { ClipLoader } from "react-spinners";
+
+// Data
+import { useProspectsQuery } from "../../hooks/useProspectsQuery";
+
+// Styles
 import styles from "./BigBoard.module.css";
 
 const getDaysUntilDraft = () => {
@@ -16,10 +19,7 @@ const getDaysUntilDraft = () => {
 };
 
 export default function BigBoard() {
-    const [prospects, setProspects] = useState([]);
-    const [designations, setDesignations] = useState({});
-    const [loading, setLoading] = useState(false);
-
+    const { data: prospects = [], isLoading } = useProspectsQuery(2026);
     const daysAwayFromDraft = useMemo(() => getDaysUntilDraft(), []);
 
     const positionOrder = [
@@ -60,26 +60,6 @@ export default function BigBoard() {
         return grouped;
     }, [prospects]);
 
-    useEffect(() => {
-        const loadData = async () => {
-            setLoading(true);
-            try {
-                const [prospectsData, designationsData] = await Promise.all([
-                    fetchProspects(true),
-                    fetchDesignations(),
-                ]);
-                setProspects(prospectsData);
-                setDesignations(designationsData);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        loadData();
-    }, []);
-
     return (
         <>
             <PageTitle title='Top 150 Prospects - The 305 Gridiron' />
@@ -103,16 +83,16 @@ export default function BigBoard() {
                     </Hero.Promo>
                 </Hero>
                 <main className='container-fluid'>
-                    {loading && (
+                    {isLoading && (
                         <div className='loading'>
                             <ClipLoader
                                 color='#007bff'
-                                loading={loading}
+                                loading={isLoading}
                                 size={50}
                             />
                         </div>
                     )}
-                    {!loading && prospects.length === 0 && (
+                    {!isLoading && prospects.length === 0 && (
                         <div className='no-results'>
                             <h2>Excuse the Emptyness!</h2>
                             <p>
@@ -122,12 +102,11 @@ export default function BigBoard() {
                             </p>
                         </div>
                     )}
-                    {!loading && prospects.length > 0 && (
+                    {!isLoading && prospects.length > 0 && (
                         <Tabs defaultActiveKey='ALL'>
                             <Tab key='ALL' tab='ALL'>
                                 <ProspectTable
-                                    prospects={prospects}
-                                    designations={designations}
+                                    prospects={prospects.sort((a, b) => a.draft_rank - b.draft_rank)}
                                 />
                             </Tab>
 
@@ -137,7 +116,6 @@ export default function BigBoard() {
                                         prospects={
                                             prospectsByPosition[position]
                                         }
-                                        designations={designations}
                                     />
                                 </Tab>
                             ))}

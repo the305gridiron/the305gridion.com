@@ -1,16 +1,8 @@
 import React, { useState, useMemo } from "react";
 import styles from "./ProspectTable.module.css";
 
-const ProspectTable = ({ prospects, designations }) => {
+const ProspectTable = ({ prospects }) => {
     const [expandedProspects, setExpandedProspects] = useState([]);
-
-    const designationsMap = useMemo(() => {
-        const map = new Map();
-        if (Array.isArray(designations)) {
-            designations.forEach((des) => map.set(des.code, des.description));
-        }
-        return map;
-    }, [designations]);
 
     if (!prospects) return null;
 
@@ -25,13 +17,12 @@ const ProspectTable = ({ prospects, designations }) => {
 
     const getTierClass = (tier) => {
         if (!tier) return "";
-        return `${
-            tier
+        return `${tier
                 .replace(/\s+/g, "") // remove spaces
                 .replace(/\//g, "") // remove slashes
                 .replace(/–/g, "") // remove en-dash
                 .replace(/-/g, "") // remove regular dash
-        }`;
+            }`;
     };
 
     const hasValue = (val) => {
@@ -192,13 +183,11 @@ const ProspectTable = ({ prospects, designations }) => {
                     </div>
 
                     <div
-                        className={`${styles.prospectDetails} ${
-                            !prospect.profile && styles.noProfile
-                        } ${
-                            expandedProspects.includes(prospect.id)
+                        className={`${styles.prospectDetails} ${!prospect.profile && styles.noProfile
+                            } ${expandedProspects.includes(prospect.id)
                                 ? styles.expanded
                                 : ""
-                        }`}
+                            }`}
                     >
                         <ul className={styles.prospectDetailsMobile}>
                             <li className={styles.prospectDetailsGrade}>
@@ -231,27 +220,8 @@ const ProspectTable = ({ prospects, designations }) => {
                                     : "-"}
                             </li>
                         </ul>
-                        {prospect.designation || prospect.injury_status ? (
+                        {prospect.injury_status ? (
                             <div className={styles.prospectDetailsAlert}>
-                                {prospect.designation && (
-                                    <p
-                                        className={
-                                            styles.prospectDetailsDesignation
-                                        }
-                                    >
-                                        {prospect.designation
-                                            ? prospect.designation
-                                                  .split(",")
-                                                  .map(
-                                                      (code) =>
-                                                          designationsMap.get(
-                                                              code.trim(),
-                                                          ) || "",
-                                                  )
-                                                  .join(", ")
-                                            : ""}
-                                    </p>
-                                )}
                                 {prospect.injury_status && (
                                     <p>{prospect.injury_status}</p>
                                 )}

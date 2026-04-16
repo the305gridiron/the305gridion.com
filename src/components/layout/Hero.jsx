@@ -13,7 +13,7 @@ function Title({ children, className = "" }) {
 }
 
 function Promo({ children, className = "" }) {
-    return <p className={`${styles.promo} ${className}`}>{children}</p>;
+    return <div className={`${styles.promo} ${className}`}>{children}</div>;
 }
 
 Hero.Title = Title;

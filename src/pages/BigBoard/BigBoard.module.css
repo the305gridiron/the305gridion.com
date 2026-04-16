@@ -1,7 +1,9 @@
 .tierKey {
-    display: flex;
-    gap: var(--spacer);
-    margin-top: var(--spacer-double);
+    display: grid;
+    gap: var(--spacer-half);
+    grid-template-columns: repeat(2, 1fr);
+    margin: var(--spacer-double) auto 0;
+    max-width: 300px;
     padding-left: 0;
     list-style: none;
     align-items: center;
@@ -9,22 +11,34 @@
 
     li {
         border-radius: var(--border-radius-sm);
-        font-size: var(--font-size-sm);
+        font-size: var(--font-size-xs);
         font-weight: var(--font-weight-semibold);
+        flex: 0 0 1fr;
         padding: var(--spacer-quarter) var(--spacer-half);
         text-transform: uppercase;
 
         &:nth-child(1) {
             background-color: var(--tier-core-target);
         }
+
         &:nth-child(2) {
             background-color: var(--tier-strong-fit);
         }
+
         &:nth-child(3) {
             background-color: var(--tier-conditional);
         }
+
         &:nth-child(4) {
             background-color: var(--tier-avoid-depth);
         }
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .tierKey {
+        gap: var(--spacer);
+        grid-template-columns: repeat(4, auto);
+        max-width: unset;
     }
 }
