@@ -1,9 +1,14 @@
-.mockDrafts > :global(.container-fluid) {
+.mockDrafts> :global(.container-fluid) {
     display: grid;
     gap: var(--spacer);
     grid-template-columns: 1fr;
     padding-top: var(--spacer);
     padding-bottom: var(--spacer);
+}
+
+.mockDrafts :global(.player-meta--grade),
+.mockDrafts :global(.player-meta--fit) {
+    display: none;
 }
 
 .lastUpdated {
@@ -13,13 +18,32 @@
     text-align: center;
 }
 
+@media (min-width: 576px) and (max-width: 639px) {
+    .mockDrafts :global(.player-meta) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 640px) {
+    .mockDrafts :global(.player-meta) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 640px) and (max-width: 992px) {
+    .mockDrafts :global(.player-image) {
+        min-height: 225px;
+    }
+}
+
 @media screen and (min-width: 992px) {
-    .mockDrafts > :global(.container-fluid) {
+    .mockDrafts> :global(.container-fluid) {
         grid-template-columns: 1fr 300px;
         gap: var(--spacer-double);
         padding-top: var(--spacer-double);
         padding-bottom: var(--spacer-double);
     }
+
     .lastUpdated {
         margin: 0;
         position: absolute;
@@ -29,8 +53,20 @@
     }
 }
 
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .mockDrafts :global(.player-name) {
+        font-size: var(--font-size-xxl);
+    }
+}
+
+@media (min-width: 1200px) {
+    .mockDrafts :global(.player-meta) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
 @media screen and (min-width: 1440px) {
-    .mockDrafts > :global(.container-fluid) {
+    .mockDrafts> :global(.container-fluid) {
         gap: var(--spacer-triple);
         padding-top: var(--spacer-triple);
         padding-bottom: var(--spacer-triple);

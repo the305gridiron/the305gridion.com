@@ -5,7 +5,7 @@ import styles from "./PlayerMeta.module.css";
 
 export default function PlayerMeta(props) {
     return (
-        <ul className={styles.playerMeta}>
+        <ul className={`${styles.playerMeta} player-meta`}>
             <li className='player-meta--grade'>
                 <span className={styles.playerMetaTitle}>Grade</span>
                 {props.grade ? props.grade : "--"}

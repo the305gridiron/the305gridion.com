@@ -25,21 +25,6 @@ export default function HeroVideo({ video }) {
                     <p className={styles.description}>
                         {video?.description?.split("📢")[0]}
                     </p>
-                    <div className={styles.heroCTA}>
-                        <a
-                            className={styles.heroButton}
-                            href='https://www.youtube.com/playlist?list=PLxSEosyZR98OToPtZ4JcSFPkqGbGc3Q6u'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                        >
-                            <span className={styles.buttonIcon}>
-                                <GitPullRequestArrow />
-                            </span>{" "}
-                            Get More 2026
-                            <br />
-                            Offseason Content
-                        </a>
-                    </div>
                 </div>
             </div>
         </section>
