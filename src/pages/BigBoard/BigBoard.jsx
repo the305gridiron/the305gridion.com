@@ -67,13 +67,9 @@ export default function BigBoard() {
                 <Hero>
                     <Hero.Title>Miami Dolphins Draft Board</Hero.Title>
                     <Hero.Promo>
-                        The 2026 NFL Draft is just{" "}
-                        <strong>
-                            {daysAwayFromDraft}{" "}
-                            {daysAwayFromDraft === 1 ? "day" : "days"}
-                        </strong>{" "}
-                        away! Explore our top 150 prospects and see which
-                        prospects would be the best fit for our Phins.
+                        The NFL Draft is here. Dive into our top 150 prospects
+                        and see who we believe fits best in Miami as we track
+                        every potential Dolphins target in real time.
                         <ul className={styles.tierKey}>
                             <li>Core Target</li>
                             <li>Strong Fit</li>
@@ -106,7 +102,9 @@ export default function BigBoard() {
                         <Tabs defaultActiveKey='ALL'>
                             <Tab key='ALL' tab='ALL'>
                                 <ProspectTable
-                                    prospects={prospects.sort((a, b) => a.draft_rank - b.draft_rank)}
+                                    prospects={prospects.sort(
+                                        (a, b) => a.draft_rank - b.draft_rank,
+                                    )}
                                 />
                             </Tab>
 
