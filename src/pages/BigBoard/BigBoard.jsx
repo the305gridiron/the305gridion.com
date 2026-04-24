@@ -67,9 +67,9 @@ export default function BigBoard() {
                 <Hero>
                     <Hero.Title>Miami Dolphins Draft Board</Hero.Title>
                     <Hero.Promo>
-                        The NFL Draft is here. Dive into our top 150 prospects
-                        and see who we believe fits best in Miami as we track
-                        every potential Dolphins target in real time.
+                        Dive into our top 150 prospects and see who we believe
+                        fits best in Miami as we track every potential Dolphins
+                        target in real time.
                         <ul className={styles.tierKey}>
                             <li>Core Target</li>
                             <li>Strong Fit</li>

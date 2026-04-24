@@ -34,7 +34,7 @@ export default function DraftResults() {
                     <Hero.Title>Miami Dolphins Draft Results</Hero.Title>
                     <Hero.Promo>
                         The NFL Draft has begun! Check out our full reactions,
-                        instant analysis, and everything the Miami Dolphins
+                        instant analysis, and everything the Miami Dolphins do
                         during the draft.
                     </Hero.Promo>
                 </Hero>
