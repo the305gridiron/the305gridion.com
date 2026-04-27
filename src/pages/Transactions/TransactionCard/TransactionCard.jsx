@@ -1,6 +1,7 @@
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
+import DiscountIcon from '@mui/icons-material/Discount';
 import EditDocumentIcon from "@mui/icons-material/EditDocument";
 import PlaceholderImage from "@/assets/prospect-placeholder.png";
 import styles from "./TransactionCard.module.css";
@@ -13,6 +14,7 @@ const transactionTypeMap = {
     tender: { icon: PersonAddIcon, text: "Tendered" },
     restructure: { icon: EditDocumentIcon, text: "Restructures Contract" },
     re_sign: { icon: PersonAddIcon, text: "Re-Signed" },
+    udfa: { icon: DiscountIcon, text: "UDFA" }
 };
 
 export default function TransactionCard(props) {
@@ -26,9 +28,9 @@ export default function TransactionCard(props) {
 
     const formattedDate = props.date
         ? new Intl.DateTimeFormat("en-US", {
-              month: "short",
-              day: "numeric",
-          }).format(new Date(props.date))
+            month: "short",
+            day: "numeric",
+        }).format(new Date(props.date))
         : "";
 
     return (
