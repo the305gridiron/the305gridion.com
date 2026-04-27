@@ -49,7 +49,7 @@ export default function DraftResults() {
                         <SidebarCards>
                             <FreeAgencyPlayerCard
                                 title="Signed UDFA's"
-                                players={udfa}
+                                players={udfa.map(p => p.player)}
                                 messaging={sidebarMessaging.Undrafted}
                             />
                         </SidebarCards>

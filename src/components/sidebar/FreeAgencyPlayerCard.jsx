@@ -68,7 +68,7 @@ export default function FreeAgencyPlayerCard({ hideTitle = false, title, players
 
                             {player.school && (
                                 <span className={styles.playerSchool}>
-                                    {player.school}
+                                    {typeof player.school === "string" ? player.school : player.school.abbr}
                                 </span>
                             )}
 
