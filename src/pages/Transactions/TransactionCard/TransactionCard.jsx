@@ -22,7 +22,7 @@ export default function TransactionCard(props) {
         name: player_name,
         position: player_position,
         image: player_image,
-    } = props.player;
+    } = props.players[0];
 
     const Icon = transactionTypeMap?.[props.type]?.icon;
 
@@ -33,19 +33,25 @@ export default function TransactionCard(props) {
         }).format(new Date(props.date))
         : "";
 
+    const FormattedTitle = () => (
+        <>
+            {player_position || "POS"}{" "}
+            <span className={styles.playerName}>
+                {player_name || "Player Name"}
+            </span>{" "}
+            {transactionTypeMap[props.type]?.text}
+        </>
+    );
+
     return (
         <div className={`transaction-card ${styles.transactionCard}`}>
             <figure className={styles.playerImage}>
-                <img src={player_image || PlaceholderImage} alt={player_name} />
+                <img src={props.image_url || player_image || PlaceholderImage} alt={props.image_description || player_name} />
             </figure>
 
             <div className={styles.transactionAnalysis}>
                 <h3 className={styles.transactionHeadline}>
-                    {player_position || "POS"}{" "}
-                    <span className={styles.playerName}>
-                        {player_name || "Player Name"}
-                    </span>{" "}
-                    {transactionTypeMap[props.type]?.text}
+                    {props.title ? props.title : <FormattedTitle />}
                 </h3>
                 <p className={styles.transactionDate}>{formattedDate}</p>
                 <p className={styles.transactionAnalysisContent}>

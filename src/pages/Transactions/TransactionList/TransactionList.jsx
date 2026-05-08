@@ -27,8 +27,8 @@ export default function TransactionList(props) {
             </header>
             <div className={styles.transactionCards}>
                 {props.transactions && props.transactions.length > 0 ? (
-                    props.transactions.map((player) => (
-                        <TransactionCard key={player.id} {...player} />
+                    props.transactions.map((transaction) => (
+                        <TransactionCard key={transaction.id} {...transaction} />
                     ))
                 ) : (
                     <div className={styles.emptyState}>
