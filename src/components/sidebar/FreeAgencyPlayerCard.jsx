@@ -6,15 +6,22 @@ import SwapHorizOutlinedIcon from "@mui/icons-material/SwapHorizOutlined";
 import styles from "./SidebarCard.module.css";
 
 function formatUnsignedPlayers(players) {
-    return players.map(p => ({
-        id: p.id,
-        position: p.player.position,
-        name: p.player.name,
-        deal: p.team_id ? { team: p.team.abbr } : null
-    })).sort((a, b) => a.id - b.id);
+    return players
+        .map((p) => ({
+            id: p.id,
+            position: p.player.position,
+            name: p.player.name,
+            deal: p.team_id ? { team: p.team.abbr } : null,
+        }))
+        .sort((a, b) => a.id - b.id);
 }
 
-export default function FreeAgencyPlayerCard({ hideTitle = false, title, players, messaging }) {
+export default function FreeAgencyPlayerCard({
+    hideTitle = false,
+    title,
+    players,
+    messaging,
+}) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = (panelId) => {
@@ -32,7 +39,10 @@ export default function FreeAgencyPlayerCard({ hideTitle = false, title, players
         );
     }
 
-    const playerList = title === "Unsigned" ? formatUnsignedPlayers(players) : [...players].reverse();
+    const playerList =
+        title === "Unsigned"
+            ? formatUnsignedPlayers(players)
+            : [...players].reverse();
 
     return (
         <SidebarCard>
@@ -68,12 +78,17 @@ export default function FreeAgencyPlayerCard({ hideTitle = false, title, players
 
                             {player.school && (
                                 <span className={styles.playerSchool}>
-                                    {typeof player.school === "string" ? player.school : player.school.abbr}
+                                    {typeof player.school === "string"
+                                        ? player.school
+                                        : player.school.abbr}
                                 </span>
                             )}
 
                             {player.deal && (
-                                <Tooltip title={player.deal.details} className={styles.playerDeal}>
+                                <Tooltip
+                                    title={player.deal.details}
+                                    className={styles.playerDeal}
+                                >
                                     {player.deal.team}
                                 </Tooltip>
                             )}
