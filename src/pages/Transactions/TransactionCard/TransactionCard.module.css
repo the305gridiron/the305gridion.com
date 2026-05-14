@@ -92,7 +92,8 @@
 .tender,
 .restructure,
 .re_sign,
-.udfa {
+.udfa,
+.extension {
     background-color: var(--color-dolphins-teal);
     color: var(--white-color);
 }

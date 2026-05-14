@@ -14,15 +14,19 @@ const transactionTypeMap = {
     tender: { icon: PersonAddIcon, text: "Tendered" },
     restructure: { icon: EditDocumentIcon, text: "Restructures Contract" },
     re_sign: { icon: PersonAddIcon, text: "Re-Signed" },
-    udfa: { icon: DiscountIcon, text: "UDFA" }
+    udfa: { icon: DiscountIcon, text: "UDFA" },
+    extension: { icon: EditDocumentIcon, text: "Signs Extension" }
 };
 
 export default function TransactionCard(props) {
+    const firstPlayer = props.players?.[0];
+    if (!firstPlayer) return null;
+
     const {
         name: player_name,
         position: player_position,
         image: player_image,
-    } = props.players[0];
+    } = firstPlayer;
 
     const Icon = transactionTypeMap?.[props.type]?.icon;
 
