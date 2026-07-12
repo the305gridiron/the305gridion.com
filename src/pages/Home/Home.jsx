@@ -16,13 +16,15 @@ export default function Home() {
             setLoading(true);
             try {
                 const youtubeData = await fetchYoutubeVideos();
+                const videos = youtubeData?.videos || [];
+                const liveStream = youtubeData?.liveStream || null;
 
-                setHeroVideo(youtubeData.liveStream ?? youtubeData.videos[0]);
+                setHeroVideo(liveStream ?? videos[0] ?? null);
 
                 setYoutubeVideos(
-                    youtubeData.liveStream
-                        ? youtubeData.videos
-                        : youtubeData.videos.slice(1),
+                    liveStream
+                        ? videos
+                        : videos.slice(1),
                 );
             } catch (error) {
                 console.error("Error fetching data:", error);
