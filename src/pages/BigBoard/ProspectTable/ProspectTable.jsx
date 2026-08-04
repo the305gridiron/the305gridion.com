@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import styles from "./ProspectTable.module.css";
 
 const ProspectTable = ({ prospects }) => {
@@ -17,12 +17,13 @@ const ProspectTable = ({ prospects }) => {
 
     const getTierClass = (tier) => {
         if (!tier) return "";
-        return `${tier
+        return `${
+            tier
                 .replace(/\s+/g, "") // remove spaces
                 .replace(/\//g, "") // remove slashes
                 .replace(/–/g, "") // remove en-dash
                 .replace(/-/g, "") // remove regular dash
-            }`;
+        }`;
     };
 
     const hasValue = (val) => {
@@ -183,11 +184,13 @@ const ProspectTable = ({ prospects }) => {
                     </div>
 
                     <div
-                        className={`${styles.prospectDetails} ${!prospect.profile && styles.noProfile
-                            } ${expandedProspects.includes(prospect.id)
+                        className={`${styles.prospectDetails} ${
+                            !prospect.profile && styles.noProfile
+                        } ${
+                            expandedProspects.includes(prospect.id)
                                 ? styles.expanded
                                 : ""
-                            }`}
+                        }`}
                     >
                         <ul className={styles.prospectDetailsMobile}>
                             <li className={styles.prospectDetailsGrade}>
