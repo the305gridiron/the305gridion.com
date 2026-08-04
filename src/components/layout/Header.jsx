@@ -4,16 +4,17 @@ import Logo from "@/assets/the-305-gridiron-logo.jpeg";
 import styles from "./Header.module.css";
 import {
     ArrowLeftRight,
+    ChevronDown,
     ListOrdered,
     PlaySquare,
-    Video,
     X,
     Menu,
     ClipboardList,
     History,
+    UserRound,
 } from "lucide-react";
 
-const navItems = [
+const draftLinks = [
     { label: "Big Board", icon: <ListOrdered size={20} />, href: "/prospects" },
     {
         label: "Mock Drafts",
@@ -25,15 +26,11 @@ const navItems = [
         icon: <History size={20} />,
         href: "/drafts",
     },
-    {
-        label: "Transactions",
-        icon: <ArrowLeftRight size={20} />,
-        href: "/transactions",
-    },
 ];
 
 export default function Header() {
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [draftOpen, setDraftOpen] = useState(false);
 
     useEffect(() => {
         if (drawerOpen) {
@@ -69,15 +66,90 @@ export default function Header() {
                         className={`${styles.pageNav} ${drawerOpen ? styles.open : ""}`}
                         onClick={() => setDrawerOpen(false)}
                     >
-                        {navItems.map((item) => (
-                            <Link
-                                to={item.href}
-                                className={styles.navLink}
-                                key={item.label}
-                            >
-                                {item.icon} {item.label}
-                            </Link>
-                        ))}
+                        <Link
+                            to='/roster'
+                            className={styles.navLink}
+                            onClick={() => {
+                                setDraftOpen(false);
+                                setDrawerOpen(false);
+                            }}
+                        >
+                            <UserRound size={20} /> Roster
+                        </Link>
+
+                        <Link
+                            to='/transactions'
+                            className={styles.navLink}
+                            onClick={() => {
+                                setDraftOpen(false);
+                                setDrawerOpen(false);
+                            }}
+                        >
+                            <ArrowLeftRight size={20} /> Transactions
+                        </Link>
+
+                        <div className={styles.navItem}>
+                            {drawerOpen ? (
+                                // Mobile drawer: show draft links inline as regular nav links
+                                draftLinks.map((item) => (
+                                    <Link
+                                        to={item.href}
+                                        className={styles.navLink}
+                                        key={item.label}
+                                        onClick={() => {
+                                            setDraftOpen(false);
+                                            setDrawerOpen(false);
+                                        }}
+                                    >
+                                        {item.icon} {item.label}
+                                    </Link>
+                                ))
+                            ) : (
+                                // Desktop: keep dropdown header + floating menu
+                                <>
+                                    <button
+                                        type='button'
+                                        className={`${styles.navLink} ${styles.dropdownToggle}`}
+                                        onClick={(event) => {
+                                            event.stopPropagation();
+                                            setDraftOpen((prev) => !prev);
+                                        }}
+                                        aria-expanded={draftOpen}
+                                    >
+                                        <span className={styles.navLabel}>
+                                            <ListOrdered size={20} /> Draft
+                                        </span>
+                                        <ChevronDown
+                                            size={14}
+                                            className={`${styles.dropdownChevron} ${draftOpen ? styles.open : ""}`}
+                                        />
+                                    </button>
+
+                                    {draftOpen && (
+                                        <div
+                                            className={styles.dropdownMenu}
+                                            role='menu'
+                                        >
+                                            {draftLinks.map((item) => (
+                                                <Link
+                                                    to={item.href}
+                                                    className={
+                                                        styles.dropdownLink
+                                                    }
+                                                    key={item.label}
+                                                    onClick={() => {
+                                                        setDraftOpen(false);
+                                                        setDrawerOpen(false);
+                                                    }}
+                                                >
+                                                    {item.icon} {item.label}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    )}
+                                </>
+                            )}
+                        </div>
 
                         <a
                             className={styles.subscribeBtn}

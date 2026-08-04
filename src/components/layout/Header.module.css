@@ -121,6 +121,73 @@
 }
 
 /* =========================
+   DROPDOWN NAV
+========================= */
+.navItem {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    gap: var(--spacer);
+}
+
+.dropdownToggle {
+    width: 100%;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.navLabel {
+    font-family: var(--font-family-body);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdownChevron {
+    transition: transform 0.2s ease;
+}
+
+.dropdownChevron.open {
+    transform: rotate(180deg);
+}
+
+.dropdownMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 0.25rem 0 0 1.25rem;
+    padding: 0.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-small);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.dropdownLink {
+    color: rgba(255, 255, 255, 0.78);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.45rem 0.75rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: var(--radius-small);
+}
+
+.dropdownLink:hover,
+.dropdownLink:focus-visible {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    text-decoration: none;
+}
+
+/* =========================
    SUBSCRIBE BUTTON
 ========================= */
 .subscribeBtn {
@@ -230,6 +297,33 @@
     .navLink {
         padding: var(--spacer-half);
         width: auto;
+    }
+
+    .navItem {
+        width: auto;
+    }
+
+    .dropdownToggle {
+        width: auto;
+    }
+
+    .dropdownMenu {
+        position: absolute;
+        top: calc(100% + 0.35rem);
+        left: 0;
+        min-width: 180px;
+        margin: 0;
+        padding: 0.5rem;
+        background: rgba(10, 24, 36, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: var(--radius-small);
+        box-shadow: none;
+        backdrop-filter: none;
+        z-index: 1;
+    }
+
+    .dropdownLink {
+        padding: 0.6rem 0.75rem;
     }
 
     .pageNav {
