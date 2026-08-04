@@ -35,9 +35,7 @@ export default function SidebarPlayerPanel(props) {
                 ref={contentRef}
                 className={styles.sidebarPlayerPanelContent}
                 style={{
-                    maxHeight: isExpanded
-                        ? contentRef.current?.scrollHeight
-                        : 0,
+                    maxHeight: isExpanded ? "none" : 0,
                 }}
             >
                 <div className={styles.sidebarPlayerPanelContentContainer}>
