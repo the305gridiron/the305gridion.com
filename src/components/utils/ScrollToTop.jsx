@@ -8,8 +8,8 @@ export default class ScrollToTop extends React.Component {
     };
 
     componentDidMount() {
-        var scrollComponent = this;
-        document.addEventListener("scroll", function (e) {
+        const scrollComponent = this;
+        document.addEventListener("scroll", function () {
             scrollComponent.toggleVisibility();
         });
     }
@@ -24,7 +24,10 @@ export default class ScrollToTop extends React.Component {
         return (
             <div className={styles.scrollToTop}>
                 {is_visible && (
-                    <button onClick={this.scrollToTop} aria-label="Scroll to Top">
+                    <button
+                        onClick={this.scrollToTop}
+                        aria-label='Scroll to Top'
+                    >
                         <KeyboardArrowUpOutlinedIcon />
                     </button>
                 )}
