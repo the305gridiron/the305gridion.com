@@ -1,0 +1,653 @@
+.rosterContainer {
+    font-family: var(--font-family-body);
+    background-color: var(--slate-50);
+    min-height: 100vh;
+    padding-bottom: var(--spacer-triple);
+}
+
+.mainDashboard {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 var(--spacer);
+}
+
+/* Dashboard Header & Controls */
+.dashboardHeader {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: var(--spacer);
+    margin-bottom: var(--spacer);
+    padding: var(--spacer-double) 0 var(--spacer) 0;
+}
+
+/* Segmented Control styling (Shadcn style tabs) */
+.segmentControl {
+    display: inline-flex;
+    background-color: var(--slate-100);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-default);
+    padding: 2px;
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.segmentBtn {
+    background: transparent;
+    border: none;
+    border-radius: calc(var(--radius-default) - 2px);
+    color: var(--slate-600);
+    padding: 6px 16px;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    flex: 0 0 auto;
+}
+
+.segmentBtn:hover {
+    color: var(--slate-900);
+}
+
+.segmentActive {
+    background-color: var(--white-color);
+    color: var(--slate-900);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* View Selection & Reset */
+.actionControls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacer-half);
+}
+
+.viewSegment {
+    display: inline-flex;
+    background-color: var(--slate-100);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-default);
+    padding: 2px;
+}
+
+.viewBtn {
+    background: transparent;
+    border: none;
+    border-radius: calc(var(--radius-default) - 2px);
+    color: var(--slate-600);
+    padding: 6px 12px;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    flex: 0 0 auto;
+}
+
+.viewBtn:hover {
+    color: var(--slate-900);
+}
+
+.viewActive {
+    background-color: var(--white-color);
+    color: var(--slate-900);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.resetBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacer-quarter);
+    background-color: var(--white-color);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-default);
+    color: var(--danger-color);
+    padding: 7px 12px;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.resetBtn:hover {
+    background-color: var(--subtle-danger-color);
+    border-color: var(--danger-color);
+}
+
+/* Search Bar styling */
+.searchBarContainer {
+    margin-bottom: var(--spacer-double);
+}
+
+.searchInputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.searchIcon {
+    position: absolute;
+    left: var(--spacer);
+    color: var(--slate-400);
+    pointer-events: none;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 10px 40px 10px 40px;
+    font-size: var(--font-size-base);
+    border: 1px solid var(--slate-300);
+    border-radius: var(--radius-default);
+    background-color: var(--white-color);
+    color: var(--slate-900);
+    transition: all 0.15s ease;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: var(--color-dolphins-teal);
+    box-shadow: 0 0 0 2px var(--subtle-primary-color);
+}
+
+.clearSearchBtn {
+    position: absolute;
+    right: var(--spacer);
+    background: transparent;
+    border: none;
+    color: var(--slate-400);
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clearSearchBtn:hover {
+    background-color: var(--slate-100);
+    color: var(--slate-900);
+}
+
+/* Mobile dropdown filters (replaces segmented tabs on mobile) */
+.mobileFilterRow {
+    display: flex;
+    gap: var(--spacer-half);
+    width: 100%;
+}
+
+.filterSelect {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 10px 34px 10px 12px;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: var(--slate-900);
+    background-color: var(--white-color);
+    border: 1px solid var(--slate-300);
+    border-radius: var(--radius-default);
+    cursor: pointer;
+
+    /* Custom dropdown arrow, replaces the browser default */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+.filterSelect:focus {
+    outline: none;
+    border-color: var(--color-dolphins-teal);
+    box-shadow: 0 0 0 2px var(--subtle-primary-color);
+}
+
+/* Table Containment Card */
+.tableCard {
+    background-color: var(--white-color);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-default);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    min-width: 0;
+}
+
+.tableResponsive {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Table general styles */
+.depthTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: var(--font-size-sm);
+    table-layout: fixed;
+}
+
+.databaseTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: var(--font-size-sm);
+}
+
+.depthTable th,
+.databaseTable th {
+    background-color: var(--slate-50);
+    color: var(--slate-600);
+    font-weight: 700;
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 10px var(--spacer-half);
+    border-bottom: 2px solid var(--slate-200);
+}
+
+.depthTable th:not(.posColHeader) {
+    width: 240px;
+}
+
+/* Category Dividers */
+.categoryDividerRow {
+    background-color: var(--slate-50);
+}
+
+.categoryDividerName {
+    padding: 8px var(--spacer-half) !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    letter-spacing: 1px !important;
+    color: var(--slate-500) !important;
+    border-bottom: 1px solid var(--slate-200);
+    border-top: 1px solid var(--slate-200);
+}
+
+/* Depth Chart Row/Cell Styling */
+.depthRow {
+    border-bottom: 1px solid var(--slate-200);
+}
+
+.depthRow:hover {
+    background-color: var(--slate-50);
+}
+
+.posColHeader {
+    width: 80px;
+}
+
+.posLabelCell {
+    padding: 6px var(--spacer-half);
+    background-color: var(--slate-50);
+    border-right: 1px solid var(--slate-200);
+    font-weight: 700;
+    text-align: center;
+}
+
+.posLabelBadge {
+    display: inline-block;
+    color: var(--color-dolphins-navy);
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+}
+
+.playerCell {
+    padding: 6px var(--spacer-half);
+    border-right: 1px solid var(--slate-100);
+    vertical-align: middle;
+}
+
+.cellContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacer-quarter);
+    min-height: 28px;
+}
+
+.playerNumName {
+    display: flex;
+    align-items: center;
+    gap: var(--spacer-quarter);
+    min-width: 0;
+}
+
+.cellNumber {
+    font-weight: 700;
+    color: var(--color-dolphins-orange);
+    font-size: var(--font-size-xs);
+    width: 24px;
+    flex-shrink: 0;
+}
+
+.cellName {
+    color: var(--slate-900);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Starter Cell (highlighted string) */
+.starterCell {
+    background-color: var(--color-dolphins-orange-muted);
+    border-left: 3px solid var(--color-dolphins-orange);
+}
+
+.starterCell .cellName {
+    font-weight: 700;
+    color: var(--color-dolphins-navy);
+}
+
+/* Empty Cell slot */
+.emptyDepthCell {
+    padding: 6px var(--spacer-half);
+    color: var(--slate-300);
+    text-align: center;
+    font-size: var(--font-size-xs);
+    border-right: 1px solid var(--slate-100);
+    vertical-align: middle;
+}
+
+.emptyDash {
+    color: var(--slate-300);
+}
+
+.dimmedCell {
+    opacity: 0.3;
+}
+
+/* Action arrows - show only on hover */
+.cellActions {
+    display: flex;
+    gap: 2px;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.playerCell:hover .cellActions {
+    opacity: 1;
+}
+
+.actionArrowBtn {
+    background-color: var(--white-color);
+    border: 1px solid var(--slate-300);
+    border-radius: 4px;
+    color: var(--slate-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+}
+
+.actionArrowBtn:hover:not(:disabled) {
+    background-color: var(--color-dolphins-teal);
+    border-color: var(--color-dolphins-teal);
+    color: var(--white-color);
+}
+
+.actionArrowBtn:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+}
+
+/* Database Table Styles */
+.databaseTable th.clickableHeader {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.15s;
+}
+
+.databaseTable th.clickableHeader:hover {
+    background-color: var(--slate-100);
+    color: var(--slate-900);
+}
+
+.dbRow {
+    border-bottom: 1px solid var(--slate-200);
+}
+
+.dbRow:hover {
+    background-color: var(--slate-50);
+}
+
+.dbRow td {
+    padding: 8px var(--spacer-half);
+    color: var(--slate-700);
+    vertical-align: middle;
+}
+
+.dbNumberCell {
+    font-weight: 700;
+    color: var(--color-dolphins-orange);
+    width: 50px;
+}
+
+.dbNameCell {
+    font-weight: 600;
+    color: var(--slate-900);
+}
+
+.dbPosCell {
+    width: 80px;
+}
+
+.dbPosBadge {
+    display: inline-block;
+    background-color: var(--slate-100);
+    border: 1px solid var(--slate-200);
+    color: var(--slate-600);
+    font-size: var(--font-size-xxs);
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-align: center;
+    min-width: 42px;
+}
+
+.dbCollegeCell {
+    color: var(--slate-600);
+}
+
+.noResultsCell {
+    text-align: center;
+    padding: var(--spacer-triple) 0;
+    color: var(--slate-500);
+}
+
+.noResultsIcon {
+    color: var(--slate-300);
+    margin-bottom: var(--spacer-half);
+}
+
+/* =========================
+   MOBILE CARD LAYOUT
+   (shared shell used by DepthChartTable + DatabaseTable mobile views)
+========================= */
+.mobileCategoryGroup {
+    margin-bottom: var(--spacer);
+}
+
+.mobileCategoryGroup:last-child {
+    margin-bottom: 0;
+}
+
+.mobileCategoryTitle {
+    padding: 8px var(--spacer-half);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--slate-500);
+    background-color: var(--slate-50);
+    border-bottom: 1px solid var(--slate-200);
+    border-top: 1px solid var(--slate-200);
+}
+
+/* Depth Chart position cards */
+.mobilePosCard {
+    border-bottom: 1px solid var(--slate-200);
+    padding: 10px var(--spacer-half);
+}
+
+.mobilePosCardHeader {
+    color: var(--color-dolphins-navy);
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+    margin-bottom: 6px;
+}
+
+.mobilePosCardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mobileStringRow {
+    display: flex;
+    align-items: center;
+    gap: var(--spacer);
+    padding: 6px 8px;
+    border-radius: 6px;
+    background-color: var(--slate-50);
+}
+
+.mobileStarterRow {
+    background-color: var(--color-dolphins-orange-muted);
+    border-left: 3px solid var(--color-dolphins-orange);
+}
+
+.mobileStringLabel {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--slate-400);
+    flex-shrink: 0;
+}
+
+.mobileStringPlayer {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--slate-900);
+}
+
+/* Player Database cards */
+.mobilePlayerCard {
+    padding: 10px var(--spacer-half);
+    border-bottom: 1px solid var(--slate-200);
+}
+
+.mobilePlayerCardTop {
+    display: flex;
+    align-items: center;
+    gap: var(--spacer-quarter);
+    margin-bottom: 6px;
+}
+
+.mobilePlayerName {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-weight: 700;
+    color: var(--slate-900);
+    font-size: var(--font-size-sm);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mobilePlayerCardMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    font-size: var(--font-size-xs);
+    color: var(--slate-600);
+}
+
+/* =========================
+   RESPONSIVE OVERRIDES
+   Kept at the end of the file on purpose: same-specificity rules
+   above (e.g. .segmentControl, .mobileFilterRow) would otherwise
+   win the cascade by source order and silently undo these toggles.
+========================= */
+@media screen and (max-width: 767px) {
+    .rosterContainer {
+        overflow-x: hidden;
+    }
+
+    .mainDashboard {
+        padding: 0 var(--spacer-half);
+    }
+
+    .dashboardHeader {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacer-half);
+    }
+
+    /* Hide the desktop tab/segment controls on mobile in favor of dropdowns */
+    .segmentControl,
+    .actionControls {
+        display: none;
+    }
+
+    .searchInput {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Hide the desktop table, show card layout instead */
+    .desktopTableWrap {
+        display: none;
+    }
+
+    .mobileCardList {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .dashboardHeader {
+        align-items: center;
+    }
+
+    .segmentControl {
+        width: auto;
+    }
+
+    .actionControls {
+        width: auto;
+    }
+
+    /* Hide the mobile dropdown filters and card layout on desktop */
+    .mobileFilterRow {
+        display: none;
+    }
+
+    .mobileCardList {
+        display: none;
+    }
+
+    .desktopTableWrap {
+        display: block;
+    }
+
+    .viewSegment {
+        width: auto;
+    }
+
+    .segmentBtn,
+    .viewBtn {
+        flex: 0 0 auto;
+    }
+}

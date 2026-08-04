@@ -3,6 +3,7 @@ import {
     Home,
     BigBoard,
     MockDrafts,
+    Roster,
     DraftResults,
     Transactions,
 } from "./pages";
@@ -21,6 +22,7 @@ function App() {
                     <Route path='/drafts/*' element={<DraftResults />} />
                     <Route path='/offseason/*' element={<Transactions />} />
                     <Route path='/transactions/*' element={<Transactions />} />
+                    <Route path='/roster/*' element={<Roster />} />
                 </Route>
             </Routes>
         </BrowserRouter>
