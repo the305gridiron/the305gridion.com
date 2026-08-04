@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import ProspectTable from "./ProspectTable/ProspectTable";
 import { Hero, PageTitle } from "@/components/layout";
 import { Tab, Tabs } from "@/components/ui";
@@ -10,33 +10,23 @@ import { useProspectsQuery } from "../../hooks/useProspectsQuery";
 // Styles
 import styles from "./BigBoard.module.css";
 
-const getDaysUntilDraft = () => {
-    const today = new Date();
-    const draftDate = new Date("2026-04-23"); // Draft start date
-    const diffTime = draftDate - today; // difference in milliseconds
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // convert to days
-    return diffDays > 0 ? diffDays : 0;
-};
-
 export default function BigBoard() {
     const { data: prospects = [], isLoading } = useProspectsQuery(2026);
-    const daysAwayFromDraft = useMemo(() => getDaysUntilDraft(), []);
-
-    const positionOrder = [
-        "QB",
-        "RB",
-        "WR",
-        "TE",
-        "OT",
-        "IOL",
-        "EDGE",
-        "DL",
-        "LB",
-        "CB",
-        "S",
-    ];
 
     const positionKeys = useMemo(() => {
+        const positionOrder = [
+            "QB",
+            "RB",
+            "WR",
+            "TE",
+            "OT",
+            "IOL",
+            "EDGE",
+            "DL",
+            "LB",
+            "CB",
+            "S",
+        ];
         const positions = positionOrder.filter((pos) =>
             prospects.some((p) => p.position === pos),
         );
