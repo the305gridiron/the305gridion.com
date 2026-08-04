@@ -1,10 +1,22 @@
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
-import DiscountIcon from '@mui/icons-material/Discount';
+import DiscountIcon from "@mui/icons-material/Discount";
 import EditDocumentIcon from "@mui/icons-material/EditDocument";
 import PlaceholderImage from "@/assets/prospect-placeholder.png";
 import styles from "./TransactionCard.module.css";
+
+function FormattedTitle({ playerPosition, playerName, transactionTypeText }) {
+    return (
+        <>
+            {playerPosition || "POS"}{" "}
+            <span className={styles.playerName}>
+                {playerName || "Player Name"}
+            </span>{" "}
+            {transactionTypeText}
+        </>
+    );
+}
 
 const transactionTypeMap = {
     release: { icon: ContentCutIcon, text: "Released" },
@@ -15,7 +27,7 @@ const transactionTypeMap = {
     restructure: { icon: EditDocumentIcon, text: "Restructures Contract" },
     re_sign: { icon: PersonAddIcon, text: "Re-Signed" },
     udfa: { icon: DiscountIcon, text: "UDFA" },
-    extension: { icon: EditDocumentIcon, text: "Signs Extension" }
+    extension: { icon: EditDocumentIcon, text: "Signs Extension" },
 };
 
 export default function TransactionCard(props) {
@@ -32,30 +44,33 @@ export default function TransactionCard(props) {
 
     const formattedDate = props.date
         ? new Intl.DateTimeFormat("en-US", {
-            month: "short",
-            day: "numeric",
-        }).format(new Date(props.date))
+              month: "short",
+              day: "numeric",
+          }).format(new Date(props.date))
         : "";
-
-    const FormattedTitle = () => (
-        <>
-            {player_position || "POS"}{" "}
-            <span className={styles.playerName}>
-                {player_name || "Player Name"}
-            </span>{" "}
-            {transactionTypeMap[props.type]?.text}
-        </>
-    );
 
     return (
         <div className={`transaction-card ${styles.transactionCard}`}>
             <figure className={styles.playerImage}>
-                <img src={props.image_url || player_image || PlaceholderImage} alt={props.image_description || player_name} />
+                <img
+                    src={props.image_url || player_image || PlaceholderImage}
+                    alt={props.image_description || player_name}
+                />
             </figure>
 
             <div className={styles.transactionAnalysis}>
                 <h3 className={styles.transactionHeadline}>
-                    {props.title ? props.title : <FormattedTitle />}
+                    {props.title ? (
+                        props.title
+                    ) : (
+                        <FormattedTitle
+                            playerPosition={player_position}
+                            playerName={player_name}
+                            transactionTypeText={
+                                transactionTypeMap[props.type]?.text
+                            }
+                        />
+                    )}
                 </h3>
                 <p className={styles.transactionDate}>{formattedDate}</p>
                 <p className={styles.transactionAnalysisContent}>
