@@ -31,6 +31,7 @@
     --color-dolphins-navy: hsl(197, 100%, 22%);
     --color-dolphins-navy-light: hsl(197, 100%, 27%);
     --color-dolphins-navy-lighter: hsl(197, 100%, 32%);
+    --color-dolphins-navy-deep: hsl(197, 100%, 10%);
     --color-dolphins-navy-muted: hsl(197, 30%, 22%);
 
     /*  Grays  */
@@ -159,6 +160,7 @@
     /* Shadows */
     --box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --box-shadow-hover: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.2);
     --box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 
     /* Z-Indexing */

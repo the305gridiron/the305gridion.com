@@ -6,6 +6,7 @@ import {
     Roster,
     DraftResults,
     Transactions,
+    Schedule,
 } from "./pages";
 import { Layout } from "./components/layout";
 
@@ -23,6 +24,7 @@ function App() {
                     <Route path='/offseason/*' element={<Transactions />} />
                     <Route path='/transactions/*' element={<Transactions />} />
                     <Route path='/roster/*' element={<Roster />} />
+                    <Route path='/schedule/*' element={<Schedule />} />
                 </Route>
             </Routes>
         </BrowserRouter>

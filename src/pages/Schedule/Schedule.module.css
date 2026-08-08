@@ -1,0 +1,408 @@
+.scheduleContainer {
+    font-family: var(--font-family-body);
+    background-color: var(--slate-50);
+    min-height: 100vh;
+    padding-bottom: var(--spacer-triple);
+}
+
+.mainDashboard {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--spacer-double) var(--spacer) 0;
+}
+
+.scheduleList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacer-half);
+}
+
+.sectionHeader {
+    display: inline-block;
+    font-family: var(--font-family-header);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-dolphins-navy);
+    letter-spacing: 0.25px;
+    margin: var(--spacer-double) 0 var(--spacer);
+    border-bottom: 3px solid var(--color-dolphins-orange);
+}
+
+.sectionHeader:first-of-type {
+    margin-top: 0;
+}
+
+.stateMessage {
+    text-align: center;
+    padding: var(--spacer-triple) 0;
+    color: var(--slate-500);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+/* Row shell */
+.gameRow {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.gameRowHome {
+    background-image: linear-gradient(
+        135deg,
+        var(--color-dolphins-teal) 0%,
+        var(--color-dolphins-navy-deep) 130%
+    );
+}
+
+.gameRowAway {
+    background-color: var(--color-dolphins-navy-deep);
+}
+
+/* Bye week shares the home (teal) treatment */
+.byeRow {
+    background-image: linear-gradient(
+        135deg,
+        var(--color-dolphins-teal) 0%,
+        var(--color-dolphins-navy-deep) 130%
+    );
+}
+
+.rowMain {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--spacer);
+    padding: var(--spacer) var(--spacer-double) var(--spacer) var(--spacer);
+    min-height: 92px;
+}
+
+.byeRowMain {
+    gap: var(--spacer);
+}
+
+.byeTextGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+}
+
+.byeBig {
+    font-family: var(--font-family-header);
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: 2px;
+    color: var(--white-color);
+}
+
+.byeSubtext {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.weekBadge {
+    font-family: var(--font-family-header);
+    font-size: var(--font-size-sm);
+    color: var(--color-dolphins-navy);
+    background-color: var(--white-color);
+    border-radius: var(--radius-small);
+    padding: 4px 10px;
+    flex-shrink: 0;
+}
+
+/* Opponent logo */
+.logoCol {
+    flex-shrink: 0;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teamLogoLg {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.logoFallback {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    color: var(--white-color);
+    font-weight: 800;
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.5px;
+}
+
+/* Date / matchup info */
+.infoCol {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacer-half);
+    color: var(--white-color);
+}
+
+.dateTimeGroup,
+.matchupGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.dateBig {
+    font-family: var(--font-family-header);
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    color: var(--white-color);
+}
+
+.weekTimeLine {
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.matchupSub {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.locLine {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--font-size-xxs);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Preview / Reaction pills */
+.actionsCol {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacer);
+    margin-left: auto;
+}
+
+.videoPillBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacer-half);
+    padding: var(--spacer) var(--spacer-double);
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: var(--white-color);
+    color: var(--color-dolphins-navy);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: var(--box-shadow);
+    transition: all 0.15s ease;
+}
+
+.videoPillBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.videoPillBtnActive,
+.videoPillBtnActive:hover {
+    background-color: var(--color-dolphins-orange);
+    color: var(--white-color);
+}
+
+.videoPillBtn:disabled {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.45);
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.videoPillBtn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Slide-down video panel */
+.panelWrap {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s ease;
+}
+
+.panelWrapOpen {
+    grid-template-rows: 1fr;
+}
+
+.panelInner {
+    overflow: hidden;
+    min-height: 0;
+}
+
+.panelContent {
+    background-color: var(--slate-50);
+    border-top: 3px solid var(--color-dolphins-orange);
+    padding: var(--spacer-half) var(--spacer) var(--spacer);
+}
+
+.panelHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacer-half) 0;
+}
+
+.panelTitle {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--slate-500);
+}
+
+.panelCloseBtn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: var(--slate-400);
+    cursor: pointer;
+    padding: 2px;
+}
+
+.panelCloseBtn:hover {
+    color: var(--slate-900);
+}
+
+.videoFrameLarge {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    border-radius: var(--radius-default);
+    overflow: hidden;
+    background-color: var(--slate-900);
+}
+
+.videoFrameLarge iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.videoError {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: var(--spacer);
+    background-color: var(--subtle-danger-color);
+    border-radius: var(--radius-default);
+    color: var(--danger-color);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Responsive */
+@media screen and (max-width: 640px) {
+    .mainDashboard {
+        padding: var(--spacer-double) var(--spacer-half) 0;
+    }
+
+    /* Grid instead of flex-wrap: puts the logo + info side by side up top,
+       and the action pills span the full width underneath, like a footer. */
+    .rowMain {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "logo info"
+            "actions actions";
+        column-gap: var(--spacer);
+        row-gap: var(--spacer);
+        align-items: center;
+        padding: var(--spacer-three-quarter);
+        min-height: auto;
+    }
+
+    .byeRowMain {
+        grid-template-areas: "logo info";
+    }
+
+    .logoCol {
+        grid-area: logo;
+    }
+
+    .logoFallback {
+        width: 90px;
+        height: 90px;
+        font-size: var(--font-size-lg);
+    }
+
+    .infoCol {
+        grid-area: info;
+    }
+
+    .byeTextGroup {
+        grid-area: info;
+    }
+
+    .dateBig {
+        font-size: 1.75rem;
+    }
+
+    .weekTimeLine {
+        font-size: var(--font-size-sm);
+    }
+
+    .matchupSub {
+        font-size: var(--font-size-base);
+        white-space: normal;
+    }
+
+    .locLine {
+        font-size: var(--font-size-xs);
+    }
+
+    .actionsCol {
+        grid-area: actions;
+        width: 100%;
+        margin-left: 0;
+        gap: var(--spacer-quarter);
+    }
+
+    .videoPillBtn {
+        padding: 12px 18px;
+        font-size: var(--font-size-sm);
+        flex: 1 1 0;
+        justify-content: center;
+    }
+
+    .byeBig {
+        font-size: 2rem;
+    }
+}

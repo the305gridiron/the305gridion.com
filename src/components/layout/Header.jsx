@@ -12,6 +12,7 @@ import {
     ClipboardList,
     History,
     UserRound,
+    CalendarDays,
 } from "lucide-react";
 
 const draftLinks = [
@@ -66,6 +67,17 @@ export default function Header() {
                         className={`${styles.pageNav} ${drawerOpen ? styles.open : ""}`}
                         onClick={() => setDrawerOpen(false)}
                     >
+                        <Link
+                            to='/schedule'
+                            className={styles.navLink}
+                            onClick={() => {
+                                setDraftOpen(false);
+                                setDrawerOpen(false);
+                            }}
+                        >
+                            <CalendarDays size={20} /> Schedule
+                        </Link>
+
                         <Link
                             to='/roster'
                             className={styles.navLink}
