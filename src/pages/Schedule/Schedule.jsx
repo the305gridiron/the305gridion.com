@@ -6,12 +6,13 @@ import styles from "./Schedule.module.css";
 export default function Schedule() {
     const { data: schedule, isLoading, isError } = useScheduleQuery();
 
-    const preseasonGames = schedule?.filter(
-        (game) => game.season_type === "PRE" && game.year === 2026,
-    );
-    const regularSeasonGames = schedule?.filter(
-        (game) => game.season_type === "REGULAR" && game.year === 2026,
-    );
+    const preseasonGames = schedule
+                            ?.filter((game) => game.season_type === "PRE" && game.year === 2026,)
+                            ?.sort((a, b) => a.week - b.week);
+
+    const regularSeasonGames = schedule
+                                ?.filter((game) => game.season_type === "REGULAR" && game.year === 2026,)
+                                ?.sort((a, b) => a.week - b.week);
 
     return (
         <>
