@@ -7,6 +7,11 @@ import styles from "./SidebarCard.module.css";
 
 function formatUnsignedPlayers(players) {
     return players
+        // Some expiring_contracts rows point at a player_id that no longer
+        // exists (data cleanup on the Xano side, not a join bug) — nothing
+        // useful to show for those, so drop the row instead of rendering
+        // a blank list item.
+        .filter((p) => p.player?.name)
         .map((p) => ({
             id: p.id,
             position: p.player?.position,
