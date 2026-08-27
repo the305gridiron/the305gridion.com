@@ -9,9 +9,9 @@ function formatUnsignedPlayers(players) {
     return players
         .map((p) => ({
             id: p.id,
-            position: p.player.position,
-            name: p.player.name,
-            deal: p.team_id ? { team: p.team.abbr } : null,
+            position: p.player?.position,
+            name: p.player?.name,
+            deal: p.team_id ? { team: p.team?.abbr } : null,
         }))
         .sort((a, b) => a.id - b.id);
 }
