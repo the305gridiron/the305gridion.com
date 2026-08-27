@@ -1,4 +1,5 @@
 import React from "react";
+import { GraduationCap, Stethoscope } from "lucide-react";
 import {
     DEPTH_COLUMNS,
     DEPTH_POSITIONS_ORDER,
@@ -8,6 +9,35 @@ import styles from "./Roster.module.css";
 
 const STRING_LABELS = ["1ST", "2ND", "3RD", "4TH", "5TH", "6TH"];
 
+// Small inline flags next to a player's name: a medical icon for anyone
+// not fully active (IR/PUP/NFI/Retired/PS still slotted in a depth
+// position) and a grad-cap for rookies (0 years of experience).
+function PlayerStatusIcons({ player }) {
+    const isRookie = player.exp === "R";
+    const isSidelined = Boolean(player.status) && player.status !== "Active";
+
+    if (!isRookie && !isSidelined) return null;
+
+    return (
+        <span className={styles.playerStatusIcons}>
+            {isSidelined && (
+                <Stethoscope
+                    size={12}
+                    className={styles.sidelinedIcon}
+                    title={player.status}
+                />
+            )}
+            {isRookie && (
+                <GraduationCap
+                    size={12}
+                    className={styles.rookieIcon}
+                    title='Rookie'
+                />
+            )}
+        </span>
+    );
+}
+
 export default function DepthChartTable({ roster, activeTab, searchQuery }) {
     const activeCategories =
         activeTab === "all" ? ["offense", "defense", "special"] : [activeTab];
@@ -15,7 +45,9 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
     return (
         <div className={styles.tableCard}>
             {/* Desktop / tablet table view */}
-            <div className={`${styles.tableResponsive} ${styles.desktopTableWrap}`}>
+            <div
+                className={`${styles.tableResponsive} ${styles.desktopTableWrap}`}
+            >
                 <table className={styles.depthTable}>
                     <thead>
                         <tr>
@@ -28,6 +60,7 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
                             <th>6TH STRING</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         {activeCategories.map((category) => {
                             const positions =
@@ -50,6 +83,7 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
 
                                     {positions.map((position) => {
                                         const players = roster[position] || [];
+
                                         const matchesSearch = players.some(
                                             (player) =>
                                                 matchesSearchQuery(
@@ -58,7 +92,10 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
                                                 ),
                                         );
 
-                                        if (searchQuery && !matchesSearch) {
+                                        if (
+                                            searchQuery &&
+                                            !matchesSearch
+                                        ) {
                                             return null;
                                         }
 
@@ -80,10 +117,14 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
                                                         {position}
                                                     </div>
                                                 </td>
+
                                                 {DEPTH_COLUMNS.map(
                                                     (depthIndex) => {
                                                         const player =
-                                                            players[depthIndex];
+                                                            players[
+                                                                depthIndex
+                                                            ];
+
                                                         if (!player) {
                                                             return (
                                                                 <td
@@ -113,8 +154,19 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
 
                                                         return (
                                                             <td
-                                                                key={depthIndex}
-                                                                className={`${styles.playerCell} ${depthIndex === 0 ? styles.starterCell : ""} ${!isHighlighted ? styles.dimmedCell : ""}`}
+                                                                key={
+                                                                    depthIndex
+                                                                }
+                                                                className={`${styles.playerCell} ${
+                                                                    depthIndex ===
+                                                                    0
+                                                                        ? styles.starterCell
+                                                                        : ""
+                                                                } ${
+                                                                    !isHighlighted
+                                                                        ? styles.dimmedCell
+                                                                        : ""
+                                                                }`}
                                                             >
                                                                 <div
                                                                     className={
@@ -136,6 +188,7 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
                                                                                 player.number
                                                                             }
                                                                         </span>
+
                                                                         <span
                                                                             className={
                                                                                 styles.cellName
@@ -145,6 +198,12 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
                                                                                 player.name
                                                                             }
                                                                         </span>
+
+                                                                        <PlayerStatusIcons
+                                                                            player={
+                                                                                player
+                                                                            }
+                                                                        />
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -164,7 +223,8 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
             {/* Mobile card view */}
             <div className={styles.mobileCardList}>
                 {activeCategories.map((category) => {
-                    const positions = DEPTH_POSITIONS_ORDER[category] || [];
+                    const positions =
+                        DEPTH_POSITIONS_ORDER[category] || [];
 
                     return (
                         <div
@@ -179,11 +239,19 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
 
                             {positions.map((position) => {
                                 const players = roster[position] || [];
-                                const matchesSearch = players.some((player) =>
-                                    matchesSearchQuery(player, searchQuery),
+
+                                const matchesSearch = players.some(
+                                    (player) =>
+                                        matchesSearchQuery(
+                                            player,
+                                            searchQuery,
+                                        ),
                                 );
 
-                                if (searchQuery && !matchesSearch) {
+                                if (
+                                    searchQuery &&
+                                    !matchesSearch
+                                ) {
                                     return null;
                                 }
 
@@ -199,6 +267,7 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
                                         >
                                             {position}
                                         </div>
+
                                         <div
                                             className={
                                                 styles.mobilePosCardBody
@@ -208,6 +277,7 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
                                                 (depthIndex) => {
                                                     const player =
                                                         players[depthIndex];
+
                                                     const isHighlighted =
                                                         player
                                                             ? matchesSearchQuery(
@@ -219,7 +289,16 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
                                                     return (
                                                         <div
                                                             key={depthIndex}
-                                                            className={`${styles.mobileStringRow} ${depthIndex === 0 ? styles.mobileStarterRow : ""} ${!isHighlighted ? styles.dimmedCell : ""}`}
+                                                            className={`${styles.mobileStringRow} ${
+                                                                depthIndex ===
+                                                                0
+                                                                    ? styles.mobileStarterRow
+                                                                    : ""
+                                                            } ${
+                                                                !isHighlighted
+                                                                    ? styles.dimmedCell
+                                                                    : ""
+                                                            }`}
                                                         >
                                                             <span
                                                                 className={
@@ -232,6 +311,7 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
                                                                     ]
                                                                 }
                                                             </span>
+
                                                             {player ? (
                                                                 <span
                                                                     className={
@@ -251,6 +331,11 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
                                                                     {
                                                                         player.name
                                                                     }
+                                                                    <PlayerStatusIcons
+                                                                        player={
+                                                                            player
+                                                                        }
+                                                                    />
                                                                 </span>
                                                             ) : (
                                                                 <span

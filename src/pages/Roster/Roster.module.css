@@ -2,6 +2,7 @@
     font-family: var(--font-family-body);
     background-color: var(--slate-50);
     min-height: 100vh;
+    min-width: 0;
     padding-bottom: var(--spacer-triple);
 }
 
@@ -9,6 +10,14 @@
     max-width: 1600px;
     margin: 0 auto;
     padding: 0 var(--spacer);
+}
+
+.stateMessage {
+    text-align: center;
+    padding: var(--spacer-triple) 0;
+    color: var(--slate-500);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
 }
 
 /* Dashboard Header & Controls */
@@ -338,10 +347,28 @@
     text-overflow: ellipsis;
 }
 
-/* Starter Cell (highlighted string) */
+.playerStatusIcons {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    flex-shrink: 0;
+}
+
+.sidelinedIcon {
+    color: var(--danger-color);
+    opacity: 0.75;
+}
+
+.rookieIcon {
+    color: var(--color-dolphins-teal);
+    opacity: 0.85;
+}
+
+/* Starter Cell (highlighted string) — dimmer than the raw brand orange so
+   it reads as a subtle highlight rather than a bright callout. */
 .starterCell {
-    background-color: var(--color-dolphins-orange-muted);
-    border-left: 3px solid var(--color-dolphins-orange);
+    background-color: hsl(33, 45%, 90%);
+    border-left: 3px solid hsl(33, 55%, 48%);
 }
 
 .starterCell .cellName {
@@ -445,6 +472,7 @@
     width: 80px;
 }
 
+.dbStatusBadge,
 .dbPosBadge {
     display: inline-block;
     background-color: var(--slate-100);
@@ -456,6 +484,38 @@
     border-radius: 4px;
     text-align: center;
     min-width: 42px;
+}
+
+.statusActive {
+    background-color: #e6f4ea;
+    border-color: #b7dfc2;
+    color: var(--success-color);
+}
+
+.statusIR,
+.statusInactive {
+    background-color: #fbe9eb;
+    border-color: #f3c1c7;
+    color: var(--danger-color);
+}
+
+.statusPUP,
+.statusNFI {
+    background-color: #fff8e1;
+    border-color: #f0dfa0;
+    color: #a3730b;
+}
+
+.statusPS {
+    background-color: var(--color-dolphins-orange-muted);
+    border-color: var(--color-dolphins-orange-lighter);
+    color: var(--color-dolphins-orange);
+}
+
+.statusRetired {
+    background-color: var(--slate-100);
+    border-color: var(--slate-300);
+    color: var(--slate-500);
 }
 
 .dbCollegeCell {
@@ -525,8 +585,8 @@
 }
 
 .mobileStarterRow {
-    background-color: var(--color-dolphins-orange-muted);
-    border-left: 3px solid var(--color-dolphins-orange);
+    background-color: hsl(33, 45%, 90%);
+    border-left: 3px solid hsl(33, 55%, 48%);
 }
 
 .mobileStringLabel {

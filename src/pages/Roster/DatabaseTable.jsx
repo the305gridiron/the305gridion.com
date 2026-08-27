@@ -50,6 +50,10 @@ const POSITION_LABELS = {
 function normalizePositionKey(position = "") {
     const normalized = position.trim().toUpperCase();
 
+    if (normalized === "OT") {
+        return "T";
+    }
+
     if (normalized === "G/T" || normalized === "T/G") {
         return "G";
     }
@@ -76,6 +80,16 @@ function normalizePositionKey(position = "") {
 function getPositionHeader(position) {
     return POSITION_LABELS[normalizePositionKey(position)] || position;
 }
+
+const STATUS_CLASS = {
+    Active: "statusActive",
+    Inactive: "statusInactive",
+    IR: "statusIR",
+    PUP: "statusPUP",
+    NFI: "statusNFI",
+    PS: "statusPS",
+    Retired: "statusRetired",
+};
 
 function groupPlayersByPosition(players) {
     return players.reduce((groups, player) => {
@@ -135,7 +149,7 @@ export default function DatabaseTable({ players, sortConfig, onSort }) {
                         {players.length === 0 ? (
                             <tr>
                                 <td
-                                    colSpan={8}
+                                    colSpan={SORTABLE_COLUMNS.length}
                                     className={styles.noResultsCell}
                                 >
                                     <User
@@ -152,7 +166,7 @@ export default function DatabaseTable({ players, sortConfig, onSort }) {
                                 <Fragment key={position}>
                                     <tr className={styles.categoryDividerRow}>
                                         <td
-                                            colSpan={8}
+                                            colSpan={SORTABLE_COLUMNS.length}
                                             className={
                                                 styles.categoryDividerName
                                             }
@@ -171,12 +185,15 @@ export default function DatabaseTable({ players, sortConfig, onSort }) {
                                             <td className={styles.dbNameCell}>
                                                 {player.name}
                                             </td>
-                                            <td className={styles.dbPosCell}>
+                                            <td className={styles.dbStatusCell}>
                                                 <span
-                                                    className={
-                                                        styles.dbPosBadge
-                                                    }
+                                                    className={`${styles.dbStatusBadge} ${styles[STATUS_CLASS[player.status]] || ""}`}
                                                 >
+                                                    {player.status}
+                                                </span>
+                                            </td>
+                                            <td className={styles.dbPosCell}>
+                                                <span className={styles.dbPosBadge}>
                                                     {player.position}
                                                 </span>
                                             </td>

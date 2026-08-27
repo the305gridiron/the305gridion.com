@@ -1,8 +1,9 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { PageTitle, Hero } from "@/components/layout";
+import { usePlayersQuery } from "@/hooks/usePlayersQuery";
 import {
-    normalizeRosterState,
-    getInitialDepthChart,
+    buildPlayerRecord,
+    groupPlayersByDepthPosition,
     filterAndSortPlayers,
 } from "./rosterConfig";
 import RosterControls from "./RosterControls";
@@ -12,39 +13,37 @@ import DatabaseTable from "./DatabaseTable";
 import styles from "./Roster.module.css";
 
 export default function Roster() {
-    // State
-    const [roster] = useState(() => {
-        if (typeof window === "undefined") {
-            return getInitialDepthChart();
-        }
+    const {
+        data: players,
+        isLoading: playersLoading,
+        isError: playersError,
+    } = usePlayersQuery();
 
-        const saved = window.localStorage.getItem("dolphinsRosterLineup");
-        if (!saved) {
-            return getInitialDepthChart();
-        }
+    // Not gated on its own loading/error state — if this is slow or fails,
+    // the roster still renders, just with "-" for college until it resolves.
 
-        try {
-            return normalizeRosterState(JSON.parse(saved));
-        } catch {
-            return getInitialDepthChart();
-        }
-    });
-    const [activeTab, setActiveTab] = useState("offense"); // offense | defense | special | all
+    const [activeTab, setActiveTab] = useState("all"); // all | offense | defense | special
     const [viewMode, setViewMode] = useState("depth"); // depth | grid (database table)
     const [searchQuery, setSearchQuery] = useState("");
 
-    // Sort configuration for Database Grid view
     const [sortConfig, setSortConfig] = useState({
         key: "number",
         direction: "asc",
     });
 
-    // Flatten roster for filtering & database rendering
-    const allPlayersList = useMemo(() => {
-        return Object.values(roster).flat().filter(Boolean);
-    }, [roster]);
+    const rosterPlayers = useMemo(() => {
+        if (!players) return [];
 
-    // Handle database header sort clicks
+        return players.filter((player) => player.status !== "Inactive").map((player) =>
+            buildPlayerRecord(player, player.school),
+        );
+    }, [players]);
+
+    const roster = useMemo(
+        () => groupPlayersByDepthPosition(rosterPlayers),
+        [rosterPlayers],
+    );
+
     const requestSort = (key) => {
         let direction = "asc";
         if (sortConfig.key === key && sortConfig.direction === "asc") {
@@ -53,15 +52,20 @@ export default function Roster() {
         setSortConfig({ key, direction });
     };
 
-    // Filtered & Sorted list for Grid (Database) View
     const filteredPlayers = useMemo(() => {
         return filterAndSortPlayers({
-            players: allPlayersList,
+            players: rosterPlayers,
             activeTab,
             searchQuery,
             sortConfig,
         });
-    }, [allPlayersList, activeTab, searchQuery, sortConfig]);
+    }, [rosterPlayers, activeTab, searchQuery, sortConfig]);
+
+    // The inactive tab (PS/NFI/PUP/IR/Retired) has no meaningful depth-chart
+    // layout — those players aren't ordered on a depth chart — so it always
+    // renders as the database view regardless of the view toggle.
+    const isInactiveTab = activeTab === "inactive";
+    const effectiveViewMode = isInactiveTab ? "grid" : viewMode;
 
     return (
         <>
@@ -78,28 +82,45 @@ export default function Roster() {
                 </Hero>
 
                 <main className={styles.mainDashboard}>
-                    <RosterControls
-                        activeTab={activeTab}
-                        onTabChange={setActiveTab}
-                        viewMode={viewMode}
-                        onViewChange={setViewMode}
-                        searchQuery={searchQuery}
-                        onSearchChange={setSearchQuery}
-                        onClearSearch={() => setSearchQuery("")}
-                    />
+                    {playersLoading && (
+                        <div className={styles.stateMessage}>
+                            Loading roster…
+                        </div>
+                    )}
 
-                    {viewMode === "depth" ? (
-                        <DepthChartTable
-                            roster={roster}
-                            activeTab={activeTab}
-                            searchQuery={searchQuery}
-                        />
-                    ) : (
-                        <DatabaseTable
-                            players={filteredPlayers}
-                            sortConfig={sortConfig}
-                            onSort={requestSort}
-                        />
+                    {playersError && (
+                        <div className={styles.stateMessage}>
+                            Couldn't load the roster. Please refresh the page.
+                        </div>
+                    )}
+
+                    {players && (
+                        <>
+                            <RosterControls
+                                activeTab={activeTab}
+                                onTabChange={setActiveTab}
+                                viewMode={effectiveViewMode}
+                                onViewChange={setViewMode}
+                                showViewToggle={!isInactiveTab}
+                                searchQuery={searchQuery}
+                                onSearchChange={setSearchQuery}
+                                onClearSearch={() => setSearchQuery("")}
+                            />
+
+                            {effectiveViewMode === "depth" ? (
+                                <DepthChartTable
+                                    roster={roster}
+                                    activeTab={activeTab}
+                                    searchQuery={searchQuery}
+                                />
+                            ) : (
+                                <DatabaseTable
+                                    players={filteredPlayers}
+                                    sortConfig={sortConfig}
+                                    onSort={requestSort}
+                                />
+                            )}
+                        </>
                     )}
                 </main>
             </div>

@@ -10,6 +10,7 @@ export default function RosterControls({
     onTabChange,
     viewMode,
     onViewChange,
+    showViewToggle = true,
     searchQuery,
     onSearchChange,
     onClearSearch,
@@ -30,22 +31,24 @@ export default function RosterControls({
                     ))}
                 </div>
 
-                <div className={styles.actionControls}>
-                    <div className={styles.viewSegment}>
-                        <button
-                            className={`${styles.viewBtn} ${viewMode === "depth" ? styles.viewActive : ""}`}
-                            onClick={() => onViewChange("depth")}
-                        >
-                            DEPTH CHART
-                        </button>
-                        <button
-                            className={`${styles.viewBtn} ${viewMode === "grid" ? styles.viewActive : ""}`}
-                            onClick={() => onViewChange("grid")}
-                        >
-                            PLAYER DATABASE
-                        </button>
+                {showViewToggle && (
+                    <div className={styles.actionControls}>
+                        <div className={styles.viewSegment}>
+                            <button
+                                className={`${styles.viewBtn} ${viewMode === "depth" ? styles.viewActive : ""}`}
+                                onClick={() => onViewChange("depth")}
+                            >
+                                DEPTH CHART
+                            </button>
+                            <button
+                                className={`${styles.viewBtn} ${viewMode === "grid" ? styles.viewActive : ""}`}
+                                onClick={() => onViewChange("grid")}
+                            >
+                                PLAYER DATABASE
+                            </button>
+                        </div>
                     </div>
-                </div>
+                )}
 
                 {/* Mobile: dropdown filters, replaces both sets of tabs above */}
                 <div className={styles.mobileFilterRow}>
@@ -62,15 +65,17 @@ export default function RosterControls({
                         ))}
                     </select>
 
-                    <select
-                        className={styles.filterSelect}
-                        value={viewMode}
-                        onChange={(event) => onViewChange(event.target.value)}
-                        aria-label='Select view'
-                    >
-                        <option value='depth'>DEPTH CHART</option>
-                        <option value='grid'>PLAYER DATABASE</option>
-                    </select>
+                    {showViewToggle && (
+                        <select
+                            className={styles.filterSelect}
+                            value={viewMode}
+                            onChange={(event) => onViewChange(event.target.value)}
+                            aria-label='Select view'
+                        >
+                            <option value='depth'>DEPTH CHART</option>
+                            <option value='grid'>PLAYER DATABASE</option>
+                        </select>
+                    )}
                 </div>
             </div>
 
