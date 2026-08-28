@@ -1,0 +1,142 @@
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacer);
+    margin-bottom: var(--spacer);
+    min-height: 32px;
+}
+
+.toolbarLeft {
+    display: flex;
+    align-items: center;
+}
+
+.hiddenNote {
+    font-size: var(--font-size-xs);
+    color: var(--slate-500);
+}
+
+.hiddenShowBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--color-dolphins-navy);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacer);
+}
+
+@media (max-width: 900px) {
+    .board {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .board {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background: var(--white-color);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-default);
+    overflow: hidden;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--spacer-half);
+    padding: var(--spacer-half) var(--spacer);
+    background: var(--slate-50);
+    border-bottom: 1px solid var(--slate-200);
+}
+
+.cardPosition {
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+    color: var(--slate-900);
+}
+
+.cardGroup {
+    font-size: var(--font-size-xxs);
+    color: var(--slate-500);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: var(--spacer-half);
+    min-height: 44px;
+}
+
+.cardEmpty {
+    font-size: var(--font-size-xs);
+    color: var(--slate-400);
+    margin: 4px;
+}
+
+.chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-small);
+    padding: 8px 10px;
+    font-size: var(--font-size-sm);
+    color: var(--slate-800);
+    user-select: none;
+}
+
+.chipDragArea {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 auto;
+    cursor: grab;
+}
+
+.chipDragArea:active {
+    cursor: grabbing;
+}
+
+.chipHideBtn {
+    flex: 0 0 auto;
+    background: none;
+    border: none;
+    color: var(--slate-400);
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 4px;
+    display: flex;
+}
+
+.chipHideBtn:hover {
+    background: var(--slate-200);
+    color: var(--slate-700);
+}
+
+.chipNumber {
+    font-weight: 700;
+    color: var(--slate-500);
+    font-size: var(--font-size-xs);
+}
+
+.chipName {
+    font-weight: 600;
+}
