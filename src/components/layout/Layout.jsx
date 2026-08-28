@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import AdminFab from "@/components/AdminFab";
 import styles from "./Layout.module.css";
 
 export default function Layout() {
@@ -9,6 +10,7 @@ export default function Layout() {
             <Header />
             <Outlet />
             <Footer />
+            <AdminFab />
         </main>
     );
 }

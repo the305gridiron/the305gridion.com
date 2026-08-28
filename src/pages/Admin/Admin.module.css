@@ -1,0 +1,344 @@
+.adminContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--spacer-double) var(--spacer) var(--spacer-triple);
+    font-family: var(--font-family-body);
+}
+
+.adminHeaderRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacer);
+    margin-bottom: var(--spacer);
+}
+
+.adminHeader {
+    margin-bottom: 0;
+}
+
+.logoutBtn {
+    flex: 0 0 auto;
+    background: var(--white-color);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-default);
+    color: var(--slate-600);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.logoutBtn:hover {
+    background: var(--slate-100);
+}
+
+.adminTitle {
+    font-size: var(--font-size-xxl);
+    color: var(--slate-900);
+    margin: 0 0 var(--spacer-half);
+}
+
+.adminNote {
+    color: var(--slate-600);
+    font-size: var(--font-size-sm);
+    max-width: 720px;
+    line-height: 1.5;
+}
+
+.tabRow {
+    display: flex;
+    align-items: center;
+    gap: var(--spacer-half);
+    margin-bottom: var(--spacer);
+    flex-wrap: wrap;
+}
+
+.tabBtn {
+    background: var(--slate-100);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-default);
+    color: var(--slate-600);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.tabBtnActive {
+    background: var(--color-dolphins-navy);
+    border-color: var(--color-dolphins-navy);
+    color: var(--white-color);
+}
+
+.resetBtn {
+    margin-left: auto;
+    background: var(--white-color);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-default);
+    color: var(--danger-color);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.resetBtn:hover {
+    background: #fbe9eb;
+}
+
+.stateMessage {
+    color: var(--slate-500);
+    padding: var(--spacer-double) 0;
+}
+
+/* Entity table */
+.tableWrap {
+    background: var(--white-color);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-default);
+    overflow: hidden;
+}
+
+.tableToolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacer-half) var(--spacer);
+    border-bottom: 1px solid var(--slate-200);
+    background: var(--slate-50);
+}
+
+.tableCount {
+    font-size: var(--font-size-xs);
+    color: var(--slate-500);
+    font-weight: 600;
+}
+
+.toolbarActions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacer-half);
+}
+
+.addBtn,
+.pushAllBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    border-radius: var(--radius-default);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.addBtn {
+    background: var(--color-dolphins-orange);
+    color: var(--white-color);
+}
+
+.pushAllBtn {
+    background: var(--color-dolphins-navy);
+    color: var(--white-color);
+}
+
+.pushAllBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.adminTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-sm);
+}
+
+.adminTable th {
+    text-align: left;
+    padding: 8px var(--spacer-half);
+    color: var(--slate-500);
+    font-size: var(--font-size-xxs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--slate-200);
+}
+
+.adminTable td {
+    padding: 8px var(--spacer-half);
+    border-bottom: 1px solid var(--slate-100);
+    color: var(--slate-700);
+    vertical-align: middle;
+}
+
+.statusCol {
+    width: 20px;
+}
+
+.actionsCol {
+    width: 110px;
+    white-space: nowrap;
+}
+
+.iconBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.localDot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.localDotCreated {
+    background: var(--success-color);
+}
+
+.localDotEdited {
+    background: var(--color-dolphins-orange);
+}
+
+.iconBtn {
+    background: none;
+    border: none;
+    color: var(--slate-500);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.iconBtn:hover {
+    background: var(--slate-100);
+    color: var(--slate-900);
+}
+
+.iconBtnDanger:hover {
+    background: #fbe9eb;
+    color: var(--danger-color);
+}
+
+.emptyState {
+    text-align: center;
+    padding: var(--spacer-double) 0;
+    color: var(--slate-400);
+}
+
+/* Inline edit form */
+.editRow {
+    background: var(--slate-50);
+}
+
+.editForm {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--spacer-half) var(--spacer);
+    padding: var(--spacer);
+}
+
+.formField {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.formFieldWide {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    grid-column: 1 / -1;
+}
+
+.formLabel {
+    font-size: var(--font-size-xxs);
+    font-weight: 700;
+    color: var(--slate-500);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.formHint {
+    font-size: var(--font-size-xxs);
+    color: var(--slate-400);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.formInput,
+.formTextarea {
+    border: 1px solid var(--slate-300);
+    border-radius: var(--radius-small);
+    padding: 6px 8px;
+    font-size: var(--font-size-sm);
+    font-family: inherit;
+    color: var(--slate-900);
+    background: var(--white-color);
+}
+
+.formTextarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 120px;
+}
+
+.formCheckboxField {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacer-half);
+    align-self: start;
+    margin-top: 20px;
+}
+
+.formCheckboxField input {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+}
+
+.formCheckboxField span {
+    font-size: var(--font-size-sm);
+    color: var(--slate-700);
+    font-weight: 600;
+}
+
+.formCheckboxField .formHint {
+    flex-basis: 100%;
+    margin-left: 24px;
+}
+
+.editFormActions {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: var(--spacer-half);
+    padding-top: var(--spacer-half);
+    border-top: 1px solid var(--slate-200);
+}
+
+.saveBtn,
+.cancelBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: var(--radius-default);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    padding: 6px 14px;
+    cursor: pointer;
+}
+
+.saveBtn {
+    background: var(--success-color);
+    border: none;
+    color: var(--white-color);
+}
+
+.cancelBtn {
+    background: var(--white-color);
+    border: 1px solid var(--slate-200);
+    color: var(--slate-600);
+}
