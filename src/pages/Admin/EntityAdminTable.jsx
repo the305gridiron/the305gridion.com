@@ -1,33 +1,18 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { Plus, Pencil, Trash2, UploadCloud, X, Check } from "lucide-react";
 import {
     saveRecord,
     deleteRecord,
-    getOverrides,
-    clearOverride,
     restoreDeleted,
     getLocalStatus,
     isLocalId,
     mergeLocalData,
 } from "@/admin/localStore";
-import {
-    pushCreate,
-    pushUpdate,
-    pushDelete,
-    RateLimitError,
-    RATE_LIMIT_MAX,
-    RATE_LIMIT_WINDOW_MS,
-} from "@/admin/xanoWrite";
+import { pushDelete, RateLimitError, RATE_LIMIT_MAX, RATE_LIMIT_WINDOW_MS } from "@/admin/xanoWrite";
+import { pushAllRecords, estimatePushDurationSeconds } from "@/admin/pushPending";
+import { uploadImageToCloudinary } from "@/admin/cloudinaryUpload";
 import styles from "./Admin.module.css";
-
-// Rough estimate for the "push all" confirm dialog — xanoWrite paces the
-// actual requests against Xano's real 10-per-20s limit, this just gives the
-// user a sense of how long that'll take before they commit to it.
-function estimatePushDurationSeconds(count) {
-    const windows = Math.ceil(count / RATE_LIMIT_MAX);
-    return Math.max(0, windows - 1) * (RATE_LIMIT_WINDOW_MS / 1000);
-}
 
 function coerceValue(field, rawValue) {
     if (field.type === "checkbox") return !!rawValue;
@@ -38,7 +23,24 @@ function coerceValue(field, rawValue) {
         const parsed = Number(rawValue);
         return Number.isNaN(parsed) ? null : parsed;
     }
+    if (field.type === "datetime") {
+        if (!rawValue) return null;
+        const ms = new Date(rawValue).getTime();
+        return Number.isNaN(ms) ? null : ms;
+    }
     return rawValue;
+}
+
+// Renders a raw epoch-ms value (or an already-edited datetime-local string)
+// as the "YYYY-MM-DDTHH:mm" format <input type="datetime-local"> expects,
+// in the browser's own local time zone — matching how the site itself
+// already displays these timestamps (toLocaleTimeString on read).
+function toDateTimeLocalValue(value) {
+    if (value === null || value === undefined || value === "") return "";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return typeof value === "string" ? value : "";
+    const pad = (n) => String(n).padStart(2, "0");
+    return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
 }
 
 function optionValue(option) {
@@ -52,9 +54,60 @@ function optionLabel(option) {
 function defaultValues(fields) {
     const values = {};
     fields.forEach((field) => {
+        if (field.type === "custom") return;
         values[field.name] = field.type === "checkbox" ? false : "";
     });
     return values;
+}
+
+// Text input for the URL (paste an existing Cloudinary link directly) plus
+// an upload button that pushes a chosen file straight to Cloudinary and
+// fills the URL in for you. Either path just ends up setting a plain string,
+// same as a text field — no special save-time handling needed.
+function ImageField({ field, value, onChange }) {
+    const [uploading, setUploading] = useState(false);
+    const [error, setError] = useState("");
+
+    const handleFile = async (e) => {
+        const file = e.target.files?.[0];
+        e.target.value = "";
+        if (!file) return;
+
+        setUploading(true);
+        setError("");
+        try {
+            const url = await uploadImageToCloudinary(file);
+            onChange(field.name, url);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setUploading(false);
+        }
+    };
+
+    return (
+        <div className={styles.imageField}>
+            {value && <img src={value} alt='' className={styles.imagePreview} />}
+            <input
+                className={styles.formInput}
+                type='text'
+                placeholder='Image URL'
+                value={value ?? ""}
+                onChange={(e) => onChange(field.name, e.target.value)}
+            />
+            <label className={styles.uploadBtn}>
+                {uploading ? "Uploading…" : "Upload image"}
+                <input
+                    type='file'
+                    accept='image/*'
+                    onChange={handleFile}
+                    disabled={uploading}
+                    hidden
+                />
+            </label>
+            {error && <span className={styles.uploadError}>{error}</span>}
+        </div>
+    );
 }
 
 function FieldInput({ field, value, onChange }) {
@@ -89,6 +142,21 @@ function FieldInput({ field, value, onChange }) {
         );
     }
 
+    if (field.type === "datetime") {
+        return (
+            <input
+                className={styles.formInput}
+                type='datetime-local'
+                value={toDateTimeLocalValue(value)}
+                onChange={(e) => onChange(field.name, e.target.value)}
+            />
+        );
+    }
+
+    if (field.type === "image") {
+        return <ImageField field={field} value={value} onChange={onChange} />;
+    }
+
     return (
         <input
             className={styles.formInput}
@@ -108,6 +176,7 @@ export default function EntityAdminTable({
     fields,
     getRowLabel,
     filterRecord,
+    getRowStyle,
 }) {
     const queryClient = useQueryClient();
     const [editingId, setEditingId] = useState(null);
@@ -158,6 +227,7 @@ export default function EntityAdminTable({
     const handleSave = () => {
         const coerced = {};
         fields.forEach((field) => {
+            if (field.type === "custom") return;
             coerced[field.name] = coerceValue(field, formValues[field.name]);
         });
 
@@ -191,8 +261,8 @@ export default function EntityAdminTable({
         try {
             await pushDelete(entity, id);
             restoreDeleted(entity, id);
+            await queryClient.invalidateQueries({ queryKey });
             setLocalVersion((v) => v + 1);
-            queryClient.invalidateQueries({ queryKey });
         } catch (err) {
             const reason =
                 err instanceof RateLimitError
@@ -204,32 +274,22 @@ export default function EntityAdminTable({
         }
     };
 
-    const pushOne = async (record) => {
-        const status = getLocalStatus(entity, record.id);
-        if (!status) return;
-
-        if (status === "created") {
-            await pushCreate(entity, record);
-            deleteRecord(entity, record.id);
-        } else {
-            const patch = getOverrides(entity)[record.id];
-            await pushUpdate(entity, record.id, patch);
-            clearOverride(entity, record.id);
-        }
-    };
-
     const handlePush = async (record) => {
         setPushingIds((prev) => new Set(prev).add(record.id));
         try {
-            await pushOne(record);
+            const { failures, stoppedForRateLimit } = await pushAllRecords(entity, [record]);
+            // Wait for the refetch before re-rendering — otherwise the merge
+            // runs against the pre-push cached data with the override
+            // already cleared, which flashes/looks like the edit reverted.
+            await queryClient.invalidateQueries({ queryKey });
             setLocalVersion((v) => v + 1);
-            queryClient.invalidateQueries({ queryKey });
-        } catch (err) {
-            const reason =
-                err instanceof RateLimitError
-                    ? "Xano is rate-limiting requests right now — wait a bit before trying again."
-                    : err.message;
-            window.alert(`Couldn't push "${getRowLabel(record)}" to Xano: ${reason}`);
+            if (stoppedForRateLimit) {
+                window.alert(
+                    `Couldn't push "${getRowLabel(record)}" to Xano: Xano is rate-limiting requests right now — wait a bit before trying again.`,
+                );
+            } else if (failures.length > 0) {
+                window.alert(`Couldn't push "${getRowLabel(record)}" to Xano: ${failures[0].message}`);
+            }
         } finally {
             setPushingIds((prev) => {
                 const next = new Set(prev);
@@ -254,34 +314,22 @@ export default function EntityAdminTable({
             return;
         }
 
-        const failures = [];
-        let pushedCount = 0;
-        let stoppedForRateLimit = false;
+        const { pushedCount, failures, stoppedForRateLimit } = await pushAllRecords(
+            entity,
+            pendingRecords,
+            {
+                onProgress: (id, active) =>
+                    setPushingIds((prev) => {
+                        const next = new Set(prev);
+                        if (active) next.add(id);
+                        else next.delete(id);
+                        return next;
+                    }),
+            },
+        );
 
-        for (const record of pendingRecords) {
-            setPushingIds((prev) => new Set(prev).add(record.id));
-            try {
-                await pushOne(record);
-                pushedCount += 1;
-            } catch (err) {
-                if (err instanceof RateLimitError) {
-                    stoppedForRateLimit = true;
-                } else {
-                    failures.push(`${getRowLabel(record)}: ${err.message}`);
-                }
-            } finally {
-                setPushingIds((prev) => {
-                    const next = new Set(prev);
-                    next.delete(record.id);
-                    return next;
-                });
-            }
-
-            if (stoppedForRateLimit) break;
-        }
-
+        await queryClient.invalidateQueries({ queryKey });
         setLocalVersion((v) => v + 1);
-        queryClient.invalidateQueries({ queryKey });
 
         if (stoppedForRateLimit) {
             const remaining = pendingRecords.length - pushedCount - failures.length;
@@ -290,7 +338,9 @@ export default function EntityAdminTable({
             );
         } else if (failures.length > 0) {
             window.alert(
-                `Pushed ${pushedCount}/${pendingRecords.length}. Failed:\n${failures.join("\n")}`,
+                `Pushed ${pushedCount}/${pendingRecords.length}. Failed:\n${failures
+                    .map((f) => `${getRowLabel(f.record)}: ${f.message}`)
+                    .join("\n")}`,
             );
         }
     };
@@ -325,24 +375,18 @@ export default function EntityAdminTable({
                     <tr>
                         <th className={styles.statusCol}></th>
                         {listColumns.map((col) => (
-                            <th key={col.key}>{col.label}</th>
+                            <th
+                                key={col.key}
+                                style={col.align ? { textAlign: col.align } : undefined}
+                            >
+                                {col.label}
+                            </th>
                         ))}
                         <th className={styles.actionsCol}>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {editingId === "__new__" && (
-                        <EditRow
-                            fields={fields}
-                            formValues={formValues}
-                            onChange={handleFieldChange}
-                            onSave={handleSave}
-                            onCancel={cancelEdit}
-                            colSpan={listColumns.length + 2}
-                        />
-                    )}
-
-                    {records.length === 0 && editingId !== "__new__" && (
+                    {records.length === 0 && (
                         <tr>
                             <td
                                 colSpan={listColumns.length + 2}
@@ -356,22 +400,8 @@ export default function EntityAdminTable({
                     {records.map((record) => {
                         const localStatus = getLocalStatus(entity, record.id);
 
-                        if (editingId === record.id) {
-                            return (
-                                <EditRow
-                                    key={record.id}
-                                    fields={fields}
-                                    formValues={formValues}
-                                    onChange={handleFieldChange}
-                                    onSave={handleSave}
-                                    onCancel={cancelEdit}
-                                    colSpan={listColumns.length + 2}
-                                />
-                            );
-                        }
-
                         return (
-                            <tr key={record.id}>
+                            <tr key={record.id} style={getRowStyle?.(record)}>
                                 <td className={styles.statusCol}>
                                     {localStatus && (
                                         <span
@@ -389,7 +419,10 @@ export default function EntityAdminTable({
                                     )}
                                 </td>
                                 {listColumns.map((col) => (
-                                    <td key={col.key}>
+                                    <td
+                                        key={col.key}
+                                        style={col.align ? { textAlign: col.align } : undefined}
+                                    >
                                         {col.render
                                             ? col.render(record)
                                             : String(record[col.key] ?? "-")}
@@ -427,33 +460,112 @@ export default function EntityAdminTable({
                     })}
                 </tbody>
             </table>
+
+            {editingId !== null && (
+                <EditModal
+                    label={label}
+                    fields={fields}
+                    formValues={formValues}
+                    onChange={handleFieldChange}
+                    onSave={handleSave}
+                    onCancel={cancelEdit}
+                    recordId={editingId === "__new__" ? null : editingId}
+                    isNew={editingId === "__new__"}
+                />
+            )}
         </div>
     );
 }
 
-function EditRow({ fields, formValues, onChange, onSave, onCancel, colSpan }) {
+function EditModal({ label, fields, formValues, onChange, onSave, onCancel, recordId, isNew }) {
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") onCancel();
+        };
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [onCancel]);
+
     return (
-        <tr className={styles.editRow}>
-            <td colSpan={colSpan}>
-                <div className={styles.editForm}>
-                    {fields.map((field) => {
-                        if (field.type === "checkbox") {
+        <div className={styles.modalBackdrop} onClick={onCancel}>
+            <div className={styles.modalPanel} onClick={(e) => e.stopPropagation()}>
+                <div className={styles.modalHeader}>
+                    <h3 className={styles.modalTitle}>
+                        {isNew ? `Add ${label.slice(0, -1)}` : `Edit ${label.slice(0, -1)}`}
+                    </h3>
+                    <button
+                        className={styles.modalCloseBtn}
+                        onClick={onCancel}
+                        aria-label='Close'
+                    >
+                        <X size={18} />
+                    </button>
+                </div>
+
+                <div className={styles.modalBody}>
+                    <div className={styles.editForm}>
+                        {fields.map((field) => {
+                            if (field.type === "custom") {
+                                return (
+                                    <div
+                                        key={field.name}
+                                        className={
+                                            field.wide
+                                                ? styles.formFieldWide
+                                                : styles.formField
+                                        }
+                                    >
+                                        <span className={styles.formLabel}>
+                                            {field.label}
+                                        </span>
+                                        {field.render({ recordId, isNew })}
+                                    </div>
+                                );
+                            }
+
+                            if (field.type === "checkbox") {
+                                return (
+                                    <label
+                                        key={field.name}
+                                        className={styles.formCheckboxField}
+                                    >
+                                        <input
+                                            type='checkbox'
+                                            checked={!!formValues[field.name]}
+                                            onChange={(e) =>
+                                                onChange(
+                                                    field.name,
+                                                    e.target.checked,
+                                                )
+                                            }
+                                        />
+                                        <span>{field.label}</span>
+                                        {field.hint && (
+                                            <span className={styles.formHint}>
+                                                {field.hint}
+                                            </span>
+                                        )}
+                                    </label>
+                                );
+                            }
+
                             return (
                                 <label
                                     key={field.name}
-                                    className={styles.formCheckboxField}
+                                    className={
+                                        field.wide
+                                            ? styles.formFieldWide
+                                            : styles.formField
+                                    }
                                 >
-                                    <input
-                                        type='checkbox'
-                                        checked={!!formValues[field.name]}
-                                        onChange={(e) =>
-                                            onChange(
-                                                field.name,
-                                                e.target.checked,
-                                            )
-                                        }
+                                    <span className={styles.formLabel}>
+                                        {field.label}
+                                    </span>
+                                    <FieldInput
+                                        field={field}
+                                        value={formValues[field.name]}
+                                        onChange={onChange}
                                     />
-                                    <span>{field.label}</span>
                                     {field.hint && (
                                         <span className={styles.formHint}>
                                             {field.hint}
@@ -461,47 +573,19 @@ function EditRow({ fields, formValues, onChange, onSave, onCancel, colSpan }) {
                                     )}
                                 </label>
                             );
-                        }
-
-                        return (
-                            <label
-                                key={field.name}
-                                className={
-                                    field.wide
-                                        ? styles.formFieldWide
-                                        : styles.formField
-                                }
-                            >
-                                <span className={styles.formLabel}>
-                                    {field.label}
-                                </span>
-                                <FieldInput
-                                    field={field}
-                                    value={formValues[field.name]}
-                                    onChange={onChange}
-                                />
-                                {field.hint && (
-                                    <span className={styles.formHint}>
-                                        {field.hint}
-                                    </span>
-                                )}
-                            </label>
-                        );
-                    })}
-
-                    <div className={styles.editFormActions}>
-                        <button
-                            className={styles.saveBtn}
-                            onClick={onSave}
-                        >
-                            <Check size={14} /> Save
-                        </button>
-                        <button className={styles.cancelBtn} onClick={onCancel}>
-                            <X size={14} /> Cancel
-                        </button>
+                        })}
                     </div>
                 </div>
-            </td>
-        </tr>
+
+                <div className={styles.modalFooter}>
+                    <button className={styles.saveBtn} onClick={onSave}>
+                        <Check size={14} /> Save
+                    </button>
+                    <button className={styles.cancelBtn} onClick={onCancel}>
+                        <X size={14} /> Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
     );
 }
