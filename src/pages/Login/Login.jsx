@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PageTitle } from "@/components/layout";
-import { useAuth } from "@/admin/AuthContext";
+import { useAuth } from "@/admin/useAuth";
 import styles from "./Login.module.css";
 
 export default function Login() {

@@ -1,6 +1,6 @@
 import { Pencil } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "@/admin/AuthContext";
+import { useAuth } from "@/admin/useAuth";
 import styles from "./AdminFab.module.css";
 
 // Only surface exists for admins to get back into /admin from anywhere on

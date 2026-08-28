@@ -1,10 +1,4 @@
-import {
-    createContext,
-    useCallback,
-    useContext,
-    useEffect,
-    useState,
-} from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
     AUTH_EXPIRED_EVENT,
     clearToken,
@@ -12,26 +6,23 @@ import {
     getToken,
     login as loginRequest,
 } from "./auth";
-
-const AuthContext = createContext(null);
+import { AuthContext } from "./AuthContextValue";
 
 export function AuthProvider({ children }) {
-    const [status, setStatus] = useState("loading"); // loading | authenticated | anonymous
+    // No token means there's nothing to verify — skip straight to
+    // anonymous instead of doing that check as a side effect after mount.
+    const [status, setStatus] = useState(() => (getToken() ? "loading" : "anonymous"));
 
     useEffect(() => {
-        const token = getToken();
-        if (!token) {
-            setStatus("anonymous");
-            return;
-        }
+        if (status !== "loading") return;
 
-        fetchCurrentUser(token)
+        fetchCurrentUser(getToken())
             .then(() => setStatus("authenticated"))
             .catch(() => {
                 clearToken();
                 setStatus("anonymous");
             });
-    }, []);
+    }, [status]);
 
     useEffect(() => {
         const handleExpired = () => setStatus("anonymous");
@@ -61,12 +52,4 @@ export function AuthProvider({ children }) {
             {children}
         </AuthContext.Provider>
     );
-}
-
-export function useAuth() {
-    const ctx = useContext(AuthContext);
-    if (!ctx) {
-        throw new Error("useAuth must be used within an AuthProvider");
-    }
-    return ctx;
 }
