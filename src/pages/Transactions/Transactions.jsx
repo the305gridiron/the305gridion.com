@@ -52,17 +52,26 @@ export default function Offseason() {
     const year = requestedYear ? parseInt(requestedYear, 10) : null;
 
     // Derived Data
-    const filteredTransactions = useMemo(() => {
-        if (!transactions || !year) return [];
+    // "active" is the deliberate publish/draft flag set in the admin —
+    // an in-progress transaction stays a draft (active: false) until
+    // someone explicitly activates it, regardless of what else is filled
+    // in (title, players, analysis).
+    const publishedTransactions = useMemo(
+        () => (transactions ?? []).filter((t) => t.active === true),
+        [transactions],
+    );
 
-        let result = transactions.filter((t) => t.year === year);
+    const filteredTransactions = useMemo(() => {
+        if (!year) return [];
+
+        let result = publishedTransactions.filter((t) => t.year === year);
 
         if (typeFilter !== "all") {
             result = result.filter((t) => t.category === typeFilter);
         }
 
         return sortTransactionsByDateDesc(result);
-    }, [transactions, year, typeFilter]);
+    }, [publishedTransactions, year, typeFilter]);
 
     // Handlers
     const handleTypeChange = (type) => {
@@ -71,11 +80,13 @@ export default function Offseason() {
 
     // Effects
     useEffect(() => {
-        if (!requestedYear && transactions?.length) {
-            const latestYear = Math.max(...transactions.map((t) => t.year));
+        if (!requestedYear && publishedTransactions.length) {
+            const latestYear = Math.max(
+                ...publishedTransactions.map((t) => t.year),
+            );
             setSearchParams({ year: latestYear });
         }
-    }, [requestedYear, transactions, setSearchParams]);
+    }, [requestedYear, publishedTransactions, setSearchParams]);
 
     // Render
     return (

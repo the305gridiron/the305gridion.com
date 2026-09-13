@@ -28,6 +28,44 @@
     background: var(--slate-100);
 }
 
+.activeToggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.statusBadge {
+    display: inline-block;
+    font-size: var(--font-size-xxs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
+.statusBadgeActive {
+    background: var(--subtle-success-color);
+    color: var(--success-color);
+}
+
+.statusBadgeDraft {
+    background: var(--slate-100);
+    color: var(--slate-500);
+}
+
+.activateBtn {
+    background: none;
+    border: none;
+    color: var(--color-dolphins-navy);
+    font-size: var(--font-size-xxs);
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+}
+
 .tabRow {
     display: flex;
     align-items: center;

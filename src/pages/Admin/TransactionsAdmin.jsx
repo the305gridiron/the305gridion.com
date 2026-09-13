@@ -3,7 +3,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { fetchTransactions, fetchPlayers } from "@/api";
 import fetchTransactionPlayers from "@/api/fetchTransactionPlayers";
 import { mergeLocalData, isLocalId } from "@/admin/localStore";
-import { pushCreate, pushDelete } from "@/admin/xanoWrite";
+import { pushCreate, pushDelete, pushUpdate } from "@/admin/xanoWrite";
 import { formatDateShort } from "./adminFormat";
 import EntityAdminTable from "./EntityAdminTable";
 import styles from "./Admin.module.css";
@@ -137,6 +137,52 @@ function PlayerLinksField({ recordId, isNew, commitNew, players, joins, queryCli
     );
 }
 
+// active is the deliberate publish/draft flag — it defaults to false in
+// Xano, so a new transaction is a draft (invisible on the live site) until
+// someone explicitly activates it here, like hitting publish on a post.
+// Writes straight to Xano rather than going through local-first staging,
+// same reasoning as the player links: the entire point is controlling real
+// visibility precisely, so staging it locally would just be confusing.
+function ActiveToggle({ record, queryClient }) {
+    const [pending, setPending] = useState(false);
+
+    if (isLocalId(record.id)) {
+        return <span className={styles.formHint}>Push to Xano first</span>;
+    }
+
+    const toggle = async () => {
+        setPending(true);
+        try {
+            await pushUpdate("transactions", record.id, { active: !record.active });
+            await queryClient.invalidateQueries({ queryKey: QUERY_KEY });
+        } catch (err) {
+            window.alert(`Couldn't update publish status: ${err.message}`);
+        } finally {
+            setPending(false);
+        }
+    };
+
+    return (
+        <div className={styles.activeToggle}>
+            <span
+                className={`${styles.statusBadge} ${
+                    record.active ? styles.statusBadgeActive : styles.statusBadgeDraft
+                }`}
+            >
+                {record.active ? "Published" : "Draft"}
+            </span>
+            <button
+                type='button'
+                className={styles.activateBtn}
+                onClick={toggle}
+                disabled={pending}
+            >
+                {pending ? "…" : record.active ? "Deactivate" : "Activate"}
+            </button>
+        </div>
+    );
+}
+
 export default function TransactionsAdmin() {
     const queryClient = useQueryClient();
 
@@ -235,6 +281,12 @@ export default function TransactionsAdmin() {
             fields={fields}
             getRowLabel={(r) => r.title || `${r.type} — ${r.date}`}
             listColumns={[
+                {
+                    key: "status",
+                    label: "Status",
+                    align: "center",
+                    render: (r) => <ActiveToggle record={r} queryClient={queryClient} />,
+                },
                 {
                     key: "date",
                     label: "Date",

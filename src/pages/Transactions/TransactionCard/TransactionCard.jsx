@@ -33,12 +33,11 @@ const transactionTypeMap = {
 };
 
 export default function TransactionCard(props) {
-    // No linked player yet is how an in-progress transaction stays off the
-    // live site while it's still being drafted in the admin — a real
-    // safeguard, not an oversight. Roundup posts are the one deliberate
-    // exception: they're never tied to a single player by design.
+    // Draft-vs-published is handled upstream now (Transactions.jsx filters
+    // to active: true before this ever renders) — this stays a pure
+    // presentational component, so a roundup post (or anything else with no
+    // single "main" player) doesn't need a special case here anymore.
     const firstPlayer = props.players?.[0];
-    if (!firstPlayer && props.type !== "roundup") return null;
 
     const {
         name: player_name,
