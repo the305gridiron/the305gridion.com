@@ -58,6 +58,7 @@ export const DEPTH_COLUMNS = [0, 1, 2, 3, 4, 5];
 export const SORTABLE_COLUMNS = [
   { key: "number", label: "#" },
   { key: "name", label: "PLAYER" },
+  { key: "status", label: "STATUS" },
   { key: "position", label: "POS" },
   { key: "height", label: "HT" },
   { key: "weight", label: "WT" },
@@ -259,6 +260,8 @@ export const filterAndSortPlayers = ({
         comparison = getNumberValue(a.number) - getNumberValue(b.number);
       } else if (key === "name") {
         comparison = a.name.localeCompare(b.name);
+      } else if (key === "status") {
+        comparison = (a.status || "").localeCompare(b.status || "");
       } else if (key === "position") {
         comparison = a.position.localeCompare(b.position);
       } else if (key === "age") {
