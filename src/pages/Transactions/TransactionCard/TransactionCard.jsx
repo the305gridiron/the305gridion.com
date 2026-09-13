@@ -7,6 +7,15 @@ import SummarizeIcon from "@mui/icons-material/Summarize";
 import PlaceholderImage from "@/assets/prospect-placeholder.png";
 import styles from "./TransactionCard.module.css";
 
+// transactions.date is a plain "YYYY-MM-DD" string. new Date("2026-05-30")
+// parses that as UTC midnight, which rolls back to May 29 the moment it's
+// formatted in any US timezone — this parses it as a local calendar date
+// instead, sidestepping that shift entirely.
+function parseDateOnly(dateStr) {
+    const [year, month, day] = dateStr.split("-").map(Number);
+    return new Date(year, month - 1, day);
+}
+
 function FormattedTitle({ playerPosition, playerName, transactionTypeText }) {
     return (
         <>
@@ -51,7 +60,7 @@ export default function TransactionCard(props) {
         ? new Intl.DateTimeFormat("en-US", {
               month: "short",
               day: "numeric",
-          }).format(new Date(props.date))
+          }).format(parseDateOnly(props.date))
         : "";
 
     return (
