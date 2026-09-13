@@ -2,8 +2,11 @@ import { Search, X } from "lucide-react";
 import { VIEW_TABS } from "./rosterConfig";
 import styles from "./Roster.module.css";
 
-const formatTabLabel = (tab) =>
-    tab === "special" ? "SPECIAL TEAMS" : tab.toUpperCase();
+const formatTabLabel = (tab) => {
+    if (tab === "special") return "SPECIAL TEAMS";
+    if (tab === "practice_squad") return "PRACTICE SQUAD";
+    return tab.toUpperCase();
+};
 
 export default function RosterControls({
     activeTab,

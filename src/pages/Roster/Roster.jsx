@@ -61,11 +61,11 @@ export default function Roster() {
         });
     }, [rosterPlayers, activeTab, searchQuery, sortConfig]);
 
-    // The inactive tab (PS/NFI/PUP/IR/Retired) has no meaningful depth-chart
-    // layout — those players aren't ordered on a depth chart — so it always
-    // renders as the database view regardless of the view toggle.
-    const isInactiveTab = activeTab === "inactive";
-    const effectiveViewMode = isInactiveTab ? "grid" : viewMode;
+    // The inactive and practice squad tabs have no meaningful depth-chart
+    // layout — those players aren't ranked on a depth chart — so they
+    // always render as the database view regardless of the view toggle.
+    const forcesGridView = activeTab === "inactive" || activeTab === "practice_squad";
+    const effectiveViewMode = forcesGridView ? "grid" : viewMode;
 
     return (
         <>
@@ -101,7 +101,7 @@ export default function Roster() {
                                 onTabChange={setActiveTab}
                                 viewMode={effectiveViewMode}
                                 onViewChange={setViewMode}
-                                showViewToggle={!isInactiveTab}
+                                showViewToggle={!forcesGridView}
                                 searchQuery={searchQuery}
                                 onSearchChange={setSearchQuery}
                                 onClearSearch={() => setSearchQuery("")}

@@ -36,17 +36,23 @@ export const DEPTH_POSITIONS_ORDER = {
 
 // Matches the "status" enum on the players table. Not a depth position —
 // these players skip the depth chart entirely and show in a flat database
-// view instead (see Roster.jsx / RosterControls.jsx).
-export const INACTIVE_STATUSES = [
-  "Practice Squad",
-  "NFI",
-  "PUP",
-  "IR",
-  "Retired",
-  "Inactive",
-];
+// view instead (see Roster.jsx / RosterControls.jsx). Practice squad is
+// deliberately not in this list — those players are still worth showing to
+// fans, just not on the active-roster depth chart (see PRACTICE_SQUAD_STATUS).
+export const INACTIVE_STATUSES = ["NFI", "PUP", "IR", "Retired", "Inactive"];
 
-export const VIEW_TABS = ["all", "offense", "defense", "special", "inactive"];
+// Not "inactive" in the traditional sense — still gets its own tab and
+// shows in "all", just excluded from the position-group depth chart tabs.
+export const PRACTICE_SQUAD_STATUS = "PS";
+
+export const VIEW_TABS = [
+  "all",
+  "offense",
+  "defense",
+  "special",
+  "practice_squad",
+  "inactive",
+];
 export const DEPTH_COLUMNS = [0, 1, 2, 3, 4, 5];
 
 export const SORTABLE_COLUMNS = [
@@ -135,9 +141,12 @@ export function buildPlayerRecord(player, school) {
 // Groups players by depth_position for the depth chart, sorted by
 // depth_order. Players with no depth_order set (nullable, e.g. someone not
 // currently in the rotation) sort to the end of their position group rather
-// than defaulting to a fake starter slot. Callers should pass only
-// status === "Active" players in — inactive players don't have a
-// meaningful depth chart slot and are shown separately (see Roster.jsx).
+// than defaulting to a fake starter slot. Filters out INACTIVE_STATUSES
+// itself (NFI/PUP/IR/Retired/Inactive) rather than trusting callers to
+// pre-filter — a player can carry a stale depth_position from before they
+// went on IR/were cut/etc, and that shouldn't put them back on the chart.
+// Practice squad is excluded here too — they get their own flat roster tab
+// instead of a ranked depth-chart slot (see PRACTICE_SQUAD_STATUS).
 export function groupPlayersByDepthPosition(players) {
   const grouped = {};
   const allPositions = [
@@ -151,6 +160,8 @@ export function groupPlayersByDepthPosition(players) {
   });
 
   players.forEach((player) => {
+    if (INACTIVE_STATUSES.includes(player.status)) return;
+    if (player.status === PRACTICE_SQUAD_STATUS) return;
     if (grouped[player.depthPosition]) {
       grouped[player.depthPosition].push(player);
     }
@@ -214,6 +225,10 @@ export const filterAndSortPlayers = ({
     filtered = players.filter((player) =>
       INACTIVE_STATUSES.includes(player.status),
     );
+  } else if (activeTab === "practice_squad") {
+    filtered = players.filter(
+      (player) => player.status === PRACTICE_SQUAD_STATUS,
+    );
   } else if (activeTab === "all") {
     filtered = players.filter(
       (player) => !INACTIVE_STATUSES.includes(player.status),
@@ -224,6 +239,7 @@ export const filterAndSortPlayers = ({
     filtered = players.filter(
       (player) =>
         !INACTIVE_STATUSES.includes(player.status) &&
+        player.status !== PRACTICE_SQUAD_STATUS &&
         positionsInTab.includes(player.depthPosition),
     );
   }
