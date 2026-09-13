@@ -24,6 +24,7 @@ import {
 } from "@/admin/pushPending";
 import { RATE_LIMIT_MAX, RATE_LIMIT_WINDOW_MS } from "@/admin/xanoWrite";
 import { DEPTH_POSITIONS_ORDER } from "@/pages/Roster/rosterConfig";
+import SavingOverlay from "./SavingOverlay";
 import adminStyles from "./Admin.module.css";
 import styles from "./DepthChartBoard.module.css";
 
@@ -177,6 +178,7 @@ export default function DepthChartBoard({ players, onSaved }) {
   const [hiddenIds, setHiddenIds] = useState(() => getHiddenIds());
   const [activePlayer, setActivePlayer] = useState(null);
   const [isPushing, setIsPushing] = useState(false);
+  const [pushProgress, setPushProgress] = useState(null);
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
   );
@@ -225,9 +227,18 @@ export default function DepthChartBoard({ players, onSaved }) {
     }
 
     setIsPushing(true);
+    let current = 0;
+    setPushProgress({ current: 0, total: pendingPlayers.length });
     try {
       const { pushedCount, failures, stoppedForRateLimit } =
-        await pushAllRecords("players", pendingPlayers);
+        await pushAllRecords("players", pendingPlayers, {
+          onProgress: (_id, active) => {
+            if (active) {
+              current += 1;
+              setPushProgress({ current, total: pendingPlayers.length });
+            }
+          },
+        });
       // Wait for the refetch to land before re-rendering — otherwise
       // the merge below runs against the pre-push cached data with
       // the (now-cleared) local overrides gone, which looks exactly
@@ -249,6 +260,7 @@ export default function DepthChartBoard({ players, onSaved }) {
       }
     } finally {
       setIsPushing(false);
+      setPushProgress(null);
     }
   };
 
@@ -391,6 +403,16 @@ export default function DepthChartBoard({ players, onSaved }) {
           )}
         </DragOverlay>
       </DndContext>
+
+      {isPushing && (
+        <SavingOverlay
+          label={
+            pushProgress
+              ? `Saving ${pushProgress.current} of ${pushProgress.total}…`
+              : "Saving…"
+          }
+        />
+      )}
     </>
   );
 }

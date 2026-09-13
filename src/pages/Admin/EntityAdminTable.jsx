@@ -12,6 +12,7 @@ import {
 import { pushDelete, RateLimitError, RATE_LIMIT_MAX, RATE_LIMIT_WINDOW_MS } from "@/admin/xanoWrite";
 import { pushAllRecords, estimatePushDurationSeconds } from "@/admin/pushPending";
 import { uploadImageToCloudinary } from "@/admin/cloudinaryUpload";
+import SavingOverlay from "./SavingOverlay";
 import styles from "./Admin.module.css";
 
 function coerceValue(field, rawValue) {
@@ -182,6 +183,9 @@ export default function EntityAdminTable({
     const [editingId, setEditingId] = useState(null);
     const [formValues, setFormValues] = useState({});
     const [pushingIds, setPushingIds] = useState(() => new Set());
+    // Only set during a "push all" batch, for a progress-aware overlay
+    // message — a single push/delete just shows a generic "Saving…".
+    const [pushProgress, setPushProgress] = useState(null);
     // Bumped after every local write so `records` recomputes — the
     // underlying source data doesn't change just because localStorage did.
     const [localVersion, setLocalVersion] = useState(0);
@@ -258,6 +262,7 @@ export default function EntityAdminTable({
         );
         if (!alsoDeleteInXano) return;
 
+        setPushingIds((prev) => new Set(prev).add(id));
         try {
             await pushDelete(entity, id);
             restoreDeleted(entity, id);
@@ -271,6 +276,12 @@ export default function EntityAdminTable({
             window.alert(
                 `Couldn't delete "${name}" from Xano: ${reason}\nIt's still hidden locally — try again later.`,
             );
+        } finally {
+            setPushingIds((prev) => {
+                const next = new Set(prev);
+                next.delete(id);
+                return next;
+            });
         }
     };
 
@@ -314,20 +325,29 @@ export default function EntityAdminTable({
             return;
         }
 
+        let current = 0;
+        setPushProgress({ current: 0, total: pendingRecords.length });
+
         const { pushedCount, failures, stoppedForRateLimit } = await pushAllRecords(
             entity,
             pendingRecords,
             {
-                onProgress: (id, active) =>
+                onProgress: (id, active) => {
                     setPushingIds((prev) => {
                         const next = new Set(prev);
                         if (active) next.add(id);
                         else next.delete(id);
                         return next;
-                    }),
+                    });
+                    if (active) {
+                        current += 1;
+                        setPushProgress({ current, total: pendingRecords.length });
+                    }
+                },
             },
         );
 
+        setPushProgress(null);
         await queryClient.invalidateQueries({ queryKey });
         setLocalVersion((v) => v + 1);
 
@@ -471,6 +491,16 @@ export default function EntityAdminTable({
                     onCancel={cancelEdit}
                     recordId={editingId === "__new__" ? null : editingId}
                     isNew={editingId === "__new__"}
+                />
+            )}
+
+            {pushingIds.size > 0 && (
+                <SavingOverlay
+                    label={
+                        pushProgress
+                            ? `Saving ${pushProgress.current} of ${pushProgress.total}…`
+                            : "Saving…"
+                    }
                 />
             )}
         </div>

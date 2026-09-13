@@ -261,6 +261,40 @@
 }
 
 /* Edit modal */
+.savingOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2100;
+}
+
+.savingPanel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white-color);
+    border-radius: var(--radius-default);
+    padding: 14px 22px;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--slate-800);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.savingSpinner {
+    animation: savingSpin 0.8s linear infinite;
+    color: var(--color-dolphins-navy);
+}
+
+@keyframes savingSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .modalBackdrop {
     position: fixed;
     inset: 0;
