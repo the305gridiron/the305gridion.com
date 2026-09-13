@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { CheckCircle2 } from "lucide-react";
 import { fetchTransactions, fetchPlayers } from "@/api";
 import fetchTransactionPlayers from "@/api/fetchTransactionPlayers";
 import { mergeLocalData, isLocalId } from "@/admin/localStore";
@@ -164,23 +165,18 @@ function ActiveToggle({ record, queryClient }) {
     };
 
     return (
-        <div className={styles.activeToggle}>
-            <span
-                className={`${styles.statusBadge} ${
-                    record.active ? styles.statusBadgeActive : styles.statusBadgeDraft
-                }`}
-            >
-                {record.active ? "Published" : "Draft"}
-            </span>
-            <button
-                type='button'
-                className={styles.activateBtn}
-                onClick={toggle}
-                disabled={pending}
-            >
-                {pending ? "…" : record.active ? "Deactivate" : "Activate"}
-            </button>
-        </div>
+        <button
+            type='button'
+            className={`${styles.activeToggleBtn} ${
+                record.active ? styles.activeToggleBtnOn : ""
+            }`}
+            onClick={toggle}
+            disabled={pending}
+            aria-label={record.active ? "Published — click to unpublish" : "Draft — click to publish"}
+            title={record.active ? "Published — click to unpublish" : "Draft — click to publish"}
+        >
+            <CheckCircle2 size={22} />
+        </button>
     );
 }
 

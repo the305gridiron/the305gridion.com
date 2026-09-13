@@ -28,42 +28,31 @@
     background: var(--slate-100);
 }
 
-.activeToggle {
-    display: flex;
-    flex-direction: column;
+.activeToggleBtn {
+    display: inline-flex;
     align-items: center;
-    gap: 4px;
-}
-
-.statusBadge {
-    display: inline-block;
-    font-size: var(--font-size-xxs);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-    padding: 2px 8px;
-    border-radius: 999px;
-}
-
-.statusBadgeActive {
-    background: var(--subtle-success-color);
-    color: var(--success-color);
-}
-
-.statusBadgeDraft {
-    background: var(--slate-100);
-    color: var(--slate-500);
-}
-
-.activateBtn {
+    justify-content: center;
     background: none;
     border: none;
-    color: var(--color-dolphins-navy);
-    font-size: var(--font-size-xxs);
-    font-weight: 700;
-    text-decoration: underline;
-    cursor: pointer;
     padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--slate-300);
+    transition: color 0.15s ease, transform 0.1s ease;
+}
+
+.activeToggleBtn:hover {
+    transform: scale(1.08);
+}
+
+.activeToggleBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.activeToggleBtnOn {
+    color: var(--success-color);
 }
 
 .tabRow {
