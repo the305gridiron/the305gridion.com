@@ -10,6 +10,16 @@ import EntityAdminTable from "./EntityAdminTable";
 import styles from "./Admin.module.css";
 
 const QUERY_KEY = ["transactions", null];
+
+// Mirrors Transactions.jsx's own sortTransactionsByDateDesc so the admin
+// list matches what the live site actually shows.
+function sortByDateDesc(transactions) {
+    return [...transactions].sort((a, b) => {
+        const dateDiff = new Date(b.date) - new Date(a.date);
+        if (dateDiff !== 0) return dateDiff;
+        return b.id - a.id;
+    });
+}
 const JOINS_QUERY_KEY = ["transaction_players"];
 
 // Mirrors TransactionCard's transactionTypeMap — those keys are what
@@ -273,7 +283,7 @@ export default function TransactionsAdmin() {
         <EntityAdminTable
             entity='transactions'
             label='Transactions'
-            sourceRecords={data ?? []}
+            sourceRecords={sortByDateDesc(data ?? [])}
             queryKey={QUERY_KEY}
             fields={fields}
             getRowLabel={(r) => r.title || `${r.type} — ${r.date}`}
