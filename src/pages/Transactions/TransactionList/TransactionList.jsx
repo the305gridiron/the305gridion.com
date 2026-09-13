@@ -1,5 +1,5 @@
 import TransactionCard from "../TransactionCard/TransactionCard";
-import { IconHeader, Dropdown } from "@/components/ui";
+import { IconHeader, Dropdown, Pagination } from "@/components/ui";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 
 import styles from "./TransactionList.module.css";
@@ -41,6 +41,12 @@ export default function TransactionList(props) {
                     </div>
                 )}
             </div>
+
+            <Pagination
+                currentPage={props.currentPage}
+                totalPages={props.totalPages}
+                onPageChange={props.onPageChange}
+            />
         </div>
     );
 }

@@ -30,6 +30,8 @@ const MOBILE_LINKS = [
     },
 ];
 
+const PAGE_SIZE = 10;
+
 // Utilities
 const sortTransactionsByDateDesc = (transactions) =>
     [...transactions].sort((a, b) => {
@@ -44,6 +46,12 @@ export default function Offseason() {
     const isMobile = useMediaQuery("(max-width:767px)");
     const [searchParams, setSearchParams] = useSearchParams();
     const [typeFilter, setTypeFilter] = useState("all");
+    const [currentPage, setCurrentPage] = useState(1);
+    // Tracks which year+filter combo currentPage was last reset for. When
+    // this differs from the current combo (below), pagination resets to
+    // page 1 — adjusting state during render like this, instead of in an
+    // effect, avoids an extra render pass on every year/filter change.
+    const [paginationResetKey, setPaginationResetKey] = useState(null);
 
     const { data: transactions = [] } = useTransactionQuery();
     const { data: unsigned = [] } = useExpiringContractsQuery();
@@ -73,9 +81,37 @@ export default function Offseason() {
         return sortTransactionsByDateDesc(result);
     }, [publishedTransactions, year, typeFilter]);
 
+    const totalPages = Math.max(
+        1,
+        Math.ceil(filteredTransactions.length / PAGE_SIZE),
+    );
+
+    const resetKey = `${year}|${typeFilter}`;
+    const effectivePage = resetKey === paginationResetKey ? currentPage : 1;
+    if (resetKey !== paginationResetKey) {
+        setPaginationResetKey(resetKey);
+        setCurrentPage(1);
+    }
+
+    const paginatedTransactions = useMemo(
+        () =>
+            filteredTransactions.slice(
+                (effectivePage - 1) * PAGE_SIZE,
+                effectivePage * PAGE_SIZE,
+            ),
+        [filteredTransactions, effectivePage],
+    );
+
     // Handlers
     const handleTypeChange = (type) => {
         setTypeFilter(type || "all");
+    };
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+        document
+            .getElementById("transactionList")
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
     // Effects
@@ -108,8 +144,11 @@ export default function Offseason() {
 
                 <main className='container-fluid'>
                     <TransactionList
-                        transactions={filteredTransactions}
+                        transactions={paginatedTransactions}
                         onTypeChange={handleTypeChange}
+                        currentPage={effectivePage}
+                        totalPages={totalPages}
+                        onPageChange={handlePageChange}
                     />
 
                     <Sidebar id='expiringContracts'>
