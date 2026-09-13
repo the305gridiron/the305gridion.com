@@ -24,6 +24,7 @@ const TYPE_OPTIONS = [
     { value: "re_sign", label: "Re-Signed" },
     { value: "udfa", label: "UDFA" },
     { value: "extension", label: "Signed Extension" },
+    { value: "injured", label: "Injured" },
     { value: "roundup", label: "Roundup" },
 ];
 

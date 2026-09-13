@@ -4,6 +4,7 @@ import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import DiscountIcon from "@mui/icons-material/Discount";
 import EditDocumentIcon from "@mui/icons-material/EditDocument";
 import SummarizeIcon from "@mui/icons-material/Summarize";
+import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import PlaceholderImage from "@/assets/prospect-placeholder.png";
 import styles from "./TransactionCard.module.css";
 
@@ -39,6 +40,7 @@ const transactionTypeMap = {
     udfa: { icon: DiscountIcon, text: "UDFA" },
     extension: { icon: EditDocumentIcon, text: "Signs Extension" },
     roundup: { icon: SummarizeIcon, text: "Roundup" },
+    injured: { icon: LocalHospitalIcon, text: "Injured" },
 };
 
 export default function TransactionCard(props) {
@@ -55,6 +57,12 @@ export default function TransactionCard(props) {
     } = firstPlayer ?? {};
 
     const Icon = transactionTypeMap?.[props.type]?.icon;
+    // A roundup covers a whole month of moves, not one player — a headshot
+    // (or any single image forced into that portrait-shaped slot) doesn't
+    // make sense here, so this variant drops the image entirely and moves
+    // the type icon inline next to the headline instead of floating it over
+    // where the image would have been.
+    const isRoundup = props.type === "roundup";
 
     const formattedDate = props.date
         ? new Intl.DateTimeFormat("en-US", {
@@ -64,16 +72,30 @@ export default function TransactionCard(props) {
         : "";
 
     return (
-        <div className={`transaction-card ${styles.transactionCard}`}>
-            <figure className={styles.playerImage}>
-                <img
-                    src={props.image_url || player_image || PlaceholderImage}
-                    alt={props.image_description || player_name}
-                />
-            </figure>
+        <div
+            className={`transaction-card ${styles.transactionCard} ${
+                isRoundup ? styles.transactionCardRoundup : ""
+            }`}
+        >
+            {!isRoundup && (
+                <figure className={styles.playerImage}>
+                    <img
+                        src={props.image_url || player_image || PlaceholderImage}
+                        alt={props.image_description || player_name}
+                    />
+                </figure>
+            )}
 
             <div className={styles.transactionAnalysis}>
                 <h3 className={styles.transactionHeadline}>
+                    {isRoundup && Icon && (
+                        <span
+                            className={`${styles.typeInline} ${styles[props.type]}`}
+                            aria-label={transactionTypeMap[props.type]?.text}
+                        >
+                            <Icon />
+                        </span>
+                    )}
                     {props.title ? (
                         props.title
                     ) : (
@@ -95,7 +117,7 @@ export default function TransactionCard(props) {
                 )}
             </div>
 
-            {Icon && (
+            {!isRoundup && Icon && (
                 <span
                     className={`${styles.type} ${styles[props.type]}`}
                     aria-label={transactionTypeMap[props.type]?.text}

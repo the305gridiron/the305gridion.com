@@ -42,6 +42,13 @@
     margin: 0;
 }
 
+.transactionAnalysisContent {
+    /* Preserves blank-line paragraph breaks typed in the admin's textarea —
+       a plain <p> collapses them, which is why a multi-paragraph analysis
+       (roundups especially) was rendering as one unbroken block of text. */
+    white-space: pre-line;
+}
+
 .transactionUpdate {
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: var(--radius-small);
@@ -110,8 +117,36 @@
 }
 
 .roundup {
-    background-color: var(--color-dark-gray);
+    background-color: var(--color-dolphins-navy);
     color: var(--white-color);
+}
+
+.injured {
+    background-color: var(--warning-color);
+    color: var(--color-soft-black);
+}
+
+.transactionCardRoundup {
+    grid-template-columns: 1fr;
+    grid-template-areas: "analysis";
+}
+
+.typeInline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-default);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    height: 32px;
+    width: 32px;
+    margin-right: var(--spacer-half);
+    vertical-align: middle;
+
+    >svg {
+        height: 1.1em;
+        width: 1.1em;
+    }
 }
 
 .playerName {
@@ -139,6 +174,11 @@
         gap: 0 var(--spacer);
     }
 
+    .transactionCardRoundup {
+        grid-template-columns: 1fr;
+        grid-template-areas: "analysis";
+    }
+
     .transactionDate {
         background-color: rgba(0, 0, 0, 0.05);
         color: var(--dark-color);
@@ -157,6 +197,10 @@
     .transactionCard {
         grid-template-columns: 5fr 7fr;
     }
+
+    .transactionCardRoundup {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -166,5 +210,10 @@
             "details analysis"
             "meta meta";
         grid-template-columns: 4fr 8fr;
+    }
+
+    .transactionCardRoundup {
+        grid-template-areas: "analysis";
+        grid-template-columns: 1fr;
     }
 }
