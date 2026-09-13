@@ -1,4 +1,5 @@
 import React from "react";
+import { GraduationCap, Stethoscope } from "lucide-react";
 import {
   DEPTH_COLUMNS,
   DEPTH_POSITIONS_ORDER,
@@ -8,6 +9,35 @@ import {
 import styles from "./Roster.module.css";
 
 const STRING_LABELS = ["1ST", "2ND", "3RD", "4TH", "5TH", "6TH"];
+
+// Small inline flags next to a player's name: a medical icon for anyone
+// not fully active (IR/PUP/NFI/Retired/PS still slotted in a depth
+// position) and a grad-cap for rookies (0 years of experience).
+function PlayerStatusIcons({ player }) {
+  const isRookie = player.exp === "R";
+  const isSidelined = Boolean(player.status) && player.status !== "Active";
+
+  if (!isRookie && !isSidelined) return null;
+
+  return (
+    <span className={styles.playerStatusIcons}>
+      {isSidelined && (
+        <Stethoscope
+          size={12}
+          className={styles.sidelinedIcon}
+          title={player.status}
+        />
+      )}
+      {isRookie && (
+        <GraduationCap
+          size={12}
+          className={styles.rookieIcon}
+          title='Rookie'
+        />
+      )}
+    </span>
+  );
+}
 
 const chunkPlayers = (players, size) => {
   const chunks = [];
@@ -120,6 +150,8 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
                                   <span className={styles.cellName}>
                                     {player.name}
                                   </span>
+
+                                  <PlayerStatusIcons player={player} />
                                 </div>
                               </div>
                             </td>
@@ -231,6 +263,7 @@ export default function DepthChartTable({ roster, activeTab, searchQuery }) {
                                   #{player.number}
                                 </span>{" "}
                                 {player.name}
+                                <PlayerStatusIcons player={player} />
                               </span>
                             ) : (
                               <span className={styles.emptyDash}>-</span>
