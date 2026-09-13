@@ -12,6 +12,22 @@ const SEASON_TYPE_OPTIONS = ["PRE", "REGULAR", "POST"];
 const LOCATION_TYPE_OPTIONS = ["HOME", "AWAY", "NEUTRAL"];
 const RESULT_OPTIONS = ["WIN", "LOSS", "TIE"];
 
+// Xano returns games in whatever order they were created, not schedule
+// order — mirrors the public Schedule page's grouping (preseason before
+// regular season) so the admin list reads the same way.
+const SEASON_TYPE_ORDER = { PRE: 0, REGULAR: 1, POST: 2 };
+
+function sortBySchedule(games) {
+    return [...games].sort((a, b) => {
+        if (a.year !== b.year) return a.year - b.year;
+        const seasonDiff =
+            (SEASON_TYPE_ORDER[a.season_type] ?? 99) -
+            (SEASON_TYPE_ORDER[b.season_type] ?? 99);
+        if (seasonDiff !== 0) return seasonDiff;
+        return a.week - b.week;
+    });
+}
+
 function buildFields(teamOptions, locationOptions) {
     return [
         { name: "year", label: "Year", type: "number" },
@@ -97,7 +113,7 @@ export default function ScheduleAdmin() {
             entity='schedule'
             label='Schedule'
             singularLabel='Game'
-            sourceRecords={data ?? []}
+            sourceRecords={sortBySchedule(data ?? [])}
             queryKey={QUERY_KEY}
             fields={fields}
             getRowLabel={(r) =>
