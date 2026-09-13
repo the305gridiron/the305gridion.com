@@ -96,6 +96,7 @@ export default function ScheduleAdmin() {
         <EntityAdminTable
             entity='schedule'
             label='Schedule'
+            singularLabel='Game'
             sourceRecords={data ?? []}
             queryKey={QUERY_KEY}
             fields={fields}

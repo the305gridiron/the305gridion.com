@@ -171,6 +171,7 @@ function FieldInput({ field, value, onChange }) {
 export default function EntityAdminTable({
     entity,
     label,
+    singularLabel,
     sourceRecords,
     queryKey,
     listColumns,
@@ -179,6 +180,11 @@ export default function EntityAdminTable({
     filterRecord,
     getRowStyle,
 }) {
+    // Most labels here are just the plural entity name ("Players",
+    // "Transactions"), so dropping the trailing "s" works fine — but a
+    // label that's already singular/uncountable (e.g. "Schedule") needs an
+    // explicit override or this mangles it ("Schedul").
+    const itemLabel = singularLabel || label.slice(0, -1);
     const queryClient = useQueryClient();
     const [editingId, setEditingId] = useState(null);
     const [formValues, setFormValues] = useState({});
@@ -422,7 +428,7 @@ export default function EntityAdminTable({
                         </button>
                     )}
                     <button className={styles.addBtn} onClick={startCreate}>
-                        <Plus size={14} /> Add {label.slice(0, -1)}
+                        <Plus size={14} /> Add {itemLabel}
                     </button>
                 </div>
             </div>
@@ -520,7 +526,7 @@ export default function EntityAdminTable({
 
             {editingId !== null && (
                 <EditModal
-                    label={label}
+                    label={itemLabel}
                     fields={fields}
                     formValues={formValues}
                     onChange={handleFieldChange}
@@ -569,7 +575,7 @@ function EditModal({
             <div className={styles.modalPanel} onClick={(e) => e.stopPropagation()}>
                 <div className={styles.modalHeader}>
                     <h3 className={styles.modalTitle}>
-                        {isNew ? `Add ${label.slice(0, -1)}` : `Edit ${label.slice(0, -1)}`}
+                        {isNew ? `Add ${label}` : `Edit ${label}`}
                     </h3>
                     <button
                         className={styles.modalCloseBtn}
