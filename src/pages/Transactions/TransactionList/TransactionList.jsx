@@ -22,6 +22,7 @@ export default function TransactionList(props) {
                         { value: "loss", label: "Released" },
                         { value: "trade", label: "Traded" },
                         { value: "restructure", label: "Restructured" },
+                        { value: "roundup", label: "Roundups" },
                     ]}
                 />
             </header>

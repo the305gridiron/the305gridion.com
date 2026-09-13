@@ -24,6 +24,7 @@ const TYPE_OPTIONS = [
     { value: "re_sign", label: "Re-Signed" },
     { value: "udfa", label: "UDFA" },
     { value: "extension", label: "Signed Extension" },
+    { value: "roundup", label: "Roundup" },
 ];
 
 // Mirrors the category filter options in TransactionList.
@@ -32,6 +33,7 @@ const CATEGORY_OPTIONS = [
     { value: "loss", label: "Loss" },
     { value: "trade", label: "Trade" },
     { value: "restructure", label: "Restructure" },
+    { value: "roundup", label: "Roundup" },
 ];
 
 // Player links live in the transaction_players join table, not on the

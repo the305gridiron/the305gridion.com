@@ -109,6 +109,11 @@
     }
 }
 
+.roundup {
+    background-color: var(--color-dark-gray);
+    color: var(--white-color);
+}
+
 .playerName {
     color: var(--color-dolphins-teal);
     text-shadow: none;

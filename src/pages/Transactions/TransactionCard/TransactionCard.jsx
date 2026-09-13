@@ -3,6 +3,7 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import DiscountIcon from "@mui/icons-material/Discount";
 import EditDocumentIcon from "@mui/icons-material/EditDocument";
+import SummarizeIcon from "@mui/icons-material/Summarize";
 import PlaceholderImage from "@/assets/prospect-placeholder.png";
 import styles from "./TransactionCard.module.css";
 
@@ -28,17 +29,22 @@ const transactionTypeMap = {
     re_sign: { icon: PersonAddIcon, text: "Re-Signed" },
     udfa: { icon: DiscountIcon, text: "UDFA" },
     extension: { icon: EditDocumentIcon, text: "Signs Extension" },
+    roundup: { icon: SummarizeIcon, text: "Roundup" },
 };
 
 export default function TransactionCard(props) {
+    // No linked player yet is how an in-progress transaction stays off the
+    // live site while it's still being drafted in the admin — a real
+    // safeguard, not an oversight. Roundup posts are the one deliberate
+    // exception: they're never tied to a single player by design.
     const firstPlayer = props.players?.[0];
-    if (!firstPlayer) return null;
+    if (!firstPlayer && props.type !== "roundup") return null;
 
     const {
         name: player_name,
         position: player_position,
         image: player_image,
-    } = firstPlayer;
+    } = firstPlayer ?? {};
 
     const Icon = transactionTypeMap?.[props.type]?.icon;
 
