@@ -10,7 +10,7 @@ import {
     mergeLocalData,
 } from "@/admin/localStore";
 import { pushDelete, RateLimitError, RATE_LIMIT_MAX, RATE_LIMIT_WINDOW_MS } from "@/admin/xanoWrite";
-import { pushAllRecords, estimatePushDurationSeconds } from "@/admin/pushPending";
+import { pushAllRecords, pushOneRecord, estimatePushDurationSeconds } from "@/admin/pushPending";
 import { uploadImageToCloudinary } from "@/admin/cloudinaryUpload";
 import SavingOverlay from "./SavingOverlay";
 import styles from "./Admin.module.css";
@@ -228,7 +228,10 @@ export default function EntityAdminTable({
         setFormValues((prev) => ({ ...prev, [name]: rawValue }));
     };
 
-    const handleSave = () => {
+    // Coerces the current form into a payload and saves it locally (create
+    // or update, matching whatever editingId currently is) without closing
+    // the modal — handleSave and commitNew both build on this.
+    const saveLocalOnly = () => {
         const coerced = {};
         fields.forEach((field) => {
             if (field.type === "custom") return;
@@ -240,9 +243,43 @@ export default function EntityAdminTable({
                 ? coerced
                 : { ...coerced, id: editingId };
 
-        saveRecord(entity, payload);
+        const savedId = saveRecord(entity, payload);
+        return { savedId, coerced };
+    };
+
+    const handleSave = () => {
+        saveLocalOnly();
         setLocalVersion((v) => v + 1);
         cancelEdit();
+    };
+
+    // Escape hatch for a "custom" field that needs the record to actually
+    // exist in Xano before it can do its own thing (e.g. a join table row
+    // that needs a real id to point at) — saves locally, pushes it right
+    // away, and swaps the modal over to editing the real record, all
+    // without closing it. Safe to call more than once if the push fails:
+    // saveLocalOnly reuses the same local id instead of creating a duplicate.
+    const commitNew = async () => {
+        const { savedId, coerced } = saveLocalOnly();
+        setEditingId(savedId);
+        setLocalVersion((v) => v + 1);
+
+        try {
+            const created = await pushOneRecord(entity, { ...coerced, id: savedId });
+            await queryClient.invalidateQueries({ queryKey });
+            setLocalVersion((v) => v + 1);
+            if (created && created.id !== undefined) {
+                setEditingId(created.id);
+            }
+            return created;
+        } catch (err) {
+            const reason =
+                err instanceof RateLimitError
+                    ? "Xano is rate-limiting requests right now — wait a bit before trying again."
+                    : err.message;
+            window.alert(`Couldn't create this record in Xano yet: ${reason}`);
+            return null;
+        }
     };
 
     const handleDelete = async (id) => {
@@ -491,6 +528,7 @@ export default function EntityAdminTable({
                     onCancel={cancelEdit}
                     recordId={editingId === "__new__" ? null : editingId}
                     isNew={editingId === "__new__"}
+                    commitNew={commitNew}
                 />
             )}
 
@@ -507,7 +545,17 @@ export default function EntityAdminTable({
     );
 }
 
-function EditModal({ label, fields, formValues, onChange, onSave, onCancel, recordId, isNew }) {
+function EditModal({
+    label,
+    fields,
+    formValues,
+    onChange,
+    onSave,
+    onCancel,
+    recordId,
+    isNew,
+    commitNew,
+}) {
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === "Escape") onCancel();
@@ -548,7 +596,7 @@ function EditModal({ label, fields, formValues, onChange, onSave, onCancel, reco
                                         <span className={styles.formLabel}>
                                             {field.label}
                                         </span>
-                                        {field.render({ recordId, isNew })}
+                                        {field.render({ recordId, isNew, commitNew })}
                                     </div>
                                 );
                             }

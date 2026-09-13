@@ -39,15 +39,37 @@ const CATEGORY_OPTIONS = [
 // save/push flow (a join row referencing a not-yet-pushed local transaction
 // id wouldn't mean anything in Xano). This writes straight to Xano the
 // moment a checkbox changes, which is why it's called out as immediate.
-function PlayerLinksField({ recordId, isNew, players, joins, queryClient }) {
+function PlayerLinksField({ recordId, isNew, commitNew, players, joins, queryClient }) {
     const [filter, setFilter] = useState("");
     const [pendingIds, setPendingIds] = useState(() => new Set());
+    const [creating, setCreating] = useState(false);
 
     if (isNew || isLocalId(recordId)) {
+        const handleCreate = async () => {
+            setCreating(true);
+            try {
+                await commitNew();
+            } finally {
+                setCreating(false);
+            }
+        };
+
         return (
-            <span className={styles.formHint}>
-                Push this transaction to Xano first, then come back to link players.
-            </span>
+            <div>
+                <p className={styles.formHint}>
+                    Player links point at a real Xano row, so this transaction needs
+                    to exist there first — the rest of the form (title, analysis,
+                    image, etc.) will save right along with it.
+                </p>
+                <button
+                    type='button'
+                    className={styles.addBtn}
+                    onClick={handleCreate}
+                    disabled={creating}
+                >
+                    {creating ? "Creating…" : "Create transaction now"}
+                </button>
+            </div>
         );
     }
 
@@ -166,7 +188,7 @@ export default function TransactionsAdmin() {
             { name: "type", label: "Type", type: "select", options: TYPE_OPTIONS },
             { name: "category", label: "Category", type: "select", options: CATEGORY_OPTIONS },
             { name: "title", label: "Title", type: "text" },
-            { name: "image_url", label: "Image URL", type: "text" },
+            { name: "image_url", label: "Image", type: "image", wide: true },
             { name: "image_description", label: "Image Description", type: "text" },
             { name: "analysis", label: "Analysis", type: "textarea", rows: 8, wide: true },
             { name: "update", label: "Update", type: "textarea", rows: 6, wide: true },
@@ -175,10 +197,11 @@ export default function TransactionsAdmin() {
                 label: "Players",
                 type: "custom",
                 wide: true,
-                render: ({ recordId, isNew }) => (
+                render: ({ recordId, isNew, commitNew }) => (
                     <PlayerLinksField
                         recordId={recordId}
                         isNew={isNew}
+                        commitNew={commitNew}
                         players={players}
                         joins={joins ?? []}
                         queryClient={queryClient}

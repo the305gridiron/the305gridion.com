@@ -12,18 +12,23 @@ export function estimatePushDurationSeconds(count) {
     return Math.max(0, windows - 1) * (RATE_LIMIT_WINDOW_MS / 1000);
 }
 
+// Returns the created record (with its real Xano id) for a create, or null
+// for an update — callers that need to know the new id (e.g. switching a
+// just-created record's edit modal over to its real id) can use that.
 export async function pushOneRecord(entity, record) {
     const status = getLocalStatus(entity, record.id);
-    if (!status) return;
+    if (!status) return null;
 
     if (status === "created") {
-        await pushCreate(entity, record);
+        const created = await pushCreate(entity, record);
         deleteRecord(entity, record.id);
-    } else {
-        const patch = getOverrides(entity)[record.id];
-        await pushUpdate(entity, record.id, patch);
-        clearOverride(entity, record.id);
+        return created;
     }
+
+    const patch = getOverrides(entity)[record.id];
+    await pushUpdate(entity, record.id, patch);
+    clearOverride(entity, record.id);
+    return null;
 }
 
 // Pushes each pending record in sequence — xanoWrite already paces
